@@ -1,56 +1,138 @@
+
 const path = require('path');
-// var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-   mode: 'development',
+   context: __dirname,
    entry: './src/index.js',
-   output:{
-      path: path.join(__dirname, '/dist/'),
+   output: {
+      path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js'
    },
-   module: {
+   module:{
       rules: [
-         // {
-         //    test: /\.jsx$/,
-         //    exclude: /node_modules/,
-         //    loader: 'babel-loader'
-         // },
-         // {
-         //    test: /\.js$/,
-         //    exclude: /node_modules/,
-         //    loader: 'babel-loader'
-         // },
          {
             test: /\.(js|jsx)$/,
-            exclude: /(node_modules|bower_components)/,
-            loader: "babel-loader",
-            options: { presets: ["@babel/env"] }
-          },
+            exclude: /node_modules/,
+            use: 'babel-loader'
+         },
          {
-            test: /\.css$/i,
-            use:['style-loader', 'css-loader'],
+            test: /\.s[ac]ss$/i,
+            use: ["style-loader", "css-loader", "sass-loader"],
+         },
+         {
+            test: /\.(jpg|png)$/,
+            use: {
+               loader: 'file-loader',
+            },
+         },
+         {
+            test: /\.(ttf|eot|woff|woff2)$/,
+            exclude: /node_modules/,
+            use: {
+               loader: 'url-loader',
+            },
          }
       ]
    },
-   // plugins:[
-   //    new BrowserSyncPlugin({
-   //       host: 'localhost',
-   //       port: 3000,
-   //       server:{baseDir:['public'] }
-   //    })
-   // ],
+   plugins: [
+      new HtmlWebpackPlugin({
+         template: path.resolve(__dirname, 'public/index.html'),
+         filename: 'index.html'
+      })
+   ],
    devServer: {
       historyApiFallback: true,
-      contentBase: path.join(__dirname, "public/"),
+      contentBase: path.join(__dirname, "dist/"),
       port: 3000,
-      publicPath: "http://localhost:3000/dist/",
+      // publicPath: "http://localhost:3000/dist/",
       hotOnly: true
-    },
-   // devServer:{
-   //    contentBase: __dirname + '/dist',
-   //    compress: true,
-   //    hot: true,
-   //    port: 3000
-   // },
-   devtool: 'cheap-module-eval-source-map'
-};
+   },
+}
+
+
+// const HtmlWebpackPlugin = require("html-webpack-plugin");
+// var path = require("path");
+// // const { Template } = require('webpack');
+
+// module.exports = {
+//   mode: "development",
+//   entry: "./src/index.js",
+//   output: {
+//     path: path.join(__dirname, "./dist/"),
+//     filename: "bundle.js",
+//   },
+//   plugins: [
+//     new HtmlWebpackPlugin({
+//       template: path.resolve(__dirname, "public/index.html"),
+//       filename: index.html,
+//     }),
+//   ],
+//   module: {
+//     rules: [
+//       //    test: /\.jsx$/,
+//       //    exclude: /node_modules/,
+//       //    loader: 'babel-loader'
+//       // },
+//       // {
+//       //    test: /\.js$/,
+//       //    exclude: /node_modules/,
+//       //    loader: 'babel-loader'
+//       // },
+//       {
+//         test: /\.s[ac]ss$/i,
+//         use: ["style-loader", "css-loader", "sass-loader"],
+//       },
+//       {
+//         test: /\.(png|jpg|gif)$/i,
+//         use: [
+//           {
+//             loader: "file-loader",
+//             options: {
+//               name: "[name].[ext]",
+//               outputPath: "assets",
+//               publicPath: "assets",
+//             },
+//           },
+//         ],
+//       },
+//       {
+//         test: /\.svg$/,
+//         loader: "svg-inline-loader",
+//       },
+//       {
+//         test: /\.(js|jsx)$/,
+//         exclude: /(node_modules|bower_components)/,
+//         loader: "babel-loader",
+//       },
+//       // {
+//       //    test: /\.css$/i,
+//       //    use:['style-loader', 'css-loader'],
+//       // },
+//       // {
+//       //    test: /\.(png|j?g?|svg)$/,
+//       //    use: 'file-loader'
+//       // },
+//       // {
+//       //    test: /\.(jpg|png)$/,
+//       //    use: {
+//       //      loader: 'url-loader',
+//       //    },
+//       //  },
+//     ],
+//   },
+//   // plugins:[
+//   //    new BrowserSyncPlugin({
+//   //       host: 'localhost',
+//   //       port: 3000,
+//   //       server:{baseDir:['public'] }
+//   //    })
+//   // ],
+//   // devServer: {
+//   //    historyApiFallback: true,
+//   //    contentBase: path.join(__dirname, "dist/"),
+//   //    port: 3000,
+//   //    publicPath: "http://localhost:3000/dist/",
+//   //    hotOnly: true
+//   // },
+// };
