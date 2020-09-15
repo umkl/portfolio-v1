@@ -1,0 +1,27 @@
+.ug-foyer{
+    background: rgb(177,177,177);
+    background: radial-gradient(circle, rgba(177, 177, 177, 0.144) 20%, rgba(0,0,0,1) 100%);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.ug-foyer-name{
+    color: white;
+    font-family: AlteSchwabacher;
+    font-size: 280px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ug-foyer-text{
+    color: white;
+    font-size: 48pt;
+    font-family: YanoneKaffesatz-regular;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

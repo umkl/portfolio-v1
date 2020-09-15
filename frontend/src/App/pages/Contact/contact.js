@@ -1,8 +1,9 @@
 import React from 'react'
+import "./contact.scss";
 
 export default function Contact() {
     return (
-        <div>
+        <div className="ug-contact">
             hello from contact
         </div>
     )
