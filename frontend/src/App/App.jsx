@@ -7,22 +7,23 @@ import Content from "./pages/Content/content.js";
 import Contact from "./pages/Contact/contact.js";
 import Error from "./pages/Error/error.js";
 import Foyer from "./pages/Foyer/foyer.js";
-import UgBar from './shared/bar/bar.jsx';
-import { AnimatePresence, motion} from "framer-motion";
+import UgBar from "./shared/bar/bar.jsx";
+import { AnimatePresence, motion } from "framer-motion";
 
 function App() {
-  return(
+  return (
     <>
-      <Switch className="ug-switch">
-        <Route exact path="/" component={Foyer}></Route>
-        <Route path="/Projects" component={Projects}></Route>
-        <Route path="/Content" component={Content}></Route>
-        <Route path="/Contact" component={Contact}></Route>
-        <Route path="/About" component={About}></Route>
-        <Route component={Error}></Route>
-      </Switch>
-      {/* <div className="ug-test">test elementSAS</div> */}
-      <UgBar/>
+      <AnimatePresence>
+        <Switch className="ug-switch">
+          <Route exact path="/" component={Foyer}></Route>
+          <Route path="/Projects" component={Projects}></Route>
+          <Route path="/Content" component={Content}></Route>
+          <Route path="/Contact" component={Contact}></Route>
+          <Route path="/About" component={About}></Route>
+          <Route component={Error}></Route>
+        </Switch>
+      </AnimatePresence>
+      <UgBar />
     </>
   );
 }

@@ -1,6 +1,6 @@
 .ug-foyer{
     background: rgb(177,177,177);
-    background: radial-gradient(circle, rgba(177, 177, 177, 0.144) 20%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle, rgba(177, 177, 177, 0.144) 40%, rgba(0,0,0,1) 100%);
     height: 100%;
     position: absolute;
     width: 100%;
@@ -21,7 +21,7 @@
     font-size: 48pt;
     font-family: YanoneKaffesatz-regular;
     position: absolute;
-    top: 80%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
 }

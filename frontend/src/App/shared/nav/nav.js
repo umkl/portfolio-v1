@@ -15,18 +15,20 @@ export default class UgNav extends Component {
         </div>
 
         <div className="ug-nav-element">
+          <Link className="ug-nav-link" to="/content">
+          <span className="ug-nav-element-sub">content</span>
+            {/* <img src={UngarIcon} alt="logo" id="i"/> */}
+          </Link>
+        </div>
+
+        <div className="ug-nav-element">
           <Link className="ug-nav-link"  to="/contact">
             <span className="ug-nav-element-sub">contact</span>
             {/* <img src={UngarIcon} alt="logo" id="i"/> */}
           </Link>
         </div>
 
-        <div className="ug-nav-element">
-          <Link className="ug-nav-link" to="/content">
-          <span className="ug-nav-element-sub">content</span>
-            {/* <img src={UngarIcon} alt="logo" id="i"/> */}
-          </Link>
-        </div>
+        
 
         <div className="ug-nav-element">
           <Link className="ug-nav-link"  to="/about">
