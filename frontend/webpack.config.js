@@ -1,55 +1,61 @@
-
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-   context: __dirname,
-   entry: './src/index.js',
-   output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js'
-   },
-   module:{
-      rules: [
-         {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: 'babel-loader'
-         },
-         {
-            test: /\.s[ac]ss$/i,
-            use: ["style-loader", "css-loader", "sass-loader"],
-         },
-         {
-            test: /\.(jpg|png)$/,
-            use: {
-               loader: 'file-loader',
-            },
-         },
-         {
-            test: /\.(ttf|eot|woff|woff2)$/,
-            exclude: /node_modules/,
-            use: {
-               loader: 'url-loader',
-            },
-         }
-      ]
-   },
-   plugins: [
-      new HtmlWebpackPlugin({
-         template: path.resolve(__dirname, 'public/index.html'),
-         filename: 'index.html'
-      })
-   ],
-   devServer: {
-      historyApiFallback: true,
-      contentBase: path.join(__dirname, "dist/"),
-      port: 3000,
-      // publicPath: "http://localhost:3000/dist/",
-      hotOnly: true
-   },
-}
-
+  context: __dirname,
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+        // query: {
+        //    presets: ["@babel/preset-env", "@babel/preset-react"]
+        // },
+        // resolve: {
+        //    extensions: ['.js', '.jsx']
+        // }
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: "file-loader",
+        },
+      },
+      {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "url-loader",
+        },
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "public/index.html"),
+      filename: "index.html",
+    }),
+  ],
+  devServer: {
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, "dist/"),
+    port: 3000,
+    // publicPath: "http://localhost:3000/dist/",
+    hotOnly: true,
+  },
+};
 
 // const HtmlWebpackPlugin = require("html-webpack-plugin");
 // var path = require("path");

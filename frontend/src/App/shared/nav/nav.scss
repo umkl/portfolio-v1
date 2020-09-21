@@ -1,31 +1,5 @@
 @import '../../scss/variables.scss';
 
-// .ug-nav-element-sub{
-//     color: white;
-// }
-@font-face{
-    font-family: AlteSchwabacher;
-    src:url('../../fonts/AlteSchwabacher.ttf');
-}
-
-@font-face{
-    font-family: YanoneKaffesatz;
-    src:url('../../fonts/YanoneKaffeesatz-Medium.ttf');
-    font-weight: medium;
-}
-
-@font-face{
-    font-family: YanoneKaffesatz-regular;
-    src:url('../../fonts/YanoneKaffeesatz-Regular.ttf');
-    font-weight: regular;
-}
-
-@font-face{
-    font-family: YanoneKaffesatz-light;
-    src:url('../../fonts/YanoneKaffeesatz-Light.ttf');
-    font-weight: light;
-}
-
 #ug-nav-bar{
     // background-color: rgba(255, 255, 255, 0.514);
     position: absolute;
@@ -33,6 +7,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
+    position: fixed;
 }
 
 .ug-nav-element{
@@ -47,7 +22,7 @@
     }
     .ug-nav-element-sub{
         font-size: 20px;
-        font-family: YanoneKaffesatz;
+        font-family: YanoneKaffeesatz-Bold;
         font-weight: regular;
     }
     .ug-nav-element-selected_true{

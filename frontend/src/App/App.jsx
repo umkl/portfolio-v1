@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import "./scss/App.scss";
 import About from "./pages/About/about.js";
 import Projects from "./pages/Projects/projects.js";
-import Content from "./pages/Content/content.js";
+import Content from "./pages/Content/content.jsx";
 import Contact from "./pages/Contact/contact.js";
 import Error from "./pages/Error/error.js";
 import Foyer from "./pages/Foyer/foyer.js";
