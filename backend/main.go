@@ -2,75 +2,112 @@ package main
 
 import (
 	"context"
+	"errors"
 	"log"
 	"os"
 	"time"
 
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type Task struct {
-	ID        primitive.ObjectID `bson:"_id"`
-	CreatedAt time.Time          `bson:"created_at"`
-	UpdatedAt time.Time          `bson:"updated_at"`
-	Text      string             `bson:"text"`
-	Completed bool               `bson:"completed"`
+var collection *mongo.Collection //collection global variable for mongo
+var ctx = context.TODO()         //give operation specific which depends on how fast the operation is
+
+type Contribution struct {
+	ID          primitive.ObjectID `bson:"_id"`
+	CreatedAt   time.Time          `bson:"created_at"`
+	UpdatedAt   time.Time          `bson:"updated_at"`
+	Description string             `bson:"text"`
 }
 
 func main() {
 	app := &cli.App{
-		Name:     "ungar",
-		Usage:    "backend for ungar",
+		Name:  "Ungar",
+		Usage: "Adding entries to the Ungar Database predominantly for Contributions ",
 		Commands: []*cli.Command{
 			{
-                Name:    "add",
-                Aliases: []string{"a"},
-                Usage:   "add a task to the list",
-                Action: func(c *cli.Context) error {
-                    str := c.Args().First()
-                    if str == "" {
-                        return errors.New("Cannot add an empty task")
-                    }
+				Name:    "add",
+				Aliases: []string{"a"},
+				Usage:   "add a task to the list",
+				Action: func(c *cli.Context) error {
+					str := c.Args().First()
+					if str == "" {
+						return errors.New("Cannot add an empty task")
+					}
 
-                    task := &Task{
-                        ID:        primitive.NewObjectID(),
-                        CreatedAt: time.Now(),
-                        UpdatedAt: time.Now(),
-                        Text:      str,
-                        Completed: false,
-                    }
+					contribution := &Contribution{
+						ID:          primitive.NewObjectID(),
+						CreatedAt:   time.Now(),
+						UpdatedAt:   time.Now(),
+						Description: str,
+					}
 
-                    return createTask(task)
-                },
-		},
+					return createContribution(contribution)
+				},
+			}},
 	}
+
 	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}
-}
 
-var collection *mongo.Collection
-var ctx = context.TODO()
+}
 
 func init() {
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017/")
-	client, err := mongo.Connect(ctx, clientOptions)
-	if err != nil {
+	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017/") //connecting to db
+	client, err := mongo.Connect(ctx, clientOptions)                         //connecting to the db using unsetted TODO context and the clientOptions we defined earlier
+	if err != nil {                                                          //catching the mongodb connect error
 		log.Fatal(err)
 	}
-	err = client.Ping(ctx, nil)
+
+	err = client.Ping(ctx, nil) //what does ping???
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	collection = client.Database("ungar").Collection("posts")
+	collection = client.Database("ungar").Collection("contributions")
 }
 
-func createTask(task *Task) error {
-	_, err := collection.InsertOne(ctx, task)
+func createContribution(contribution *Contribution) error {
+	_, err := collection.InsertOne(ctx, contribution)
 	return err
+}
+
+func getAll() ([]*Contribution, error) {
+	filter := bson.D{{}}
+	return filterTasks(filter)
+}
+
+func filterTasks(filter interface{}) ([]*Contribution, error) {
+	var contributions []*Contribution
+
+	cursor, err := collection.Find(ctx, filter)
+	if err != nil {
+		return contributions, err
+	}
+
+	for cursor.Next(ctx) {
+		var c Contribution
+		err := cursor.Decode(&c) //Marshalling: from memory to usable file formats
+		if err != nil {
+			return contributions, err
+		}
+		contributions = append(contributions, &c)
+	}
+	if err := cursor.Err(); err != nil {
+		return contributions, err
+	}
+
+	cursor.Close(ctx)
+
+	if len(contributions) == 0 {
+		return contributions, mongo.ErrNoDocuments
+	}
+
+	return contributions, nil
 }
