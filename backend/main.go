@@ -6,12 +6,14 @@ import (
 	"log"
 	"os"
 	"time"
+	"fmt"
 
 	"github.com/urfave/cli/v2"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"gopkg.in/gookit/color.v1"
 )
 
 var collection *mongo.Collection //collection global variable for mongo
@@ -48,7 +50,25 @@ func main() {
 
 					return createContribution(contribution)
 				},
-			}},
+			},
+			{
+				Name: "all",
+				Aliases: []string{"l"},
+				Usage: "list all tasks ",
+				Action: func(c *cli.Context) error{
+					contributions, err := getAll()
+					if err != nil{
+						if err == mongo.ErrNoDocuments {
+							fmt.Print("Nothing to see here.\nRun `add 'task'`to add a task")
+							return nil   
+						}
+						return err
+					}
+					printContributions(contributions)
+					return nil
+				},
+			},
+		},
 	}
 
 	err := app.Run(os.Args)
@@ -110,4 +130,10 @@ func filterTasks(filter interface{}) ([]*Contribution, error) {
 	}
 
 	return contributions, nil
+}
+
+func printContributions(contributions []*Contribution) {
+	for i, v := range contributions {
+    	color.Green.Printf("%d: %s\n", i+1, v.Description)
+    }
 }
