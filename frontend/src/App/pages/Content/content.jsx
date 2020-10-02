@@ -53,15 +53,34 @@ import "./content.scss";
 // }
 
 class Content extends Component {
+  
+  contributions = [
+    {
+      id: 1,
+      head: "How to code!",
+      short_description: "Coding can be done by using a TextEditor",
+    },
+    {
+      id: 2,
+      head: "how to 2",
+      short_description: "twooo"
+    }
+  ]
+
+  constructor(){
+    super();
+    this.state = {      containers: ['afd','afd','afd']
+    }  
+  }
   render() {
     return (
       <div className="ug-content">
         <button id="ug-button-1">test 1</button>
         <div className="ug-background_shader"></div>
         <div className="ug-container-box">
-          <UgContainer />
-          <UgContainer />
-          <UgContainer />
+          {this.state.containers.map(container =>(
+            <UgContainer/>
+          ))}
         </div>
       </div>
     );
