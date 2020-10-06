@@ -1,6 +1,13 @@
 package main
 
+import (
+	"backend/cmd/monolithic/repository"
+)
+
+//main function of server.go just executes the route handler and starts the server with the port
 func main() {
-	repository.ConnectToContribution()
-	// fmt.Printf("hello")
+	// routes.HandleRoutes()
+	repository.ConnectToMongoDB()
+	repository.GetTestData()
+	// http.ListenAndServe(":"+constants.PORT, nil)
 }
