@@ -57,20 +57,22 @@ class Content extends Component {
   contributions = [
     {
       id: 1,
-      head: "How to code!",
-      short_description: "Coding can be done by using a TextEditor",
+      heading: "How to code!",
+      description: "Coding can be done by using a TextEditor",
     },
     {
       id: 2,
-      head: "how to 2",
-      short_description: "twooo"
+      heading: "how to 2",
+      description: "twooo"
     }
   ]
 
   constructor(){
     super();
-    this.state = {      containers: ['afd','afd','afd']
-    }  
+    this.state 
+
+
+    // this.state = contributions
   }
   render() {
     return (
@@ -78,8 +80,8 @@ class Content extends Component {
         <button id="ug-button-1">test 1</button>
         <div className="ug-background_shader"></div>
         <div className="ug-container-box">
-          {this.state.containers.map(container =>(
-            <UgContainer/>
+          {this.contributions.map((x) =>(
+            <UgContainer heading={x.heading} description={x.description}/>
           ))}
         </div>
       </div>
