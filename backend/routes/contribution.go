@@ -2,7 +2,8 @@ package routes
 
 import (
 	"backend/cmd/monolithic/repository"
-	"fmt"
+	"encoding/json"
+	"log"
 	"net/http"
 )
 
@@ -18,10 +19,54 @@ import (
 // }
 
 func getContributions(w http.ResponseWriter, req *http.Request) {
-	repository.GetTestData()
-	// fmt.Fprintf(w, col.Find())
+	w.Header().Set("Content-Type", "application/json")
+	r, e := repository.GetAllContributions()
+	if e != nil {
+		log.Fatal(e)
+	}
+
+	// Creating and initializing
+	// the anonymous structure
+	// Element := struct {
+	// 	name      string
+	// 	branch    string
+	// 	language  string
+	// 	Particles int
+	// }{
+	// 	name:     "Pikachu",
+	// 	branch:   "ECE",
+	// 	language: "C++",
+	// }
+	// user := struct {
+	// 	Id: int,
+	// 	Name: string,
+	// 	Email: string,
+	// 	Phone: string,
+	// 	}{
+	// 	Id: 1,
+	// 	Name: "John Doe",
+	// 	Email: "johndoe@gmail.com",
+	// 	Phone: "000099999",}
+
+	json.NewEncoder(w).Encode(r)
 }
 
-func hello(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "hello")
+type User struct {
+	Id    int    `json:"id"`
+	Name  string `json:"name"`
+	Email string `json:"email"`
+	Phone string `json:"phone"`
+}
+
+func jsonHandler(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Type", "application/json")
+	user := User{
+		Id:    1,
+		Name:  "John Doe",
+		Email: "johndoe@gmail.com",
+		Phone: "000099999",
+	}
+
+	json.NewEncoder(w).Encode(user)
 }

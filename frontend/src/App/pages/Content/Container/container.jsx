@@ -16,9 +16,9 @@ class Container extends React.Component {
     return (
       <React.Fragment>
         <div className="ug-container">
-          <div className="ug-container-heading">What is Ungar?</div>
+          <div className="ug-container-heading">{this.props.heading}</div>
           <div className="ug-container-small_description">
-            Ungar is a platform where you can share blogs
+            {this.props.description}
           </div>
         </div>
       </React.Fragment>

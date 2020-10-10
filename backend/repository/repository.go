@@ -27,8 +27,8 @@ func ConnectToMongoDB() {
 	fmt.Printf("successfully connected")
 }
 
-func DisconnectFromMongoDB(client *mongo.Client) {
-	err := client.Disconnect(context.TODO())
+func DisconnectFromMongoDB() {
+	err := ungarClient.Disconnect(context.TODO())
 
 	if err != nil {
 		log.Fatal(err)

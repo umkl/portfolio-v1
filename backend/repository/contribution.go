@@ -10,8 +10,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-var exampleData entities.Contribution
-
 // func addTestData(client *mongo.Client) {
 // 	test := entities.Contribution{
 // 		11,
@@ -38,17 +36,31 @@ func getContributionCollection(client *mongo.Client) *mongo.Collection {
 
 var res entities.Contribution
 
-func GetAll() {
+func GetAllContributions() ([]*entities.Contribution, error) {
 	// exampleData = entities.Contribution{1, "HeadingData", "DescriptionData"}
-	filter := bson.D{{"Heading", "this is the heading"}}
+	// var exampleData entities.Contribution
 
-	err := getContributionCollection(ungarClient).FindOne(context.TODO(), filter).Decode(&exampleData)
+	filter := bson.D{{}}
+
+	// mc, err := getContributionCollection(ungarClient).Find(context.TODO(), filter)
+	p, err := filterContributions(filter)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("Found a document: %+v\n", exampleData)
+	// fmt.Printf("Found a document: %+v\n", exampleData)
 	// filter := bson.D{{}}
 	// return filterContributions(filter)
+	return p, err
+}
+
+func PushContribution(contributionToPush entities.Contribution) {
+	// Test1 := entities.Contribution{primitive.ObjectID{}, "head", "desc"}
+
+	insertResult, err := getContributionCollection(ungarClient).InsertOne(context.TODO(), contributionToPush)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Inserted a single document:", insertResult.InsertedID)
 }
 
 func filterContributions(filter interface{}) ([]*entities.Contribution, error) {

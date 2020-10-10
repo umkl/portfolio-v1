@@ -1,8 +1,11 @@
 package routes
 
-import "net/http"
+import (
+	"net/http"
+)
 
 func HandleRoutes() {
-	http.HandleFunc("/contribution", getContributions)
+	http.HandleFunc("/contributions", getContributions)
+	http.HandleFunc("/json", jsonHandler)
 	// http.HandleFunc("/getContributions", getContributions)
 }
