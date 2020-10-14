@@ -12,7 +12,6 @@ class Container extends React.Component {
     //   backgroundColor: "green",
     //   // display: this.state.showBox ? "black" : "none"
     // };
-
     return (
       <React.Fragment>
         <div className="ug-container">

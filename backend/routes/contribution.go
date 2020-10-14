@@ -20,34 +20,14 @@ import (
 
 func getContributions(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Add("Access-Control-Allow-Origin", "*")
+	w.Header().Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	w.Header().Add("Access-Control-Allow-Headers", "*")
+
 	r, e := repository.GetAllContributions()
 	if e != nil {
 		log.Fatal(e)
 	}
-
-	// Creating and initializing
-	// the anonymous structure
-	// Element := struct {
-	// 	name      string
-	// 	branch    string
-	// 	language  string
-	// 	Particles int
-	// }{
-	// 	name:     "Pikachu",
-	// 	branch:   "ECE",
-	// 	language: "C++",
-	// }
-	// user := struct {
-	// 	Id: int,
-	// 	Name: string,
-	// 	Email: string,
-	// 	Phone: string,
-	// 	}{
-	// 	Id: 1,
-	// 	Name: "John Doe",
-	// 	Email: "johndoe@gmail.com",
-	// 	Phone: "000099999",}
-
 	json.NewEncoder(w).Encode(r)
 }
 
@@ -70,3 +50,26 @@ func jsonHandler(w http.ResponseWriter, r *http.Request) {
 
 	json.NewEncoder(w).Encode(user)
 }
+
+// Creating and initializing
+// the anonymous structure
+// Element := struct {
+// 	name      string
+// 	branch    string
+// 	language  string
+// 	Particles int
+// }{
+// 	name:     "Pikachu",
+// 	branch:   "ECE",
+// 	language: "C++",
+// }
+// user := struct {
+// 	Id: int,
+// 	Name: string,
+// 	Email: string,
+// 	Phone: string,
+// 	}{
+// 	Id: 1,
+// 	Name: "John Doe",
+// 	Email: "johndoe@gmail.com",
+// 	Phone: "000099999",}

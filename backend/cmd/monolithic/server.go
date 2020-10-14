@@ -11,6 +11,7 @@ import (
 func main() {
 
 	repository.ConnectToMongoDB()
+
 	routes.HandleRoutes()
 
 	// repository.GetTestData()

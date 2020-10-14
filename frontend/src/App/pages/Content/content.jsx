@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
+import Container from "./Container/container.jsx";
 import UgContainer from "./Container/container.jsx";
 import "./content.scss";
 
@@ -53,19 +54,6 @@ import "./content.scss";
 // }
 
 class Content extends Component {
-  // contributions = [
-  //   {
-  //     id: 1,
-  //     heading: "How to code!",
-  //     description: "Coding can be done by using a TextEditor",
-  //   },
-  //   {
-  //     id: 2,
-  //     heading: "how to 2",
-  //     description: "twooo",
-  //   },
-  // ];
-
   constructor(props) {
     super(props);
     this.state = {
@@ -76,22 +64,63 @@ class Content extends Component {
   }
 
   componentDidMount() {
-    // fetch("http://localhost:8080/contributions")
-    //   .then(respone => response.text())
-    //   .then(contents => console.log(contents))
-    //   .catch(()=> console.log("cant access"))
-    fetch("http://localhost:8080/contributions")
+        fetch("http://localhost:8080/contributions", {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
+        // "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE",
+        "Access-Control-Allow-Headers": "*",
+        // "Access-Control-Allow-Headers": "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
+        // "Access-Control-Allow-Headers"
+    },
+    })
       .then((response) => response.json())
       .then((json) => {
         this.setState({
           isLoaded: true,
           contributions: json,
-        })
-        // this.setState({
-        //   isLoaded: true,
-        //   items: json
-        // })
+        }).catch(() => {
+          console.log("error occurred");
+        });
       });
+
+
+  }
+
+  render() {
+    var { isLoaded, contributions } = this.state;
+    if (!isLoaded) {
+      return (
+        <div className="ug-loading">Loading</div>
+      );
+    } else {
+      return (
+        <div className="ug-content">
+          <div className="ug-background_shader"></div>
+          <div className="ug-container-box">
+            {contributions.map((x) => (
+              <UgContainer key={x.ID} heading={x.Heading} description={x.Description} />
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+
+  }
+}
+
+export default Content;
+
+
+
+    // fetch("http://localhost:8080/contributions")
+    //   .then(respone => response.text())
+    //   .then(contents => console.log(contents))
+    //   .catch(()=> console.log("cant access"))
+
     // .then((json) => {
     //   this.setState({
     //     isLoaded: true,
@@ -99,30 +128,9 @@ class Content extends Component {
     //   });
     //   }
     // );
-  }
 
-  render() {
-    var { isLoaded, contributions } = this.state;
 
-    if(!isLoaded){
-      return <div style={{color: "green"}}>
-        Loading
-      </div>
-    }
-    else{
-      return(
-        <div>
-          {
-            contributions.map(item =>(
-              <li style={{color: "green"}}key={item.id}>
-                Name: {item.Heading} | {item.Description}
-              </li>
-            ))
-          }
-        </div>
-      )
-    }
-    // if (!isLoaded) {
+        // if (!isLoaded) {
     //   return (
     //     <div className="ug-content">
     //       <div className="ug-background_shader"></div>
@@ -131,7 +139,7 @@ class Content extends Component {
     //   );
     // } else {
     //   return (
-        
+
     //     <div className="ug-content">
     //       <div className="ug-background_shader"></div>
     //       <div className="ug-container-box">
@@ -142,7 +150,3 @@ class Content extends Component {
     //     </div>
     //   );
     // }
-  }
-}
-
-export default Content;

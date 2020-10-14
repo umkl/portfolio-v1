@@ -35,3 +35,20 @@
     left: 200px;
     position: absolute;
 }
+
+.ug-loading{
+    font-family: AlteSchwabacher;
+    font-size: 60px;
+
+    color: white;
+    background-color:transparent;
+    
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    
+}
