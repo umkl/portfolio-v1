@@ -27,7 +27,7 @@ export default function UgNavname(){
     
     return(
         <div className="ug-nav-name">
-            hjello
+            hello
         </div>
     )
 }

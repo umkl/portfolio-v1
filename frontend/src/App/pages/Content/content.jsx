@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import Container from "./Container/container.jsx";
 import UgContainer from "./Container/container.jsx";
+import { AnimatePresence, motion } from "framer-motion";
 import "./content.scss";
 
 // const Content = () => {
@@ -64,7 +65,7 @@ class Content extends Component {
   }
 
   componentDidMount() {
-        fetch("http://localhost:8080/contributions", {
+    fetch("http://localhost:8080/contributions", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -74,7 +75,7 @@ class Content extends Component {
         "Access-Control-Allow-Headers": "*",
         // "Access-Control-Allow-Headers": "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization"
         // "Access-Control-Allow-Headers"
-    },
+      },
     })
       .then((response) => response.json())
       .then((json) => {
@@ -85,68 +86,81 @@ class Content extends Component {
           console.log("error occurred");
         });
       });
-
-
   }
 
   render() {
     var { isLoaded, contributions } = this.state;
     if (!isLoaded) {
       return (
-        <div className="ug-loading">Loading</div>
+        <motion.div
+          className="ug-content"
+          exit={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          
+          <div className="ug-loading">Loading</div>
+        </motion.div>
       );
     } else {
       return (
-        <div className="ug-content">
-          <div className="ug-background_shader"></div>
+        <motion.div
+          className="ug-content"
+          exit={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="ug-background_shader">adsf</div>
           <div className="ug-container-box">
             {contributions.map((x) => (
-              <UgContainer key={x.ID} heading={x.Heading} description={x.Description} />
+              <UgContainer
+                key={x.ID}
+                heading={x.Heading}
+                description={x.Description}
+              />
             ))}
           </div>
-        </div>
+          
+          
+          
+        </motion.div>
       );
     }
-
-
   }
 }
 
 export default Content;
 
+// fetch("http://localhost:8080/contributions")
+//   .then(respone => response.text())
+//   .then(contents => console.log(contents))
+//   .catch(()=> console.log("cant access"))
 
+// .then((json) => {
+//   this.setState({
+//     isLoaded: true,
+//     contributions: json,
+//   });
+//   }
+// );
 
-    // fetch("http://localhost:8080/contributions")
-    //   .then(respone => response.text())
-    //   .then(contents => console.log(contents))
-    //   .catch(()=> console.log("cant access"))
+// if (!isLoaded) {
+//   return (
+//     <div className="ug-content">
+//       <div className="ug-background_shader"></div>
+//       <div style={{ color: "green", position: "relative" }}>Loading...</div>
+//     </div>
+//   );
+// } else {
+//   return (
 
-    // .then((json) => {
-    //   this.setState({
-    //     isLoaded: true,
-    //     contributions: json,
-    //   });
-    //   }
-    // );
-
-
-        // if (!isLoaded) {
-    //   return (
-    //     <div className="ug-content">
-    //       <div className="ug-background_shader"></div>
-    //       <div style={{ color: "green", position: "relative" }}>Loading...</div>
-    //     </div>
-    //   );
-    // } else {
-    //   return (
-
-    //     <div className="ug-content">
-    //       <div className="ug-background_shader"></div>
-    //       <div className="ug-container-box">
-    //         {contributions.map((x) => (
-    //           <UgContainer heading={x.title} description={x.id} />
-    //         ))}
-    //       </div>
-    //     </div>
-    //   );
-    // }
+//     <div className="ug-content">
+//       <div className="ug-background_shader"></div>
+//       <div className="ug-container-box">
+//         {contributions.map((x) => (
+//           <UgContainer heading={x.title} description={x.id} />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }

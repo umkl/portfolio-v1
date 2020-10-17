@@ -1,7 +1,7 @@
 // import UngarIcon from "./../../assets/Ungar-Icon.png";
 import React, { useState, Component } from "react";
 import "./nav.scss";
-import UgNavname from "./elem/elem.jsx";
+// import UgNavname from "./elem/elem.jsx";
 import { Link } from "react-router-dom";
 
 // export default function UgNav() {
@@ -86,10 +86,6 @@ export default function UgNav() {
 
   return (
     <nav id="ug-nav-bar">
-      <div style={{ color: "green" }}>
-        ......
-      </div>
-      <UgNavname />
       <div className="ug-nav-element">
         <Link className="ug-nav-link" to="/" onClick={() => changeClickedTo(1)}>
           {/* <button onClick={changeClickedTo(1)}>change clioc</button> */}
@@ -106,7 +102,11 @@ export default function UgNav() {
       </div>
 
       <div className="ug-nav-element">
-        <Link className="ug-nav-link" to="/content" onClick={() => changeClickedTo(2)}>
+        <Link
+          className="ug-nav-link"
+          to="/content"
+          onClick={() => changeClickedTo(2)}
+        >
           <span
             className={
               varClicked[2]
@@ -120,37 +120,55 @@ export default function UgNav() {
       </div>
 
       <div className="ug-nav-element">
-        <Link className="ug-nav-link" to="/contact" onClick={() => changeClickedTo(3)}>
-          <span className={
+        <Link
+          className="ug-nav-link"
+          to="/projects"
+          onClick={() => changeClickedTo(5)}
+        >
+          <span
+            className={
+              varClicked[5]
+                ? "ug-nav-element-sub ug-nav-element-selected_true"
+                : "ug-nav-element-sub ug-nav-element-selected_false"
+            }
+          >
+            projects
+          </span>
+        </Link>
+      </div>
+
+      <div className="ug-nav-element">
+        <Link
+          className="ug-nav-link"
+          to="/contact"
+          onClick={() => changeClickedTo(3)}
+        >
+          <span
+            className={
               varClicked[3]
                 ? "ug-nav-element-sub ug-nav-element-selected_true"
                 : "ug-nav-element-sub ug-nav-element-selected_false"
-            }>
+            }
+          >
             contact
           </span>
         </Link>
       </div>
 
       <div className="ug-nav-element">
-        <Link className="ug-nav-link" to="/about" onClick={() => changeClickedTo(4)}>
-          <span className={
+        <Link
+          className="ug-nav-link"
+          to="/about"
+          onClick={() => changeClickedTo(4)}
+        >
+          <span
+            className={
               varClicked[4]
                 ? "ug-nav-element-sub ug-nav-element-selected_true"
                 : "ug-nav-element-sub ug-nav-element-selected_false"
-            }>
+            }
+          >
             about
-          </span>
-        </Link>
-      </div>
-
-      <div className="ug-nav-element">
-        <Link className="ug-nav-link" to="/projects" onClick={() => changeClickedTo(5)}>
-          <span className={
-              varClicked[5]
-                ? "ug-nav-element-sub ug-nav-element-selected_true"
-                : "ug-nav-element-sub ug-nav-element-selected_false"
-            }>
-            projects
           </span>
         </Link>
       </div>

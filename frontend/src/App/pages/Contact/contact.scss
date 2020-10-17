@@ -1,6 +1,24 @@
 .ug-contact{
-    background-color: rgb(107, 21, 21);
+    background: rgb(177,177,177);
+    background: radial-gradient(circle, rgba(177, 177, 177, 0.144) 40%, rgba(0,0,0,1) 100%);
+    background-repeat: repeat;
     height: 100%;
     position: absolute;
     width: 100%;
+}
+
+.ug-contact-container{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+.ug-contact-container-line{
+    font-size: 80px;
+    font-family: AlteSchwabacher;
+    margin: 0;
+    transform: rotateY(20deg);
 }

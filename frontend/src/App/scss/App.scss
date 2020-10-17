@@ -1,6 +1,17 @@
 .ug-test{
-    background-color: green;
+    // background-color: green;
     height: 100%;
     width: 100%;
     position: absolute;
+}
+
+.ug-cursor{
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid green;
+    border-radius: 50%;
+    z-index: 4;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
 }
