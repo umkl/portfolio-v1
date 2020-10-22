@@ -98,7 +98,6 @@ class Content extends Component {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          
           <div className="ug-loading">Loading</div>
         </motion.div>
       );
@@ -110,7 +109,11 @@ class Content extends Component {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <div className="ug-background_shader">adsf</div>
+          {/* <div className="ug-background_shader">adsf</div> */}
+          
+          
+          
+          
           <div className="ug-container-box">
             {contributions.map((x) => (
               <UgContainer
@@ -120,9 +123,9 @@ class Content extends Component {
               />
             ))}
           </div>
-          
-          
-          
+
+
+          {/* <div className="ug-menu_shadow"/> */}
         </motion.div>
       );
     }

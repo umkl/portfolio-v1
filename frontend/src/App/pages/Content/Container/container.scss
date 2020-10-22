@@ -2,15 +2,16 @@
 @import "./../../../scss/variables.scss";
 
 .ug-container{
-    width: 100%; 
-    height: 400px;
+    
+    width: 90%; 
+    height: 200px;
     margin: 20px;
     display: inline-block;
-    transform: skewX(-20deg);
+    // transform: skewX(-20deg);
     background-color: rgb(190, 190, 190);
-    *{
-        transform: skewX(20deg);
-    }
+    // *{
+    //     transform: skewX(20deg);
+    // }
 }
 
 .ug-container-heading{

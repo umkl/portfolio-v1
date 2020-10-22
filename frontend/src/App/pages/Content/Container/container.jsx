@@ -5,6 +5,10 @@ import { useSpring, animated } from "react-spring";
 import React from "react";
 
 class Container extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
     // const boxstyle = {
     //   width: "100px",
@@ -14,11 +18,12 @@ class Container extends React.Component {
     // };
     return (
       <React.Fragment>
-        <div className="ug-container">
+        <div className="ug-container" >
           <div className="ug-container-heading">{this.props.heading}</div>
           <div className="ug-container-small_description">
             {this.props.description}
           </div>
+          {/* <img src={this.props.imageurl} alt=""/> */}
         </div>
       </React.Fragment>
     );

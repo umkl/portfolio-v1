@@ -1,14 +1,14 @@
 import React from 'react'
 
-export const arrow = (props) => {
+const UgArrow = (props) => {
     
-    if(props.dir = "left"){
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+    // if(props.dir = "left"){
+    //     return (
+    //         <div>
+    //             dsasfdsd
+    //         </div>
+    //     )
+    // }
     return(
         <div>
             
@@ -16,3 +16,5 @@ export const arrow = (props) => {
     )
     
 }
+
+export default UgArrow;

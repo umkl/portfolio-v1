@@ -9,9 +9,13 @@
     position: absolute;
     width: 3rem;
     height: 3rem;
-    border: 2px solid green;
+    background-color: rgba(49, 49, 49, 0.329);
     border-radius: 50%;
     z-index: 4;
     transform: translate(-50%,-50%);
     pointer-events: none;
+
+    // transition: all 0.1s ease;
 }
+
+// .ug-cursor-

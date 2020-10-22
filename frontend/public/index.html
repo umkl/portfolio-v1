@@ -9,10 +9,11 @@
     <style>
       body, html{
         background: black;
-        background-repeat: repeat;
+        background-repeat: no-repeat;
         margin: 0px;
         height: 100%;
         width: 100%;
+        cursor: none;
       }
       #root{
         width: 100%;
@@ -20,8 +21,15 @@
         position: absolute;
         background: black;
       }
+      #background-shadow{
+        background: radial-gradient(circle, rgba(177, 177, 177, 0.144) 40%, rgba(0,0,0,1) 100%);
+        height: 100%;
+        width: 100%;
+
+      }
     </style>
     <div id="root"></div>
+    <div id="background-shadow"></div>
     <script src="../dist/bundle.js"></script>
   </body>
 </html>

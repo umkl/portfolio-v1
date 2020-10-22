@@ -9,7 +9,16 @@
     justify-content: start;
     align-items: center;
     position: fixed;
+    background-color: aqua;
+
 }
+
+// #ug-nav{
+//     position: absolute;
+//     background-color: chartreuse;
+//     width: 100%;
+//     height: 100%;
+// }
 
 .ug-nav-element{
     
@@ -33,6 +42,7 @@
         color: $ug-nav-element-selected_false;
     }
     .ug-nav-link{
+        cursor: none;
         text-decoration: none;
     }
 }
