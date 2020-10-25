@@ -3,12 +3,15 @@
 
 .ug-container{
     
-    width: 90%; 
-    height: 200px;
-    margin: 20px;
-    display: inline-block;
+    width: 70%; 
+    // height: 200px;
+    // margin: 20px;
+    display: block;
     // transform: skewX(-20deg);
-    background-color: rgb(190, 190, 190);
+    background-color: rgba(223, 223, 223, 0.301);
+    margin: 10px auto 10px auto;
+    border-radius: 10px;
+    min-height: 300px;
     // *{
     //     transform: skewX(20deg);
     // }
@@ -25,13 +28,15 @@
 }
 
 .ug-container-small_description{
-    display: inline-block;
+    // display: inline-block;
     font-size: 20px;
-    position: relative;
+    // position: relative;
     color: white;
     font-family: YanoneKaffeesatz-Light;
     display: block;
-    position: relative;
+    margin: 20px;
+    // background-color: #666;
+    // position: relative;
     top: 25px;
     left: 50px;
     max-width: 400px;

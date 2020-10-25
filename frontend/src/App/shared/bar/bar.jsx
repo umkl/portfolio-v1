@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UgNav from './../nav/nav.jsx';
+import UgBtn from './../btn/btn.jsx'
 import './bar.scss'
 
 export default class UgBar extends Component {
@@ -7,6 +8,7 @@ export default class UgBar extends Component {
         return (
             <div id="ug-bar">
                 <UgNav/>
+                <UgBtn/>
             </div>
         )
     }

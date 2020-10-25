@@ -1,10 +1,11 @@
-import React from 'react'
-import './projects.scss'
+import React from "react";
+import UgProject from "./Project/project.jsx";
+import "./projects.scss";
 
 export default function Projects() {
-    return (
-        <div className="ug-projects">
-            daf
-        </div>
-    )
+  return (
+    <div className="ug-projects">
+      <UgProject />
+    </div>
+  );
 }

@@ -1,0 +1,15 @@
+.ug-arrow{
+    height: 200px;
+    width: 200px;
+    background-color: rgb(51, 97, 51);
+    position: absolute;
+}
+
+.right{
+    display: block;
+    top: 50%;
+    right: 20px;
+
+    transform: translateY(-50%)
+    // margin: 20px;
+}

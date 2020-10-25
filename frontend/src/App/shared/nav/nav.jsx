@@ -155,7 +155,7 @@ export default function UgNav() {
         </Link>
       </div>
 
-      <div className="ug-nav-element">
+      {/* <div className="ug-nav-element">
         <Link
           className="ug-nav-link"
           to="/about"
@@ -171,7 +171,7 @@ export default function UgNav() {
             about
           </span>
         </Link>
-      </div>
+      </div> */}
     </nav>
   );
 }
