@@ -23,9 +23,9 @@
 .ug-nav-element{
     
     margin: 20px;
-    span{
-        color: white;
-    }
+    // span{
+    //     color: white;
+    // }
     .ug-nav-element-icon{
         font-family: AlteSchwabacher;
         font-size: 40px; 
@@ -40,11 +40,19 @@
     }
     .ug-nav-element-selected_false{
         color: $ug-nav-element-selected_false;
+        transition: color 1s;
     }
     .ug-nav-link{
         cursor: none;
         text-decoration: none;
     }
+
+}
+
+
+
+.ug-nav-element-selected_false:hover{
+    color: white
 }
 
 // //the nav bar itself

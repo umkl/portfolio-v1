@@ -9,13 +9,13 @@
       "type": "go",
       "request": "launch",
       "mode": "debug",
-      "program": "/Users/mike/Documents/project/ungar/ungar/backend/cmd/monolithic/server.go"
+      "program": "/Users/mike/Documents/business-projects-i/ungar/ungar/backend/cmd/monolithic/server.go"
     },
     {
       "name": "Launch Ungar frontend - javascript",
       "request": "launch",
       "runtimeArgs": ["start"],
-      "cwd": "/Users/mike/Documents/project/ungar/ungar/frontend",
+      "cwd": "/Users/mike/Documents/business-projects-i/ungar/ungar/frontend",
       "runtimeExecutable": "npm",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"

@@ -39,9 +39,9 @@
     }
     .ug-foyer-about-divider{
       background-color: rgba(255, 255, 255, 0.5);
-  
+      position: relative;
       width: 1px;
-      height: 500px;
+      height: 90%;
     }
     .ug-foyer-about-description{
       display: flex;
@@ -63,4 +63,16 @@
     }
   }
 
-  
+@media only screen and (min-width: 1200px){
+  .ug-foyer-about {
+    color: green;
+    
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .ug-foyer-about {
+    width: 90vw;
+    height: 50vh;
+  }
+}

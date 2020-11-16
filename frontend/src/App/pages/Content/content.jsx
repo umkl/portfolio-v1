@@ -1,24 +1,27 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef} from "react";
 import Container from "./Container/container.jsx";
 import UgContainer from "./Container/container.jsx";
 import { AnimatePresence, motion } from "framer-motion";
 import useWindowPosition from "./../../utils/useWindowPosition.jsx";
 import { animated, useSpring ,Spring} from "react-spring";
+import SpringTest from "./../../shared/springtest/sprintest.jsx";
+
 
 import "./content.scss";
 
 const Content = () => {
   //variabales
   const API_URL = "http://localhost:8080/contributions";
-  
-  
+
   //hooks
   // const propsss = useSpring({"height": `${scrollPosition+100}px`, from: {"height": `${scrollPosition}px`}})
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const propsss = useSpring({opacity: 1, from: {opacity: 0}})
   const [scrollPosition, setPosition] = useState(0);
-  const [containerLength, setContainerLength] = useState(0);
+  const [fullContainerHeight, setFullContainerHeight] = useState(0);
+  const ugHeightRef = useRef(0);
+  const numberOfContainers = 8;
 
   useLayoutEffect(() => {
     function updatePosition() {
@@ -33,6 +36,8 @@ const Content = () => {
   //   console.log(scrollPosition);
   // }, [scrollPosition]);
 
+  
+
   useEffect(() => {
     loadData();
   }, []);
@@ -41,28 +46,62 @@ const Content = () => {
     const response = await fetch(API_URL);
     const data = await response.json();
     setContributions(data);
-    setContainerLength(data.length)
+    // setContainerLength(data.length)
     setLoaded(true);
   };
 
-  // var { isLoaded, contributions } = this.state;
+  //calc
+  // containerLength * 
+
+  // contributions.map()
+
+  const getHeightOfContainer = () =>{
+    var parts = ugHeightRef.height/8;
+    if(scrollPosition > parts){
+
+    }
+    if(scrollPosition > parts*2){
+      return scrollPosition + parts;
+    }
+    if(scrollPosition > parts*3 && scrollPosition < parts * 4){
+      
+    }
+    if(scrollPosition > parts*4 && scrollPosition < parts * 5){
+      
+    }
+    if(scrollPosition > parts*5 && scrollPosition < parts *6){
+      
+    }
+    if(scrollPosition > parts*6 && scrollPosition < parts * 7){
+      
+    }
+    if(scrollPosition > parts*7 && scrollPosition < parts *8){
+      
+    }
+    
+  }
 
   if (!isLoaded) {
-    return (
-      <motion.div
-        className="ug-content"
-        exit={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <div className="ug-loading">Loading</div>
-      </motion.div>
-    );
+    
+    return (<SpringTest/>);
+
+    // return (
+    //   <motion.div
+    //     className="ug-content"
+    //     exit={{ opacity: 1 }}
+    //     initial={{ opacity: 0 }}
+    //     animate={{ opacity: 1 }}
+    //   >
+    //     <div className="ug-loading">Loading</div>
+    //   </motion.div>
+    // );
+
+
   } else {
     return (
       <React.Fragment>
         <animated.div className="exdiv" style={propsss}>{scrollPosition}</animated.div>
-        <motion.div
+        <motion.div ref={ugHeightRef}
           className="ug-content"
           exit={{ opacity: 1 }}
           initial={{ opacity: 0 }}
@@ -83,6 +122,7 @@ const Content = () => {
                 key={x.ID}
                 heading={x.Heading}
                 description={x.Description}
+                height={scrollPosition}
               />
             ))}
           </div>

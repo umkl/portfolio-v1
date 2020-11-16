@@ -4,30 +4,29 @@ import Aos from "aos";
 import { useSpring, animated } from "react-spring";
 import React from "react";
 
-class Container extends React.Component {
-  constructor(props){
-    super(props);
-  }
+// import React from 'react'
 
-  render() {
-    // const boxstyle = {
-    //   width: "100px",
-    //   height: "100px",
-    //   backgroundColor: "green",
-    //   // display: this.state.showBox ? "black" : "none"
-    // };
-    return (
-      <React.Fragment>
-        <div className="ug-container" >
-          <div className="ug-container-heading">{this.props.heading}</div>
-          <div className="ug-container-small_description">
-            {this.props.description}
-          </div>
-          {/* <img src={this.props.imageurl} alt=""/> */}
+const Container = (props) => {
+  return (
+    <React.Fragment>
+      <div className="ug-container" >
+        <div className="ug-container-heading">{props.heading}</div>
+        <div className="ug-container-small_description">
+          {props.description}
+          {props.height}
         </div>
-      </React.Fragment>
-    );
-  }
+      </div>
+    </React.Fragment>
+  );
+}
+
+
+export default Container;
+
+
+
+
+
   // state = {
   //   showBox: false
   // };
@@ -51,7 +50,7 @@ class Container extends React.Component {
   //     </div>
   //   );
   // }
-}
+
 // constructor(props) {
 //   super(props);
 
@@ -104,4 +103,4 @@ class Container extends React.Component {
 //     }
 // }
 
-export default Container;
+// export default Container;

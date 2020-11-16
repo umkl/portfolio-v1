@@ -1,10 +1,12 @@
 import React from 'react'
 import './project.scss'
 
-const UgProject = () => {
+const UgProject = (props) => {
     return (
         <div className="ug-project">
-            jskföajsk
+            {props.Title} <br/>
+            {props.Description}
+            {/* heading: {{props.Description}} */}
         </div>
     )
 }

@@ -28,12 +28,11 @@
     display: flex;
     font-family: YanoneKaffeesatz-Regular;
     font-size: 20px;
-    
     .ug-btn-twin-login-darkmode {
       height: 50px;
       width: 50px;
-      box-shadow: inset 0px 0px 30px #242424, 0px 0px 50px #363636;
-      background-color: #454444;
+      // box-shadow: inset 0px 0px 30px #242424, 0px 0px 50px #363636;
+      background-color: #323232;
       border-radius: 15px 0px 0px 15px;
       margin-left: 10px;
       margin-right: 3px;
@@ -44,10 +43,10 @@
     }
     .ug-btn-twin-register-darkmode {
       height: 50px;
-    //   width: 50px;
-        padding: 0px 10px;
-      box-shadow: inset 0px 0px 30px #242424, 0px 0px 50px #363636;
-      background-color: #454444;
+      //   width: 50px;
+      padding: 0px 10px;
+      // box-shadow: inset 0px 0px 30px #242424, 0px 0px 50px #363636;
+      background-color: #323232;
       border-radius: 0px 15px 15px 0px;
       margin-left: 3px;
       margin-right: 10px;
@@ -55,5 +54,29 @@
       justify-content: center;
       align-items: center;
     }
+    .ug-nav-link{
+      text-decoration: none;
+      color: white;
+    }
   }
+  .ug-btn-register-darkmode {
+    height: 50px;
+    //width: 50px;
+    padding: 0px 15px;
+    box-shadow: inset 0px 0px 30px #242424, 0px 0px 50px #363636;
+    background-color: #454444;
+    border-radius: 15px;
+    // margin-left: 3px;
+    // margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.ug-btn-login {
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 20px;
 }

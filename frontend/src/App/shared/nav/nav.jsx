@@ -83,8 +83,8 @@ export default function UgNav() {
       5: num == 5 ? true : false,
     });
   }
-
-  return (
+  if (location.pathname == "/login" || location.pathname == "/registration") {
+    return(
     <nav id="ug-nav-bar">
       <div className="ug-nav-element">
         <Link className="ug-nav-link" to="/" onClick={() => changeClickedTo(1)}>
@@ -100,80 +100,104 @@ export default function UgNav() {
           </span>
         </Link>
       </div>
-
-      <div className="ug-nav-element">
-        <Link
-          className="ug-nav-link"
-          to="/content"
-          onClick={() => changeClickedTo(2)}
-        >
-          <span
-            className={
-              varClicked[2]
-                ? "ug-nav-element-sub ug-nav-element-selected_true"
-                : "ug-nav-element-sub ug-nav-element-selected_false"
-            }
-          >
-            content
-          </span>
-        </Link>
-      </div>
-
-      <div className="ug-nav-element">
-        <Link
-          className="ug-nav-link"
-          to="/projects"
-          onClick={() => changeClickedTo(5)}
-        >
-          <span
-            className={
-              varClicked[5]
-                ? "ug-nav-element-sub ug-nav-element-selected_true"
-                : "ug-nav-element-sub ug-nav-element-selected_false"
-            }
-          >
-            projects
-          </span>
-        </Link>
-      </div>
-
-      <div className="ug-nav-element">
-        <Link
-          className="ug-nav-link"
-          to="/contact"
-          onClick={() => changeClickedTo(3)}
-        >
-          <span
-            className={
-              varClicked[3]
-                ? "ug-nav-element-sub ug-nav-element-selected_true"
-                : "ug-nav-element-sub ug-nav-element-selected_false"
-            }
-          >
-            contact
-          </span>
-        </Link>
-      </div>
-
-      {/* <div className="ug-nav-element">
-        <Link
-          className="ug-nav-link"
-          to="/about"
-          onClick={() => changeClickedTo(4)}
-        >
-          <span
-            className={
-              varClicked[4]
-                ? "ug-nav-element-sub ug-nav-element-selected_true"
-                : "ug-nav-element-sub ug-nav-element-selected_false"
-            }
-          >
-            about
-          </span>
-        </Link>
-      </div> */}
     </nav>
-  );
+    )
+  } else {
+    return (
+      <nav id="ug-nav-bar">
+        <div className="ug-nav-element">
+          <Link
+            className="ug-nav-link"
+            to="/"
+            onClick={() => changeClickedTo(1)}
+          >
+            {/* <button onClick={changeClickedTo(1)}>change clioc</button> */}
+            <span
+              className={
+                varClicked[1]
+                  ? "ug-nav-element-icon ug-nav-element-selected_true"
+                  : "ug-nav-element-icon ug-nav-element-selected_false"
+              }
+            >
+              U
+            </span>
+          </Link>
+        </div>
+
+        <div className="ug-nav-element">
+          <Link
+            className="ug-nav-link"
+            to="/content"
+            onClick={() => changeClickedTo(2)}
+          >
+            <span
+              className={
+                varClicked[2]
+                  ? "ug-nav-element-sub ug-nav-element-selected_true"
+                  : "ug-nav-element-sub ug-nav-element-selected_false"
+              }
+            >
+              content
+            </span>
+          </Link>
+        </div>
+
+        <div className="ug-nav-element">
+          <Link
+            className="ug-nav-link"
+            to="/projects"
+            onClick={() => changeClickedTo(5)}
+          >
+            <span
+              className={
+                varClicked[5]
+                  ? "ug-nav-element-sub ug-nav-element-selected_true"
+                  : "ug-nav-element-sub ug-nav-element-selected_false"
+              }
+            >
+              projects
+            </span>
+          </Link>
+        </div>
+
+        <div className="ug-nav-element">
+          <Link
+            className="ug-nav-link"
+            to="/contact"
+            onClick={() => changeClickedTo(3)}
+          >
+            <span
+              className={
+                varClicked[3]
+                  ? "ug-nav-element-sub ug-nav-element-selected_true"
+                  : "ug-nav-element-sub ug-nav-element-selected_false"
+              }
+            >
+              contact
+            </span>
+          </Link>
+        </div>
+
+        {/* <div className="ug-nav-element">
+          <Link
+            className="ug-nav-link"
+            to="/about"
+            onClick={() => changeClickedTo(4)}
+          >
+            <span
+              className={
+                varClicked[4]
+                  ? "ug-nav-element-sub ug-nav-element-selected_true"
+                  : "ug-nav-element-sub ug-nav-element-selected_false"
+              }
+            >
+              about
+            </span>
+          </Link>
+        </div> */}
+      </nav>
+    );
+  }
 }
 
 // export default class UgNav extends Component {

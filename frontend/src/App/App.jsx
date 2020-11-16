@@ -3,12 +3,16 @@ import Content from "./pages/Content/content.jsx";
 import Contact from "./pages/Contact/contact.jsx";
 import Error from "./pages/Error/error.js";
 import Foyer from "./pages/Foyer/foyer.jsx";
+import Login from "./pages/Login/login.jsx";
+import Registration from "./pages/Registration/registration.jsx"
+
 import UgBar from "./shared/bar/bar.jsx";
 import "./scss/App.scss";
 import React, { useRef, useState, useLayoutEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { createStore } from "redux";
 import { AnimatePresence, motion } from "framer-motion";
+
 
 function App() {
   // const cursorRef = useRef(null);
@@ -61,9 +65,8 @@ function App() {
   return (
     <>
       {/* ref={cursorRef} */}
-
       <div
-        onScroll={_onMousemove.bind(this)}
+        // onScroll={_onMousemove.bind(this)}
         onMouseMove={_onMousemove.bind(this)}
       >
         <div className={getCursorClasses()} style={cursorStyle}></div>
@@ -71,21 +74,21 @@ function App() {
         <AnimatePresence>
           <Switch className="ug-switch">
             <Route exact path="/" component={Foyer}></Route>
-            <Route path="/Projects" component={Projects}></Route>
-            <Route path="/Content" component={Content}></Route>
-            <Route path="/Contact" component={Contact}></Route>
+            <Route path="/projects" component={Projects}></Route>
+            <Route path="/content" component={Content}></Route>
+            <Route path="/contact" component={Contact}></Route>
+
+            <Route path="/login" component={Login}></Route>
+            <Route path="/registration" component={Registration}></Route>
             <Route component={Error}></Route>
           </Switch>
         </AnimatePresence>
-        
       </div>
     </>
   );
 }
 
 export default App;
-
-
 
 // //action(increment)
 // const increment = () => {
