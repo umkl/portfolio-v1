@@ -1,71 +1,14 @@
 // import UngarIcon from "./../../assets/Ungar-Icon.png";
-import React, { useState, Component } from "react";
+import React, { useState,useEffect } from "react";
 import "./nav.scss";
 // import UgNavname from "./elem/elem.jsx";
 import { Link } from "react-router-dom";
 
-// export default function UgNav() {
-//   const [isActive, setActive] = useState(false);
-
-//   const toggleClass = () =>{
-//     setActive(!isActive);
-//   };
-
-//   return (
-//     <nav id="ug-nav-bar">
-//       <div className="ug-nav-element">
-//         <Link onClick={toggleClass} className="ug-nav-link" to="/" >
-//           <span className={isActive? 'ug-nav-element-icon ug-nav-element-selected_false': 'ug-nav-element-icon' }>
-//             U
-//           </span>
-//           {/* <img src={UngarIcon} alt="icon for ungar"></img> */}
-//         </Link>
-//       </div>
-
-//       <div className="ug-nav-element">
-//         <Link className="ug-nav-link" to="/content">
-//         <span className={isActive? 'ug-nav-element-sub ug-nav-element-selected_false': 'ug-nav-element-sub' }>
-//             content
-//           </span>
-//           {/* <img src={UngarIcon} alt="logo" id="i"/> */}
-//         </Link>
-//       </div>
-
-//       <div className="ug-nav-element">
-//         <Link className="ug-nav-link" to="/contact">
-//           <span className="ug-nav-element-sub ug-nav-element-selected_false">
-//             contact
-//           </span>
-//           {/* <img src={UngarIcon} alt="logo" id="i"/> */}
-//         </Link>
-//       </div>
-
-//       <div className="ug-nav-element">
-//         <Link className="ug-nav-link" to="/about">
-//           <span className="ug-nav-element-sub ug-nav-element-selected_false">
-//             about
-//           </span>
-//         </Link>
-//       </div>
-
-//       <div className="ug-nav-element">
-//         <Link className="ug-nav-link" to="/projects">
-//           <span className="ug-nav-element-sub ug-nav-element-selected_false">
-//             projects
-//           </span>
-//         </Link>
-//       </div>
-//     </nav>
-//   );
-// }
-
-// function sayHello(x){
-//   console.log(x);
-// }
+const _ = require("lodash");
 
 export default function UgNav() {
   const clicked = {
-    1: true,
+    1: false,
     2: false,
     3: false,
     4: false,
@@ -74,6 +17,21 @@ export default function UgNav() {
 
   const [varClicked, setClicked] = useState(clicked);
 
+  const getClicked = () => {
+    if(location.pathname == "/"){
+      setClicked()
+    }else if(location.pathname == "/content"){
+      console.log("sadf")
+    }else if(location.pathname == "/projects"){
+      console.log("sadf")
+    }else if(location.pathname == "/contact"){
+      
+    }
+  }
+
+
+
+  
   function changeClickedTo(num) {
     setClicked({
       1: num == 1 ? true : false,
@@ -83,25 +41,41 @@ export default function UgNav() {
       5: num == 5 ? true : false,
     });
   }
+
+  useEffect(() => {
+    if(location.pathname == "/"){
+      changeClickedTo(1)
+    }else if(location.pathname == "/content"){
+      changeClickedTo(2)
+    }else if(location.pathname == "/projects"){
+      changeClickedTo(5)
+    }else if(location.pathname == "/contact"){
+      changeClickedTo(3)
+    }
+    return () => {
+    }
+  }, [location.pathname])
+
+
   if (location.pathname == "/login" || location.pathname == "/registration") {
-    return(
-    <nav id="ug-nav-bar">
-      <div className="ug-nav-element">
-        <Link className="ug-nav-link" to="/" onClick={() => changeClickedTo(1)}>
-          {/* <button onClick={changeClickedTo(1)}>change clioc</button> */}
-          <span
-            className={
-              varClicked[1]
-                ? "ug-nav-element-icon ug-nav-element-selected_true"
-                : "ug-nav-element-icon ug-nav-element-selected_false"
-            }
+    
+    return (
+
+      <nav id="ug-nav-bar">
+        <div className="ug-nav-element">
+          <Link
+            className="ug-nav-link"
+            to="/"
+            // onClick={() => changeClickedTo(1)}
           >
-            U
-          </span>
-        </Link>
-      </div>
-    </nav>
-    )
+            {/* <button onClick={changeClickedTo(1)}>change clioc</button> */}
+            <span className="ug-nav-element-icon ug-nav-element-selected_true">
+              U
+            </span>
+          </Link>
+        </div>
+      </nav>
+    );
   } else {
     return (
       <nav id="ug-nav-bar">
@@ -109,7 +83,7 @@ export default function UgNav() {
           <Link
             className="ug-nav-link"
             to="/"
-            onClick={() => changeClickedTo(1)}
+            // onClick={() => changeClickedTo(1)}
           >
             {/* <button onClick={changeClickedTo(1)}>change clioc</button> */}
             <span
@@ -123,12 +97,11 @@ export default function UgNav() {
             </span>
           </Link>
         </div>
-
         <div className="ug-nav-element">
           <Link
             className="ug-nav-link"
             to="/content"
-            onClick={() => changeClickedTo(2)}
+            // onClick={() => changeClickedTo(2)}
           >
             <span
               className={
@@ -146,7 +119,7 @@ export default function UgNav() {
           <Link
             className="ug-nav-link"
             to="/projects"
-            onClick={() => changeClickedTo(5)}
+            // onClick={() => changeClickedTo(5)}
           >
             <span
               className={
@@ -164,7 +137,7 @@ export default function UgNav() {
           <Link
             className="ug-nav-link"
             to="/contact"
-            onClick={() => changeClickedTo(3)}
+            // onClick={() => changeClickedTo(3)}
           >
             <span
               className={
@@ -199,6 +172,8 @@ export default function UgNav() {
     );
   }
 }
+
+
 
 // export default class UgNav extends Component {
 //   constructor() {

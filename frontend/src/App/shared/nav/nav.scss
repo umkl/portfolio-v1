@@ -1,75 +1,45 @@
 @import '../../scss/variables.scss';
 
 #ug-nav-bar{
-    // background-color: rgba(255, 255, 255, 0.514);
-    position: absolute;
-    height: 100px;
+    position: relative;
+    display: inline-block;
+    // width: 20%;
+    height: 100%;
     display: flex;
+    width: fit-content;
     left: 4%;
     justify-content: start;
     align-items: center;
-    position: fixed;
-    // background-color: aqua;
-
+    flex-direction: row;
+    // position: fixed;
+    background-color: blue;
+    .ug-nav-element{
+        margin: 20px;
+        .ug-nav-element-icon{
+            font-family: AlteSchwabacher;
+            font-size: 40px; 
+        }
+        .ug-nav-element-sub{
+            font-size: 20px;
+            font-family: YanoneKaffeesatz-Bold;
+            font-weight: regular;
+        }
+        .ug-nav-element-selected_true{
+            color: $ug-nav-element-selected_true;
+        }
+        .ug-nav-element-selected_false{
+            color: $ug-nav-element-selected_false;
+            transition: color 1s;
+        }
+        .ug-nav-link{
+            cursor: none;
+            text-decoration: none;
+        }
+    }
+    .ug-nav-element-selected_false:hover{
+        color: white
+    }
 }
-
-// #ug-nav{
-//     position: absolute;
-//     background-color: chartreuse;
-//     width: 100%;
-//     height: 100%;
-// }
-
-.ug-nav-element{
-    
-    margin: 20px;
-    // span{
-    //     color: white;
-    // }
-    .ug-nav-element-icon{
-        font-family: AlteSchwabacher;
-        font-size: 40px; 
-    }
-    .ug-nav-element-sub{
-        font-size: 20px;
-        font-family: YanoneKaffeesatz-Bold;
-        font-weight: regular;
-    }
-    .ug-nav-element-selected_true{
-        color: $ug-nav-element-selected_true;
-    }
-    .ug-nav-element-selected_false{
-        color: $ug-nav-element-selected_false;
-        transition: color 1s;
-    }
-    .ug-nav-link{
-        cursor: none;
-        text-decoration: none;
-    }
-
-}
-
-
-
-.ug-nav-element-selected_false:hover{
-    color: white
-}
-
-// //the nav bar itself
-// #ug-nav-bar{
-//     margin: 30px;
-//     padding: 20px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     padding: 20px;
-// }
-
-// #ug-nav-element{
-//     color: white;
-//     width: 29px;
-// }
-
 
 
 

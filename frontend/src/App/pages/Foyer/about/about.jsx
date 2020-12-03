@@ -10,12 +10,6 @@ const UgAboutCard = (props) => {
         </div>
         <div className="ug-foyer-about-divider"></div>
         <div className="ug-foyer-about-description">
-          {/* <p>
-            fkajslfölfajsdf
-            <br />
-            asdflakjs <br />
-            adsflköas
-          </p> */}
           <p>{props.description}</p>
         </div>
       </div>

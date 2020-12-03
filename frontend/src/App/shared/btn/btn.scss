@@ -6,6 +6,8 @@
   align-items: center;
   display: flex;
   right: 4%;
+  background-color: green;
+  
   .ug-btn-darkmode {
     height: 50px;
     width: 50px;
@@ -24,7 +26,8 @@
     }
   }
   .ug-btn-twin {
-    color: rgba(255, 255, 255, 0.5);
+    // color: rgba(255, 255, 255, 0.5);
+    color: white;
     display: flex;
     font-family: YanoneKaffeesatz-Regular;
     font-size: 20px;
@@ -59,6 +62,7 @@
       color: white;
     }
   }
+
   .ug-btn-register-darkmode {
     height: 50px;
     //width: 50px;

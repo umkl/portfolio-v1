@@ -1,16 +1,30 @@
-import React, { Component } from 'react'
-import UgNav from './../nav/nav.jsx';
-import UgBtn from './../btn/btn.jsx'
-import './bar.scss'
+import React, { useEffect,useState } from "react";
+import {useSpring, animated as a} from "react-spring";
+import UgNav from "./../nav/nav.jsx";
+import UgBtn from "./../btn/btn.jsx";
+import "./bar.scss";
 
-export default class UgBar extends Component {
-    render() {
-        return (
-            <div id="ug-bar">
-                <UgNav/>
-                <UgBtn/>
-            </div>
-        )
-    }
+ function UgBar() {
+    const [loaded, setLoaded] = useState(false)
+
+    const barFade = useSpring({
+        opacity: loaded ? 1 : 0,
+        marginTop: loaded ? 0 : -500
+    });
+
+    useEffect(() => {
+        setLoaded(true)
+        return () => {
+
+        }
+    }, [])
+
+  return (
+    <a.div id="ug-bar" style={barFade}>
+      <UgBtn />
+      <UgNav />
+    </a.div>
+  );
 }
 
+export default UgBar;

@@ -46,6 +46,10 @@ function App() {
     setCursorState({ x: e.pageX, y: e.pageY });
   };
 
+  // const _onMouseDown = (e) =>{
+
+  // }
+
   const cursorStyle = {
     top: `${cursorState.y}px`,
     left: `${cursorState.x}px`,
@@ -64,9 +68,7 @@ function App() {
 
   return (
     <>
-      {/* ref={cursorRef} */}
       <div
-        // onScroll={_onMousemove.bind(this)}
         onMouseMove={_onMousemove.bind(this)}
       >
         <div className={getCursorClasses()} style={cursorStyle}></div>
