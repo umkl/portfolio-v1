@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef} from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import UgProject from "./Project/project.jsx";
 import "./projects.scss";
 import { AnimatePresence, motion } from "framer-motion";
@@ -8,6 +8,9 @@ const Projects = () => {
   const API_URL = "http://localhost:8080/projects";
   const [projects, setProjects] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+  
+  const currentProject = 0;
+
 
   useEffect(() => {
     loadData();
@@ -20,48 +23,50 @@ const Projects = () => {
     setLoaded(true);
   };
 
+
+  const nextProject = () => {
+    currentProject++;
+  };
+
+  const previousProject = () => {};
+
+  useEffect(() => {
+    setInterval(nextProject, 5000);
+  }, []);
+
   if (!isLoaded) {
     return (
       <motion.div
         className="ug-projects"
         exit={{ opacity: 1 }}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}>
+        animate={{ opacity: 1 }}
+      >
         <div className="ug-loading">Loading</div>
       </motion.div>
     );
   } else {
     return (
       <React.Fragment>
-        {/* <animated.div className="exdiv" style={propsss}>
-          {scrollPosition}
-        </animated.div> */}
         <motion.div
-          // ref={ugHeightRef}
           className="ug-projects"
           exit={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          
         >
-          {/* <div className="ug-background_shader"></div> */}
-          <div className="ug-project-box">
-            {/* <div
-              style={{
-                backgroundColor: "transparent",
-                height: "100px",
-                width: "100%",
-              }}
-            ></div> */}
-            {projects.map((x) => (
-              <UgProject
-                key={x.ID}
-                Title={x.Title}
-                Description={x.Description}
-              />
-            ))}
+          <div className="ug-project-box-container">
+            <div className="ug-project-box">
+              {projects.map((x) => (
+                <UgProject
+                  
+                  key={x.ID}
+                  Title={x.Title}
+                  Description={x.Description}
+                />
+              ))}
+            </div>
           </div>
-
-          {/* <div className="ug-menu_shadow"/> */}
         </motion.div>
       </React.Fragment>
     );

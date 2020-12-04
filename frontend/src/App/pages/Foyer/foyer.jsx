@@ -8,18 +8,21 @@ import UgAboutCard from "./about/about.jsx";
 
 //ug hooks
 import useBreakpointInText from "./../../utils/useBreakpointInText.jsx";
+import useOnScreen from "./../../utils/useOnScreen.jsx"
 
 import "./foyer.scss";
 
 //3rd party libraries
 import { AnimatePresence, motion } from "framer-motion";
-import { useSpring, animated as a } from "react-spring";
+import { useSpring,useSprings,animated as a } from "react-spring";
 
 const queries = {
   xs: "(max-width: 320px)",
   sm: "(max-width: 720px)",
   md: "(max-width: 1130px)",
 };
+
+
 
 export default function Foyer() {
   //scrolling to about method
@@ -29,6 +32,54 @@ export default function Foyer() {
       behavior: "smooth",
     });
   };
+
+  // const [scrollValue, setScrollValue] = useState(0);
+  // aboutData = [
+  //     {
+  //       name:"what",
+  //       visible: false
+  //     },
+  //     {
+  //       name:"why",
+  //       visible: false
+  //     },
+  //     {
+  //       name:"who",
+  //       visible: false
+  //     },
+  //     {
+  //       name:"where",
+  //       visible: false
+  //     },
+      
+  //   ]
+  
+  // const [aboutVisibility, setAboutVisibility] = useState({
+  //   "what":false,
+  //   "why":false,
+  //   "who":false,
+  //   "where":false,
+  // });
+
+  
+
+  
+  
+
+  // const passingScrollEventValue = () =>{
+  //   setScrollValue(window.scrollY);
+  // }
+
+  // useEffect(()=>{
+  //   window.addEventListener("scroll", passingScrollEventValue);
+    
+    
+  //   return(
+  //     ()=>{
+  //       window.removeEventListener("scroll", passingScrollEventValue);
+  //     }
+  //   )
+  // }, []);
 
   const [isLoaded, setLoaded] = useState(false);
 
@@ -42,13 +93,15 @@ export default function Foyer() {
     marginTop: isLoaded  ? 0 : -100,
   });
 
+  
+
   useEffect(() => {
     setLoaded(true);
   }, []);
 
   const matchPoints = useBreakpointInText(queries);
 
-  console.log(typeof matchPoints);
+  // console.log(typeof matchPoints);
   if (matchPoints !== null) {
     if (matchPoints.md) {
       console.log("md");
@@ -88,6 +141,7 @@ export default function Foyer() {
       </div>
 
       <UgAboutCard
+        // ref={ref}
         heading="What?"
         description="We create modern Websites, beautiful Mobile-apps and breathtaking Designs.
         We also like to share experiences, passion and motivation that is why we created blog-content on our website.

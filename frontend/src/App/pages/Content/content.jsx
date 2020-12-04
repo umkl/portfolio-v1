@@ -4,7 +4,6 @@ import UgContainer from "./Container/container.jsx";
 import { AnimatePresence, motion } from "framer-motion";
 import useWindowPosition from "./../../utils/useWindowPosition.jsx";
 import { animated, useSpring ,Spring} from "react-spring";
-import SpringTest from "./../../shared/springtest/sprintest.jsx";
 
 
 import "./content.scss";
@@ -12,6 +11,8 @@ import "./content.scss";
 const Content = () => {
   //variabales
   const API_URL = "http://localhost:8080/contributions";
+
+
 
   //hooks
   // const propsss = useSpring({"height": `${scrollPosition+100}px`, from: {"height": `${scrollPosition}px`}})
@@ -32,12 +33,6 @@ const Content = () => {
     return () => window.removeEventListener("scroll", updatePosition);
   }, []);
 
-  // useEffect(() => {
-  //   console.log(scrollPosition);
-  // }, [scrollPosition]);
-
-  
-
   useEffect(() => {
     loadData();
   }, []);
@@ -55,46 +50,46 @@ const Content = () => {
 
   // contributions.map()
 
-  const getHeightOfContainer = () =>{
-    var parts = ugHeightRef.height/8;
-    if(scrollPosition > parts){
+  // const getHeightOfContainer = () =>{
+  //   var parts = ugHeightRef.height/8;
+  //   if(scrollPosition > parts){
 
-    }
-    if(scrollPosition > parts*2){
-      return scrollPosition + parts;
-    }
-    if(scrollPosition > parts*3 && scrollPosition < parts * 4){
+  //   }
+  //   if(scrollPosition > parts*2){
+  //     return scrollPosition + parts;
+  //   }
+  //   if(scrollPosition > parts*3 && scrollPosition < parts * 4){
       
-    }
-    if(scrollPosition > parts*4 && scrollPosition < parts * 5){
+  //   }
+  //   if(scrollPosition > parts*4 && scrollPosition < parts * 5){
       
-    }
-    if(scrollPosition > parts*5 && scrollPosition < parts *6){
+  //   }
+  //   if(scrollPosition > parts*5 && scrollPosition < parts *6){
       
-    }
-    if(scrollPosition > parts*6 && scrollPosition < parts * 7){
+  //   }
+  //   if(scrollPosition > parts*6 && scrollPosition < parts * 7){
       
-    }
-    if(scrollPosition > parts*7 && scrollPosition < parts *8){
+  //   }
+  //   if(scrollPosition > parts*7 && scrollPosition < parts *8){
       
-    }
+  //   }
     
-  }
+  // }
 
   if (!isLoaded) {
     
-    return (<SpringTest/>);
+    // return (<SpringTest/>);
 
-    // return (
-    //   <motion.div
-    //     className="ug-content"
-    //     exit={{ opacity: 1 }}
-    //     initial={{ opacity: 0 }}
-    //     animate={{ opacity: 1 }}
-    //   >
-    //     <div className="ug-loading">Loading</div>
-    //   </motion.div>
-    // );
+    return (
+      <motion.div
+        className="ug-content"
+        exit={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <div className="ug-loading">Loading</div>
+      </motion.div>
+    );
 
 
   } else {

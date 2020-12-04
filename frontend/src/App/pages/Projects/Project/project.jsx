@@ -6,7 +6,6 @@ const UgProject = (props) => {
         <div className="ug-project">
             {props.Title} <br/>
             {props.Description}
-            {/* heading: {{props.Description}} */}
         </div>
     )
 }

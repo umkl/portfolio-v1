@@ -2,18 +2,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    
-    // background-color: aqua;
-    // color: white;
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%,-50%);
-    // height: 80%;
-    // width: 90%;
-    // background-color: rgba(37, 124, 201, 0.445);
-
-    // border-radius: 15px;
+    background-color: green;
 }
 
 .ug-loading{
@@ -26,11 +15,13 @@
 
 .ug-project-box{
     top: 50%;
-    left: 50%;
-    position: relative;
-    transform: translate(-50%,-50%);
+    bottom: 0;
+    display: flex;
+    position: fixed;
+    margin-left: -1000px;
+    flex-direction: row;
+    transform: translateY(-50%);
+    height: fit-content;
     color: white;
-    // background-color: green;
-    height: 90%;
-    width:90%;
+    background-color: beige;
 }

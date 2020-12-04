@@ -9,9 +9,16 @@
     display: block;
     // transform: skewX(-20deg);
     background-color: rgba(223, 223, 223, 0.301);
-    margin: 10px auto 10px auto;
+    // margin: 10px auto 10px auto;
+    // left: 50%;
+    // transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px;
     border-radius: 10px;
     min-height: 300px;
+
     // *{
     //     transform: skewX(20deg);
     // }
@@ -53,7 +60,7 @@
   width: 200px;
   height: 200px;
   background-color: #ccc;
-  margin: 60px auto 0;
+  // margin: 60px auto 0;
   display: flex;
 }
 

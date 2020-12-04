@@ -1,22 +1,33 @@
 // import React, { Component } from 'react'
 import "./container.scss";
 import Aos from "aos";
-import { useSpring, animated } from "react-spring";
-import React from "react";
+import { useSpring, animated as a } from "react-spring";
+import React, {useRef} from "react";
+import useOnScreen from "./../../../utils/useOnScreen.jsx";
+// import {useSpring, animated as a} from "re";
 
 // import React from 'react'
 
 const Container = (props) => {
+  const ref = useRef();
+  const isVisible = useOnScreen(ref);
+  const springProps = useSpring({opacity: isVisible ? 1 : 0, marginLeft: isVisible?0: -500});
+
+  // useEffect(() => {
+  //   // console.log(isVisible?"visi":"nope")
+  //   return () => {
+  //   }
+  // }, [isVisible])
+
   return (
-    <React.Fragment>
-      <div className="ug-container" >
+      <a.div ref={ref} style={springProps} className="ug-container" >
         <div className="ug-container-heading">{props.heading}</div>
         <div className="ug-container-small_description">
           {props.description}
           {props.height}
         </div>
-      </div>
-    </React.Fragment>
+      </a.div>
+    
   );
 }
 
