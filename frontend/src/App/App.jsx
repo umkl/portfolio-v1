@@ -8,7 +8,7 @@ import Registration from "./pages/Registration/registration.jsx"
 
 import UgBar from "./shared/bar/bar.jsx";
 import "./scss/App.scss";
-import React, { useRef, useState, useLayoutEffect } from "react";
+import React, { useRef, useState,useCallback, useLayoutEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { createStore } from "redux";
 import { AnimatePresence, motion } from "framer-motion";
@@ -37,14 +37,14 @@ function App() {
 
   // const _onScroll = (e) =>
 
-  const _onMousemove = (e) => {
+  const _onMousemove = useCallback((e) => {
     // console.log(e.screenX);
     // console.log(cursorStyle.top)
     // console.log(e.pageX);
     // console.log(cursorStyle.left)
     // console.log(e.pageY);
     setCursorState({ x: e.pageX, y: e.pageY });
-  };
+  },[cursorState])
 
   // const _onMouseDown = (e) =>{
 
@@ -90,7 +90,7 @@ function App() {
   );
 }
 
-export default App;
+export default React.memo(App);
 
 // //action(increment)
 // const increment = () => {
