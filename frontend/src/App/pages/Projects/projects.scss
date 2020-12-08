@@ -1,9 +1,10 @@
 .ug-projects{
     position: absolute;
     display: inline-block;
-    height: 200px;
+    height: 100%;
     width: 100%;
-    bottom: 0;
+    background-color: blue;
+    // bottom: 0;
 }
 
 .ug-loading{
@@ -14,22 +15,30 @@
     color: white;
 }
 
-.ug-project-box{
+// .ug-project-box{
+//     top: 50%;
+//     display: flex;
+//     position: fixed;
+    
+//     height: 100%;
+    
+//     align-items: center;
+
+//     justify-content: center;
+
+//     flex-direction: row;
+//     transform: translateY(-50%);
+//     color: white;
+//     background-color: beige;
+// }
+
+.ug-project-diashow{
+    position: relative;
+    width: 90vw;
+    height: 80vh;
     top: 50%;
-    // left: 50%;
-    // transform: translate(-50%,-50%);
-
-    display: flex;
-    position: fixed;
-    
-    height: 100%;
-    
-    align-items: center;
-
-    justify-content: center;
-
-    flex-direction: row;
-    transform: translateY(-50%);
-    color: white;
-    background-color: beige;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: purple;
+    // overflow: hidden;
 }

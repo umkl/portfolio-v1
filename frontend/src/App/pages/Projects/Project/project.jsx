@@ -4,16 +4,18 @@ import {useSpring, animated as a} from "react-spring";
 
 const UgProject = (props) => {
     
-    const showSpring = useSpring({
-        to: {opacity: 1, backgroundColor: "green", },
-        from: {opacity: 0.5, backgroundColor: "blue"}
-    })
+    // const showSpring = useSpring({
+    //     to: {opacity: 1, backgroundColor: "green", },
+    //     from: {opacity: 0.5, backgroundColor: "blue"}
+    // })
+
+    // style={props.active ? showSpring : null}
 
     return (
-        <div style={props.active ? showSpring : null} className="ug-project">
+        <a.div style={props.style} className="ug-project">
             {props.Title} <br/>
             {props.Description}
-        </div>
+        </a.div>
     )
 }
 

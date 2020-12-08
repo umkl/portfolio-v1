@@ -1,6 +1,12 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {useSpring, animated as a} from "react-spring";
+import { config,useTransition, useSpring, animated as a } from "react-spring";
 
 //UgProject
 import UgProject from "./Project/project.jsx";
@@ -8,74 +14,81 @@ import UgProject from "./Project/project.jsx";
 //projects
 import "./projects.scss";
 
-
 const Projects = () => {
   //variables
   const API_URL = "http://localhost:8080/projects";
   const [currentProject, setCurrentProject] = useState(0);
   const [projects, setProjects] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
-  const [intervalId, setIntervalId] = useState();
+  // const [intervalId, setIntervalId] = useState();
+
+  //useSpring example transition handler
   const [projectSize, setProjectSize] = useState();
 
-  
+  const [index, setIndex] = useState(0);
 
-  // const prevSlideStyle = {
+  const handleIndexChange = useCallback(
+    () => setIndex((state) => (state + 1) % 3),
+    []
+  );
 
-  // }
-
-  // const curSlideStyle = {
-    
-  // }
-
-  
+  const projectTransitions = useTransition(index, p => p, {
+    from: { opacity: 0, backgroundColor: "blue", transform: "translate3d(100%,0,0) scale(0.5,0.5)" },
+    enter: { opacity: 1, backgroundColor: "red", transform: "translate3d(0%,0,0) scale(1,1)" },
+    leave: { opacity: 0, backgroundColor: "green", transform: "translate3d(-50%,0,0) scale(0.5,0.5)" },
+    config: {...config.molasses	, duration: 500}
+  });
+  //useSpring example transition handler
 
   //api fetch
   useEffect(() => {
     loadData();
   }, []);
 
-  useEffect(
-    ()=>{
-      const id = setInterval(nextProject, 2000);
-      setIntervalId(id)
-      return(
-        ()=>{
-          clearInterval(id);
-        }
-      );
-    },[projects])
-  
   const loadData = async () => {
     const response = await fetch(API_URL);
     const data = await response.json();
     setProjects(data);
     setLoaded(true);
   };
+  //api fetch
 
-  //carousel functions
-  const nextProject = () => {
-    console.log("wuow")
-      setCurrentProject((c)=>{
-        return (c+1)%projects.length;
-      } );
-  };
+  //my carousel functions
+  // useEffect(
+  //   ()=>{
+  //     const id = setInterval(nextProject, 2000);
+  //     setIntervalId(id)
+  //     return(
+  //       ()=>{
+  //         clearInterval(id);
+  //       }
+  //     );
+  //   },[projects])
 
-  const previousProject = () => {
-    setCurrentProject((c)=>{
-      return (c-1)%projects.length;
-    } );
-  };
+  // const nextProject = () => {
+  //   console.log("wuow");
+  //   setCurrentProject((c) => {
+  //     return (c + 1) % projects.length;
+  //   });
+  // };
 
-  const carouselSpring = useSpring(
-    {
-      to:{marginLeft: `-${currentProject*100}vw`},
-      from:{marginLeft: `-${currentProject==0?currentProject:currentProject-1*100}vw`}
-    }
-    
-  )
+  // const previousProject = () => {
+  //   setCurrentProject((c) => {
+  //     return (c - 1) % projects.length;
+  //   });
+  // };
 
-//returning DOM
+  // const carouselSpring = useSpring({
+  //   to: { marginLeft: `-${currentProject * 100}vw` },
+  // });
+  // const carouselCalback = useCallback(() => {
+  //   return useSpring({
+  //     to: { marginLeft: `-${currentProject * 100}vw` },
+  //   });
+  // }, [currentProject]);
+  //my carousel functions
+
+  //returning DOM
   if (!isLoaded) {
     return (
       <motion.div
@@ -88,7 +101,6 @@ const Projects = () => {
       </motion.div>
     );
   } else {
-    
     return (
       <motion.div
         className="ug-projects"
@@ -96,7 +108,7 @@ const Projects = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <div className="ug-project-box-container" style={carouselSpring}>
+        {/* <div className="ug-project-box-container" style={carouselCalback}>
           <div className="ug-project-box">
             {projects.map((x) => (
               <UgProject
@@ -107,6 +119,19 @@ const Projects = () => {
               />
             ))}
           </div>
+        </div> */}
+        <div onClick={handleIndexChange} className="ug-project-diashow">
+          {projectTransitions.map(({ item, props, key }) => {
+            const Project = projects[item];
+            return (
+              <UgProject
+                Title={Project.Title}
+                Description={Project.Description}
+                key={key}
+                style={props}
+              />
+            );
+          })}
         </div>
       </motion.div>
     );

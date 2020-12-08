@@ -1,9 +1,11 @@
 .ug-project{
-    position: relative;
-    height:80%;
-    min-width: 90vw;
-    margin: 0 5vw;
+    position: absolute;
+    
+    display: inline-block;
+    height:100%;
+    width: 100%;
     background-color: rgba(97, 5, 5, 0.178);
-    bottom: 0;
+    // bottom: 0;
     border-radius: 15px;
+    
 }
