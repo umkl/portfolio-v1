@@ -3,7 +3,6 @@
 #ug-nav-bar{
     position: relative;
     display: inline-block;
-    // width: 20%;
     height: 100%;
     display: flex;
     width: fit-content;
@@ -11,7 +10,6 @@
     justify-content: start;
     align-items: center;
     flex-direction: row;
-    // position: fixed;
     background-color: blue;
     .ug-nav-element{
         margin: 20px;

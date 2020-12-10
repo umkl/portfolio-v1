@@ -18,9 +18,9 @@ const UgBtn = () => {
               <div className="ug-btn-twin-login-darkmode">login</div>
             </Link>
 
-            <Link className="ug-nav-link" to="/registration">
+            {/* <Link className="ug-nav-link" to="/registration">
               <div className="ug-btn-twin-register-darkmode">register</div>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@ const UgBtn = () => {
         <div className="ug-btn">
           <div className="ug-btn-twin">
             <div className="ug-btn-twin-login-darkmode">login</div>
-            <div className="ug-btn-twin-register-darkmode">register</div>
+            {/* <div className="ug-btn-twin-register-darkmode">register</div> */}
           </div>
           {/* <div className="ug-btn-darkmode">
             <img
@@ -53,9 +53,9 @@ const UgBtn = () => {
               <div className="ug-btn-twin-login-darkmode">login</div>
             </Link>
 
-            <Link className="ug-nav-link" to="/registration">
+            {/* <Link className="ug-nav-link" to="/registration">
               <div className="ug-btn-twin-register-darkmode">register</div>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
@@ -69,10 +69,11 @@ const UgBtn = () => {
             <Link className="ug-nav-link" to="/login">
               <div className="ug-btn-twin-login-darkmode">login</div>
             </Link>
-
+{/* 
             <Link className="ug-nav-link" to="/registration">
               <div className="ug-btn-twin-register-darkmode">register</div>
-            </Link>
+            </Link> */}
+            
           </div>
         </div>
       </div>
@@ -86,28 +87,30 @@ const UgBtn = () => {
                 login
               </Link>
             </div> */}
-          <Link to="/registration">
+          {/* <Link to="/registration">
             <div className="ug-btn-register-darkmode">register</div>
-          </Link>
+          </Link> */}
         </div>
       </div>
     );
-  } else if (location.pathname == "/registration") {
-    return (
-      <div className="ug-btn">
-        <div className="ug-btn-twin">
-          {/* <div className="ug-btn-twin-login-darkmode">
-              <Link className="ug-nav-link" to="/login">
-                login
-              </Link>
-            </div> */}
-          <Link to="/login">
-            <div className="ug-btn-register-darkmode">login</div>
-          </Link>
-        </div>
-      </div>
-    );
-  }
+  } 
+  
+  // else if (location.pathname == "/registration") {
+  //   return (
+  //     <div className="ug-btn">
+  //       <div className="ug-btn-twin">
+  //         {/* <div className="ug-btn-twin-login-darkmode">
+  //             <Link className="ug-nav-link" to="/login">
+  //               login
+  //             </Link>
+  //           </div> */}
+  //         <Link to="/login">
+  //           <div className="ug-btn-register-darkmode">login</div>
+  //         </Link>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 };
 
 export default UgBtn;

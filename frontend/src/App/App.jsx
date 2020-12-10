@@ -4,7 +4,7 @@ import Contact from "./pages/Contact/contact.jsx";
 import Error from "./pages/Error/error.js";
 import Foyer from "./pages/Foyer/foyer.jsx";
 import Login from "./pages/Login/login.jsx";
-import Registration from "./pages/Registration/registration.jsx"
+// import Registration from "./pages/Registration/registration.jsx"
 
 import UgBar from "./shared/bar/bar.jsx";
 import "./scss/App.scss";
@@ -81,7 +81,7 @@ function App() {
             <Route path="/contact" component={Contact}></Route>
 
             <Route path="/login" component={Login}></Route>
-            <Route path="/registration" component={Registration}></Route>
+            {/* <Route path="/registration" component={Registration}></Route> */}
             <Route component={Error}></Route>
           </Switch>
         </AnimatePresence>
