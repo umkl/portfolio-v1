@@ -1,66 +1,53 @@
-// import React, { Component } from 'react'
 import "./container.scss";
 import Aos from "aos";
 import { useSpring, animated as a } from "react-spring";
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import useOnScreen from "./../../../utils/useOnScreen.jsx";
-// import {useSpring, animated as a} from "re";
-
-// import React from 'react'
 
 const Container = (props) => {
   const ref = useRef();
   const isVisible = useOnScreen(ref);
-  const springProps = useSpring({opacity: isVisible ? 1 : 0, marginLeft: isVisible?0: -500});
-
-  // useEffect(() => {
-  //   // console.log(isVisible?"visi":"nope")
-  //   return () => {
-  //   }
-  // }, [isVisible])
+  const springProps = useSpring({
+    opacity: isVisible ? 1 : 0,
+    marginLeft: isVisible ? 0 : -500,
+  });
 
   return (
-      <a.div ref={ref} style={springProps} className="ug-container" >
-        <div className="ug-container-heading">{props.heading}</div>
-        <div className="ug-container-small_description">
-          {props.description}
-          {props.height}
-        </div>
-      </a.div>
-    
+    <a.div ref={ref} style={springProps} className="ug-container">
+      <div className="ug-container-heading">{props.heading}</div>
+      <div className="ug-container-small_description">
+        {props.description}
+        {props.height}
+      </div>
+    </a.div>
   );
-}
-
+};
 
 export default Container;
 
+// state = {
+//   showBox: false
+// };
 
+// handleBoxToggle = () => this.setState({ showBox: !this.state.showBox });
 
+// // componentDidMount(){
+// //   var name = React.find
+// // }
 
-
-  // state = {
-  //   showBox: false
-  // };
-
-  // handleBoxToggle = () => this.setState({ showBox: !this.state.showBox });
-
-  // // componentDidMount(){
-  // //   var name = React.find
-  // // }
-
-  // render() {
-  //   return (
-  //     <div
-  //       onMouseEnter={this.handleBoxToggle}
-  //       onMouseLeave={this.handleBoxToggle}
-  //       className={`container${this.state.showBox ? " show" : ""}`}
-  //     >
-  //       <div className="wrapper">
-  //         <div className="innerBox" />
-  //       </div>
-  //     </div>
-  //   );
-  // }
+// render() {
+//   return (
+//     <div
+//       onMouseEnter={this.handleBoxToggle}
+//       onMouseLeave={this.handleBoxToggle}
+//       className={`container${this.state.showBox ? " show" : ""}`}
+//     >
+//       <div className="wrapper">
+//         <div className="innerBox" />
+//       </div>
+//     </div>
+//   );
+// }
 
 // constructor(props) {
 //   super(props);

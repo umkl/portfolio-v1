@@ -1,52 +1,36 @@
-//importing variables
 @import "./../../../scss/variables.scss";
 
-.ug-container{
-    
-    width: 80%; 
-    // height: 200px;
-    // margin: 20px;
-    display: block;
-    // transform: skewX(-20deg);
-    background-color: rgba(223, 223, 223, 0.301);
-    // margin: 10px auto 10px auto;
-    // left: 50%;
-    // transform: translateX(-50%);
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 10px;
-    border-radius: 10px;
-    min-height: 300px;
-
-    // *{
-    //     transform: skewX(20deg);
-    // }
+.ug-container {
+  width: 80%;
+  display: block;
+  background-color: rgba(223, 223, 223, 0.301);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 10px;
+  border-radius: 10px;
+  min-height: 300px;
 }
 
-.ug-container-heading{
-    font-family: YanoneKaffeesatz-Bold;
-    font-size: 40px;
-    display: inline-block;
-    color: white;
-    position: relative;
-    top: 10px;
-    left: 20px;
+.ug-container-heading {
+  font-family: YanoneKaffeesatz-Bold;
+  font-size: 40px;
+  display: inline-block;
+  color: white;
+  position: relative;
+  top: 10px;
+  left: 20px;
 }
 
-.ug-container-small_description{
-    // display: inline-block;
-    font-size: 20px;
-    // position: relative;
-    color: white;
-    font-family: YanoneKaffeesatz-Light;
-    display: block;
-    margin: 20px;
-    // background-color: #666;
-    // position: relative;
-    top: 25px;
-    left: 50px;
-    max-width: 400px;
+.ug-container-small_description {
+  font-family: YanoneKaffeesatz-Light;
+  font-size: 20px;
+  color: white;
+  display: block;
+  margin: 20px;
+  top: 25px;
+  left: 50px;
+  max-width: 400px;
 }
 
 .container,
@@ -60,7 +44,6 @@
   width: 200px;
   height: 200px;
   background-color: #ccc;
-  // margin: 60px auto 0;
   display: flex;
 }
 

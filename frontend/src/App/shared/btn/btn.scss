@@ -1,86 +1,38 @@
 .ug-btn {
   height: 100%;
-  background-color: transparent;
   position: absolute;
   justify-content: center;
   align-items: center;
   display: flex;
   right: 4%;
-  background-color: green;
-  
-  .ug-btn-darkmode {
+
+  .ug-btn-login {
     height: 50px;
     width: 50px;
-    box-shadow: inset 0px 0px 30px #242424, 0px 0px 50px #363636;
-    background-color: #454444;
+    background-color: #323232;
     border-radius: 15px;
     margin-left: 10px;
     margin-right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    img {
-      opacity: 0.5;
-      height: 30px;
-      width: 30px;
-    }
+    padding: 0px 16px;
   }
-  .ug-btn-twin {
-    // color: rgba(255, 255, 255, 0.5);
-    color: white;
-    display: flex;
-    font-family: YanoneKaffeesatz-Regular;
-    font-size: 20px;
-    .ug-btn-twin-login-darkmode {
-      height: 50px;
-      width: 50px;
-      // box-shadow: inset 0px 0px 30px #242424, 0px 0px 50px #363636;
-      background-color: #323232;
-      border-radius: 15px;
-      margin-left: 10px;
-      margin-right: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0px 16px;
-    }
-    .ug-btn-twin-register-darkmode {
-      height: 50px;
-      //   width: 50px;
-      padding: 0px 10px;
-      // box-shadow: inset 0px 0px 30px #242424, 0px 0px 50px #363636;
-      background-color: #323232;
-      border-radius: 0px 15px 15px 0px;
-      margin-left: 3px;
-      margin-right: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .ug-nav-link{
-      text-decoration: none;
-      color: white;
-    }
-  }
-
-  .ug-btn-register-darkmode {
+  .ug-btn-search {
     height: 50px;
-    //width: 50px;
-    padding: 0px 15px;
-    box-shadow: inset 0px 0px 30px #242424, 0px 0px 50px #363636;
-    background-color: #454444;
+    width: 50px;
+    background-color: #323232;
     border-radius: 15px;
-    // margin-left: 3px;
-    // margin-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0px 16px;
   }
-}
 
-.ug-btn-login {
-  color: white;
-  position: absolute;
-  top: 10px;
-  left: 20px;
+  .ug-nav-link {
+    text-decoration: none;
+    display: flex;
+  }
 }

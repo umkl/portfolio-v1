@@ -6,7 +6,7 @@ import React, {
   useRef,
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { config,useTransition, useSpring, animated as a } from "react-spring";
+import { config, useTransition, useSpring, animated as a } from "react-spring";
 
 //UgProject
 import UgProject from "./Project/project.jsx";
@@ -32,11 +32,11 @@ const Projects = () => {
     []
   );
 
-  const projectTransitions = useTransition(index, p => p, {
-    from: { opacity: 0, backgroundColor: "blue", transform: "translate3d(100%,0,0) scale(0.5,0.5)" },
-    enter: { opacity: 1, backgroundColor: "red", transform: "translate3d(0%,0,0) scale(1,1)" },
-    leave: { opacity: 0, backgroundColor: "green", transform: "translate3d(-50%,0,0) scale(0.5,0.5)" },
-    config: {...config.molasses	, duration: 500}
+  const projectTransitions = useTransition(index, (p) => p, {
+    from: { opacity: 0, transform: "translate3d(100%,0,0) scale(0.5,0.5)" },
+    enter: { opacity: 1, backgroundColor: "white", transform: "translate3d(0%,0,0) scale(1,1)" },
+    leave: { opacity: 0, transform: "translate3d(-50%,0,0) scale(0.5,0.5)" },
+    config: { ...config.molasses, duration: 500 },
   });
   //useSpring example transition handler
 

@@ -1,6 +1,5 @@
 @import "./../../scss/variables.scss";
 
-
 .ug-foyer {
   width: 100%;
   position: absolute;
@@ -12,33 +11,15 @@
     height: 100vh;
     width: 100%;
     z-index: 0;
-    background-color: aqua;
-    
+
     position: relative;
-    // .ug-foyer-intro-content {
-    //   color: rgba(255, 255, 255, 0.479);
-    //   font-family: YanoneKaffeesatz-Regular;
-    //   font-size: 40px;
-    //   position: relative;
-    //   top: 50%;
-    //   transform: translateY(-50%);
-    //   left: calc(100% - 200px);
-    //   transform: rotate(-90deg);
-    //   display: inline-block;
-    //   transition: font-size 1s, color 1s;
-    //   // background-color: aliceblue; 
-    //   &:hover {
-    //     font-size: 60px;
-    //     color: rgba(255, 255, 255, 1);
-    //   }
-    // }
-  
+
     .ug-foyer-intro-about {
       color: rgba(255, 255, 255, 0.5);
       font-family: YanoneKaffeesatz-Regular;
       font-size: 40px;
       position: relative;
-      
+
       display: inline-block;
       left: 50%;
       transform: translateX(-50%);
@@ -49,9 +30,8 @@
         color: rgba(255, 255, 255, 1);
       }
     }
-  
+
     #ug-foyer-box {
-      background-color: grey;
       color: white;
       font-family: AlteSchwabacher;
       font-size: calc(5vh + 15vw);
@@ -60,7 +40,7 @@
       @include center();
       position: absolute;
       pointer-events: none;
-  
+
       .ug-foyer-name {
         font-family: AlteSchwabacher;
         color: white;
@@ -83,5 +63,3 @@
     }
   }
 }
-
-

@@ -1,63 +1,40 @@
-import React from "react";
+import React, {useState} from "react";
 import "./btn.scss";
 import { useLocation } from "react-router-dom";
 import UgWeatherIcon from "./../../assets/Ungar-weather.svg";
 import { Link } from "react-router-dom";
+import {useSpring, animated as a } from "react-spring";
 
 const UgBtn = () => {
+  const [isActive, setActive] = useState(true);
+  const searchSpring = useSpring({opacity: isActive ? 1: 0});
+
   const location = useLocation();
-  // console.log(location.pathname);
-  // console.log(location.pathname=="/p")
   if (location.pathname == "/") {
     return (
-      <div>
-        <div className="ug-btn">
-          {/* <div>lakösjflkö</div> */}
-          <div className="ug-btn-twin">
-            <Link className="ug-nav-link" to="/login">
-              <div className="ug-btn-twin-login-darkmode">login</div>
-            </Link>
-
-            {/* <Link className="ug-nav-link" to="/registration">
-              <div className="ug-btn-twin-register-darkmode">register</div>
-            </Link> */}
-          </div>
-        </div>
+      <div className="ug-btn">
+        <Link className="ug-nav-link" to="/login">
+          <div className="ug-btn-twin-login-darkmode">login</div>
+        </Link>
       </div>
     );
   } else if (location.pathname == "/projects") {
     return (
-      <div>
-        <div className="ug-btn">
-          <div className="ug-btn-twin">
-            <div className="ug-btn-twin-login-darkmode">login</div>
-            {/* <div className="ug-btn-twin-register-darkmode">register</div> */}
-          </div>
-          {/* <div className="ug-btn-darkmode">
-            <img
-              className="ug-btn1-normal-icon"
-              src={UgWeatherIcon}
-              alt="ug weather icon"
-            />
-          </div> */}
+      <div className="ug-btn">
+        <div className="ug-btns">
+          <div className="ug-btn-twin-login-darkmode">login</div>
         </div>
       </div>
     );
   } else if (location.pathname == "/content") {
     return (
-      <div>
-        <div className="ug-btn">
-          {/* <div>lakösjflkö</div> */}
-          <div className="ug-btn-twin">
-            <Link className="ug-nav-link" to="/login">
-              <div className="ug-btn-twin-login-darkmode">login</div>
-            </Link>
+      <div className="ug-btn">
 
-            {/* <Link className="ug-nav-link" to="/registration">
-              <div className="ug-btn-twin-register-darkmode">register</div>
-            </Link> */}
-          </div>
-        </div>
+        <a.div style={searchSpring} onClick={()=>{setActive(!isActive)}} className="ug-btn-search">search</a.div>
+
+        <Link className="ug-nav-link" to="/login">
+          <div className="ug-btn-login">login</div>
+        </Link>
       </div>
     );
   } else if (location.pathname == "/contact") {
@@ -65,15 +42,14 @@ const UgBtn = () => {
       <div>
         <div className="ug-btn">
           {/* <div>lakösjflkö</div> */}
-          <div className="ug-btn-twin">
+          <div className="ug-btns">
             <Link className="ug-nav-link" to="/login">
               <div className="ug-btn-twin-login-darkmode">login</div>
             </Link>
-{/* 
+            {/* 
             <Link className="ug-nav-link" to="/registration">
               <div className="ug-btn-twin-register-darkmode">register</div>
             </Link> */}
-            
           </div>
         </div>
       </div>
@@ -81,7 +57,7 @@ const UgBtn = () => {
   } else if (location.pathname == "/login") {
     return (
       <div className="ug-btn">
-        <div className="ug-btn-twin">
+        <div className="ug-btns">
           {/* <div className="ug-btn-twin-login-darkmode">
               <Link className="ug-nav-link" to="/login">
                 login
@@ -93,8 +69,8 @@ const UgBtn = () => {
         </div>
       </div>
     );
-  } 
-  
+  }
+
   // else if (location.pathname == "/registration") {
   //   return (
   //     <div className="ug-btn">

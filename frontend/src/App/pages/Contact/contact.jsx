@@ -23,7 +23,7 @@ export default function Contact() {
   const contactSpring = useSpring({
     to: { opacity: 1, marginLeft: "0px" },
     from: { opacity: 0, marginLeft: "-400px" },
-    config: config.slow,
+    config: config.stable,
   });
 
   // const buttonSpring = useSpring({
@@ -44,7 +44,7 @@ export default function Contact() {
       <div className="ug-contact-container">
         <div className="ug-contact-links">
           <div className="ug-contact-links-2">
-            <div className="ug-contact-container-line">
+            <a.div style={contactSpring} className="ug-contact-container-line">
               <img
                 src={InstagramLogo}
                 alt="Instagram Logo"
@@ -60,7 +60,7 @@ export default function Contact() {
                   Facebook
                 </a.div>
               </div>
-            </div>
+            </a.div>
             <a.div style={contactSpring} className="ug-contact-container-line">
               <img
                 src={InstagramLogo}

@@ -1,5 +1,5 @@
 // import UngarIcon from "./../../assets/Ungar-Icon.png";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./nav.scss";
 // import UgNavname from "./elem/elem.jsx";
 import { Link } from "react-router-dom";
@@ -18,20 +18,16 @@ export default function UgNav() {
   const [varClicked, setClicked] = useState(clicked);
 
   const getClicked = () => {
-    if(location.pathname == "/"){
-      setClicked()
-    }else if(location.pathname == "/content"){
-      console.log("sadf")
-    }else if(location.pathname == "/projects"){
-      console.log("sadf")
-    }else if(location.pathname == "/contact"){
-      
+    if (location.pathname == "/") {
+      setClicked();
+    } else if (location.pathname == "/content") {
+      console.log("sadf");
+    } else if (location.pathname == "/projects") {
+      console.log("sadf");
+    } else if (location.pathname == "/contact") {
     }
-  }
+  };
 
-
-
-  
   function changeClickedTo(num) {
     setClicked({
       1: num == 1 ? true : false,
@@ -43,24 +39,20 @@ export default function UgNav() {
   }
 
   useEffect(() => {
-    if(location.pathname == "/"){
-      changeClickedTo(1)
-    }else if(location.pathname == "/content"){
-      changeClickedTo(2)
-    }else if(location.pathname == "/projects"){
-      changeClickedTo(5)
-    }else if(location.pathname == "/contact"){
-      changeClickedTo(3)
+    if (location.pathname == "/") {
+      changeClickedTo(1);
+    } else if (location.pathname == "/content") {
+      changeClickedTo(2);
+    } else if (location.pathname == "/projects") {
+      changeClickedTo(5);
+    } else if (location.pathname == "/contact") {
+      changeClickedTo(3);
     }
-    return () => {
-    }
-  }, [location.pathname])
+    return () => {};
+  }, [location.pathname]);
 
-
-  if (location.pathname == "/login" || location.pathname == "/registration") {
-    
+  if (location.pathname == "/login") {
     return (
-
       <nav id="ug-nav-bar">
         <div className="ug-nav-element">
           <Link
@@ -73,6 +65,8 @@ export default function UgNav() {
               U
             </span>
           </Link>
+      
+
         </div>
       </nav>
     );
@@ -83,9 +77,7 @@ export default function UgNav() {
           <Link
             className="ug-nav-link"
             to="/"
-            // onClick={() => changeClickedTo(1)}
           >
-            {/* <button onClick={changeClickedTo(1)}>change clioc</button> */}
             <span
               className={
                 varClicked[1]
@@ -172,8 +164,6 @@ export default function UgNav() {
     );
   }
 }
-
-
 
 // export default class UgNav extends Component {
 //   constructor() {
