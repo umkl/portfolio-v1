@@ -1,20 +1,40 @@
-import React, {useState} from "react";
-import "./btn.scss";
+import React, { useState, useRef, useEffect } from "react";
+import { useSpring, animated as a } from "react-spring";
 import { useLocation } from "react-router-dom";
-import UgWeatherIcon from "./../../assets/Ungar-weather.svg";
 import { Link } from "react-router-dom";
-import {useSpring, animated as a } from "react-spring";
+
+import "./btn.scss";
+
+import SearchIcon from "./../../assets/Searchicon.png";
+// import UgWeatherIcon from "./../../assets/Ungar-weather.svg";
 
 const UgBtn = () => {
-  const [isActive, setActive] = useState(true);
-  const searchSpring = useSpring({opacity: isActive ? 1: 0});
+  const [isActive, setActive] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const searchRef = useRef();
+
+  const searchSpring = useSpring(
+    isActive
+      ? {
+          width: "200px",
+        }
+      : {
+          width: "80px",
+          // minWidth:"fitContent"
+          // width: "65px",
+        }
+  );
+
+  useEffect(() => {
+    console.log(searchInput);
+  }, [searchInput]);
 
   const location = useLocation();
   if (location.pathname == "/") {
     return (
       <div className="ug-btn">
         <Link className="ug-nav-link" to="/login">
-          <div className="ug-btn-twin-login-darkmode">login</div>
+          <div className="ug-btn-twin-login">login</div>
         </Link>
       </div>
     );
@@ -29,9 +49,30 @@ const UgBtn = () => {
   } else if (location.pathname == "/content") {
     return (
       <div className="ug-btn">
-
-        <a.div style={searchSpring} onClick={()=>{setActive(!isActive)}} className="ug-btn-search">search</a.div>
-
+        <a.div style={searchSpring} className="ug-btn-search">
+          <input
+            ref={searchRef}
+            onFocus={() => {
+              setActive(true);
+            }}
+            onBlur={() => {
+              setActive(false);
+            }}
+            className="ug-btn-search-input"
+            type="text"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            placeholder="search"
+          />
+        </a.div>
+        <div
+          onClick={() => {
+            searchRef.current.focus();
+          }}
+          className="ug-btn-search_icon"
+        >
+          <img src={SearchIcon} alt="" height="20px" width="20px" />
+        </div>
         <Link className="ug-nav-link" to="/login">
           <div className="ug-btn-login">login</div>
         </Link>
@@ -41,7 +82,6 @@ const UgBtn = () => {
     return (
       <div>
         <div className="ug-btn">
-          {/* <div>lakösjflkö</div> */}
           <div className="ug-btns">
             <Link className="ug-nav-link" to="/login">
               <div className="ug-btn-twin-login-darkmode">login</div>
