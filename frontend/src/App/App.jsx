@@ -8,11 +8,11 @@ import Login from "./pages/Login/login.jsx";
 
 import UgBar from "./shared/bar/bar.jsx";
 import "./scss/App.scss";
-import React, { useRef, useState,useCallback, useLayoutEffect } from "react";
+import React, { useRef, useState, useCallback, useLayoutEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { createStore } from "redux";
 import { AnimatePresence, motion } from "framer-motion";
-
+import { SearchProvider } from "./context/SearchContext.js";
 
 function App() {
   // const cursorRef = useRef(null);
@@ -37,14 +37,17 @@ function App() {
 
   // const _onScroll = (e) =>
 
-  const _onMousemove = useCallback((e) => {
-    // console.log(e.screenX);
-    // console.log(cursorStyle.top)
-    // console.log(e.pageX);
-    // console.log(cursorStyle.left)
-    // console.log(e.pageY);
-    setCursorState({ x: e.pageX, y: e.pageY });
-  },[cursorState])
+  const _onMousemove = useCallback(
+    (e) => {
+      // console.log(e.screenX);
+      // console.log(cursorStyle.top)
+      // console.log(e.pageX);
+      // console.log(cursorStyle.left)
+      // console.log(e.pageY);
+      setCursorState({ x: e.pageX, y: e.pageY });
+    },
+    [cursorState]
+  );
 
   // const _onMouseDown = (e) =>{
 
@@ -67,26 +70,23 @@ function App() {
   };
 
   return (
-    <>
-      <div
-        onMouseMove={_onMousemove.bind(this)}
-      >
-        <div className={getCursorClasses()} style={cursorStyle}></div>
+    <div onMouseMove={_onMousemove.bind(this)}>
+      <div className={getCursorClasses()} style={cursorStyle}></div>
+      <SearchProvider>
         <UgBar />
         <AnimatePresence>
           <Switch className="ug-switch">
             <Route exact path="/" component={Foyer}></Route>
             <Route path="/projects" component={Projects}></Route>
-            <Route path="/content" component={Content}></Route>
+            <Route path="/content" component={Content} />
             <Route path="/contact" component={Contact}></Route>
-
             <Route path="/login" component={Login}></Route>
             {/* <Route path="/registration" component={Registration}></Route> */}
             <Route component={Error}></Route>
           </Switch>
         </AnimatePresence>
-      </div>
-    </>
+      </SearchProvider>
+    </div>
   );
 }
 

@@ -1,9 +1,18 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useContext,
+} from "react";
+
 import Container from "./Container/container.jsx";
 import UgContainer from "./Container/container.jsx";
 import { AnimatePresence, motion } from "framer-motion";
 import useWindowPosition from "./../../utils/useWindowPosition.jsx";
 import { animated, useSpring, Spring } from "react-spring";
+
+import { SearchContext } from "./../../context/SearchContext";
 
 import "./content.scss";
 
@@ -13,19 +22,30 @@ const Content = () => {
 
   //hooks
   // const propsss = useSpring({"height": `${scrollPosition+100}px`, from: {"height": `${scrollPosition}px`}})
+  const [searchInput, setSearchInput] = useContext(SearchContext);
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
-  const [scrollPosition, setPosition] = useState(0);
-  const ugHeightRef = useRef(0);
 
-  useLayoutEffect(() => {
-    function updatePosition() {
-      setPosition(window.pageYOffset);
-    }
-    window.addEventListener("scroll", updatePosition);
-    updatePosition();
-    return () => window.removeEventListener("scroll", updatePosition);
-  }, []);
+  // const [scrollPosition, setPosition] = useState(0);
+
+  const [numberOfResults, setNumberOfResults] = useState(0);
+
+  const increaseNumberOfResults = () => {
+    setNumberOfResults(() => {
+      numberOfResults + 1;
+    });
+  };
+
+  // const ugHeightRef = useRef(0);
+
+  // useLayoutEffect(() => {
+  //   function updatePosition() {
+  //     setPosition(window.pageYOffset);
+  //   }
+  //   window.addEventListener("scroll", updatePosition);
+  //   updatePosition();
+  //   return () => window.removeEventListener("scroll", updatePosition);
+  // }, []);
 
   useEffect(() => {
     loadData();
@@ -52,13 +72,13 @@ const Content = () => {
   } else {
     return (
       <motion.div
-        ref={ugHeightRef}
         className="ug-content"
         exit={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
         {/* <div className="ug-background_shader"></div> */}
+
         <div className="ug-container-box">
           <div
             style={{
@@ -67,9 +87,48 @@ const Content = () => {
               width: "100%",
             }}
           ></div>
+          {/* <div className="ug-container-recents_heading">recents</div> */}
+          {searchInput == "" ? (
+            <div className="ug-container-recents_heading">recents</div>
+          ) : numberOfResults == 0 ? (
+            <div className="ug-container-recents_heading">no Result</div>
+          ) : (
+            <div className="ug-container-recents_heading">Result</div>
+          )}
 
-          <div className="ug-container-recents_heading">recents</div>
+          {searchInput == ""
+            ? contributions.map((x) => (
+                <UgContainer
+                  key={x.ID}
+                  heading={x.Heading}
+                  description={x.Description}
+                />
+              ))
+            : contributions.map((x) => {
+                console.log(x.Heading);
+                let includesCurrent = x.Heading.includes(searchInput);
+                // includesCurrent ? increaseNumberOfResults() : ;
+                // includesCurrent ?? increaseNumberOfResults();
+                let funcd = () => {
+                  
+                  return (
+                    <UgContainer
+                      key={x.ID}
+                      heading={x.Heading}
+                      description={x.Description}
+                    />
+                  );
+                };
 
+                setNumberOfResults(x=>x+1); //cause reerender and the same element gets spit out
+                //doesnt work with state
+                console.log("number of Results" + numberOfResults);
+                return includesCurrent
+                  ? // ()=>increaseNumberOfResults;
+                    funcd()
+                  : "";
+              })}
+          {/* 
           {contributions.map((x) => (
             <UgContainer
               key={x.ID}
@@ -77,7 +136,7 @@ const Content = () => {
               description={x.Description}
               // height={scrollPosition}
             />
-          ))}
+          ))} */}
         </div>
         <div className="ug-menu_shadow" />
       </motion.div>

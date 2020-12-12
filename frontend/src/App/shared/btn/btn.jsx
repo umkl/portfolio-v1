@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { useSpring, animated as a } from "react-spring";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { SearchContext } from "./../../context/SearchContext";
 
 import "./btn.scss";
 
@@ -10,7 +11,7 @@ import SearchIcon from "./../../assets/Searchicon.png";
 
 const UgBtn = () => {
   const [isActive, setActive] = useState(false);
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useContext(SearchContext);
   const searchRef = useRef();
 
   const searchSpring = useSpring(
@@ -24,6 +25,12 @@ const UgBtn = () => {
           // width: "65px",
         }
   );
+
+  // useEffect(() => {
+  //   console.log("loaded");
+  //   console.log(value);
+  //   console.log("loaded");
+  // }, []);
 
   useEffect(() => {
     console.log(searchInput);
