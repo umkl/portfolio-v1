@@ -15,7 +15,7 @@ const UgAboutCard = (props) => {
     }
   }, [isVisible])
 
-  const springProps = useSpring({opacity: isVisible ? 1 : 0, marginLeft: isVisible?0: -500, config:config.molasses})
+  const springProps = useSpring({opacity: isVisible ? 1 : 0, transform: isVisible ? "scale(1)" : "scale(0.3)", config:config.molasses})
 
   return (
     <a.div style={springProps} ref={ref}>

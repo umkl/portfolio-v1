@@ -41,7 +41,7 @@ const UgBtn = () => {
     return (
       <div className="ug-btn">
         <Link className="ug-nav-link" to="/login">
-          <div className="ug-btn-twin-login">login</div>
+          <div className="ug-btn-login">login</div>
         </Link>
       </div>
     );
@@ -49,7 +49,7 @@ const UgBtn = () => {
     return (
       <div className="ug-btn">
         <div className="ug-btns">
-          <div className="ug-btn-twin-login-darkmode">login</div>
+          <div className="ug-btn-login">login</div>
         </div>
       </div>
     );
@@ -91,7 +91,7 @@ const UgBtn = () => {
         <div className="ug-btn">
           <div className="ug-btns">
             <Link className="ug-nav-link" to="/login">
-              <div className="ug-btn-twin-login-darkmode">login</div>
+              <div className="ug-btn-login">login</div>
             </Link>
             {/* 
             <Link className="ug-nav-link" to="/registration">

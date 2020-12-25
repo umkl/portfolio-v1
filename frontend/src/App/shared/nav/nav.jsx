@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import "./nav.scss";
 // import UgNavname from "./elem/elem.jsx";
 import { Link } from "react-router-dom";
+import UngarLogo from "./../../assets/UNGAR_NEW_LOGO.svg";
 
-const _ = require("lodash");
-
+// const _ = require("lodash");
+/*  */
 export default function UgNav() {
   const clicked = {
     1: false,
@@ -64,9 +65,8 @@ export default function UgNav() {
             <span className="ug-nav-element-icon ug-nav-element-selected_true">
               U
             </span>
+            {/* <img src={ungarLogo} /> */}
           </Link>
-      
-
         </div>
       </nav>
     );
@@ -74,21 +74,12 @@ export default function UgNav() {
     return (
       <nav id="ug-nav-bar">
         <div className="ug-nav-element">
-          <Link
-            className="ug-nav-link"
-            to="/"
-          >
-            <span
-              className={
-                varClicked[1]
-                  ? "ug-nav-element-icon ug-nav-element-selected_true"
-                  : "ug-nav-element-icon ug-nav-element-selected_false"
-              }
-            >
-              U
-            </span>
+          <Link className="ug-nav-link" to="/">
+
+            <img className="ug-nav-link-icon" src={UngarLogo} width="50px" height="50px" />
           </Link>
         </div>
+
         <div className="ug-nav-element">
           <Link
             className="ug-nav-link"

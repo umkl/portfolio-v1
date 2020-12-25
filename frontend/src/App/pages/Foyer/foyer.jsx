@@ -10,6 +10,8 @@ import UgAboutCard from "./about/about.jsx";
 import useBreakpointInText from "./../../utils/useBreakpointInText.jsx";
 import useOnScreen from "./../../utils/useOnScreen.jsx"
 
+import ungarFullLogo from "./../../assets/UNGAR-FULL.svg";
+
 import "./foyer.scss";
 
 //3rd party libraries
@@ -129,7 +131,10 @@ export default function Foyer() {
         </a.div>
         <div id="ug-foyer-box">
           <a.div className="ug-foyer-name" style={ugFoyerNameSpring}>
-            Ungar
+            {/* <img className="ug-foyer-name-svg" src={ungarFullLogo} width="512px" height="512px"/> */}
+            <SvgLoader path={ungarFullLogo}>
+              {/* <SvgProxy selector */}
+            </SvgLoader>
           </a.div>
           <div className="ug-foyer-text">
             Programming and Designing

@@ -27,16 +27,32 @@ const Projects = () => {
 
   const [index, setIndex] = useState(0);
 
-  const handleIndexChange = useCallback(
-    () => setIndex((state) => (state + 1) % 3),
-    []
-  );
+  const handleIndexChange = useCallback((titleName) => {
+    // setIndex(
+    projects.find((elem) => {
+      if (elem.Title == titleName) {
+        let l = projects.indexOf(elem);
+        setIndex(l);
+      }
+    }),
+      [];
+  });
+
+  // const handleIndexChange = (x) =>{
+
+  // }
 
   const projectTransitions = useTransition(index, (p) => p, {
     from: { opacity: 0, transform: "translate3d(100%,0,0) scale(0.5,0.5)" },
-    enter: { opacity: 1, backgroundColor: "white", transform: "translate3d(0%,0,0) scale(1,1)" },
-    leave: { opacity: 0, transform: "translate3d(-50%,0,0) scale(0.5,0.5)" },
-    config: { ...config.molasses, duration: 500 },
+    enter: {
+      opacity: 1,
+      backgroundColor: "white",
+      transform: "translate3d(0,0%,0) scale(1,1)",
+    },
+    leave: { 
+      opacity: 0,
+      transform: "translate3d(0,-500%,0) scale(0.5,0.5)" },
+    // config: { ...config.molasses, duration: 500 },
   });
   //useSpring example transition handler
 
@@ -120,7 +136,7 @@ const Projects = () => {
             ))}
           </div>
         </div> */}
-        <div onClick={handleIndexChange} className="ug-project-diashow">
+        <div className="ug-project-diashow">
           {projectTransitions.map(({ item, props, key }) => {
             const Project = projects[item];
             return (
@@ -131,6 +147,27 @@ const Projects = () => {
                 style={props}
               />
             );
+          })}
+        </div>
+
+        <div className="ug-project-navigator">
+          {projects.map((x) => {
+            if (x.Title == projects[index].Title) {
+              return (
+                <div
+                  key={x._id}
+                  className="ug-project-navigator-dot-active"
+                ></div>
+              );
+            } else {
+              return (
+                <div
+                  onClick={() => handleIndexChange(x.Title)}
+                  key={x._id}
+                  className="ug-project-navigator-dot"
+                ></div>
+              );
+            }
           })}
         </div>
       </motion.div>

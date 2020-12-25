@@ -26,13 +26,10 @@
 
 .ug-container-recents_heading{
   color: white;
+  // background-color: antiquewhite;
   width: 80%;
-  margin: 0 auto;
   font-size: 30px;
-  padding-left: 60px;
-  // left: 50%;
-  // transform: translateX(-50%);
-  // background-color: aqua;
+  padding-left: 15vw;
 }
 
 .ug-loading {
@@ -45,3 +42,4 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+

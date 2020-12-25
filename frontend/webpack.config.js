@@ -16,12 +16,6 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
-        // query: {
-        //    presets: ["@babel/preset-env", "@babel/preset-react"]
-        // },
-        // resolve: {
-        //    extensions: ['.js', '.jsx']
-        // }
       },
       {
         test: /\.s[ac]ss$/i,
@@ -33,17 +27,31 @@ module.exports = {
           loader: "file-loader",
         },
       },
+
+      // {
+      //   test: /\.svg$/i,
+      //   use: [
+      //     {
+      //       loader: "url-loader",
+      //       // options: {
+      //       //   generator: (content) => svgToMiniDataURI(content.toString()),
+      //       // },
+      //     },
+      //   ],
+      // },
+
       {
-        test: /\.svg$/i,
+        test: /\.svg$/,
         use: [
           {
-            loader: 'url-loader',
-            // options: {
-            //   generator: (content) => svgToMiniDataURI(content.toString()),
-            // },
-          }
-        ]
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
       },
+        
       {
         test: /\.(ttf|eot|woff|woff2)$/,
         exclude: /node_modules/,

@@ -10,7 +10,7 @@ import Container from "./Container/container.jsx";
 import UgContainer from "./Container/container.jsx";
 import { AnimatePresence, motion } from "framer-motion";
 import useWindowPosition from "./../../utils/useWindowPosition.jsx";
-import { animated, useSpring, Spring } from "react-spring";
+import { animated, useSpring, Spring, useTransition } from "react-spring";
 
 import { SearchContext } from "./../../context/SearchContext";
 
@@ -25,8 +25,80 @@ const Content = () => {
   const [searchInput, setSearchInput] = useContext(SearchContext);
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+  const [heading, setHeading] = useState("recents");
+  const [contributionSearchResults, setContributionSearchResults] = useState(
+    []
+  );
 
-  // const [scrollPosition, setPosition] = useState(0);
+  useEffect(() => {
+    contributions.map((x) => {
+      //seeing if it can be added
+      if (x.Heading.includes(searchInput)) {
+        //adding to the searchResults
+        setContributionSearchResults((prevRes) => [...prevRes, x]);
+      }
+    });
+
+    if (contributionSearchResults.length == 0 && searchInput != "") {
+      setHeading("no resutls");
+
+    } else if ( searchInput == ""){
+      setHeading("Recents")
+    }
+    else if (contributionSearchResults.length == 1) {
+      setHeading("Result");
+    } else if (contributionSearchResults.length > 1) {
+      setHeading("Results");
+    } 
+
+    return () => {
+      setContributionSearchResults([]);
+    };
+  }, [searchInput]);
+
+  // const springProps = useSpring({
+  //   from: {
+  //     opacity: 0,
+  //     color: "gray",
+  //     transform: "translate3d(100px, 0,0)",
+  //   },
+  //   to: {
+  //     opacity: 1,
+  //     color: "white",
+  //     transform: "translate3d(0, 0,0)",
+  //   }
+  // });
+
+  const springProps = useSpring({
+    from: {
+      opacity: 0,
+      color: "gray",
+      transform: "translate3d(100px, 0,0)",
+    },
+    to: {
+      opacity: 1,
+      color: "white",
+      transform: "translate3d(0, 0,0)",
+    }
+  });
+
+  const springHeadingTransition = useTransition(heading, null, {
+    from: {
+      opacity: 0,
+      color: "gray",
+      transform: "translate3d(100px, 0,0)",
+    },
+    enter: {
+      opacity: 1,
+      color: "white",
+      transform: "translate3d(0, 0,0)",
+    },
+    leave:{
+      opacity: 1,
+      color: "white",
+      transform: "translate3d(0, 0,0)",
+    }
+  })
 
   const [numberOfResults, setNumberOfResults] = useState(0);
 
@@ -87,14 +159,41 @@ const Content = () => {
               width: "100%",
             }}
           ></div>
-          {/* <div className="ug-container-recents_heading">recents</div> */}
-          {searchInput == "" ? (
-            <div className="ug-container-recents_heading">recents</div>
-          ) : numberOfResults == 0 ? (
-            <div className="ug-container-recents_heading">no Result</div>
+
+          {/* {searchInput == "" ? (
+            <animated.div
+              style={springProps}
+              className="ug-container-recents_heading"
+            >
+              recents
+            </animated.div>
+          ) : contributionSearchResults.length == 0 ? (
+            <animated.div
+              style={springProps}
+              className="ug-container-recents_heading"
+            >
+              no Result
+            </animated.div>
+          ) : contributionSearchResults.length > 1 ? (
+            <animated.div
+              style={springProps}
+              className="ug-container-recents_heading"
+            >
+              Results
+            </animated.div>
           ) : (
-            <div className="ug-container-recents_heading">Result</div>
-          )}
+            <animated.div
+              style={springProps}
+              className="ug-container-recents_heading"
+            >
+              {heading}
+            </animated.div>
+          )} */}
+          <animated.div
+            style={springProps}
+            className="ug-container-recents_heading">
+            {heading}
+          </animated.div>
 
           {searchInput == ""
             ? contributions.map((x) => (
@@ -104,39 +203,15 @@ const Content = () => {
                   description={x.Description}
                 />
               ))
-            : contributions.map((x) => {
-                console.log(x.Heading);
-                let includesCurrent = x.Heading.includes(searchInput);
-                // includesCurrent ? increaseNumberOfResults() : ;
-                // includesCurrent ?? increaseNumberOfResults();
-                let funcd = () => {
-                  
-                  return (
-                    <UgContainer
-                      key={x.ID}
-                      heading={x.Heading}
-                      description={x.Description}
-                    />
-                  );
-                };
-
-                setNumberOfResults(x=>x+1); //cause reerender and the same element gets spit out
-                //doesnt work with state
-                console.log("number of Results" + numberOfResults);
-                return includesCurrent
-                  ? // ()=>increaseNumberOfResults;
-                    funcd()
-                  : "";
-              })}
-          {/* 
-          {contributions.map((x) => (
-            <UgContainer
-              key={x.ID}
-              heading={x.Heading}
-              description={x.Description}
-              // height={scrollPosition}
-            />
-          ))} */}
+            : contributionSearchResults.length != 0
+            ? contributionSearchResults.map((x) => (
+                <UgContainer
+                  key={x.ID}
+                  heading={x.Heading}
+                  description={x.Description}
+                />
+              ))
+            : ""}
         </div>
         <div className="ug-menu_shadow" />
       </motion.div>

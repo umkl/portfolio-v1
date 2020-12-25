@@ -5,6 +5,12 @@ import UgLink from "./Link/link.jsx";
 
 import { useSpring, config, animated as a } from "react-spring";
 import InstagramLogo from "./../../assets/Instagram-Logo.png";
+import FiverrLogo from "./../../assets/Fiverr-Logo.png";
+import FacebookLogo from "./../../assets/Facebook-Logo.png";
+import TwitterLogo from "./../../assets/Twitter-Logo.png";
+import GithubLogo from "./../../assets/GitHub-Logo.png";
+
+
 
 export default function Contact() {
   // const linkSpring = useSpring({
@@ -46,7 +52,7 @@ export default function Contact() {
           <div className="ug-contact-links-2">
             <a.div style={contactSpring} className="ug-contact-container-line">
               <img
-                src={InstagramLogo}
+                src={FacebookLogo}
                 alt="Instagram Logo"
                 height="35px"
                 width="35px"
@@ -63,7 +69,7 @@ export default function Contact() {
             </a.div>
             <a.div style={contactSpring} className="ug-contact-container-line">
               <img
-                src={InstagramLogo}
+                src={TwitterLogo}
                 alt="Instagram Logo"
                 height="35px"
                 width="35px"
@@ -97,7 +103,7 @@ export default function Contact() {
             </a.div>
             <a.div style={contactSpring} className="ug-contact-container-line">
               <img
-                src={InstagramLogo}
+                src={GithubLogo}
                 alt="Instagram Logo"
                 height="35px"
                 width="35px"
@@ -114,7 +120,7 @@ export default function Contact() {
             </a.div>
             <a.div style={contactSpring} className="ug-contact-container-line">
             <img
-                src={InstagramLogo}
+                src={FiverrLogo}
                 alt="Instagram Logo"
                 height="35px"
                 width="35px"
