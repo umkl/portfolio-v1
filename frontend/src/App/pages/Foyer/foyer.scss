@@ -1,5 +1,17 @@
 @import "./../../scss/variables.scss";
 
+@font-face{
+  font-family: 'YanoneKaffeesatz-Medium';
+  font-weight: regular;
+  src:url("./../../assets/fonts/Yanone_Kaffeesatz/static/YanoneKaffeesatz-Medium.ttf");
+}
+
+@font-face{
+  font-family: 'ZCOOL_QingKe_HuangYou';
+  font-weight: regular;
+  src:url("./../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
+}
+
 .ug-foyer {
   width: 100%;
   position: absolute;
@@ -16,10 +28,9 @@
 
     .ug-foyer-intro-about {
       color: rgba(255, 255, 255, 0.5);
-      font-family: YanoneKaffeesatz-Regular;
+      font-family:ZCOOL_QingKe_HuangYou;
       font-size: 40px;
       position: relative;
-
       display: inline-block;
       left: 50%;
       transform: translateX(-50%);
@@ -33,38 +44,44 @@
 
     #ug-foyer-box {
       color: white;
-      font-family: AlteSchwabacher;
+    
       font-size: calc(5vh + 15vw);
       // height: calc(40vh);
       display: inline-block;
       @include center();
       position: absolute;
       pointer-events: none;
-
-      .ug-foyer-name {
-        font-family: AlteSchwabacher;
-        color: white;
-        position: relative;
-        // font-size: 50%;
-        width: fit-content;
-        margin: 0 auto 0 auto;
-        .ug-foyer-name-svg{
-          height: 190px;
-          width: 2000px;
-
-
+      .fullLogo{
+        path{
+          // stroke-width: 2;
+          stroke: white
         }
       }
+      // .ug-foyer-name {
+      //   font-family: AlteSchwabacher;
+      //   color: white;
+      //   position: relative;
+      //   // font-size: 50%;
+      //   width: fit-content;
+      //   margin: 0 auto 0 auto;
+      //   .ug-foyer-name-svg{
+      //     height: 190px;
+      //     width: 2000px;
+
+
+      //   }
+      // }
       .ug-foyer-text {
-        font-family: YanoneKaffeesatz-Light;
-        color: rgba(255, 255, 255, 0.534);
+        font-family: ZCOOL_QingKe_HuangYou;
+        color: rgb(218, 218, 218);
         position: relative;
         width: fit-content;
-        // height: 10px;
+        
         text-align: center;
-        font-size: calc(1vh + 2vw);
-
+        font-size: calc(1vh + 3vw);
+        font-weight:100;
         margin: 0 auto;
+
       }
     }
   }

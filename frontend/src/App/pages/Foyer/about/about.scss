@@ -1,7 +1,8 @@
 .ug-foyer-about {
   height: 600px;
   width: 1100px;
-  background-color: #86868625;
+  // background-color: #86868625;
+  border: 2px solid white;
   border-radius: 15px;
   margin-bottom: 20px;
   display: flex;
@@ -12,7 +13,7 @@
     height: 100%;
     width: 50%;
     font-size: 100px;
-    font-family: AlteSchwabacher;
+    font-family: 'ZCOOL_QingKe_HuangYou';
     display: block;
     display: flex;
     align-items: center;
@@ -31,13 +32,14 @@
     justify-content: center;
     text-align: center;
     height: 100%;
-    width: 50%;
+    min-width: 60%;
+    font-family: 'ZCOOL_QingKe_HuangYou';
     p {
       max-width: 300px;
       line-height: 1.4;
     }
     font-size: 20px;
-    font-family: YanoneKaffeesatz-Regular;
+    // font-family: YanoneKaffeesatz-Regular;
   }
 }
 

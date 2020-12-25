@@ -19,12 +19,17 @@ import "./bar.scss";
         }
     }, [])
 
-  return (
-    <a.div id="ug-bar" style={barFade}>
-      <UgBtn />
-      <UgNav />
-    </a.div>
-  );
+    if(location.pathname.split("/").length == 2){
+      return (
+        <a.div id="ug-bar" style={barFade}>
+          <UgBtn />
+          <UgNav />
+        </a.div>
+      );
+    }else{
+      return <div></div>;
+    }
+  
 }
 
 export default UgBar;

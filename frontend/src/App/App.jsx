@@ -1,9 +1,13 @@
 import Projects from "./pages/Projects/projects.jsx";
 import Content from "./pages/Content/content.jsx";
 import Contact from "./pages/Contact/contact.jsx";
-import Error from "./pages/Error/error.js";
 import Foyer from "./pages/Foyer/foyer.jsx";
 import Login from "./pages/Login/login.jsx";
+import Error from "./pages/Error/error.js";
+
+//blogs
+import Head from "./pages/Content/Blogs/Head.jsx";
+
 // import Registration from "./pages/Registration/registration.jsx"
 
 import UgBar from "./shared/bar/bar.jsx";
@@ -14,7 +18,11 @@ import { createStore } from "redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { SearchProvider } from "./context/SearchContext.js";
 
+
+
 function App() {
+  // let { path, url } = useRouteMatch();
+
   // const cursorRef = useRef(null);
   // const [cursor, setCursor] = useState(cursorRef);
   // const [isMouseTooltipVisible, setMouseTooltipVisibility] = useState(true)
@@ -69,6 +77,7 @@ function App() {
     return cursorClass;
   };
 
+
   return (
     <div onMouseMove={_onMousemove.bind(this)}>
       <div className={getCursorClasses()} style={cursorStyle}></div>
@@ -78,9 +87,11 @@ function App() {
           <Switch className="ug-switch">
             <Route exact path="/" component={Foyer}></Route>
             <Route path="/projects" component={Projects}></Route>
-            <Route path="/content" component={Content} />
+            <Route path="/content" component={Content}>
+            </Route>
             <Route path="/contact" component={Contact}></Route>
             <Route path="/login" component={Login}></Route>
+
             {/* <Route path="/registration" component={Registration}></Route> */}
             <Route component={Error}></Route>
           </Switch>

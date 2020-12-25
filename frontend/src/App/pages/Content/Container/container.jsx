@@ -3,6 +3,7 @@ import Aos from "aos";
 import { useSpring, animated as a } from "react-spring";
 import React, { useRef } from "react";
 import useOnScreen from "./../../../utils/useOnScreen.jsx";
+import { Link } from "react-router-dom";
 
 const Container = (props) => {
   const ref = useRef();
@@ -13,13 +14,14 @@ const Container = (props) => {
   });
 
   return (
-    <a.div ref={ref} style={springProps} className="ug-container">
-      <div className="ug-container-heading">{props.heading}</div>
-      <div className="ug-container-small_description">
-        {props.description}
-        {props.height}
-      </div>
-    </a.div>
+    <Link to="/content/Head">
+      <a.div ref={ref} style={springProps} className="ug-container">
+        <div className="ug-container-heading">{props.heading}</div>
+        <div className="ug-container-small_description">
+          {props.description}
+        </div>
+      </a.div>
+    </Link>
   );
 };
 

@@ -6,11 +6,21 @@ import React, {
   useContext,
 } from "react";
 
+import Head from "./Blogs/Head.jsx"
 import Container from "./Container/container.jsx";
 import UgContainer from "./Container/container.jsx";
 import { AnimatePresence, motion } from "framer-motion";
 import useWindowPosition from "./../../utils/useWindowPosition.jsx";
 import { animated, useSpring, Spring, useTransition } from "react-spring";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+}from "react-router-dom";
+
 
 import { SearchContext } from "./../../context/SearchContext";
 
@@ -22,7 +32,10 @@ const Content = () => {
 
   //hooks
   // const propsss = useSpring({"height": `${scrollPosition+100}px`, from: {"height": `${scrollPosition}px`}})
+
+  //searchContent from the nav search element received with react context api
   const [searchInput, setSearchInput] = useContext(SearchContext);
+
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const [heading, setHeading] = useState("recents");
@@ -34,27 +47,39 @@ const Content = () => {
     contributions.map((x) => {
       //seeing if it can be added
       if (x.Heading.includes(searchInput)) {
-        //adding to the searchResults
-        setContributionSearchResults((prevRes) => [...prevRes, x]);
+        setContributionSearchResults((prevRes) => {
+          return [...prevRes, x];
+        });
       }
     });
 
-    if (contributionSearchResults.length == 0 && searchInput != "") {
-      setHeading("no resutls");
-
-    } else if ( searchInput == ""){
-      setHeading("Recents")
-    }
-    else if (contributionSearchResults.length == 1) {
-      setHeading("Result");
-    } else if (contributionSearchResults.length > 1) {
-      setHeading("Results");
-    } 
+    // console.log(contributionSearchResults)
+    // if (contributionSearchResults.length == 0 && searchInput != "") {
+    //   setHeading("no results");
+    // } else if (searchInput == "") {
+    //   setHeading("Recents");
+    // } else if (contributionSearchResults.length == 1) {
+    //   setHeading("Result");
+    // } else if (contributionSearchResults.length > 1) {
+    //   setHeading("Results");
+    // }
 
     return () => {
       setContributionSearchResults([]);
     };
   }, [searchInput]);
+
+  useEffect(() => {
+    if (contributionSearchResults.length == 0 && searchInput != "") {
+      setHeading("noresult");
+    } else if (searchInput == "") {
+      setHeading("recents");
+    } else if (contributionSearchResults.length == 1) {
+      setHeading("result");
+    } else if (contributionSearchResults.length > 1) {
+      setHeading("results");
+    }
+  }, [contributionSearchResults]);
 
   // const springProps = useSpring({
   //   from: {
@@ -79,7 +104,7 @@ const Content = () => {
       opacity: 1,
       color: "white",
       transform: "translate3d(0, 0,0)",
-    }
+    },
   });
 
   const springHeadingTransition = useTransition(heading, null, {
@@ -93,31 +118,12 @@ const Content = () => {
       color: "white",
       transform: "translate3d(0, 0,0)",
     },
-    leave:{
+    leave: {
       opacity: 1,
       color: "white",
       transform: "translate3d(0, 0,0)",
-    }
-  })
-
-  const [numberOfResults, setNumberOfResults] = useState(0);
-
-  const increaseNumberOfResults = () => {
-    setNumberOfResults(() => {
-      numberOfResults + 1;
-    });
-  };
-
-  // const ugHeightRef = useRef(0);
-
-  // useLayoutEffect(() => {
-  //   function updatePosition() {
-  //     setPosition(window.pageYOffset);
-  //   }
-  //   window.addEventListener("scroll", updatePosition);
-  //   updatePosition();
-  //   return () => window.removeEventListener("scroll", updatePosition);
-  // }, []);
+    },
+  });
 
   useEffect(() => {
     loadData();
@@ -129,6 +135,8 @@ const Content = () => {
     setContributions(data);
     setLoaded(true);
   };
+
+  let { path, url } = useRouteMatch();
 
   if (!isLoaded) {
     return (
@@ -149,73 +157,67 @@ const Content = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        {/* <div className="ug-background_shader"></div> */}
+        <div
+          style={{
+            backgroundColor: "transparent",
+            height: "100px",
+            width: "100%",
+          }}
+        ></div>
 
-        <div className="ug-container-box">
-          <div
-            style={{
-              backgroundColor: "transparent",
-              height: "100px",
-              width: "100%",
-            }}
-          ></div>
+        {heading == "recents" ? (
+          <div className="ug-container-recents_heading">
+            <p>recents</p>
+          </div>
+        ) : heading == "results" ? (
+          <div className="ug-container-recents_heading">
+            <p>results</p>
+          </div>
+        ) : heading == "result" ? (
+          <div className="ug-container-recents_heading">
+            <p>result</p>
+          </div>
+        ) : heading == "noresult" ? (
+          <div className="ug-container-noresults_heading">
+            <p>no results</p>
+          </div>
+        ) : (
+          "error"
+        )}
 
-          {/* {searchInput == "" ? (
-            <animated.div
-              style={springProps}
-              className="ug-container-recents_heading"
-            >
-              recents
-            </animated.div>
-          ) : contributionSearchResults.length == 0 ? (
-            <animated.div
-              style={springProps}
-              className="ug-container-recents_heading"
-            >
-              no Result
-            </animated.div>
-          ) : contributionSearchResults.length > 1 ? (
-            <animated.div
-              style={springProps}
-              className="ug-container-recents_heading"
-            >
-              Results
-            </animated.div>
-          ) : (
-            <animated.div
-              style={springProps}
-              className="ug-container-recents_heading"
-            >
-              {heading}
-            </animated.div>
-          )} */}
-          <animated.div
-            style={springProps}
-            className="ug-container-recents_heading">
-            {heading}
-          </animated.div>
 
-          {searchInput == ""
-            ? contributions.map((x) => (
-                <UgContainer
-                  key={x.ID}
-                  heading={x.Heading}
-                  description={x.Description}
-                />
-              ))
-            : contributionSearchResults.length != 0
-            ? contributionSearchResults.map((x) => (
-                <UgContainer
-                  key={x.ID}
-                  heading={x.Heading}
-                  description={x.Description}
-                />
-              ))
-            : ""}
-        </div>
-        <div className="ug-menu_shadow" />
+        {searchInput == ""
+          ? contributions.map((x) => (
+              <UgContainer
+                key={x.ID}
+                heading={x.Heading}
+                description={x.Description}
+              />
+            ))
+          : contributionSearchResults.length != 0
+          ? contributionSearchResults.map((x) => (
+              <UgContainer
+                key={x.ID}
+                heading={x.Heading}
+                description={x.Description}
+              />
+          
+
+            ))
+          : ""}
+
+            <Switch>
+              <Route exact path={path}>
+
+              </Route>
+              <Route path={`${path}/Head`}>
+                <Head/>
+              </Route>
+            </Switch>
+
       </motion.div>
     );
+
   }
 };
 

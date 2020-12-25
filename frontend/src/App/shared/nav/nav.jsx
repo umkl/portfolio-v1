@@ -1,33 +1,34 @@
 // import UngarIcon from "./../../assets/Ungar-Icon.png";
 import React, { useState, useEffect } from "react";
 import "./nav.scss";
-// import UgNavname from "./elem/elem.jsx";
 import { Link } from "react-router-dom";
-import UngarLogo from "./../../assets/UNGAR_NEW_LOGO.svg";
 
-// const _ = require("lodash");
-/*  */
+//svgs
+// import UngarLogoURL from "./../../assets/UNGAR_NEW_LOGO.svg";
+// import UngarLogo from "./icon/UngarLogo.jsx";
+// import {ReactComponent as UngarLogoIcon} from "./../../assets/UNGAR_NEW_LOGO.svg";
+import Logo from "./../../assets/UNGAR_NEW_LOGO.svg";
+
+
 export default function UgNav() {
-  const clicked = {
+  const [varClicked, setClicked] = useState({
     1: false,
     2: false,
     3: false,
     4: false,
     5: false,
-  };
+  });
 
-  const [varClicked, setClicked] = useState(clicked);
-
-  const getClicked = () => {
-    if (location.pathname == "/") {
-      setClicked();
-    } else if (location.pathname == "/content") {
-      console.log("sadf");
-    } else if (location.pathname == "/projects") {
-      console.log("sadf");
-    } else if (location.pathname == "/contact") {
-    }
-  };
+  // const getClicked = () => {
+  //   if (location.pathname == "/") {
+  //     setClicked();
+  //   } else if (location.pathname == "/content") {
+  //     console.log("sadf");
+  //   } else if (location.pathname == "/projects") {
+  //     console.log("sadf");
+  //   } else if (location.pathname == "/contact") {
+  //   }
+  // };
 
   function changeClickedTo(num) {
     setClicked({
@@ -59,13 +60,10 @@ export default function UgNav() {
           <Link
             className="ug-nav-link"
             to="/"
-            // onClick={() => changeClickedTo(1)}
           >
-            {/* <button onClick={changeClickedTo(1)}>change clioc</button> */}
             <span className="ug-nav-element-icon ug-nav-element-selected_true">
               U
             </span>
-            {/* <img src={ungarLogo} /> */}
           </Link>
         </div>
       </nav>
@@ -76,7 +74,13 @@ export default function UgNav() {
         <div className="ug-nav-element">
           <Link className="ug-nav-link" to="/">
 
-            <img className="ug-nav-link-icon" src={UngarLogo} width="50px" height="50px" />
+            {/* <img className="ug-nav-link-icon" src={UngarLogoURL} width="50px" height="50px" stroke="red"/> */}
+            <Logo height="50px" width="50px" className={
+               varClicked[1]
+               ? "ug-nav-link-logo-true"
+               : "ug-nav-link-logo-false"
+            }/>
+
           </Link>
         </div>
 
@@ -84,7 +88,6 @@ export default function UgNav() {
           <Link
             className="ug-nav-link"
             to="/content"
-            // onClick={() => changeClickedTo(2)}
           >
             <span
               className={
@@ -102,7 +105,6 @@ export default function UgNav() {
           <Link
             className="ug-nav-link"
             to="/projects"
-            // onClick={() => changeClickedTo(5)}
           >
             <span
               className={

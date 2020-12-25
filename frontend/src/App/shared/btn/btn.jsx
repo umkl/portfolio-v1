@@ -26,16 +26,6 @@ const UgBtn = () => {
         }
   );
 
-  // useEffect(() => {
-  //   console.log("loaded");
-  //   console.log(value);
-  //   console.log("loaded");
-  // }, []);
-
-  useEffect(() => {
-    console.log(searchInput);
-  }, [searchInput]);
-
   const location = useLocation();
   if (location.pathname == "/") {
     return (
@@ -80,6 +70,7 @@ const UgBtn = () => {
         >
           <img src={SearchIcon} alt="" height="20px" width="20px" />
         </div>
+        
         <Link className="ug-nav-link" to="/login">
           <div className="ug-btn-login">login</div>
         </Link>
@@ -116,6 +107,8 @@ const UgBtn = () => {
         </div>
       </div>
     );
+  } else{
+    return null;
   }
 
   // else if (location.pathname == "/registration") {

@@ -1,10 +1,17 @@
+@font-face{
+  font-family: 'ZCOOL_QingKe_HuangYou';
+  font-weight: regular;
+  src:url("./../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
+}
+
+
 .ug-contact {
-  background: rgb(177, 177, 177);
-  background: radial-gradient(
-    circle,
-    rgba(177, 177, 177, 0.144) 40%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  // background: rgb(177, 177, 177);
+  // background: radial-gradient(
+  //   circle,
+  //   rgba(177, 177, 177, 0.144) 40%,
+  //   rgba(0, 0, 0, 1) 100%
+  // );
   background-repeat: repeat;
   height: 100%;
   position: absolute;
@@ -23,6 +30,7 @@
 
     .ug-contact-links {
       width: 40vw;
+       font-family: 'ZCOOL_QingKe_HuangYou';
       .ug-contact-links-2 {
         width: fit-content;
         height: fit-content;
@@ -43,6 +51,7 @@
             border-radius: 10px;
           }
           .ug-content-links-div-text {
+            font-family: 'ZCOOL_QingKe_HuangYou';
             margin: 5px 10px;
           }
           .ug-contact-links-divider {
