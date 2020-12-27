@@ -6,6 +6,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
+    publicPath: '/',
     filename: "bundle.js",
   },
   module: {
@@ -77,7 +78,7 @@ module.exports = {
     port: 3000,
     // publicPath: "http://localhost:3000/dist/",
     hotOnly: true,
-  },
+  }
 };
 
 // const HtmlWebpackPlugin = require("html-webpack-plugin");

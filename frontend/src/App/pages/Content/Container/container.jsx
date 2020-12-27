@@ -1,8 +1,8 @@
-import "./container.scss";
+import "./Container.scss";
 import Aos from "aos";
 import { useSpring, animated as a } from "react-spring";
 import React, { useRef } from "react";
-import useOnScreen from "./../../../utils/useOnScreen.jsx";
+import useOnScreen from "../../../utils/useOnScreen.jsx";
 import { Link } from "react-router-dom";
 
 const Container = (props) => {
@@ -14,7 +14,7 @@ const Container = (props) => {
   });
 
   return (
-    <Link to="/content/Head">
+    <Link className="ug-container-link" to={`/content/${props.heading}`}>
       <a.div ref={ref} style={springProps} className="ug-container">
         <div className="ug-container-heading">{props.heading}</div>
         <div className="ug-container-small_description">

@@ -1,9 +1,15 @@
 @import "./../../../scss/variables.scss";
 
+.ug-container-link{
+  cursor: none;
+  
+}
+
 .ug-container {
   width: 80%;
   display: block;
-  background-color: rgba(223, 223, 223, 0.301);
+  // background-color: rgba(223, 223, 223, 0.301);
+  border: 2px solid white;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -22,6 +28,8 @@
   top: 10px;
   left: 20px;
 }
+
+
 
 .ug-container-small_description {
   // font-family: YanoneKaffeesatz-Light;

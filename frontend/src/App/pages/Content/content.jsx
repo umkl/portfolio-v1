@@ -6,9 +6,9 @@ import React, {
   useContext,
 } from "react";
 
-import Head from "./Blogs/Head.jsx"
-import Container from "./Container/container.jsx";
-import UgContainer from "./Container/container.jsx";
+import Head from "./ContentSwitch/ContentSwitch.jsx"
+import Container from "./Container/Container.jsx";
+import UgContainer from "./Container/Container.jsx";
 import { AnimatePresence, motion } from "framer-motion";
 import useWindowPosition from "./../../utils/useWindowPosition.jsx";
 import { animated, useSpring, Spring, useTransition } from "react-spring";
@@ -201,8 +201,6 @@ const Content = () => {
                 heading={x.Heading}
                 description={x.Description}
               />
-          
-
             ))
           : ""}
 

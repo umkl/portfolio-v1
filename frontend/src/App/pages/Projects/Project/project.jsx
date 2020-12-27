@@ -1,6 +1,6 @@
 import React from "react";
 import "./project.scss";
-import { useSpring, animated as a } from "react-spring";
+import {animated as a } from "react-spring";
 
 const UgProject = (props) => {
   return (

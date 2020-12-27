@@ -75,6 +75,7 @@
     }
 
     .ug-contact-input {
+      font-family: 'ZCOOL_QingKe_HuangYou';
       position: relative;
       color: white;
       height: 80%;
@@ -84,6 +85,7 @@
       flex-direction: column;
 
       .ug-contact-input-heading {
+        font-family: 'ZCOOL_QingKe_HuangYou';
         flex-grow: 1;
         font-size: 50px;
         display: flex;
@@ -93,6 +95,7 @@
         text-align: center;
       }
       .ug-contact-input-box {
+        font-family: 'ZCOOL_QingKe_HuangYou';
         flex-grow: 1;
         display: flex;
         flex-direction: column;
@@ -102,12 +105,13 @@
         width: 100%;
         // background-color: pink;
         .ug-contact-input-box-input {
-          background-color: #323232;
+          font-family: 'ZCOOL_QingKe_HuangYou';
+          background-color: transparent;
+          border: 2px solid white;
           text-decoration: none;
           color: white;
           padding: 0px 20px;
           font-size: 20px;
-          border: none;
           border-radius: 15px;
           height: 50px;
           width: 80%;
@@ -119,13 +123,16 @@
           // }
         }
         .ug-contact-input-box-input_text {
+          font-family: 'ZCOOL_QingKe_HuangYou';
+          // box-sizing: border-box;
+
           resize: none;
-          background-color: #323232;
+          background-color: transparent;
+          border: 2px solid white;
           text-decoration: none;
           color: white;
-          padding: 0px 20px;
+          padding: 20px 20px;
           font-size: 20px;
-          border: none;
           border-radius: 15px;
           height: 200px;
           width: 80%;
@@ -140,28 +147,14 @@
           &:hover {
             background-color: rgb(87, 87, 87);
           }
-
           display: flex;
           justify-content: center;
           align-items: center;
-          // p{
-          //   background-color: blue;
-          // }
-          // p{
-          //   // left: 50%;
-          //   top: 50%;
-          //   background-color: #9e3535;
-          //   transform: translateY(-50%);
-          // }
-          // padding: 10px;
-          // text-decoration: none;
-          // padding-top: auto;
-          // padding-bottom: auto;
-          background-color: #323232;
+          background-color: transparent;
           color: white;
           padding: 0px 20px;
           font-size: 20px;
-          border: none;
+          border: 2px solid white;
           border-radius: 15px;
           height: 50px;
           width: 80%;

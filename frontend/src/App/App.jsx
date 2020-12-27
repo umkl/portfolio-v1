@@ -1,12 +1,11 @@
 import Projects from "./pages/Projects/projects.jsx";
-import Content from "./pages/Content/content.jsx";
+import ContentSwitch from "./pages/Content/ContentSwitch/ContentSwitch.jsx";
 import Contact from "./pages/Contact/contact.jsx";
 import Foyer from "./pages/Foyer/foyer.jsx";
 import Login from "./pages/Login/login.jsx";
 import Error from "./pages/Error/error.js";
 
 //blogs
-import Head from "./pages/Content/Blogs/Head.jsx";
 
 // import Registration from "./pages/Registration/registration.jsx"
 
@@ -87,7 +86,7 @@ function App() {
           <Switch className="ug-switch">
             <Route exact path="/" component={Foyer}></Route>
             <Route path="/projects" component={Projects}></Route>
-            <Route path="/content" component={Content}>
+            <Route path="/content" component={ContentSwitch}>
             </Route>
             <Route path="/contact" component={Contact}></Route>
             <Route path="/login" component={Login}></Route>

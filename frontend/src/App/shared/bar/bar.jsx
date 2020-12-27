@@ -29,6 +29,7 @@ import "./bar.scss";
     }else{
       return <div></div>;
     }
+
   
 }
 
