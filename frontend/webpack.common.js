@@ -1,9 +1,12 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
   context: __dirname,
-  entry: "./src/index.js",
+  entry: {
+    main: "./src/index.js",
+    vendor: "./src/vendor.js"
+  },
   module: {
     rules: [
       {
@@ -16,10 +19,6 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.(jpg|png)$/,
@@ -45,10 +44,4 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "public/index.html"),
-      filename: "index.html",
-    }),
-  ],
 };

@@ -10,11 +10,26 @@ module.exports = merge(common, {
     publicPath: '/',
     filename: "bundle.js",
   },
+  module:{
+    rules:[
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ]
+  },
   devServer: {
     historyApiFallback: true,
     contentBase: path.join(__dirname, "dist/"),
     port: 3000,
     // publicPath: "http://localhost:3000/dist/",
     hotOnly: true,
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "public/template.html"),
+      // favicon: "./src/App/assets/UNGAR_NEW_LOGO.png",
+      filename: "index.html",
+    }),
+  ],
 });
