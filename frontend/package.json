@@ -13,9 +13,11 @@
   "dependencies": {
     "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^3.0.0",
+    "emailjs-com": "^2.6.4",
     "framer-motion": "^2.6.13",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-loadingg": "^1.7.2",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scroll": "^1.8.1",

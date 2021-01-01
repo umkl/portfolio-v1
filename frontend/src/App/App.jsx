@@ -5,70 +5,42 @@ import Foyer from "./pages/Foyer/foyer.jsx";
 import Login from "./pages/Login/login.jsx";
 import Error from "./pages/Error/error.js";
 
-//blogs
-
-// import Registration from "./pages/Registration/registration.jsx"
-
 import UgBar from "./shared/bar/bar.jsx";
 import "./scss/App.scss";
-import React, { useRef, useState, useCallback, useLayoutEffect } from "react";
+import React, {
+  useRef,
+  useState,
+  useCallback,
+  useLayoutEffect,
+  useContext,
+} from "react";
 import { Route, Switch } from "react-router-dom";
-import { createStore } from "redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { SearchProvider } from "./context/SearchContext.js";
-
-
+import { BlurProvider } from "./context/BlurContext.js";
 
 function App() {
-  // let { path, url } = useRouteMatch();
 
-  // const cursorRef = useRef(null);
-  // const [cursor, setCursor] = useState(cursorRef);
-  // const [isMouseTooltipVisible, setMouseTooltipVisibility] = useState(true)
-  // const [scrollPosition, setScrollPosition] = useState(0);
-  // useLayoutEffect(() => {
-  //   function updatePosition(){
-  //     setScrollPosition(window.pageYOffset);
-  //   }
-  //   window.addEventListener('scroll',updatePosition);
-  //   updatePosition();
-  //   return () => window.removeEventListener('scroll', updatePosition);
-  // }, []);
+  
 
+  const [cursorClass, setCursorClass] = useState("ug-cursor");
+  
   const [cursorState, setCursorState] = useState({
     x: 0,
     y: 0,
     classnames: "",
   });
-  const [cursorClass, setCursorClass] = useState("ug-cursor");
-
-  // const _onScroll = (e) =>
 
   const _onMousemove = useCallback(
     (e) => {
-      // console.log(e.screenX);
-      // console.log(cursorStyle.top)
-      // console.log(e.pageX);
-      // console.log(cursorStyle.left)
-      // console.log(e.pageY);
       setCursorState({ x: e.pageX, y: e.pageY });
     },
     [cursorState]
   );
 
-  // const _onMouseDown = (e) =>{
-
-  // }
-
   const cursorStyle = {
     top: `${cursorState.y}px`,
     left: `${cursorState.x}px`,
-    // position: "absolute",
-    // width: "3rem",
-    // height: "3rem",
-    // border: "2px solid green",
-    // borderRadius: "50%",
-    // transform: "translate(-50%,-50%)",
   };
   const name = "ug-cursor";
 
@@ -76,25 +48,25 @@ function App() {
     return cursorClass;
   };
 
-
   return (
     <div onMouseMove={_onMousemove.bind(this)}>
       <div className={getCursorClasses()} style={cursorStyle}></div>
       <SearchProvider>
-        <UgBar />
-        <AnimatePresence>
-          <Switch className="ug-switch">
-            <Route exact path="/" component={Foyer}></Route>
-            <Route path="/projects" component={Projects}></Route>
-            <Route path="/content" component={ContentSwitch}>
-            </Route>
-            <Route path="/contact" component={Contact}></Route>
-            <Route path="/login" component={Login}></Route>
+        <BlurProvider>
+          <UgBar />
+          <AnimatePresence>
+            <Switch className="ug-switch">
+              <Route exact path="/" component={Foyer}></Route>
+              <Route path="/projects" component={Projects}></Route>
+              <Route path="/content" component={ContentSwitch}></Route>
+              <Route path="/contact" component={Contact}></Route>
+              <Route path="/login" component={Login}></Route>
 
-            {/* <Route path="/registration" component={Registration}></Route> */}
-            <Route component={Error}></Route>
-          </Switch>
-        </AnimatePresence>
+              {/* <Route path="/registration" component={Registration}></Route> */}
+              <Route path="*" component={Error}></Route>
+            </Switch>
+          </AnimatePresence>
+        </BlurProvider>
       </SearchProvider>
     </div>
   );

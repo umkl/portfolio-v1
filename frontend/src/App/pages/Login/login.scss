@@ -1,3 +1,9 @@
+@font-face{
+  font-family: 'ZCOOL_QingKe_HuangYou';
+  font-weight: regular;
+  src:url("./../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
+}
+
 .ug-login {
   color: white;
   height: 100%;
@@ -5,76 +11,36 @@
   position: absolute;
 }
 
-#ug-login-paragraph {
-  color: green;
-}
-
 .ug-login-u {
-  // font-family: YanoneKaffeeSatz-Medium;
   font-size: 50px;
   left: 4%;
   height: 100px;
-  // padding-top: 50%;
   display: flex;
   align-items: center;
-  // background-color: antiquewhite;
   position: fixed;
-  // // background-color: green;
-  // display: inline;
-  // // transform: translate(-50%,-50%);
-  // position: relative;
 }
 
 .ug-login-name {
-  font-family: YanoneKaffeesatz-Light;
-    // font-family: AlteSchwabacher;
+  font-family: 'ZCOOL_QingKe_HuangYou';
   font-size: 30px;
-//   box-shadow: 2px 2px white;
-//   background-color: green;
   width: 100%;
   left: 50%;
-  
+  // margin-top
   text-align: center;
-  padding-top: 20px;
-//   left: 50%;
-//   margin: 20px;
+  padding-top: 60px;
   height: 100px;
-  
-//   width: 100px;
-//   transform: translateX(-50%);
-//   position: relative;
-  // background-color: green;
-  // display: inline;
 }
 
-// .ug-foyer-shadow::placeholder{
-//     font-size: 1px;
-// }
-
-
-
-.ug-foyer-shadow {
-  width: 200px;
-  height: 200px;
-  background-color: rgb(27, 27, 27);
-  position: fixed;
-  height: 80%;
-  width: 30%;
-  filter: blur(2px);
-  // z-index: 0;
-}
 
 .ug-login-box{
-    // color: gray;
-    // background-color: blue;
     border-radius: 15px;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+    border: 2px solid white;
     height: 400px;
     width: 340px;
     position: relative;
-    background-color: rgba(194, 194, 194, 0.11);
 }
 
 .ug-login-form{
@@ -85,21 +51,19 @@
 }
 
 .ug-login-form-input{
-    display: inline;
-    font-family: YanoneKaffeesatz-Light;
-    color: white;
-    font-size: 35px;
-    text-align: start;
-    border: none;
-    width: 200px;
-    height: 30px;
-    background-color: transparent;
-    border-bottom: 1px solid white;
-    margin: 30px 0px;
-    transition: width 0.4s ease-in-out;
-}
-
-.ug-login-form-input:focus{
-    width: 120px;
-    outline: none;
+  position: relative;
+  font-family: 'ZCOOL_QingKe_HuangYou';
+  background-color: transparent;
+  border: 2px solid white;
+  text-decoration: none;
+  color: white;
+  padding: 0px 20px;
+  font-size: 20px;
+  border-radius: 15px;
+  height: 50px;
+  width: 300px;
+  box-sizing: border-box;
+  margin: 5px auto;
+  cursor: none;
+  outline: none;
 }

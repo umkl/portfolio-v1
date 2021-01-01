@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 // import {ReactComponent as UngarLogoIcon} from "./../../assets/UNGAR_NEW_LOGO.svg";
 import Logo from "./../../assets/UNGAR_NEW_LOGO.svg";
 
-
 export default function UgNav() {
   const [varClicked, setClicked] = useState({
     1: false,
@@ -55,40 +54,35 @@ export default function UgNav() {
 
   if (location.pathname == "/login") {
     return (
-      <nav id="ug-nav-bar">
-        <div className="ug-nav-element">
-          <Link
-            className="ug-nav-link"
-            to="/"
-          >
-            <span className="ug-nav-element-icon ug-nav-element-selected_true">
-              U
-            </span>
-          </Link>
-        </div>
-      </nav>
+      <div className="ug-nav-link-single_container">
+        <Link className="ug-nav-link" to="/">
+          <Logo
+            height="120px"
+            width="120px"
+          />
+        </Link>
+      </div>
     );
   } else {
     return (
       <nav id="ug-nav-bar">
         <div className="ug-nav-element">
           <Link className="ug-nav-link" to="/">
-
             {/* <img className="ug-nav-link-icon" src={UngarLogoURL} width="50px" height="50px" stroke="red"/> */}
-            <Logo height="50px" width="50px" className={
-               varClicked[1]
-               ? "ug-nav-link-logo-true"
-               : "ug-nav-link-logo-false"
-            }/>
-
+            <Logo
+              height="50px"
+              width="50px"
+              className={
+                varClicked[1]
+                  ? "ug-nav-link-logo-true"
+                  : "ug-nav-link-logo-false"
+              }
+            />
           </Link>
         </div>
 
         <div className="ug-nav-element">
-          <Link
-            className="ug-nav-link"
-            to="/content"
-          >
+          <Link className="ug-nav-link" to="/content">
             <span
               className={
                 varClicked[2]
@@ -102,10 +96,7 @@ export default function UgNav() {
         </div>
 
         <div className="ug-nav-element">
-          <Link
-            className="ug-nav-link"
-            to="/projects"
-          >
+          <Link className="ug-nav-link" to="/projects">
             <span
               className={
                 varClicked[5]
@@ -135,120 +126,7 @@ export default function UgNav() {
             </span>
           </Link>
         </div>
-
-        {/* <div className="ug-nav-element">
-          <Link
-            className="ug-nav-link"
-            to="/about"
-            onClick={() => changeClickedTo(4)}
-          >
-            <span
-              className={
-                varClicked[4]
-                  ? "ug-nav-element-sub ug-nav-element-selected_true"
-                  : "ug-nav-element-sub ug-nav-element-selected_false"
-              }
-            >
-              about
-            </span>
-          </Link>
-        </div> */}
       </nav>
     );
   }
 }
-
-// export default class UgNav extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       click : false,
-//       clicked: {
-//         1: true,
-//         2: false,
-//         3: false,
-//         4: false,
-//         5: false,
-//       },
-//     };
-//     this.myRef = React.createRef();
-//   }
-
-//   changeClickedTo(num) {
-//     this.setState({
-//       clicked: {
-//         1: num == 1 ? true : false,
-//         2: num == 2 ? true : false,
-//         3: num == 3 ? true : false,
-//         4: num == 4 ? true : false,
-//         5: num == 5 ? true : false,
-//       },
-//     });
-//   }
-
-//   render() {
-//     return (
-//       <nav id="ug-nav-bar">
-//         <div ref={this.myRef} style={{color: 'green'}}>
-//          ......
-//         </div>
-
-//         <UgNavname/>
-//         <div className="ug-nav-element">
-//           <Link className="ug-nav-link" to="/" onClick={() => changeClickedTo(1)}>
-//             {/* <button onClick={changeClickedTo(1)}>change clioc</button> */}
-
-//             <span
-//               className={
-//                 this.state.clicked[1]
-//                   ? "ug-nav-element-icon ug-nav-element-selected_true"
-//                   : "ug-nav-element-icon ug-nav-element-selected_false"
-//               }
-//             >
-//               U
-//             </span>
-//           </Link>
-//         </div>
-
-//         <div className="ug-nav-element">
-//           <Link className="ug-nav-link" to="/content">
-//             <span
-//               className={
-//                 this.state.clicked[2]
-//                   ? "ug-nav-element-sub ug-nav-element-selected_true"
-//                   : "ug-nav-element-sub ug-nav-element-selected_false"
-//               }
-//             >
-//               content
-//             </span>
-//           </Link>
-//         </div>
-
-//         <div className="ug-nav-element">
-//           <Link className="ug-nav-link" to="/contact">
-//             <span className="ug-nav-element-sub ug-nav-element-selected_false">
-//               contact
-//             </span>
-//           </Link>
-//         </div>
-
-//         <div className="ug-nav-element">
-//           <Link className="ug-nav-link" to="/about">
-//             <span className="ug-nav-element-sub ug-nav-element-selected_false">
-//               about
-//             </span>
-//           </Link>
-//         </div>
-
-//         <div className="ug-nav-element">
-//           <Link className="ug-nav-link" to="/projects">
-//             <span className="ug-nav-element-sub ug-nav-element-selected_false">
-//               projects
-//             </span>
-//           </Link>
-//         </div>
-
-//       </nav>
-//     );
-//   }
-// }

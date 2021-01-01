@@ -10,6 +10,15 @@
   
 }
 
+#ug-bar-login{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  height: fit-content;
+  z-index: 2;
+}
+
+
 @media only screen and (max-width: 600px) {
   #ug-bar {
     zoom: 50%;

@@ -9,7 +9,7 @@ const UgAboutCard = (props) => {
   const isVisible = useOnScreen(ref)
 
   useEffect(() => {
-    console.log(isVisible?"visi":"nope")
+    // console.log(isVisible?"visi":"nope")
     return () => {
       
     }

@@ -1,74 +1,84 @@
-@import '../../scss/variables.scss';
+@import "../../scss/variables.scss";
 
-@font-face{
-    font-family: 'YanoneKaffeesatz-Medium';
-    font-weight: regular;
-    src:url("./../../assets/fonts/Yanone_Kaffeesatz/static/YanoneKaffeesatz-Medium.ttf");
+@font-face {
+  font-family: "YanoneKaffeesatz-Medium";
+  font-weight: regular;
+  src: url("./../../assets/fonts/Yanone_Kaffeesatz/static/YanoneKaffeesatz-Medium.ttf");
 }
 
-@font-face{
-    font-family: 'ZCOOL_QingKe_HuangYou';
-    font-weight: regular;
-    src:url("./../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
-  }
+@font-face {
+  font-family: "ZCOOL_QingKe_HuangYou";
+  font-weight: regular;
+  src: url("./../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
+}
 
-#ug-nav-bar{
+#ug-nav-bar {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  display: flex;
+  // align-items:flex-start;
+  justify-content: flex-start;
+  width: fit-content;
+  left: 4%;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  
+  .ug-nav-element {
+    margin: 20px;
+
     position: relative;
-    display: inline-block;
-    height: 100%;
+
+    .ug-nav-element-icon {
+      font-family: AlteSchwabacher;
+      font-size: 40px;
+    }
+    .ug-nav-element-sub {
+      font-size: 20px;
+      font-family: ZCOOL_QingKe_HuangYou;
+      font-weight: regular;
+    }
+    .ug-nav-element-selected_true {
+      color: $ug-nav-element-selected_true;
+    }
+    .ug-nav-element-selected_false {
+      color: $ug-nav-element-selected_false;
+      transition: color 1s;
+    }
+    .ug-nav-link {
+      cursor: default !important;
+      text-decoration: none;
+      .ug-nav-link-logo-true {
+        path {
+          stroke: $ug-nav-element-selected_true;
+        }
+      }
+      .ug-nav-link-logo-false {
+        path {
+          stroke: $ug-nav-element-selected_false;
+          transition: stroke 1s;
+        }
+      }
+      .ug-nav-link-logo-false:hover {
+        path {
+          stroke: white;
+        }
+      }
+    }
+  }
+  .ug-nav-element-selected_false:hover {
+    color: white;
+  }
+}
+
+.ug-nav-link-single_container {
+    height: 200px;
+    width: 200px;
     display: flex;
-    // align-items:flex-start;
-    justify-content: flex-start;
-    width: fit-content;
-    left: 4%;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    flex-direction: row;
-    .ug-nav-element{
-        margin: 20px;
-
-        position: relative;
-        
-        .ug-nav-element-icon{
-            font-family: AlteSchwabacher;
-            font-size: 40px; 
-        }
-        .ug-nav-element-sub{
-            font-size: 20px;
-            font-family: ZCOOL_QingKe_HuangYou;
-            font-weight: regular;
-            
-        }
-        .ug-nav-element-selected_true{
-            color: $ug-nav-element-selected_true;
-        }
-        .ug-nav-element-selected_false{
-            color: $ug-nav-element-selected_false;
-            transition: color 1s;
-        }
-        .ug-nav-link{
-            cursor: none;
-            text-decoration: none;
-            .ug-nav-link-logo-true{
-                path{
-                    stroke: $ug-nav-element-selected_true;
-                }
-            }
-            .ug-nav-link-logo-false{
-                path{
-                    stroke: $ug-nav-element-selected_false;
-                    transition: stroke 1s;
-                }
-            }
-            .ug-nav-link-logo-false:hover{
-                path{
-                    stroke: white;
-                }
-            }
-        }
-    }
-    .ug-nav-element-selected_false:hover{
-        color: white
-    }
-
+    position: relative;
+    // background-color: blue;
+    
 }

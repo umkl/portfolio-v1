@@ -4,14 +4,53 @@
   src:url("./../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
 }
 
+.ug-contact-mailStatus{
+  position: fixed;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  .ug-contact-mailStatus-box{
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 300px;
+    width: 300px;
+    background-color: black;
+    border:2px solid white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    // align-content: center;
+    justify-content: space-evenly;
+    border-radius: 15px;
+    color: white;
+    transform: translate(-50%,-50%);
+    p{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      // background-color: blue;
+      height: 50%;
+    }
+    button{
+      height: 50%;
+      width: 50%;
+      outline: none;
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 15px;
+      height: 40px;
+      cursor: none;
+    }
+  }
+}
+
 
 .ug-contact {
-  // background: rgb(177, 177, 177);
-  // background: radial-gradient(
-  //   circle,
-  //   rgba(177, 177, 177, 0.144) 40%,
-  //   rgba(0, 0, 0, 1) 100%
-  // );
   background-repeat: repeat;
   height: 100%;
   position: absolute;
@@ -27,7 +66,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-
     .ug-contact-links {
       width: 40vw;
        font-family: 'ZCOOL_QingKe_HuangYou';
@@ -56,7 +94,6 @@
           }
           .ug-contact-links-divider {
             margin: 5px 0px;
-            // margin: 5px 0px 5px 0px;
             position: relative;
             width: 1px;
             height: 40px;
@@ -93,18 +130,21 @@
         align-items: center;
         width: 100%;
         text-align: center;
+        margin: 30px 0px;
       }
+
       .ug-contact-input-box {
         font-family: 'ZCOOL_QingKe_HuangYou';
-        flex-grow: 1;
+        // flex-grow: 2;
         display: flex;
+        position: relative;
         flex-direction: column;
         height: fit-content;
         justify-content: center;
-
-        width: 100%;
-        // background-color: pink;
+        // background-color: blue;
+        width: 300px;
         .ug-contact-input-box-input {
+          position: relative;
           font-family: 'ZCOOL_QingKe_HuangYou';
           background-color: transparent;
           border: 2px solid white;
@@ -114,7 +154,8 @@
           font-size: 20px;
           border-radius: 15px;
           height: 50px;
-          width: 80%;
+          width: 300px;
+          box-sizing: border-box;
           margin: 5px auto;
           cursor: none;
           outline: none;
@@ -123,9 +164,9 @@
           // }
         }
         .ug-contact-input-box-input_text {
+          position: relative;
           font-family: 'ZCOOL_QingKe_HuangYou';
-          // box-sizing: border-box;
-
+          // box-sizing: border-box; 
           resize: none;
           background-color: transparent;
           border: 2px solid white;
@@ -135,7 +176,8 @@
           font-size: 20px;
           border-radius: 15px;
           height: 200px;
-          width: 80%;
+          width: 300px;
+          box-sizing: border-box;
           margin: 5px auto;
 
           // margin-bottom: 10px;
@@ -143,10 +185,14 @@
           outline: none;
         }
         .ug-contact-input-box-input_submit {
-          transition: background-color 1s;
+          position: relative;
+          transition: background-color color 1.3s;
+
           &:hover {
-            background-color: rgb(87, 87, 87);
+            background-color: white;
+            color: black;
           }
+          font-family: 'ZCOOL_QingKe_HuangYou';
           display: flex;
           justify-content: center;
           align-items: center;
@@ -157,7 +203,7 @@
           border: 2px solid white;
           border-radius: 15px;
           height: 50px;
-          width: 80%;
+          width: 300px;
           text-align: center;
           margin: 5px auto;
           margin-top: 40px;
@@ -173,7 +219,7 @@
     // border-radius: 14px;
     background-color: white;
     position: absolute;
-    z-index: 100;
+    z-index: 2;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

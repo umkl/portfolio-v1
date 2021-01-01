@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useSpring, animated as a } from "react-spring";
 import UgNav from "./../nav/nav.jsx";
 import UgBtn from "./../btn/btn.jsx";
 import "./bar.scss";
+import { BlurContext } from "./../../context/BlurContext.js";
 
 function UgBar() {
   const [loaded, setLoaded] = useState(false);
   const [pathParts, setPathParts] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [blur, setBlur] = useContext(BlurContext);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -40,12 +42,19 @@ function UgBar() {
   }, [location.pathname]);
 
   if (pathParts == 1) {
-    
     return (
-      <a.div id="ug-bar" style={barFade}>
-        <UgBtn />
-        <UgNav />
-      </a.div>
+      <div style={blur != null ? { filter: `blur(${blur})` } : null}>
+        {location.pathname == "/login" ? (
+          <a.div id="ug-bar-login" style={barFade}>
+            <UgNav />
+          </a.div>
+        ) : (
+          <a.div id="ug-bar" style={barFade}>
+            <UgBtn />
+            <UgNav />
+          </a.div>
+        )}
+      </div>
     );
   } else {
     window.scrollTo(0, 0);
