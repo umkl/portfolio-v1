@@ -67,3 +67,31 @@
   cursor: none;
   outline: none;
 }
+
+
+.ug-login-form-submit{
+  position: relative;
+  transition: background-color 2s, color 2s;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+  font-family: 'ZCOOL_QingKe_HuangYou';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  padding: 0px 20px;
+  font-size: 20px;
+  border: 2px solid white;
+  border-radius: 15px;
+  height: 50px;
+  width: 300px;
+  text-align: center;
+  margin: 5px auto;
+  margin-top: 40px;
+  cursor: none;
+  outline: none;
+}

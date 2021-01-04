@@ -55,7 +55,7 @@ export default function UgNav() {
   if (location.pathname == "/login") {
     return (
       <div className="ug-nav-link-single_container">
-        <Link className="ug-nav-link" to="/">
+        <Link style={{cursor: "none"}}className="ug-nav-link" to="/">
           <Logo
             height="120px"
             width="120px"
