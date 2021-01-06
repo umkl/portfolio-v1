@@ -9,9 +9,7 @@ import (
 
 //main function of server.go just executes the route handler and starts the server with the port
 func main() {
-
 	repository.ConnectToMongoDB()
-
 	routes.HandleRoutes()
 
 	// repository.GetTestData()

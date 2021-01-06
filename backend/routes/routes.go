@@ -6,8 +6,8 @@ import (
 
 func HandleRoutes() {
 	http.HandleFunc("/contributions", getContributions)
-	// http.HandleFunc("/del", deleteContribution)
 	http.HandleFunc("/json", jsonHandler)
 	http.HandleFunc("/projects", getProjects)
-	// http.HandleFunc("/login")
+	http.HandleFunc("/login", provideLogin)
+	// http.HandleFunc("/del", deleteContribution)
 }
