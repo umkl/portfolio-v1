@@ -96,7 +96,6 @@ const Content = () => {
         animate={{ opacity: 1 }}
       >
         <div className="ug-loading">Loading</div>
-        {/* <BoxLoading color="#FFFFFF" speed={0.3} size="large" /> */}
       </motion.div>
     );
   } else {
@@ -165,15 +164,3 @@ const Content = () => {
 };
 
 export default Content;
-
-
-// import React from 'react'
-
-// const Content = () => {
-//   return (
-//     <div>
-//       ajksdhfkljasdh
-//     </div>
-//   )
-// }
-// export default Content;
