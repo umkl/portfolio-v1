@@ -31,25 +31,25 @@ func getContributions(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(r)
 }
 
-type User struct {
-	Id    int    `json:"id"`
-	Name  string `json:"name"`
-	Email string `json:"email"`
-	Phone string `json:"phone"`
-}
+// type User struct {
+// 	ID    int    `json:"id"`
+// 	Name  string `json:"name"`
+// 	Email string `json:"email"`
+// 	Phone string `json:"phone"`
+// }
 
-func jsonHandler(w http.ResponseWriter, r *http.Request) {
+// func jsonHandler(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Type", "application/json")
-	user := User{
-		Id:    1,
-		Name:  "John Doe",
-		Email: "johndoe@gmail.com",
-		Phone: "000099999",
-	}
+// 	w.Header().Set("Content-Type", "application/json")
+// 	user := User{
+// 		Id:    1,
+// 		Name:  "John Doe",
+// 		Email: "johndoe@gmail.com",
+// 		Phone: "000099999",
+// 	}
 
-	json.NewEncoder(w).Encode(user)
-}
+// 	json.NewEncoder(w).Encode(user)
+// }
 
 // Creating and initializing
 // the anonymous structure

@@ -21,8 +21,6 @@ import { BlurProvider } from "./context/BlurContext.js";
 
 function App() {
 
-  
-
   const [cursorClass, setCursorClass] = useState("ug-cursor");
   
   const [cursorState, setCursorState] = useState({

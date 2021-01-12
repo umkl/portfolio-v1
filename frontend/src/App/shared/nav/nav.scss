@@ -73,12 +73,12 @@
 }
 
 .ug-nav-link-single_container {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
+    z-index: -200;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    // background-color: blue;
     
 }
