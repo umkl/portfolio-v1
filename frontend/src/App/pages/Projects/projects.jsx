@@ -20,9 +20,7 @@ const Projects = () => {
   const [currentProject, setCurrentProject] = useState(0);
   const [projects, setProjects] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
-  // const [intervalId, setIntervalId] = useState();
-
-  //useSpring example transition handler
+  
   const [projectSize, setProjectSize] = useState();
 
   const [index, setIndex] = useState(0);
@@ -37,10 +35,6 @@ const Projects = () => {
     }),
       [];
   });
-
-  // const handleIndexChange = (x) =>{
-
-  // }
 
   const projectTransitions = useTransition(index, (p) => p, {
     from: { opacity: 0, transform: "translate3d(100%,0,0) scale(0.5,0.5)" },
