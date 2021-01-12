@@ -26,7 +26,6 @@ const Projects = () => {
   const [index, setIndex] = useState(0);
 
   const handleIndexChange = useCallback((titleName) => {
-    // setIndex(
     projects.find((elem) => {
       if (elem.Title == titleName) {
         let l = projects.indexOf(elem);
@@ -45,7 +44,6 @@ const Projects = () => {
     leave: { 
       opacity: 0,
       transform: "translate3d(0,-500%,0) scale(0.5,0.5)" },
-    // config: { ...config.molasses, duration: 500 },
   });
   //useSpring example transition handler
 
@@ -61,42 +59,6 @@ const Projects = () => {
     setLoaded(true);
   };
   //api fetch
-
-  //my carousel functions
-  // useEffect(
-  //   ()=>{
-  //     const id = setInterval(nextProject, 2000);
-  //     setIntervalId(id)
-  //     return(
-  //       ()=>{
-  //         clearInterval(id);
-  //       }
-  //     );
-  //   },[projects])
-
-  // const nextProject = () => {
-  //   console.log("wuow");
-  //   setCurrentProject((c) => {
-  //     return (c + 1) % projects.length;
-  //   });
-  // };
-
-  // const previousProject = () => {
-  //   setCurrentProject((c) => {
-  //     return (c - 1) % projects.length;
-  //   });
-  // };
-
-  // const carouselSpring = useSpring({
-  //   to: { marginLeft: `-${currentProject * 100}vw` },
-  // });
-  // const carouselCalback = useCallback(() => {
-  //   return useSpring({
-  //     to: { marginLeft: `-${currentProject * 100}vw` },
-  //   });
-  // }, [currentProject]);
-  //my carousel functions
-
   //returning DOM
   if (!isLoaded) {
     return (
@@ -117,18 +79,6 @@ const Projects = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        {/* <div className="ug-project-box-container" style={carouselCalback}>
-          <div className="ug-project-box">
-            {projects.map((x) => (
-              <UgProject
-                key={x.ID}
-                active={projects.indexOf(x) == currentProject}
-                Title={x.Title}
-                Description={x.Description}
-              />
-            ))}
-          </div>
-        </div> */}
         <div className="ug-project-diashow">
           {projectTransitions.map(({ item, props, key }) => {
             const Project = projects[item];
