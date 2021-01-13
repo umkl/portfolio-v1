@@ -11,7 +11,8 @@ import (
 )
 
 func getProjectCollection(client *mongo.Client) *mongo.Collection {
-	collection := client.Database("ungar").Collection("projects")
+	collection := client.Database("Ungar").Collection("Projects")
+
 	return collection
 }
 

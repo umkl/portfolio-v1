@@ -28,7 +28,7 @@ import (
 // }
 
 func getContributionCollection(client *mongo.Client) *mongo.Collection {
-	collection := client.Database("ungar").Collection("contributions")
+	collection := client.Database("Ungar").Collection("Contributions")
 	return collection
 }
 

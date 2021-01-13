@@ -6,6 +6,7 @@ import (
 	"log"
 	"time"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -17,6 +18,8 @@ var ctx = context.TODO()
 func ConnectToMongoDB() {
 	var err error
 	var ungarClient *mongo.Client
+
+	// pw, ok := os.LookupEnv("MONGO_PW")
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
@@ -37,6 +40,18 @@ func ConnectToMongoDB() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	// r, e := GetAllContributions()
+	// if e != nil {
+	// 	log.Fatal(e)
+	// }
+
+	databases, err := ungarClient.ListDatabaseNames(ctx, bson.M{})
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(databases)
+
 	fmt.Printf("successfully connected")
 }
 

@@ -11,7 +11,7 @@ import (
 )
 
 func getUserCollection(client *mongo.Client) *mongo.Collection {
-	collection := client.Database("ungar").Collection("users")
+	collection := client.Database("Ungar").Collection("Users")
 	return collection
 }
 

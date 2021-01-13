@@ -28,6 +28,7 @@ func getProjects(w http.ResponseWriter, req *http.Request) {
 	if e != nil {
 		log.Fatal(e)
 	}
+
 	json.NewEncoder(w).Encode(r)
 }
 
