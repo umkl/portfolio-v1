@@ -17,14 +17,13 @@ var ctx = context.TODO()
 
 func ConnectToMongoDB() {
 	var err error
-	var ungarClient *mongo.Client
-
 	// pw, ok := os.LookupEnv("MONGO_PW")
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+
 	defer cancel()
 	ungarClient, err = mongo.Connect(ctx, options.Client().ApplyURI(
-		"mongodb+srv://ungar:ungardatabase_123@cluster0.ykrvq.mongodb.net/<Ungar>?retryWrites=true&w=majority",
+		"mongodb+srv://ungar:ungardatabase_123@cluster0.ykrvq.mongodb.net/Ungar?retryWrites=true&w=majority",
 	))
 	if err != nil {
 		log.Fatal(err)
@@ -46,7 +45,7 @@ func ConnectToMongoDB() {
 	// 	log.Fatal(e)
 	// }
 
-	databases, err := ungarClient.ListDatabaseNames(ctx, bson.M{})
+	databases, err := ungarClient.ListDatabases(ctx, bson.M{})
 	if err != nil {
 		log.Fatal(err)
 	}

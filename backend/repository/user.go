@@ -2,8 +2,6 @@ package repository
 
 import (
 	"backend/cmd/monolithic/entities"
-	"context"
-	"fmt"
 	"log"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -28,15 +26,15 @@ func GetAllUsers() ([]*entities.User, error) {
 	return u, err
 }
 
-func pushUsers(contributionToPush entities.Project) {
-	// Test1 := entities.Contribution{primitive.ObjectID{}, "head", "desc"}
+// func pushUsers(contributionToPush entities.Project) {
+// 	// Test1 := entities.Contribution{primitive.ObjectID{}, "head", "desc"}
 
-	insertResult, err := getProjectCollection(ungarClient).InsertOne(context.TODO(), contributionToPush)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println("Inserted a single document:", insertResult.InsertedID)
-}
+// 	insertResult, err := getProjectCollection(ungarClient).InsertOne(context.TODO(), contributionToPush)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	fmt.Println("Inserted a single document:", insertResult.InsertedID)
+// }
 
 func filterUsers(filter interface{}) ([]*entities.User, error) {
 	var user []*entities.User
