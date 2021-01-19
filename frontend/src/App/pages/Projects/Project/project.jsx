@@ -1,14 +1,38 @@
 import React from "react";
 import "./project.scss";
-import {animated as a } from "react-spring";
+import { Link } from "react-router-dom";
+import { animated as a } from "react-spring";
 
 const UgProject = (props) => {
-  return (
-    <a.div style={props.style} className="ug-project">
-      {props.Title} <br />
-      {props.Description}
-    </a.div>
-  );
+  if (props.Title != "Trailer") {
+    return (
+      <a.div style={props.style} className="ug-project">
+        <div className="ug-project-title">
+          {props.Title} <br />
+        </div>
+        <div className="ug-project-description">{props.Description}</div>
+      </a.div>
+    );
+  } else {
+    return (
+      <a.div style={props.style} className="ug-trailer">
+        <div className="ug-project-title"> More Projects coming soon</div>
+        {/* <div className="ug-project-description">
+        More Projects coming soon
+      </div> */}
+        <div className="ug-project-you">
+          Maybe my next Project could be yours!
+        </div>
+
+        <div className="ug-project-contact">
+          <div className="ug-project-contact-first">Contact me</div>
+          <span className="ug-project-contact-border">
+            <Link to="/contact" style={{"color":"white", "textDecoration":"none","cursor":"none"}}>here</Link>
+          </span>
+        </div>
+      </a.div>
+    );
+  }
 };
 
 export default UgProject;

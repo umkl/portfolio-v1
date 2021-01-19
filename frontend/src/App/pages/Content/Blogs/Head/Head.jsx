@@ -4,7 +4,7 @@ import "./Head.scss";
  const Head = () => {
     return (
         <div className="Head">
-            Hello from Head
+            
         </div>
     )
 }

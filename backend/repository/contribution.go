@@ -39,7 +39,6 @@ var res entities.Contribution
 func GetAllContributions() ([]*entities.Contribution, error) {
 	// exampleData = entities.Contribution{1, "HeadingData", "DescriptionData"}
 	// var exampleData entities.Contribution
-
 	filter := bson.D{{}}
 
 	// mc, err := getContributionCollection(ungarClient).Find(context.TODO(), filter)

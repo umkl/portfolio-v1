@@ -15,10 +15,29 @@ import UgProject from "./Project/project.jsx";
 import "./projects.scss";
 
 const Projects = () => {
+  //local projects
+  const projectsJSON = [
+    {
+      "_id" : ObjectId("5fa14938ee9eac91770b019b"),
+      "Title" : "Project1",
+      "Description" : "this is project 1"
+    },
+    {
+      "_id" : ObjectId("5fa1a06bee9eac91770b019c"),
+      "Title" : "Neighboroo",
+      "Description" : "neighboroo is a mobile phone project"
+    },
+    {
+      "_id" : ObjectId("5fca3b868563ccc69477a6dd"),
+      "Title" : "test",
+      "Description" : "this is a test 3"
+    } 
+  ]
+  
   //variables
   const API_URL = "http://localhost:8080/projects";
   const [currentProject, setCurrentProject] = useState(0);
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(projectsJSON);
   const [isLoaded, setLoaded] = useState(false);
   
   const [projectSize, setProjectSize] = useState();
@@ -48,17 +67,22 @@ const Projects = () => {
   //useSpring example transition handler
 
   //api fetch
-  useEffect(() => {
-    loadData();
-  }, []);
+  // useEffect(() => {
+  //   loadData();
+  // }, []);
 
-  const loadData = async () => {
-    const response = await fetch(API_URL);
-    const data = await response.json();
-    setProjects(data);
-    setLoaded(true);
-  };
+  // const loadData = async () => {
+  //   const response = await fetch(API_URL);
+  //   const data = await response.json();
+  //   setProjects(data);
+
+  //   setLoaded(true);
+  // };
   //api fetch
+
+
+
+
   //returning DOM
   if (!isLoaded) {
     return (
@@ -84,6 +108,7 @@ const Projects = () => {
             const Project = projects[item];
             return (
               <UgProject
+                key={Project._id}
                 Title={Project.Title}
                 Description={Project.Description}
                 key={key}
