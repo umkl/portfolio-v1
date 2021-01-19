@@ -100,11 +100,11 @@ export default function Contact() {
                     style={contactSpring}
                     className="ug-content-links-div-text"
                   >
-                    Facebook
+                    <a className="ug-content-linkds-div-link" href="https://www.facebook.com/michael.ungar.1232">Facebook</a>
                   </a.div>
                 </div>
               </a.div>
-              <a.div
+              {/* <a.div
                 style={contactSpring}
                 className="ug-contact-container-line"
               >
@@ -120,10 +120,10 @@ export default function Contact() {
                     style={contactSpring}
                     className="ug-content-links-div-text"
                   >
-                    Twitter
+                    <a href="">Twitter</a>
                   </a.div>
                 </div>
-              </a.div>
+              </a.div> */}
               <a.div
                 style={contactSpring}
                 className="ug-contact-container-line"
@@ -140,7 +140,7 @@ export default function Contact() {
                     style={contactSpring}
                     className="ug-content-links-div-text"
                   >
-                    Instagram
+                    <a className="ug-content-linkds-div-link" href="https://www.instagram.com/ungar_/">Instagram</a>
                   </a.div>
                 </div>
               </a.div>
@@ -160,7 +160,7 @@ export default function Contact() {
                     style={contactSpring}
                     className="ug-content-links-div-text"
                   >
-                    Github
+                    <a className="ug-content-linkds-div-link" href="https://github.com/ungarmichael">Github</a>
                   </a.div>
                 </div>
               </a.div>
@@ -180,7 +180,7 @@ export default function Contact() {
                     style={contactSpring}
                     className="ug-content-links-div-text"
                   >
-                    Fiverr
+                    <a className="ug-content-linkds-div-link" href="https://www.fiverr.com/ungarmichael">Fiverr</a>
                   </a.div>
                 </div>
               </a.div>
