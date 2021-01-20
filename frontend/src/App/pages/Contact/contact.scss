@@ -71,20 +71,21 @@
 
     box-sizing: border-box;
     .ug-contact-links {
-      
+      // background-color: blue;
+      border: 2px solid white;
+      border-radius: 15px;;
       width: 40vw;
       font-family: "ZCOOL_QingKe_HuangYou";
-      // width: fit-content;
-      // height: fit-content;
-      // margin-left: auto;
-      // margin-right: auto;
       .ug-contact-links-pos {
-        width: fit-content;
+        // width: fit-content;
         height: fit-content;
         margin-left: auto;
         margin-right: auto;
-
+        width: 350px;
+        
+        
         .ug-contact-container-line {
+          // background-color: blue;
           font-size: 40px;
           font-family: YanoneKaffeesatz-Regular;
           margin: 70px 0px;
@@ -93,6 +94,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          
           img {
             margin: 5px 20px;
             border-radius: 10px;
@@ -100,20 +102,22 @@
           .ug-content-links-div-text {
             font-family: "ZCOOL_QingKe_HuangYou";
             margin: 5px 10px;
+            // background-color: antiquewhite;
+            width: fit-content;
+            min-width: 300px;
+            
           }
           .ug-contact-links-divider {
-            margin: 5px 0px;
+            margin: 5px 10px;
             position: relative;
             width: 1px;
             height: 40px;
             background-color: white;
           }
           .ug-contact-links-div {
-            height: 50px;
-            width: 200px;
             margin: 0px 10px;
-
-            // background-color: blue;
+            height: 50px;
+            width: fit-content;
             overflow: hidden;
           }
         }
@@ -129,6 +133,8 @@
       display: flex;
       align-items: center;
       flex-direction: column;
+      // border: 2px solid white;
+      // border-radius: 15px;
 
       .ug-contact-input-heading {
         font-family: "ZCOOL_QingKe_HuangYou";
@@ -150,6 +156,7 @@
         flex-direction: column;
         height: fit-content;
         justify-content: center;
+        
 
         width: 300px;
         .ug-contact-input-box-input {
@@ -235,6 +242,7 @@
 
 .ug-content-linkds-div-link {
   text-decoration: none;
+  
   // color: rgba(255, 255, 255, 0.5);
   // transition: color 1s;
 }

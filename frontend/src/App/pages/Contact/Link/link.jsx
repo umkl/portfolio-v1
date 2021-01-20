@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { animated as a, useSpring, config } from "react-spring";
+import { animated as a, useSpring, useRef, config } from "react-spring";
 import "./../contact.scss";
 
 const UgLink = (props) => {
@@ -9,9 +9,25 @@ const UgLink = (props) => {
     config: config.stable,
   });
 
-
-  const [linkColor, setLinkColor] = useState("rgba(255, 255, 255, 0.5)");
+  const [linkColor, setLinkColor] = useState("rgba(255, 255, 255, 1)");
   const [hoverStatus, setHoverStatus] = useState(false);
+  const linkFadeOutSpring = useSpring({
+    opacity: hoverStatus ? 1 : 0,
+  })
+  const linkFadeInSpring = useSpring({
+    opacity: hoverStatus ? 0 : 1,
+  })
+
+//   const hoverRef = useRef(null);
+// //   useEffect(() => {
+// //     hoverRef.addEventListener("mouseover",
+// //     ()=>{
+// //         setHoverStatus(true);
+// //     })
+// //       return () => {
+// //           hoverRef.removeEventListener("mouseover")
+// //       }
+// //   })
 
   return (
     <div href={props.link}>
@@ -30,7 +46,7 @@ const UgLink = (props) => {
           className="ug-contact-links-divider"
           style={{
             backgroundColor: linkColor,
-            transition: "background-color 2s",
+            transition: "background-color 0.5s",
           }}
         />
         <div className="ug-contact-links-div">
@@ -40,10 +56,15 @@ const UgLink = (props) => {
             
           >
             <a
-            onMouseOver={()=>{setLinkColor("rgba(255, 255, 255, 1)")}}
-            onMouseLeave={()=>{setLinkColor("rgba(255, 255, 255, 0.5)")}}
-            className="ug-content-linkds-div-link" href={props.linkHref} style={{color: linkColor,transition: "color 2s"}}>
-              {hoverStatus?props.username:props.name}
+            // onMouseOver={()=>{setLinkColor("rgba(255, 255, 255, 1)")}}
+            // onMouseOut={()=>{setLinkColor("rgba(255, 255, 255, 0.5)")}}
+            onMouseEnter={()=>{setHoverStatus(true)}}
+            onMouseLeave={()=>{setHoverStatus(false)}}
+            // ref={hoverRef}
+            className="ug-content-linkds-div-link" href={props.linkHref} style={{color: linkColor,transition: "color 0.5s"}}>
+              {/* {hoverStatus?()=>{return props.username}:()=>{return props.name}} */}
+              <a.div style={linkFadeInSpring}>{props.username}</a.div>
+              <a.div style={linkFadeOutSpring}>{props.name}</a.div>
             </a>
           </a.div>
         </div>
