@@ -1,11 +1,11 @@
 import React, { useState,useContext } from "react";
 import "./contact.scss";
 import { AnimatePresence, motion } from "framer-motion";
-import UgLink from "./Link/link.jsx";
-
-import emailjs from "emailjs-com";
 
 import { useSpring, config, animated as a } from "react-spring";
+import emailjs from "emailjs-com";
+
+import UgLink from "./Link/link.jsx";
 import InstagramLogo from "./../../assets/Instagram-Logo.png";
 import FiverrLogo from "./../../assets/Fiverr-Logo.png";
 import FacebookLogo from "./../../assets/Facebook-Logo.png";
@@ -18,9 +18,9 @@ export default function Contact() {
   var ungar_email_templateID = "ungar-template";
   var ungar_email_userID = "user_aElxq1gVsDKZjQqSdu8al";
 
+  const [linkColor, setLinkColor] = useState("blue")
   const [mailStatus, setMailStatus] = useState(null);
   const [blur, setBlur] = useContext(BlurContext);
-
   const changeMailStatusTo = (ms) => {
     setMailStatus(ms);
     setBlur("4px");
@@ -48,7 +48,7 @@ export default function Contact() {
 
   const contactSpring = useSpring({
     to: { opacity: 1, marginLeft: "0px" },
-    from: { opacity: 0, marginLeft: "-400px" },
+    from: { opacity: 0, marginLeft: "-400px"},
     config: config.stable,
   });
 
@@ -58,6 +58,8 @@ export default function Contact() {
     config: config.stable,
   });
 
+
+  //Fragment that returns both login and status
   return (
     <React.Fragment>
       {mailStatus != null ? (
@@ -73,6 +75,8 @@ export default function Contact() {
           }
         </div>
       ) : null}
+
+      //frame
       <motion.div
         className="ug-contact"
         style={mailStatus != null ? { filter: `blur(${blur})` } : {filter: "none"}}
@@ -80,11 +84,18 @@ export default function Contact() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <a.div style={contactSpring} className="ug-contact-divider"></a.div>
+        
         <div className="ug-contact-container">
           <div className="ug-contact-links">
-            <div className="ug-contact-links-2">
-              <a.div
+            <div className="ug-contact-links-pos">
+              {/* <UgLink imageSource={TwitterLogo} linkHref="https://www.facebook.com/michael.ungar.1232" name="Twitter" /> */}
+              <UgLink imageSource={FacebookLogo} linkHref="https://www.facebook.com/michael.ungar.1232" name="Facebook" username="@ungarmichael"/>
+              <UgLink imageSource={InstagramLogo} linkHref="https://www.instagram.com/ungar_/" name="Instagram" username="@_ungar"/>
+              <UgLink imageSource={GithubLogo} linkHref="https://github.com/ungarmichael" name="Github" username="@ungarmichael"/>
+              <UgLink imageSource={FiverrLogo} linkHref="https://www.fiverr.com/ungarmichael" name="Fiverr" username="@ungarmichael"/>
+
+              {/* <a.div
+                onMouseOver={()=>setLinkColor("white")}
                 style={contactSpring}
                 className="ug-contact-container-line"
               >
@@ -94,7 +105,7 @@ export default function Contact() {
                   height="35px"
                   width="35px"
                 />
-                <div className="ug-contact-links-divider" />
+                <div className="ug-contact-links-divider" style={{backgroundColor: linkColor, transition: "background-color 2s"}} />
                 <div className="ug-contact-links-div">
                   <a.div
                     style={contactSpring}
@@ -124,7 +135,7 @@ export default function Contact() {
                   </a.div>
                 </div>
               </a.div> */}
-              <a.div
+              {/* <a.div
                 style={contactSpring}
                 className="ug-contact-container-line"
               >
@@ -134,7 +145,7 @@ export default function Contact() {
                   height="35px"
                   width="35px"
                 />
-                <div className="ug-contact-links-divider" />
+                <div className="ug-contact-links-divider" style={{backgroundColor: linkColor, transition: "background-color 2s"}}/>
                 <div className="ug-contact-links-div">
                   <a.div
                     style={contactSpring}
@@ -154,7 +165,7 @@ export default function Contact() {
                   height="35px"
                   width="35px"
                 />
-                <div className="ug-contact-links-divider" />
+                <div className="ug-contact-links-divider" style={{backgroundColor: linkColor, transition: "background-color 2s"}}/>
                 <div className="ug-contact-links-div">
                   <a.div
                     style={contactSpring}
@@ -174,8 +185,8 @@ export default function Contact() {
                   height="35px"
                   width="35px"
                 />
-                <div className="ug-contact-links-divider" />
-                <div className="ug-contact-links-div">
+                <div className="ug-contact-links-divider" style={{backgroundColor: linkColor, transition: "background-color 2s"}}/>
+                <div className="ug-contact-links-div" >
                   <a.div
                     style={contactSpring}
                     className="ug-content-links-div-text"
@@ -183,10 +194,11 @@ export default function Contact() {
                     <a className="ug-content-linkds-div-link" href="https://www.fiverr.com/ungarmichael">Fiverr</a>
                   </a.div>
                 </div>
-              </a.div>
+              </a.div> */}
             </div>
           </div>
 
+        <a.div style={contactSpring} className="ug-contact-divider"></a.div>
           <a.div style={contactSpring} className="ug-contact-input">
             <form onSubmit={sendEmail}>
               <div className="ug-contact-input-heading">write me an email</div>

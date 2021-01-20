@@ -1,16 +1,17 @@
-@font-face{
-  font-family: 'ZCOOL_QingKe_HuangYou';
+@font-face {
+  font-family: "ZCOOL_QingKe_HuangYou";
   font-weight: regular;
-  src:url("./../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
+  src: url("./../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
 }
 
-.ug-contact-mailStatus{
+//mailStatus contact
+.ug-contact-mailStatus {
   position: fixed;
   z-index: 3;
   height: 100%;
   width: 100%;
   background-color: transparent;
-  .ug-contact-mailStatus-box{
+  .ug-contact-mailStatus-box {
     z-index: 3;
     position: fixed;
     top: 50%;
@@ -18,7 +19,7 @@
     height: 300px;
     width: 300px;
     background-color: black;
-    border:2px solid white;
+    border: 2px solid white;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -26,8 +27,8 @@
     justify-content: space-evenly;
     border-radius: 15px;
     color: white;
-    transform: translate(-50%,-50%);
-    p{
+    transform: translate(-50%, -50%);
+    p {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -35,7 +36,7 @@
       // background-color: blue;
       height: 50%;
     }
-    button{
+    button {
       height: 50%;
       width: 50%;
       outline: none;
@@ -49,12 +50,13 @@
   }
 }
 
-
+//main contact
 .ug-contact {
   background-repeat: repeat;
   height: 100%;
   position: absolute;
   width: 100%;
+
   .ug-contact-container {
     width: 100vw;
     height: 80vh;
@@ -65,11 +67,18 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
+
     box-sizing: border-box;
     .ug-contact-links {
+      
       width: 40vw;
-       font-family: 'ZCOOL_QingKe_HuangYou';
-      .ug-contact-links-2 {
+      font-family: "ZCOOL_QingKe_HuangYou";
+      // width: fit-content;
+      // height: fit-content;
+      // margin-left: auto;
+      // margin-right: auto;
+      .ug-contact-links-pos {
         width: fit-content;
         height: fit-content;
         margin-left: auto;
@@ -89,7 +98,7 @@
             border-radius: 10px;
           }
           .ug-content-links-div-text {
-            font-family: 'ZCOOL_QingKe_HuangYou';
+            font-family: "ZCOOL_QingKe_HuangYou";
             margin: 5px 10px;
           }
           .ug-contact-links-divider {
@@ -99,11 +108,11 @@
             height: 40px;
             background-color: white;
           }
-          .ug-contact-links-div{
+          .ug-contact-links-div {
             height: 50px;
             width: 200px;
             margin: 0px 10px;
-            
+
             // background-color: blue;
             overflow: hidden;
           }
@@ -112,7 +121,7 @@
     }
 
     .ug-contact-input {
-      font-family: 'ZCOOL_QingKe_HuangYou';
+      font-family: "ZCOOL_QingKe_HuangYou";
       position: relative;
       color: white;
       height: 80%;
@@ -122,7 +131,7 @@
       flex-direction: column;
 
       .ug-contact-input-heading {
-        font-family: 'ZCOOL_QingKe_HuangYou';
+        font-family: "ZCOOL_QingKe_HuangYou";
         flex-grow: 1;
         font-size: 50px;
         display: flex;
@@ -134,18 +143,18 @@
       }
 
       .ug-contact-input-box {
-        font-family: 'ZCOOL_QingKe_HuangYou';
+        font-family: "ZCOOL_QingKe_HuangYou";
         // flex-grow: 2;
         display: flex;
         position: relative;
         flex-direction: column;
         height: fit-content;
         justify-content: center;
-        // background-color: blue;
+
         width: 300px;
         .ug-contact-input-box-input {
           position: relative;
-          font-family: 'ZCOOL_QingKe_HuangYou';
+          font-family: "ZCOOL_QingKe_HuangYou";
           background-color: transparent;
           border: 2px solid white;
           text-decoration: none;
@@ -165,8 +174,8 @@
         }
         .ug-contact-input-box-input_text {
           position: relative;
-          font-family: 'ZCOOL_QingKe_HuangYou';
-          // box-sizing: border-box; 
+          font-family: "ZCOOL_QingKe_HuangYou";
+          // box-sizing: border-box;
           resize: none;
           background-color: transparent;
           border: 2px solid white;
@@ -192,7 +201,7 @@
             background-color: white;
             color: black;
           }
-          font-family: 'ZCOOL_QingKe_HuangYou';
+          font-family: "ZCOOL_QingKe_HuangYou";
           display: flex;
           justify-content: center;
           align-items: center;
@@ -206,32 +215,47 @@
           width: 300px;
           text-align: center;
           margin: 5px auto;
-          margin-top: 40px;
+          // margin-top: 40px;
           cursor: none;
-          outline: none;
+          // outline: none;
         }
       }
     }
-  }
-  .ug-contact-divider {
-    height: 70vh;
-    width: 1px;
-    // border-radius: 14px;
-    background-color: white;
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    .ug-contact-divider {
+      height: 70vh;
+      width: 1px;
+      background-color: white;
+      position: relative;
+      // position: absolute;
+      z-index: 2;
+      // transform: translate(-50%, -50%);
+    }
   }
 }
 
-.ug-content-linkds-div-link{
+.ug-content-linkds-div-link {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
-  transition: color 1s;
+  // color: rgba(255, 255, 255, 0.5);
+  // transition: color 1s;
 }
 
-.ug-content-linkds-div-link:hover{
-  color: white;
+// .ug-content-linkds-div-link:hover{
+//   color: white;
+// }
+
+@media only screen and (max-width:800px) {
+  .ug-contact-container{
+    flex-direction: column;
+    margin-top: 30%;
+  }
+  .ug-contact-links{
+    margin: 100px 0px;
+  }
+  .ug-contact .ug-contact-container .ug-contact-divider{
+    position: relative;
+    width: 80vw;
+    height: 1px;
+    
+    background-color: white;
+  }
 }
