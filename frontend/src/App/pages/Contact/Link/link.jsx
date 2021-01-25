@@ -63,8 +63,11 @@ const UgLink = (props) => {
             // ref={hoverRef}
             className="ug-content-linkds-div-link" href={props.linkHref} style={{color: linkColor,transition: "color 0.5s"}}>
               {/* {hoverStatus?()=>{return props.username}:()=>{return props.name}} */}
-              <a.div style={linkFadeInSpring}>{props.username}</a.div>
-              <a.div style={linkFadeOutSpring}>{props.name}</a.div>
+              <div className="ug-contact-linkds-div-link-wrap">
+                <a.div className="ug-contact-linkds-div-link-wrap-username" style={linkFadeOutSpring}>{props.username}</a.div>
+                <a.div className="ug-contact-linkds-div-link-wrap-name" style={linkFadeInSpring}>{props.name}</a.div>
+              </div>
+              
             </a>
           </a.div>
         </div>

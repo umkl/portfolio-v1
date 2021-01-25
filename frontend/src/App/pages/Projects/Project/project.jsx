@@ -27,7 +27,7 @@ const UgProject = (props) => {
         <div className="ug-project-contact">
           <div className="ug-project-contact-first">Contact me</div>
           <span className="ug-project-contact-border">
-            <Link to="/contact" style={{"color":"white", "textDecoration":"none","cursor":"none"}}>here</Link>
+            <Link to="/contact" style={{"color":"white", "textDecoration":"none"}}>here</Link>
           </span>
         </div>
       </a.div>

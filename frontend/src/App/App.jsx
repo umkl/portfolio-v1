@@ -21,34 +21,31 @@ import { BlurProvider } from "./context/BlurContext.js";
 
 function App() {
 
-  const [cursorClass, setCursorClass] = useState("ug-cursor");
+  // const [cursorClass, setCursorClass] = useState("ug-cursor");
   
-  const [cursorState, setCursorState] = useState({
-    x: 0,
-    y: 0,
-    classnames: "",
-  });
+  // const [cursorState, setCursorState] = useState({
+  //   x: 0,
+  //   y: 0,
+  //   classnames: "",
+  // });
 
-  const _onMousemove = useCallback(
-    (e) => {
-      setCursorState({ x: e.pageX, y: e.pageY });
-    },
-    [cursorState]
-  );
+  // const _onMousemove = useCallback(
+  //   (e) => {
+  //     setCursorState({ x: e.pageX, y: e.pageY });
+  //   },
+  //   [cursorState]
+  // );
 
-  const cursorStyle = {
-    top: `${cursorState.y}px`,
-    left: `${cursorState.x}px`,
-  };
-  const name = "ug-cursor";
-
-  const getCursorClasses = () => {
-    return cursorClass;
-  };
+  // const cursorStyle = {
+  //   top: `${cursorState.y}px`,
+  //   left: `${cursorState.x}px`,
+  // };
+  // const name = "ug-cursor";
 
   return (
-    <div onMouseMove={_onMousemove.bind(this)}>
-      <div className={getCursorClasses()} style={cursorStyle}></div>
+    // <div onMouseMove={_onMousemove.bind(this)}>
+    <div>
+      {/* <div className={getCursorClasses()} style={cursorStyle}></div> */}
       <SearchProvider>
         <BlurProvider>
           <UgBar />
