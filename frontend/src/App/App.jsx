@@ -56,7 +56,6 @@ function App() {
               <Route path="/content" component={ContentSwitch}></Route>
               <Route path="/contact" component={Contact}></Route>
               <Route path="/login" component={Login}></Route>
-
               {/* <Route path="/registration" component={Registration}></Route> */}
               <Route path="*" component={Error}></Route>
             </Switch>
@@ -67,7 +66,7 @@ function App() {
   );
 }
 
-export default React.memo(App);
+export default App;
 
 // //action(increment)
 // const increment = () => {

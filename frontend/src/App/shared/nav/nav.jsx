@@ -1,7 +1,7 @@
 // import UngarIcon from "./../../assets/Ungar-Icon.png";
 import React, { useState, useEffect } from "react";
 import "./nav.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 
 //svgs
 // import UngarLogoURL from "./../../assets/UNGAR_NEW_LOGO.svg";
@@ -17,6 +17,8 @@ export default function UgNav() {
     4: false,
     5: false,
   });
+  var cLocation = useLocation();
+
 
   // const getClicked = () => {
   //   if (location.pathname == "/") {
@@ -35,7 +37,7 @@ export default function UgNav() {
       2: num == 2 ? true : false,
       3: num == 3 ? true : false,
       4: num == 4 ? true : false,
-      5: num == 5 ? true : false,
+      // 5: num == 5 ? true : false,
     });
   }
 
@@ -45,12 +47,12 @@ export default function UgNav() {
     } else if (location.pathname == "/content") {
       changeClickedTo(2);
     } else if (location.pathname == "/projects") {
-      changeClickedTo(5);
-    } else if (location.pathname == "/contact") {
       changeClickedTo(3);
+    } else if (location.pathname == "/contact") {
+      changeClickedTo(4);
     }
     return () => {};
-  }, [location.pathname]);
+  }, [cLocation.pathname]);
 
   if (location.pathname == "/login") {
     return (
@@ -99,7 +101,7 @@ export default function UgNav() {
           <Link className="ug-nav-link" to="/projects">
             <span
               className={
-                varClicked[5]
+                varClicked[3]
                   ? "ug-nav-element-sub ug-nav-element-selected_true"
                   : "ug-nav-element-sub ug-nav-element-selected_false"
               }
@@ -117,7 +119,7 @@ export default function UgNav() {
           >
             <span
               className={
-                varClicked[3]
+                varClicked[4]
                   ? "ug-nav-element-sub ug-nav-element-selected_true"
                   : "ug-nav-element-sub ug-nav-element-selected_false"
               }
