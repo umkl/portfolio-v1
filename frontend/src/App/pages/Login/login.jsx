@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import "./login.scss";
-import { useSpring, animated as a } from "react-spring";
+import { useSpring, animated as a, config } from "react-spring";
 import useForm from "./../../utils/useForm.jsx";
+// import {BlurContext} from "./../../context/BlurContext.js";
 
 const Login = () => {
+  // const [blur, setBlur] = useContext(BlurContext);
   const [loaded, setLoaded] = useState(false);
-  const { handleChange, handleSubmit, values } = useForm();
+  const { handleChange, handleSubmit, values, loginStatus, setLoginStatus} = useForm();
+  
   const loginSpring = useSpring({
     marginTop: loaded ? "0px" : "500px",
+    filter: loginStatus != null? "blur(4px)": "none"
   });
 
   useEffect(() => {
@@ -18,20 +22,41 @@ const Login = () => {
     setLoaded(true);
   }, []);
 
+  // useEffect(()=>{
+  //   if(loginStatus!=null){
+  //     setBlur("4px");
+  //   }else{
+  //     setBlur(null);
+  //   }
+    
+  // },[loginStatus])
+
+  const contactSpring = useSpring({
+    to: { opacity: 1, marginLeft: "0px" },
+    from: { opacity: 0, marginLeft: "-400px"},
+    config: config.stable,
+  });
+
+  const mailStatusSpring = useSpring({
+    to: { opacity: 1, marginLeft: "0px" },
+    from: { opacity: 0, marginLeft: "-400px" },
+    config: config.stable,
+  });
+
   return (
     <React.Fragment>
-      {mailStatus != null ? ( //setting this to login to validate if login has been sent or valid
+      {loginStatus != null ? ( //setting this to login to validate if login has been sent or valid
         <div className="ug-contact-mailStatus">
           {
             <a.div
               style={mailStatusSpring}
               className="ug-contact-mailStatus-box"
             >
-              <p>{mailStatus}</p>
+              <p>{loginStatus}</p>
               <button
                 onClick={() => {
-                  setMailStatus(null);
-                  setBlur(null);
+                  setLoginStatus(null);
+                  // setBlur(null);
                 }}>
                 OK
               </button>

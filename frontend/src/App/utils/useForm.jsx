@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext} from "react";
 import axios from "axios";
+import {BlurContext} from "./../context/BlurContext.js";
 
 const useForm = () => {
+  const [blur, setBlur] = useContext(BlurContext);
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
-  const [loginStatus, setLoginStatus] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(null);
 
   const config = {
     headers: {
@@ -32,19 +34,21 @@ const useForm = () => {
 
     params.append("email", values.email);
     params.append("password", values.password);
-    // values.map((value)=>{
-    //   params.append(value);
-    // })
+    
     axios
       .post("http://localhost:8080/login",params, config)
       .then((response) => {
         console.log(response);
+        setBlur("4px");
+        setLoginStatus("success");
       })
       .catch((error) => {
         console.log(error);
+        setBlur("4px");
+        setLoginStatus("error");
       });
   };
 
-  return { handleChange, handleSubmit, values };
+  return {handleChange, handleSubmit, values, loginStatus, setLoginStatus};
 };
 export default useForm;
