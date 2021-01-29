@@ -38,12 +38,12 @@ const useForm = () => {
     axios
       .post("http://localhost:8080/login",params, config)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setBlur("4px");
         setLoginStatus("success");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setBlur("4px");
         setLoginStatus("error");
       });

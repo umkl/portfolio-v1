@@ -1,22 +1,40 @@
-import React, { useEffect, useState, useContext} from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./login.scss";
 import { useSpring, animated as a, config } from "react-spring";
 import useForm from "./../../utils/useForm.jsx";
-// import {BlurContext} from "./../../context/BlurContext.js";
+import { BlurContext } from "./../../context/BlurContext.js";
+// import { filter } from "lodash";
 
 const Login = () => {
-  // const [blur, setBlur] = useContext(BlurContext);
+  const [blur, setBlur] = useContext(BlurContext);
+  const [blurString, setBlurString] = useState("none");
   const [loaded, setLoaded] = useState(false);
-  const { handleChange, handleSubmit, values, loginStatus, setLoginStatus} = useForm();
-  
+  const {
+    handleChange,
+    handleSubmit,
+    values,
+    loginStatus,
+    setLoginStatus,
+  } = useForm();
+
   const loginSpring = useSpring({
     marginTop: loaded ? "0px" : "500px",
-    filter: loginStatus != null? "blur(4px)": "none"
+    // filter: "blur(" + blur + ")"
   });
 
   useEffect(() => {
     console.log(values);
   }, [values]);
+
+  useEffect(() => {
+    if(blur != null){
+      console.log("Blur is not null");
+      setBlurString(`blur(${blur}px)`);
+    }else{
+      console.log("Blur is null");
+      setBlurString("none");
+    }
+  }, [blur]);
 
   useEffect(() => {
     setLoaded(true);
@@ -28,14 +46,22 @@ const Login = () => {
   //   }else{
   //     setBlur(null);
   //   }
-    
+
   // },[loginStatus])
+
+  const blurMethod = {
+    filter: blurString,
+  };
 
   const contactSpring = useSpring({
     to: { opacity: 1, marginLeft: "0px" },
-    from: { opacity: 0, marginLeft: "-400px"},
+    from: { opacity: 0, marginLeft: "-400px" },
     config: config.stable,
   });
+
+  const blurSpring = useSpring({
+    filter: blur == null ? "blur(0px)" : `blur(${blur}px)`,
+  })
 
   const mailStatusSpring = useSpring({
     to: { opacity: 1, marginLeft: "0px" },
@@ -56,8 +82,9 @@ const Login = () => {
               <button
                 onClick={() => {
                   setLoginStatus(null);
-                  // setBlur(null);
-                }}>
+                  setBlur(null);
+                }}
+              >
                 OK
               </button>
             </a.div>
@@ -65,7 +92,7 @@ const Login = () => {
         </div>
       ) : null}
       <a.div style={loginSpring} className="ug-login">
-        <div className="ug-login-box">
+        <a.div className="ug-login-box" style={blurSpring}>
           <div className="ug-login-name">login</div>
           <form onSubmit={handleSubmit} className="ug-login-form">
             <input
@@ -88,7 +115,7 @@ const Login = () => {
             />
             <input type="submit" value="OK" className="ug-login-form-submit" />
           </form>
-        </div>
+        </a.div>
         <div className="ug-login-name"></div>
       </a.div>
     </React.Fragment>
