@@ -3,6 +3,7 @@ import "./login.scss";
 import { useSpring, animated as a, config } from "react-spring";
 import useForm from "./../../utils/useForm.jsx";
 import { BlurContext } from "./../../context/BlurContext.js";
+import {Link} from "react-router-dom";
 // import { filter } from "lodash";
 
 const Login = () => {
@@ -78,8 +79,19 @@ const Login = () => {
               style={mailStatusSpring}
               className="ug-contact-mailStatus-box"
             >
-              <p>{loginStatus}</p>
+              
+              {loginStatus == "success" ? 
+                (<div className="ug-contact-mailStatus-box-success">
+                  This account is not registered yet. 
+                  Please <span ><button className="ug-contact-mailStatus-box-success-contact" onClick={()=>{setBlur(null)}}><Link to="/contact" >contact</Link></button></span> me to request an account.
+                </div>):
+                (<div className="ug-contact-mailStatus-box-error">
+                  err
+                </div>)
+              }
+
               <button
+                className="ug-contact-mailStatus-box-button"
                 onClick={() => {
                   setLoginStatus(null);
                   setBlur(null);
