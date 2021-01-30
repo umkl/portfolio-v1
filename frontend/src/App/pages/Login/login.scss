@@ -146,6 +146,11 @@
 }
 
 .ug-contact-mailStatus-box-button{
+  margin: 5px;
+  a{
+    text-decoration: none;
+  }
+  color: white;
   font-family: 'ZCOOL_QingKe_HuangYou';
   ::hover{
     background-color: white;
@@ -162,4 +167,17 @@
    text-decoration: none !important; 
   // padding: 2px;
   color: white;
+}
+
+.ug-contact-mailStatus-box-buttons{
+  display: flex;
+  // background-color: blue;
+  font-family: 'ZCOOL_QingKe_HuangYou';
+  width: 80%;
+  position: relative;
+  color: white;
+}
+
+a{
+  text-decoration: none;
 }

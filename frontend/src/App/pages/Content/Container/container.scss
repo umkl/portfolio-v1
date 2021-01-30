@@ -11,6 +11,13 @@
   margin: 10px;
   border-radius: 10px;
   min-height: 300px;
+  // transition: 2s;
+  animation: background-color 2s;
+}
+
+.ug-container:hover{
+  background-image: "./../../../assets/Facebook-Logo.png";
+  
 }
 
 .ug-container-heading {
@@ -28,7 +35,6 @@
 .ug-container-small_description {
   // font-family: YanoneKaffeesatz-Light;
   font-family: ZCOOL_QingKe_HuangYou;
-  text-decoration: none;
   
   outline: none;
   font-size: 20px;
@@ -70,4 +76,8 @@
 
 .container.show .innerBox {
   display: block;
+}
+
+a{
+  text-decoration: none;
 }

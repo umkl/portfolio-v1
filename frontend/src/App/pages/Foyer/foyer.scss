@@ -21,6 +21,7 @@
   align-items: center;
   .ug-foyer-intro {
     height: 100vh;
+    // background-color: aqua;
     width: 100%;
     z-index: 0;
 
@@ -44,44 +45,27 @@
 
     #ug-foyer-box {
       color: white;
-    
-      font-size: calc(5vh + 15vw);
-      // height: calc(40vh);
+      padding: 20px;
+      font-size: 10%;
       display: inline-block;
       @include center();
       position: absolute;
       pointer-events: none;
       .fullLogo{
-        path{
-          // stroke-width: 2;
-          stroke: white
-        }
+        // @include center();
+        width: 60vw;
+        height: 30vh;
+        
       }
-      // .ug-foyer-name {
-      //   font-family: AlteSchwabacher;
-      //   color: white;
-      //   position: relative;
-      //   // font-size: 50%;
-      //   width: fit-content;
-      //   margin: 0 auto 0 auto;
-      //   .ug-foyer-name-svg{
-      //     height: 190px;
-      //     width: 2000px;
 
-
-      //   }
-      // }
       .ug-foyer-text {
         font-family: ZCOOL_QingKe_HuangYou;
-        color: rgb(218, 218, 218);
+        color: rgba(255, 255, 255, 0.726);
         position: relative;
         width: fit-content;
-        
         text-align: center;
-        font-size: calc(1vh + 3vw);
-        font-weight:100;
+        font-size: 5vh;
         margin: 0 auto;
-
       }
     }
   }

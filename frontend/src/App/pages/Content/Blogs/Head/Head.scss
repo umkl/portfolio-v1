@@ -1,6 +1,72 @@
+@font-face{
+    font-family: 'ZCOOL_QingKe_HuangYou';
+    font-weight: regular;
+    src:url("./../../../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
+}
+
 .Head{
     height: 100%;
     width: 100%;
-    position: absolute;
-    background-color: orange;
+    position: fixed;
+    background-color: #8B8B8B;
+    
+    .Head-Content{
+        
+        // border-radius: 15px;
+        // display: inline-block;
+        position: absolute;
+        width: 90%;
+        height: 300px;
+        top:5%;
+        // margin: 0auto;
+        left:50%;
+        transform: translateX(-50%);
+        // transform: translate(-50%,-50%);
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+        
+        .Head-Content-Heading{
+            font-size: large;
+            
+        }
+        .Head-Content-Text{
+            font-size: small;
+            // background-color: aliceblue;
+            margin: 20px;
+        }
+    }
+    .Head-Nav{
+        display: flex;
+        align-items: center;
+        align-content: space-between;
+        justify-content: space-between;
+        position: fixed;
+        left: 0px;
+        bottom: 5%;
+        height: 20px;
+        width: 90%;
+        left: 50%;
+        font-size: 20px;
+        transform: translate(-50%);
+        .Head-Nav-FullLogo{
+            svg{
+                fill: blue;
+            }
+            // fill: none;
+            // stroke-width: 3;
+            // stroke: #491EC4;
+            // background-color: blue;
+        }
+        .Head-Nav-Back{
+            // fill: none;
+            // stroke-width: 3;
+            // stroke: #491EC4;
+            // background-color: rgb(62, 62, 85);
+        }
+        a{
+            color: black;
+        }
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+        // font-family:ZCOOL_QingKe_HuangYou;
+        // background-color: red;
+    }
 }

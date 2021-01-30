@@ -3,7 +3,7 @@ import "./login.scss";
 import { useSpring, animated as a, config } from "react-spring";
 import useForm from "./../../utils/useForm.jsx";
 import { BlurContext } from "./../../context/BlurContext.js";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { filter } from "lodash";
 
 const Login = () => {
@@ -28,10 +28,10 @@ const Login = () => {
   }, [values]);
 
   useEffect(() => {
-    if(blur != null){
+    if (blur != null) {
       console.log("Blur is not null");
       setBlurString(`blur(${blur}px)`);
-    }else{
+    } else {
       console.log("Blur is null");
       setBlurString("none");
     }
@@ -62,7 +62,7 @@ const Login = () => {
 
   const blurSpring = useSpring({
     filter: blur == null ? "blur(0px)" : `blur(${blur}px)`,
-  })
+  });
 
   const mailStatusSpring = useSpring({
     to: { opacity: 1, marginLeft: "0px" },
@@ -79,26 +79,34 @@ const Login = () => {
               style={mailStatusSpring}
               className="ug-contact-mailStatus-box"
             >
-              
-              {loginStatus == "success" ? 
-                (<div className="ug-contact-mailStatus-box-success">
-                  This account is not registered yet. 
-                  Please <span ><button className="ug-contact-mailStatus-box-success-contact" onClick={()=>{setBlur(null)}}><Link to="/contact" >contact</Link></button></span> me to request an account.
-                </div>):
-                (<div className="ug-contact-mailStatus-box-error">
-                  err
-                </div>)
-              }
+              {loginStatus == "success" ? (
+                <div className="ug-contact-mailStatus-box-success">
+                  This account is not registered yet. Please me to request an
+                  account.
+                </div>
+              ) : (
+                <div className="ug-contact-mailStatus-box-error">err</div>
+              )}
 
-              <button
-                className="ug-contact-mailStatus-box-button"
-                onClick={() => {
-                  setLoginStatus(null);
-                  setBlur(null);
-                }}
-              >
-                OK
-              </button>
+              <div className="ug-contact-mailStatus-box-buttons">
+                <button
+                  className="ug-contact-mailStatus-box-success-contact"
+                  onClick={() => {
+                    setBlur(null);
+                  }}
+                >
+                  <Link to="/contact">contact</Link>
+                </button>
+                <button
+                  className="ug-contact-mailStatus-box-button"
+                  onClick={() => {
+                    setLoginStatus(null);
+                    setBlur(null);
+                  }}
+                >
+                  OK
+                </button>
+              </div>
             </a.div>
           }
         </div>
