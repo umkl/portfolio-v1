@@ -62,12 +62,14 @@ const Login = () => {
 
   const blurSpring = useSpring({
     filter: blur == null ? "blur(0px)" : `blur(${blur}px)`,
+    config: {duration: 20}
   });
 
   const mailStatusSpring = useSpring({
     to: { opacity: 1, marginLeft: "0px" },
     from: { opacity: 0, marginLeft: "-400px" },
     config: config.stable,
+    
   });
 
   return (
@@ -81,16 +83,17 @@ const Login = () => {
             >
               {loginStatus == "success" ? (
                 <div className="ug-contact-mailStatus-box-success">
-                  This account is not registered yet. Please me to request an
+                  This account is not registered yet. Please contact me to request an
                   account.
                 </div>
               ) : (
-                <div className="ug-contact-mailStatus-box-error">err</div>
+                <div className="ug-contact-mailStatus-box-error">There was a connection problem with the server.</div>
               )}
 
               <div className="ug-contact-mailStatus-box-buttons">
                 <button
                   className="ug-contact-mailStatus-box-success-contact"
+                  style={{"color":"white"}}
                   onClick={() => {
                     setBlur(null);
                   }}
@@ -106,6 +109,7 @@ const Login = () => {
                 >
                   OK
                 </button>
+                
               </div>
             </a.div>
           }
@@ -133,11 +137,16 @@ const Login = () => {
               value={values.password}
               autoComplete="on"
             />
-            <input type="submit" value="OK" className="ug-login-form-submit" />
+            <div className="ug-login-form-button_wrapper">
+              <div className="Login-Back"><Link to="/content">go back</Link></div>
+              <input type="submit" value="OK" className="ug-login-form-submit" />
+            </div>
+            
           </form>
         </a.div>
         <div className="ug-login-name"></div>
       </a.div>
+        
     </React.Fragment>
   );
 };

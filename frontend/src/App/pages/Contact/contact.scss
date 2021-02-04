@@ -56,7 +56,6 @@
   position: fixed;
   width: 100%;
   .ug-contact-container {
-    background-color: blue;
     width: 100vw;
     height: 80vh;
     position: relative;
@@ -71,6 +70,7 @@
     .ug-contact-links {
       width: fit-content;
       font-family: "ZCOOL_QingKe_HuangYou";
+      margin-left: 100px;
       .ug-contact-links-pos {
         height: fit-content;
         margin-left: auto;

@@ -2,8 +2,6 @@
 
 .ug-container {
   width: 80%;
-  display: block;
-  // background-color: rgba(223, 223, 223, 0.301);
   border: 2px solid white;
   position: relative;
   left: 50%;
@@ -11,13 +9,16 @@
   margin: 10px;
   border-radius: 10px;
   min-height: 300px;
-  // transition: 2s;
   animation: background-color 2s;
+  padding: relative;
+  transition: background-color .3s;
+  // transition: zoom .3s;
 }
 
 .ug-container:hover{
-  background-image: "./../../../assets/Facebook-Logo.png";
-  
+  background-color: rgba(114, 114, 114, 0.5);
+  // zoom: 110%;
+  cursor: pointer;
 }
 
 .ug-container-heading {
@@ -75,9 +76,10 @@
 }
 
 .container.show .innerBox {
-  display: block;
+  // display: block;
 }
 
 a{
   text-decoration: none;
 }
+

@@ -139,13 +139,14 @@
   }
 }
 
-
 .ug-contact-mailStatus-box-error{
   font-family: 'ZCOOL_QingKe_HuangYou';
-  font-size: 20px;
+  max-width: 200px;
+  text-align: center;
 }
 
 .ug-contact-mailStatus-box-button{
+  font-size: 15px;
   margin: 5px;
   a{
     text-decoration: none;
@@ -159,25 +160,52 @@
 }
 
 .ug-contact-mailStatus-box-success-contact{
+  font-family: 'ZCOOL_QingKe_HuangYou';
   margin: 5px;
   border: 2px solid white;
   border-radius: 10px;
   padding: 3px;
-  // background-color: white;
-   text-decoration: none !important; 
-  // padding: 2px;
+  text-decoration: none !important; 
+  font-size: 15px;
   color: white;
+  ::hover{
+    background-color: white;
+  }
 }
 
 .ug-contact-mailStatus-box-buttons{
   display: flex;
-  // background-color: blue;
   font-family: 'ZCOOL_QingKe_HuangYou';
   width: 80%;
   position: relative;
   color: white;
+  ::hover{
+    background-color: white;
+  }
 }
 
 a{
   text-decoration: none;
+  color: white;
+}
+
+.Login-Back{
+  border: 2px solid white;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-family: 'ZCOOL_QingKe_HuangYou';
+}
+.Login-Back:hover{
+  background-color: white;
+  
+  a{
+      color: black;
+      text-shadow: none;
+  }
+
+  
+
+}
+.ug-login-form-button_wrapper{
+  display: flex;
 }

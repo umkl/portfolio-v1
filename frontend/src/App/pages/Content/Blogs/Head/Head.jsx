@@ -3,6 +3,7 @@ import "./Head.scss";
 import { Link } from "react-router-dom";
 import FullLogo from "./../../../../assets/UNGAR-FULL.svg";
 
+
 const Head = () => {
   return (
     <div className="Head">
@@ -13,7 +14,9 @@ const Head = () => {
       <div className="Head-Nav">
           <div className="Head-Nav-Back"><Link to="/content">go back</Link></div>
           <div className="Head-Nav-FullLogo">
-            <FullLogo width="100" height="60" className="Head-Nav-FullLogo-svg" />
+            <Link to="/">
+              <FullLogo width="100" height="60" className="Head-Nav-FullLogo-svg" />
+            </Link>
           </div>
       </div>
     </div>
