@@ -33,7 +33,6 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      // background-color: blue;
       height: 50%;
     }
     button {
@@ -56,8 +55,8 @@
   height: 100%;
   position: fixed;
   width: 100%;
-
   .ug-contact-container {
+    background-color: blue;
     width: 100vw;
     height: 80vh;
     position: relative;
@@ -67,23 +66,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-
     box-sizing: border-box;
+    
     .ug-contact-links {
-      // background-color: blue;
-      // border: 2px solid white;
-      border-radius: 15px;;
-      width: 40vw;
+      width: fit-content;
       font-family: "ZCOOL_QingKe_HuangYou";
       .ug-contact-links-pos {
-        // width: fit-content;
         height: fit-content;
         margin-left: auto;
         margin-right: auto;
-        width: 350px;
-        
-        
+        width: fit-content;
         .ug-contact-container-line {
           // background-color: blue;
           font-size: 40px;
@@ -94,7 +86,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          
+
           img {
             margin: 5px 20px;
             border-radius: 10px;
@@ -105,7 +97,6 @@
             // background-color: antiquewhite;
             width: fit-content;
             min-width: 300px;
-            
           }
           .ug-contact-links-divider {
             margin: 5px 10px;
@@ -119,12 +110,12 @@
             height: 50px;
             width: fit-content;
             overflow: hidden;
-            .ug-contact-linkds-div-link-wrap{
+            .ug-contact-linkds-div-link-wrap {
               position: relative;
-              .ug-contact-linkds-div-link-wrap-username{
+              .ug-contact-linkds-div-link-wrap-username {
                 position: absolute;
               }
-              .ug-contact-linkds-div-link-wrap-username{
+              .ug-contact-linkds-div-link-wrap-username {
                 position: absolute;
               }
             }
@@ -133,18 +124,26 @@
       }
     }
 
+    .ug-contact-frame{
+      // background-color: red;
+      position: relative;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .ug-contact-input {
       font-family: "ZCOOL_QingKe_HuangYou";
       position: relative;
       color: white;
-      height: 80%;
-      width: 40vw;
+      height: fit-content;
+      width: fit-content;
       display: flex;
       align-items: center;
       flex-direction: column;
-      // border: 2px solid white;
-      // border-radius: 15px;
-
+      // margin: 20px;
       .ug-contact-input-heading {
         font-family: "ZCOOL_QingKe_HuangYou";
         flex-grow: 1;
@@ -152,41 +151,34 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
         text-align: center;
+        width: 100%;
         margin: 30px 0px;
       }
 
       .ug-contact-input-box {
         font-family: "ZCOOL_QingKe_HuangYou";
-        // flex-grow: 2;
+        margin: 0 auto;
         display: flex;
-        position: relative;
-        flex-direction: column;
         height: fit-content;
+        flex-direction: column;
         justify-content: center;
-        
-
-        width: 300px;
+        width: fit-content;
         .ug-contact-input-box-input {
           position: relative;
-          font-family: "ZCOOL_QingKe_HuangYou";
-          background-color: transparent;
-          border: 2px solid white;
-          text-decoration: none;
-          color: white;
-          padding: 0px 20px;
-          font-size: 20px;
-          border-radius: 15px;
-          height: 50px;
-          width: 300px;
-          box-sizing: border-box;
           margin: 5px auto;
-          // cursor: none;
+          padding: 0px 20px;
+          box-sizing: border-box;
+          width: 300px;
+          height: 50px;
+          background-color: transparent;
+          border-radius: 15px;
+          border: 2px solid white;
+          color: white;
+          font-family: "ZCOOL_QingKe_HuangYou";
+          font-size: 20px;
+          text-decoration: none;
           outline: none;
-          // text-align: center;
-          // input:focus{
-          // }
         }
         .ug-contact-input-box-input_text {
           position: relative;
@@ -231,9 +223,6 @@
           width: 300px;
           text-align: center;
           margin: 5px auto;
-          // margin-top: 40px;
-          // cursor: none;
-          // outline: none;
         }
       }
     }
@@ -242,37 +231,62 @@
       width: 1px;
       background-color: white;
       position: relative;
-      // position: absolute;
       z-index: 2;
-      // transform: translate(-50%, -50%);
     }
   }
 }
 
-.ug-content-linkds-div-link {
-  text-decoration: none;
-  
-  // color: rgba(255, 255, 255, 0.5);
-  // transition: color 1s;
-}
-
-// .ug-content-linkds-div-link:hover{
-//   color: white;
-// }
-
-@media only screen and (max-width:800px) {
-  .ug-contact-container{
-    flex-direction: column;
-    margin-top: 30%;
+@media only screen and (max-width: 800px) {
+  .ug-contact {
+    position: absolute;
+    // top:50vh;
+    .ug-contact-container {
+      height:fit-content;
+      flex-direction: column;
+      // margin-top: 0%;
+      background-color: transparent;
+      transform: translate(0,0);
+      top: 0;
+      left: 0;
+      margin-top: 50px;
+      .ug-contact-frame{
+        height: 60vh;
+        width: 100%;
+      }
+    }
   }
-  .ug-contact-links{
-    margin: 100px 0px;
+
+  .ug-contact-links {
+    position: relative;
+
+    // height: 100vw;
   }
-  .ug-contact .ug-contact-container .ug-contact-divider{
+  .ug-contact .ug-contact-container .ug-contact-divider {
     position: relative;
     width: 80vw;
     height: 1px;
-    
     background-color: white;
   }
 }
+
+@media only screen and (max-height: 800px) and (max-width: 800px) {
+  .ug-contact {
+    position: absolute;
+    // top:50vh;
+    .ug-contact-container {
+      height:fit-content;
+      flex-direction: column;
+      // margin-top: 0%;
+      background-color: transparent;
+      transform: translate(0,0);
+      top: 0;
+      left: 0;
+      margin-top: 50px;
+      .ug-contact-frame{
+        height: 500px;
+        width: 100%;
+      }
+    }
+  }
+}
+
