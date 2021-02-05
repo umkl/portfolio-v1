@@ -4,7 +4,6 @@ import { useSpring, animated as a, config } from "react-spring";
 import useForm from "./../../utils/useForm.jsx";
 import { BlurContext } from "./../../context/BlurContext.js";
 import { Link } from "react-router-dom";
-// import { filter } from "lodash";
 
 const Login = () => {
   const [blur, setBlur] = useContext(BlurContext);
@@ -40,15 +39,6 @@ const Login = () => {
   useEffect(() => {
     setLoaded(true);
   }, []);
-
-  // useEffect(()=>{
-  //   if(loginStatus!=null){
-  //     setBlur("4px");
-  //   }else{
-  //     setBlur(null);
-  //   }
-
-  // },[loginStatus])
 
   const blurMethod = {
     filter: blurString,
@@ -138,10 +128,9 @@ const Login = () => {
               autoComplete="on"
             />
             <div className="ug-login-form-button_wrapper">
-              <div className="Login-Back"><Link to="/content">go back</Link></div>
+              {/* <div className="Login-Back"><Link to="/content">go back</Link></div> */}
               <input type="submit" value="OK" className="ug-login-form-submit" />
             </div>
-            
           </form>
         </a.div>
         <div className="ug-login-name"></div>

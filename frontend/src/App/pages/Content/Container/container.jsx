@@ -13,8 +13,7 @@ const Container = (props) => {
   const springProps = useSpring({
     opacity: isVisible ? 1 : 0,
     marginLeft: isVisible ? 0 : -500,
-  });
-
+  })
   const history = useHistory();
   const onClick = useCallback(() => {
     const to = `/content/${props.heading}`;

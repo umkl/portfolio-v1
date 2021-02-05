@@ -59,7 +59,7 @@ function UgBar() {
       </div>
     );
   } else {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     return <div></div>;
   }
 }
