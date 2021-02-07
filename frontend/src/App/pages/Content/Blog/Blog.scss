@@ -34,7 +34,7 @@
     // margin: 0 20%;
     @media only screen and (min-width: 1000px) {
         // margin: 30px 20%;
-        background-color: red;
+        // background-color: red;
         
         max-width: 800px;
     }
@@ -80,9 +80,9 @@
       margin-left: 30px;
       padding: 10px 15px;
       border-radius: 15px;
-      &:hover{
-        text-decoration: underline;
-      }
+      // &:hover{
+      //   text-decoration: underline;
+      // }
     }
     
     a {

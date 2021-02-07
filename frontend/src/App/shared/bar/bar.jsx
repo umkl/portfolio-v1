@@ -5,6 +5,7 @@ import UgBtn from "./../btn/btn.jsx";
 import "./bar.scss";
 import { BlurContext } from "./../../context/BlurContext.js";
 import { useLocation } from "react-router-dom";
+import Logo from "./../../assets/UNGAR_NEW_LOGO.svg";
 
 function UgBar() {
   const [loaded, setLoaded] = useState(false);
@@ -47,9 +48,10 @@ function UgBar() {
     return (
       <div style={blur != null ? { filter: `blur(${blur})` } : null}>
         {cLocation.pathname == "/login" ? (
-          <a.div id="ug-bar-login" style={barFade}>
-            <UgNav />
-          </a.div>
+          // <a.div id="ug-bar-login" style={barFade}>
+          //   <UgNav />
+          // </a.div>
+          <div></div>
         ) : (
           <a.div id="ug-bar" style={barFade}>
             <UgBtn />

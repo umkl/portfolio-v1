@@ -11,36 +11,21 @@
   position: absolute;
 }
 
-.ug-login-u {
-  font-size: 50px;
-  left: 4%;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  position: fixed;
-}
-
-.ug-login-name {
-  font-family: 'ZCOOL_QingKe_HuangYou';
-  font-size: 30px;
-  width: 100%;
-  left: 50%;
-  // margin-top
-  text-align: center;
-  padding-top: 60px;
-  height: 100px;
-}
-
-
 .ug-login-box{
     border-radius: 15px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
     border: 2px solid white;
     height: 400px;
     width: 340px;
     position: relative;
+    .ug-login-name {
+      position: relative;
+      font-family: 'ZCOOL_QingKe_HuangYou';
+      font-size: 30px;
+      width: 100%;
+      text-align: center;
+      padding-top: 60px;
+      height: 100px;
+    }
 }
 
 .ug-login-form{
@@ -187,4 +172,34 @@
 a{
   text-decoration: none;
   color: white;
+}
+
+// @media only screen and (max-height: 600px) {
+//   .ug-login{
+//     top: 300px;
+//     left: 50%;
+//     transform: translate(-50%,-50%);
+//   }
+// }
+
+.ug-login-logo{
+  // left: 50%;
+  position: relative;
+  // margin: 0 auto;
+  left: 50%;
+  // background-color: red;
+  margin: 0 0 50px 0;
+  width: fit-content;
+  transform: translateX(-50%);
+}
+
+
+.ug-login-elements{
+  width: fit-content;
+  height: fit-content;
+  left: 50%;
+  top: 50%;
+  position: relative;
+  transform: translate(-50%,-50%);
+  // background-color: blue;
 }

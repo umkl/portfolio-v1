@@ -1,12 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import DOMPurify from "dompurify";
 import "./Blog.scss";
 import { Link } from "react-router-dom";
 import FullLogo from "./../../../assets/UNGAR-FULL.svg";
-import {useParams} from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 
 const Blog = (props) => {
-  let {heading} = useParams();
+  const API_URL = "http://localhost:8080/contributions";
+
+  const [blog, setBlog] = useState(null);
+  const [loaded, setLoaded] = useState(false);
+  const htmlStringTest = "<h1>I'm a string with HTML!</h1>";
+
+  let { blogID } = useParams();
+
+  useEffect(() => {
+    loadData();
+  }, []);
+  
+
+  const loadData = async () => {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    data.forEach((element) => {
+      console.log(element.Heading);
+      console.log(blogID);
+      if (element.Heading == blogID) {
+        console.log("true");
+        setBlog(element);
+        console.log(element.BlogHTML);
+        console.log(element);
+      }
+    });
+
+    setLoaded(true);
+  };
+
+  function createMarkup(htmlCode){
+    return {__html: htmlCode};
+    // DOMPurify.sanitize(blog.blogHTML)
+  }
 
   return (
     <div className="Blog">
@@ -14,9 +47,7 @@ const Blog = (props) => {
         <div className="Blog-Nav-Back">
           <Link to="/content">more</Link>
         </div>
-        <div className="Blog-Nav-Middle">
-
-        </div>
+        <div className="Blog-Nav-Middle"></div>
         <div className="Blog-Nav-FullLogo">
           <Link to="/">
             <FullLogo
@@ -26,32 +57,23 @@ const Blog = (props) => {
             />
           </Link>
         </div>
-        
       </div>
       <div className="Blog-Divider"></div>
-      <div className="Blog-Content">
-        <div className="Blog-Content-Heading">{heading}</div>
-        <div className="Blog-Content-Text">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-          amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-          invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-          At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-          kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-          amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-          esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
-          at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-          Lorem ipsum dolor sit amet,
+      {!loaded ? (
+        <div style={{ color: "white" }}>loading …</div>
+      ) : (
+        <div className="Blog-Content">
+          <div className="Blog-Content-Heading">heading</div>
+          <div className="Blog-Content-Text">
+            blogID: {blogID} <br/>
+            blog: {blog.Heading} <br/>
+            hello HTML: <div dangerouslySetInnerHTML={createMarkup(htmlStringTest)}></div><br/>
+            {console.log(blog.blogHTML)}
+            blog HTML: <div dangerouslySetInnerHTML={createMarkup(blog.BlogHTML)}></div><br/>
+            blog description: {blog.Description} <br/>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

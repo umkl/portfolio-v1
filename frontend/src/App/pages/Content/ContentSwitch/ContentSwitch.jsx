@@ -13,11 +13,7 @@ const ContentSwitch = () => {
             <Route exact path={`${path}`}>
                 <Content/>
             </Route>
-            {/* <Route path={`${path}/Head`}>
-                <Head/>
-            </Route> */}
             <Route path={`${path}/:blogID`} children={<Blog/>}/>
-
         </React.Fragment>
     )
 }
