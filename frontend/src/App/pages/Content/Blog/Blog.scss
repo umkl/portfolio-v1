@@ -45,7 +45,7 @@
     // }
     .Blog-Content-Text {
       font-size: large;
-      margin: 20px;
+      // margin: 20px;
       
     }
   }
@@ -64,6 +64,11 @@
     left: 50%;
     font-size: 20px;
     transform: translate(-50%);
+    .Blog-Nav-Middle{
+      color: white;
+      font-family: "ZCOOL_QingKe_HuangYou";
+      font-size: 30px;
+    }
     .Blog-Nav-FullLogo {
       // fill: none;
       // stroke-width: 3;

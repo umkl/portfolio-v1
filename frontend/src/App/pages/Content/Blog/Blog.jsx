@@ -17,7 +17,6 @@ const Blog = (props) => {
   useEffect(() => {
     loadData();
   }, []);
-  
 
   const loadData = async () => {
     const response = await fetch(API_URL);
@@ -36,8 +35,8 @@ const Blog = (props) => {
     setLoaded(true);
   };
 
-  function createMarkup(htmlCode){
-    return {__html: htmlCode};
+  function createMarkup(htmlCode) {
+    return { __html: htmlCode };
     // DOMPurify.sanitize(blog.blogHTML)
   }
 
@@ -47,7 +46,12 @@ const Blog = (props) => {
         <div className="Blog-Nav-Back">
           <Link to="/content">more</Link>
         </div>
-        <div className="Blog-Nav-Middle"></div>
+        {!loaded ? (
+          <div className="Blog-Nav-Middle">loading...</div>
+        ) : (
+          <div className="Blog-Nav-Middle">{blog.Heading}</div>
+        )}
+
         <div className="Blog-Nav-FullLogo">
           <Link to="/">
             <FullLogo
@@ -63,14 +67,18 @@ const Blog = (props) => {
         <div style={{ color: "white" }}>loading …</div>
       ) : (
         <div className="Blog-Content">
-          <div className="Blog-Content-Heading">heading</div>
+          {/* <div className="Blog-Content-Heading">heading</div> */}
           <div className="Blog-Content-Text">
-            blogID: {blogID} <br/>
-            blog: {blog.Heading} <br/>
-            hello HTML: <div dangerouslySetInnerHTML={createMarkup(htmlStringTest)}></div><br/>
+            {/* blogID: {blogID} <br />
+            blog: {blog.Heading} <br />
+            hello HTML:{" "}
+            <div dangerouslySetInnerHTML={createMarkup(htmlStringTest)}></div>
+            <br />
             {console.log(blog.blogHTML)}
-            blog HTML: <div dangerouslySetInnerHTML={createMarkup(blog.BlogHTML)}></div><br/>
-            blog description: {blog.Description} <br/>
+            blog HTML:{" "} */}
+            <div dangerouslySetInnerHTML={createMarkup(blog.BlogHTML)}></div>
+            {/* <br />
+            blog description: {blog.Description} <br /> */}
           </div>
         </div>
       )}
