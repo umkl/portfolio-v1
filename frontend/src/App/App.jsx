@@ -57,7 +57,7 @@ function App() {
               <Route path="/contact" component={Contact}></Route>
               <Route path="/login" component={Login}></Route>
               {/* <Route path="/registration" component={Registration}></Route> */}
-              <Route path="*" component={Error}></Route>
+              <Route path="*" exact={true} component={Error}></Route>
             </Switch>
           </AnimatePresence>
         </BlurProvider>

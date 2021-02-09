@@ -70,7 +70,7 @@ const UgBtn = () => {
         >
           <img src={SearchIcon} alt="" height="20px" width="20px" />
         </div>
-        
+
         <Link className="ug-nav-link" to="/login">
           <div className="ug-btn-login">login</div>
         </Link>
@@ -107,8 +107,14 @@ const UgBtn = () => {
         </div>
       </div>
     );
-  } else{
-    return null;
+  } else {
+    return (
+      <div className="ug-btn">
+        <Link className="ug-nav-link" to="/login">
+          <div className="ug-btn-login">login</div>
+        </Link>
+      </div>
+    );
   }
 
   // else if (location.pathname == "/registration") {

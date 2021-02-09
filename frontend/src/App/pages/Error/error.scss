@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "ZCOOL_QingKe_HuangYou";
+  font-weight: regular;
+  src: url("./../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
+}
+
+.ug-error {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  .box {
+    position: absolute;
+    display: inline-block;
+    font-family: ZCOOL_QingKe_HuangYou;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    color: white;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .line-1 {
+      font-size: 2em;
+      margin: 20px;
+    }
+    .line-2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .line-2-border_button {
+        margin: 10px;
+        white-space: nowrap;
+        text-decoration: none;
+        color: white;
+        border-radius: 4px;
+        border: 2px solid white;
+        width: 40px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .ug-error .box {
+    // background-color: green;
+    height: 300px;
+    top: 200px;
+    transform: translateX(-50%);
+  }
+}
