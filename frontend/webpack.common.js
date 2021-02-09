@@ -1,5 +1,5 @@
 const path = require("path");
-// const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+// const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
   context: __dirname,
@@ -44,4 +44,7 @@ module.exports = {
       },
     ],
   },
+  // plugins:[
+  //   new FlaviconsWebpackPlugin("./src/App/assets/Ungar_Website_Icon.ico"),
+  // ]
 };

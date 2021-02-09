@@ -12,6 +12,7 @@ const Error = () => {
 
   const springProps = useSpring({
     marginTop: loaded ? "0px" : "400px",
+    opacity: loaded ? 1 : 0
     // marginLeft: loaded ? "0px":"400px",
     // transform: `translate(-50%,-50%) scale(${loaded?"1":"0.8"})`
   });

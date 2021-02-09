@@ -28,7 +28,7 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public/template.html"),
-      // favicon: "./src/App/assets/UNGAR_NEW_LOGO.png",
+      favicon: "./src/App/assets/Ungar_Website_Icon.ico",
       filename: "index.html",
     }),
   ],
