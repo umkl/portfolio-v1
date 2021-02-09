@@ -1,7 +1,7 @@
 {
   "name": "ungar",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Ungar is a blog website and portfolio website for Michael Ungar.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
