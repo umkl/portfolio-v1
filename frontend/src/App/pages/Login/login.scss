@@ -203,3 +203,15 @@ a{
   transform: translate(-50%,-50%);
   // background-color: blue;
 }
+
+@media only screen and (max-height: 700px){
+  .ug-login{
+    height: 700px;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .ug-login{
+    width: 500px;
+  }
+}

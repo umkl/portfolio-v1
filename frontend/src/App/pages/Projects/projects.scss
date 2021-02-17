@@ -1,13 +1,5 @@
-// @font-face{
-//   font-family: 'ZCOOL_QingKe_HuangYou';
-//   font-weight: regular;
-//   src:url("./../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
-// }
-
-
 .ug-projects {
   position: absolute;
-  display: inline-block;
   height: 100%;
   width: 100%;
 }
@@ -21,20 +13,21 @@
 }
 
 .ug-project-diashow {
-  position: relative;
+  position: absolute;
   width: 90vw;
   height: 80vh;
-  top: 50%;
+  top: 100px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 }
 
+// --- NAVIGATOR ---
+
 .ug-project-navigator {
-  // background-color: blue;
   height: fit-content;
   width: fit-content;
   position: fixed;
-  bottom: 3vh;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -59,3 +52,19 @@
   border-radius: 100%;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px){
+  .ug-projects{
+    width: 600px;
+  }
+
+  .ug-project-navigator {
+    left: 300px;
+  }
+  .ug-project-diashow{
+    width: 600px;
+    left: 300px;
+  }
+}
+
+

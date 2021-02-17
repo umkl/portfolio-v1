@@ -8,38 +8,33 @@ import React, {
 import { AnimatePresence, motion } from "framer-motion";
 import { config, useTransition, useSpring, animated as a } from "react-spring";
 import _uniqueId from 'lodash/uniqueId';
-
-//UgProject
 import UgProject from "./Project/project.jsx";
-
-//projects
 import "./projects.scss";
+import NeighborooImage from "./../../assets/Neighboroo/NeighborooMockup.png"
 
 const Projects = () => {
   //local projects
+  const imageArray = [
+    NeighborooImage
+  ]
+
   const projectsJSON = [
     {
       // "_id" : ObjectId("5fa14938ee9eac91770b019b"),
       "_id": _uniqueId('prefix-'),
-      "Title" : "Project1",
-      "Description" : "this is project 1"
-    },
-    {
-      // "_id" : ObjectId("5fa1a06bee9eac91770b019c"),
-      "_id": _uniqueId('prefix-'),
       "Title" : "Neighboroo",
-      "Description" : "neighboroo is a mobile phone project"
-    },
-    {
-      // "_id" : ObjectId("5fca3b868563ccc69477a6dd"),
-      "_id": _uniqueId('prefix-'),
-      "Title" : "test",
-      "Description" : "this is a test 3"
+      "Slogan" : "Bringing Neighbors together",
+      "Description" : "Neighboroo is a Flutter Project. jaskldfjaskldfjlkaösdjfölkasdjlöskdfjkalösdjfklsdjlöfkasjdflkajs",
+      "Link":"Link to the Github Project here",
+      "Image": require("./../../assets/Neighboroo/NeighborooMockup.png"),
+      "ImageID":0
     },
     {
       "_id": _uniqueId('prefix-'),
       "Title" : "Trailer",
-      "Description" : "this is a test 3"
+      "Description" : "this is a test 3",
+      "ImageID":0,
+      "Image": "./../../assets/Neighboroo/NeighborooMockup.png",
     }
   ]
 
@@ -64,33 +59,16 @@ const Projects = () => {
   });
 
   const projectTransitions = useTransition(index, (p) => p, {
-    from: { opacity: 0, transform: "translate3d(0,0,0) scale(0.5,0.5)" },
+    from: { opacity: 0, transform: "translate3d(0,0,0) scale(0.5,0.5) " },
     enter: {
       opacity: 1,
-      transform: "translate3d(0,0,0) scale(1,1)",
+      transform: "translate3d(0,0,0) scale(1,1) ",
     },
     leave: { 
       opacity: 0,
-      transform: "translate3d(0,0,0) scale(0.5,0.5)" },
+      transform: "translate3d(0,0,0) scale(0.5,0.5) " },
   });
-  //useSpring example transition handler
 
-  //api fetch
-  // useEffect(() => {
-  //   loadData();
-  // }, []);
-
-  // const loadData = async () => {
-  //   const response = await fetch(API_URL);
-  //   const data = await response.json();
-  //   setProjects(data);
-
-  //   setLoaded(true);
-  // };
-  //api fetch
-
-
-  //returning DOM
   if (!isLoaded) {
     return (
       <motion.div
@@ -117,6 +95,9 @@ const Projects = () => {
               <UgProject
                 key={Project._id}
                 Title={Project.Title}
+                Slogan={Project.Slogan}
+                Link={Project.Link}
+                Image={Project.Image}
                 Description={Project.Description}
                 key={key}
                 style={props}
