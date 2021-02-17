@@ -13,9 +13,7 @@ const Content = () => {
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const [heading, setHeading] = useState("recents");
-  const [contributionSearchResults, setContributionSearchResults] = useState(
-    []
-  );
+  const [contributionSearchResults, setContributionSearchResults] = useState([]);
 
   useEffect(() => {
     contributions.map((x) => {

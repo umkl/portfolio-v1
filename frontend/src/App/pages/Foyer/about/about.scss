@@ -25,6 +25,7 @@
     position: relative;
     width: 1px;
     height: 90%;
+    
   }
   .ug-foyer-about-description {
     display: flex;
@@ -51,7 +52,7 @@
     padding:5px;
     .ug-foyer-about-divider{
       height: 1px;
-      width: 50%;
+      width: 70%;
       margin: 30px;
     }
     .ug-foyer-about-description{
@@ -63,11 +64,42 @@
   }
 }
 
+
+@media screen and (min-height: 1500px) and (max-width: 1000px) { 
+  .ug-foyer-about {
+    height: fit-content;
+    flex-direction: column;
+    width: 80vw;
+    padding:5px;
+    .ug-foyer-about-divider{
+      height: 1px;
+      width: 70%;
+      margin: 20px 0px;
+    }
+    .ug-foyer-about-description{
+      width: 90%;
+      p{
+        max-width: 100%
+      }
+      // background-color: blue;
+      margin: 10px 20px;
+      font-size: 2em;
+      
+    }
+    .ug-foyer-about-heading {
+      margin: 20px;
+    }
+  }
+}
+
+
+
 @media only screen and (max-width: 700px) {
   .ug-foyer-about {
     height: fit-content;
     flex-direction: column;
-    width: 300px;
+    position: relative;
+    width: 80vw;
     padding:5px;
     .ug-foyer-about-divider{
       height: 1px;
@@ -84,6 +116,27 @@
     .ug-foyer-about-heading {
       font-size: 70px;
       margin: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ug-foyer-about {
+    height: fit-content;
+    flex-direction: column;
+    
+    width: 500px;
+    padding:5px;
+    .ug-foyer-about-divider{
+      height: 1px;
+      width: 50%;
+      margin: 30px;
+    }
+    .ug-foyer-about-description{
+      margin: 20px;
+    }
+    .ug-foyer-about-heading {
+      margin: 20px;
     }
   }
 }

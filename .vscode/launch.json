@@ -16,7 +16,7 @@
       "name": "ungar frontend dev",
       "request": "launch",
       "runtimeArgs": ["start"],
-      "cwd": "/Users/mike/Documents/2-2_ungar/ungar/frontend",
+      "cwd": "/Users/michaelungar/Documents/ungar/frontend",
       "runtimeExecutable": "npm",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"
@@ -25,7 +25,7 @@
       "name": "ungar frontend prod",
       "request": "launch",
       "runtimeArgs": ["run build"],
-      "cwd": "/Users/mike/Documents/2-2_ungar/ungar/frontend",
+      "cwd": "/Users/michaelungar/Documents/ungar/frontend",
       "runtimeExecutable": "npm",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"

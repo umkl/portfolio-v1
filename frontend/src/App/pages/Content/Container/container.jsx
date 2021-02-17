@@ -13,9 +13,6 @@ const Container = (props) => {
   const springProps = useSpring({
     opacity: isVisible ? 1 : 0,
     marginLeft: isVisible ? "10px" : "-500px",
-    // transform: `scale(${hoverStatus?"1.1":"1"}) translateX(-50%)`
-    // width: !hoverStatus ? "80%" : "90%",
-    // minHeight: !hoverStatus ? "300px" : "400px"
   })
   const history = useHistory();
   const onClick = useCallback(() => {
@@ -31,9 +28,6 @@ const Container = (props) => {
 
   useEffect(() => {
     console.log(hoverStatus)
-    // return () => {
-      
-    // }
   }, [hoverStatus])
 
   return (

@@ -9,10 +9,6 @@ const UgAboutCard = (props) => {
   const isVisible = useOnScreen(ref)
 
   useEffect(() => {
-    // console.log(isVisible?"visi":"nope")
-    return () => {
-      
-    }
   }, [isVisible])
 
   const springProps = useSpring({opacity: isVisible ? 1 : 0, transform: isVisible ? "scale(1)" : "scale(0.3)", config:{duration: 400}})

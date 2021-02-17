@@ -1,27 +1,39 @@
 #ug-bar {
-  // background-color: orange;
-  // margin-top: -500px;
   height: 80px;
   width: 100%;
+
   background-image: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.699));
   position: fixed;
-  z-index: 1;
-  // background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
-  
+  z-index: 1;  
 }
 
-#ug-bar-login{
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  height: fit-content;
-  z-index: 2;
-}
+// @media screen and (min-height: 1500px) {
+//   #ug-bar {
+//     background-color: olive;
+//     zoom: 180%;
+//   }
+// }
 
-
-@media only screen and (max-width: 600px) {
+@media screen and (min-height: 1500px) and (max-width: 1000px){
   #ug-bar {
-    zoom: 80%;
-    -moz-transform: scale(0.5);
+    background-color: olive;
+    zoom: 180%;
   }
 }
+
+@media screen and (max-width: 600px) {
+  #ug-bar{
+    background-color: blue;
+    width: 600px;
+    // zoom: 90%;
+  }
+}
+
+
+
+// @media screen and (max-width: 550px) {
+//   #ug-bar {
+//     background-color: brown;
+//     zoom: 60%;
+//   }
+// }

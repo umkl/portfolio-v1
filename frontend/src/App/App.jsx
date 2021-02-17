@@ -15,37 +15,13 @@ import React, {
   useContext,
 } from "react";
 import { Route, Switch } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { SearchProvider } from "./context/SearchContext.js";
 import { BlurProvider } from "./context/BlurContext.js";
 
 function App() {
-
-  // const [cursorClass, setCursorClass] = useState("ug-cursor");
-  
-  // const [cursorState, setCursorState] = useState({
-  //   x: 0,
-  //   y: 0,
-  //   classnames: "",
-  // });
-
-  // const _onMousemove = useCallback(
-  //   (e) => {
-  //     setCursorState({ x: e.pageX, y: e.pageY });
-  //   },
-  //   [cursorState]
-  // );
-
-  // const cursorStyle = {
-  //   top: `${cursorState.y}px`,
-  //   left: `${cursorState.x}px`,
-  // };
-  // const name = "ug-cursor";
-
   return (
-    // <div onMouseMove={_onMousemove.bind(this)}>
     <div>
-      {/* <div className={getCursorClasses()} style={cursorStyle}></div> */}
       <SearchProvider>
         <BlurProvider>
           <UgBar />
@@ -56,7 +32,6 @@ function App() {
               <Route path="/content" component={ContentSwitch}></Route>
               <Route path="/contact" component={Contact}></Route>
               <Route path="/login" component={Login}></Route>
-              {/* <Route path="/registration" component={Registration}></Route> */}
               <Route path="*" exact={true} component={Error}></Route>
             </Switch>
           </AnimatePresence>
@@ -67,37 +42,3 @@ function App() {
 }
 
 export default App;
-
-// //action(increment)
-// const increment = () => {
-//   return {
-//     type: "INCREMENT", //action name
-//   };
-// };
-
-// const decrement = () => {
-//   return {
-//     type: "DECREMENT", //action name
-//   };
-// };
-
-// //reducer
-// const counter = (state = 0, action) => {
-//   switch (action.type) {
-//     case "INCREMENT":
-//       return state + 1;
-//     case "DECREMENT":
-//       return state - 1;
-//   }
-// };
-
-// //store
-// let store = createStore(counter);
-
-// store.subscribe(() => console.log(store.getState()));
-
-// //dispatch
-// store.dispatch(increment());
-// store.dispatch(decrement());
-// store.dispatch(decrement());
-// // import MouseTooltip from 'react-sticky-mouse-tooltip';

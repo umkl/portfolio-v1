@@ -3,30 +3,19 @@ import { useSpring, animated as a } from "react-spring";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { SearchContext } from "./../../context/SearchContext";
-
 import "./btn.scss";
-
 import SearchIcon from "./../../assets/Searchicon.png";
-// import UgWeatherIcon from "./../../assets/Ungar-weather.svg";
 
 const UgBtn = () => {
   const [isActive, setActive] = useState(false);
   const [searchInput, setSearchInput] = useContext(SearchContext);
   const searchRef = useRef();
-
-  const searchSpring = useSpring(
-    isActive
-      ? {
-          width: "200px",
-        }
-      : {
-          width: "80px",
-          // minWidth:"fitContent"
-          // width: "65px",
-        }
-  );
-
   const location = useLocation();
+  const searchSpring = useSpring(
+    {
+      width: isActive? "200px":"80px"
+    }
+  )
   if (location.pathname == "/") {
     return (
       <div className="ug-btn">
@@ -84,10 +73,6 @@ const UgBtn = () => {
             <Link className="ug-nav-link" to="/login">
               <div className="ug-btn-login">login</div>
             </Link>
-            {/* 
-            <Link className="ug-nav-link" to="/registration">
-              <div className="ug-btn-twin-register-darkmode">register</div>
-            </Link> */}
           </div>
         </div>
       </div>
@@ -96,14 +81,6 @@ const UgBtn = () => {
     return (
       <div className="ug-btn">
         <div className="ug-btns">
-          {/* <div className="ug-btn-twin-login-darkmode">
-              <Link className="ug-nav-link" to="/login">
-                login
-              </Link>
-            </div> */}
-          {/* <Link to="/registration">
-            <div className="ug-btn-register-darkmode">register</div>
-          </Link> */}
         </div>
       </div>
     );
@@ -116,23 +93,6 @@ const UgBtn = () => {
       </div>
     );
   }
-
-  // else if (location.pathname == "/registration") {
-  //   return (
-  //     <div className="ug-btn">
-  //       <div className="ug-btn-twin">
-  //         {/* <div className="ug-btn-twin-login-darkmode">
-  //             <Link className="ug-nav-link" to="/login">
-  //               login
-  //             </Link>
-  //           </div> */}
-  //         <Link to="/login">
-  //           <div className="ug-btn-register-darkmode">login</div>
-  //         </Link>
-  //       </div>
-  //     </div>
-  //   );
-  // }
 };
 
 export default UgBtn;
