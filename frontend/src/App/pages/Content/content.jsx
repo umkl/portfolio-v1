@@ -1,19 +1,31 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import Head from "./ContentSwitch/ContentSwitch.jsx";
 import UgContainer from "./Container/Container.jsx";
 import { motion } from "framer-motion";
 import { animated as a, useSpring, useTransition } from "react-spring";
-import { BrowserRouter, Switch, Route, useRouteMatch } from "react-router-dom";
+import { BrowserRouter, Switch, Route, useRouteMatch, useLocation } from "react-router-dom";
 import { SearchContext } from "./../../context/SearchContext";
+import SearchIcon from "./../../assets/Searchicon.png";
 import "./content.scss";
 
 const Content = () => {
   const API_URL = "http://localhost:8080/contributions";
-  const [searchInput, setSearchInput] = useContext(SearchContext);
+  // const [searchInput, setSearchInput] = useContext(SearchContext);
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const [heading, setHeading] = useState("recents");
   const [contributionSearchResults, setContributionSearchResults] = useState([]);
+
+  const [isActive, setActive] = useState(false);
+  const [searchInput, setSearchInput] = useContext(SearchContext);
+  const searchRef = useRef();
+  const location = useLocation();
+  const searchSpring = useSpring(
+    {
+      width: isActive ? "200px" : "140px"
+    }
+  )
+
 
   useEffect(() => {
     contributions.map((x) => {
@@ -112,49 +124,78 @@ const Content = () => {
           }}
         ></div>
 
-        {heading == "recents" ? (
-          <div className="ug-container-recents_heading">
-            <p>recents</p>
-          </div>
-        ) : heading == "results" ? (
-          <div className="ug-container-recents_heading">
-            <p>results</p>
-          </div>
-        ) : heading == "result" ? (
-          <div className="ug-container-recents_heading">
-            <p>result</p>
-          </div>
-        ) : heading == "noresult" ? (
-          <div className="ug-container-noresults_heading">
-            <p>no results</p>
-          </div>
-        ) : (
-          "error"
-        )}
+        <div className="search-bar">
+          {heading == "recents" ? (
+            <div className="ug-container-recents_heading">
+              recents
+            </div>
+          ) : heading == "results" ? (
+            <div className="ug-container-recents_heading">
+              results
+            </div>
+          ) : heading == "result" ? (
+            <div className="ug-container-recents_heading">
+              result
+            </div>
+          ) : heading == "noresult" ? (
+            // <div className="ug-container-noresults_heading">
+            //   <p>no results</p>
+            // </div>
+            <div className="ug-container-recents_heading">
+              no results
+            </div>
+          ) : (
+                    "error"
+                  )}
+          <a.div className="ug-btn-search" style={searchSpring}>
+            <input
+              ref={searchRef}
+              onFocus={() => {
+                setActive(true);
+              }}
+              onBlur={() => {
+                setActive(false);
+              }}
+              onChange={(e) => setSearchInput(e.target.value)}
+              className="ug-btn-search-input"
+              type="text"
+              value={searchInput}
+              placeholder="search"
+            />
+            <div
+              onClick={() => {
+                searchRef.current.focus();
+              }}
+              className="ug-btn-search_icon"
+            >
+              <img src={SearchIcon} alt="" height="20px" width="20px" />
+            </div>
+          </a.div>
+        </div>
 
         {searchInput == ""
           ? contributions.map((x) => (
-              <UgContainer
-                key={x.ID}
-                heading={x.Heading}
-                description={x.Description}
-              />
-            ))
+            <UgContainer
+              key={x.ID}
+              heading={x.Heading}
+              description={x.Description}
+            />
+          ))
           : contributionSearchResults.length != 0
-          ? contributionSearchResults.map((x) => (
+            ? contributionSearchResults.map((x) => (
               <UgContainer
                 key={x.ID}
                 heading={x.Heading}
                 description={x.Description}
               />
             ))
-          : ""}
+            : ""}
 
         {/* <Switch> */}
-          {/* <Route exact path={path}></Route> */}
-          {/* <Route path={`${path}/Head`}> */}
-            {/* <Head /> */}
-          {/* </Route> */}
+        {/* <Route exact path={path}></Route> */}
+        {/* <Route path={`${path}/Head`}> */}
+        {/* <Head /> */}
+        {/* </Route> */}
         {/* </Switch> */}
       </motion.div>
     );

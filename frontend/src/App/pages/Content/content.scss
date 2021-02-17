@@ -8,8 +8,65 @@
   // background: radial-gradient(circle, rgba(177, 177, 177, 0.144) 40%, rgba(0,0,0,1) 100%);
   height: 100%;
   width: 100%;
-  
   position: absolute;
+  .search-bar{
+    width: 70%;
+    height: fit-content;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    .ug-btn-search {
+      font-family: 'ZCOOL_QingKe_HuangYou';
+      position: relative;
+      // border-bottom: 2px solid white;
+      width: fit-content;
+      // margin-left: 10px;
+      // margin-right: 5px;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      width: fit-content;
+      // padding: 0px 16px;
+      color: white;
+      .ug-btn-search-input{
+        
+        font-family: 'ZCOOL_QingKe_HuangYou';
+        width: 100%;
+        font-size: 2em;
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        // position: relative;
+        // box-sizing: border-box;
+        // width: 100%;
+        // background-color: transparent;
+        // // width: fit-content;
+        // min-width: 100%;
+        // // height: 100%;
+        // border: none;
+        // border-bottom: 1px solid white;
+        // outline: none;
+        // // background-color: transparent;
+        color: white;
+        font-size: 30px;
+        ::placeholder{
+          font-size: 1.7em;
+        }
+      }
+      .ug-btn-search_icon{
+        
+        position: relative;
+        // margin: -20px;
+        // margin: 10px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 // .ug-container-search_status{
@@ -38,69 +95,74 @@
 
 .ug-container-recents_heading{
   font-family: ZCOOL_QingKe_HuangYou;
+  
+  position: relative;
+  // height: fit-content;
+  // margin: 0;
   color: white;
-  // background-color: antiquewhite;
-  width: 80%;
-  font-size: 30px;
-  padding-left: 15vw;
-}
-
-.ug-container-noresults_heading{
-  // font-family: ZCOOL_QingKe_HuangYou;
-  // color: white;
-  // width: 300px;
-  // height: 300px;
+  font-size: 2em;
+  // width: fit-content;
+  // background-color: red;
   // font-size: 30px;
-  // background-color: aqua;
-  // // position: absolute;
-  // // left: 50%;
-  // // display: block;
-  // margin: 0 auto;
-  // top: 50%;
-  // display: block;
-  // position: relative;
-  // p{
-  //   position: relative;
-  //   display: block;
-  //   text-align: center;
-  //   background-color: transparent;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%);
-  //   color: white;
-  // }
-  // // position: absolute;
-  // // top: 50%;
-  // // transform: translateY(-50%);
-
-  font-family: ZCOOL_QingKe_HuangYou;
-  font-size: 60px;
-  color: white;
-  background-color: transparent;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
+  // padding-left: 15vw;
 }
 
-.ug-container-result_heading{
-  font-family: ZCOOL_QingKe_HuangYou;
-  color: white;
-  // background-color: antiquewhite;
-  width: 80%;
-  font-size: 30px;
-  padding-left: 15vw;
-}
+// .ug-container-noresults_heading{
+//   // font-family: ZCOOL_QingKe_HuangYou;
+//   // color: white;
+//   // width: 300px;
+//   // height: 300px;
+//   // font-size: 30px;
+//   // background-color: aqua;
+//   // // position: absolute;
+//   // // left: 50%;
+//   // // display: block;
+//   // margin: 0 auto;
+//   // top: 50%;
+//   // display: block;
+//   // position: relative;
+//   // p{
+//   //   position: relative;
+//   //   display: block;
+//   //   text-align: center;
+//   //   background-color: transparent;
+//   //   top: 50%;
+//   //   left: 50%;
+//   //   transform: translate(-50%, -50%);
+//   //   color: white;
+//   // }
+//   // // position: absolute;
+//   // // top: 50%;
+//   // // transform: translateY(-50%);
 
-.ug-container-results_heading{
-  font-family: ZCOOL_QingKe_HuangYou;
-  color: white;
-  // background-color: antiquewhite;
-  width: 80%;
-  font-size: 30px;
-  padding-left: 15vw;
-}
+//   font-family: ZCOOL_QingKe_HuangYou;
+//   font-size: 60px;
+//   color: white;
+//   background-color: transparent;
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+//   transform: translate(-50%, -50%);
+
+// }
+
+// .ug-container-result_heading{
+//   font-family: ZCOOL_QingKe_HuangYou;
+//   color: white;
+//   // background-color: antiquewhite;
+//   width: 80%;
+//   font-size: 30px;
+//   padding-left: 15vw;
+// }
+
+// .ug-container-results_heading{
+//   font-family: ZCOOL_QingKe_HuangYou;
+//   color: white;
+//   // background-color: antiquewhite;
+//   width: 80%;
+//   font-size: 30px;
+//   padding-left: 15vw;
+// }
 
 .ug-loading {
   // font-family: AlteSchwabacher;

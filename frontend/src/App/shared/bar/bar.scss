@@ -16,18 +16,19 @@
 
 @media screen and (min-height: 1500px) and (max-width: 1000px){
   #ug-bar {
-    background-color: olive;
+    // background-color: olive;
     zoom: 180%;
   }
 }
 
 @media screen and (max-width: 600px) {
   #ug-bar{
-    background-color: blue;
+    background-color: green;
     width: 600px;
     // zoom: 90%;
   }
 }
+
 
 
 

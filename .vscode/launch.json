@@ -10,7 +10,7 @@
       "type": "go",
       "request": "launch",
       "mode": "debug",
-      "program": "/Users/mike/Documents/2-2_ungar/ungar/backend/cmd/monolithic/server.go"
+      "program": "/Users/michaelungar/Documents/ungar/backend/cmd/monolithic/server.go"
     },
     {
       "name": "ungar frontend dev",

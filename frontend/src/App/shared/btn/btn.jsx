@@ -7,15 +7,11 @@ import "./btn.scss";
 import SearchIcon from "./../../assets/Searchicon.png";
 
 const UgBtn = () => {
-  const [isActive, setActive] = useState(false);
-  const [searchInput, setSearchInput] = useContext(SearchContext);
-  const searchRef = useRef();
-  const location = useLocation();
-  const searchSpring = useSpring(
-    {
-      width: isActive? "200px":"80px"
-    }
-  )
+  // const [isActive, setActive] = useState(false);
+  // const [searchInput, setSearchInput] = useContext(SearchContext);
+  // const searchRef = useRef();
+  // const location = useLocation();
+
   if (location.pathname == "/") {
     return (
       <div className="ug-btn">
@@ -35,30 +31,7 @@ const UgBtn = () => {
   } else if (location.pathname == "/content") {
     return (
       <div className="ug-btn">
-        <a.div style={searchSpring} className="ug-btn-search">
-          <input
-            ref={searchRef}
-            onFocus={() => {
-              setActive(true);
-            }}
-            onBlur={() => {
-              setActive(false);
-            }}
-            className="ug-btn-search-input"
-            type="text"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-            placeholder="search"
-          />
-        </a.div>
-        <div
-          onClick={() => {
-            searchRef.current.focus();
-          }}
-          className="ug-btn-search_icon"
-        >
-          <img src={SearchIcon} alt="" height="20px" width="20px" />
-        </div>
+        
 
         <Link className="ug-nav-link" to="/login">
           <div className="ug-btn-login">login</div>

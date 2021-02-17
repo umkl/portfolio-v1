@@ -1,12 +1,6 @@
-// import UngarIcon from "./../../assets/Ungar-Icon.png";
 import React, { useState, useEffect } from "react";
 import "./nav.scss";
 import { Link, useLocation} from "react-router-dom";
-
-//svgs
-// import UngarLogoURL from "./../../assets/UNGAR_NEW_LOGO.svg";
-// import UngarLogo from "./icon/UngarLogo.jsx";
-// import {ReactComponent as UngarLogoIcon} from "./../../assets/UNGAR_NEW_LOGO.svg";
 import Logo from "./../../assets/UNGAR_NEW_LOGO.svg";
 
 export default function UgNav() {
@@ -20,24 +14,12 @@ export default function UgNav() {
   var cLocation = useLocation();
 
 
-  // const getClicked = () => {
-  //   if (location.pathname == "/") {
-  //     setClicked();
-  //   } else if (location.pathname == "/content") {
-  //     console.log("sadf");
-  //   } else if (location.pathname == "/projects") {
-  //     console.log("sadf");
-  //   } else if (location.pathname == "/contact") {
-  //   }
-  // };
-
   function changeClickedTo(num) {
     setClicked({
       1: num == 1 ? true : false,
       2: num == 2 ? true : false,
       3: num == 3 ? true : false,
       4: num == 4 ? true : false,
-      // 5: num == 5 ? true : false,
     });
   }
 
