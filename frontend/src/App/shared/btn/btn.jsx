@@ -23,9 +23,11 @@ const UgBtn = () => {
   } else if (location.pathname == "/projects") {
     return (
       <div className="ug-btn">
-        <div className="ug-btns">
+        
+
+        <Link className="ug-nav-link" to="/login">
           <div className="ug-btn-login">login</div>
-        </div>
+        </Link>
       </div>
     );
   } else if (location.pathname == "/content") {

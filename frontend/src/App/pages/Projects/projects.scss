@@ -59,17 +59,17 @@
 @media only screen and (max-width: 600px){
   .ug-projects{
     background-color: ivory;
-    left: 200px;
+    // left: 200px;
     width: 600px;
   }
 
-  .ug-project-navigator {
-    left: 300px;
-  }
-  .ug-project-diashow{
-    width: 600px;
-    left: 300px;
-  }
+  // .ug-project-navigator {
+  //   left: 300px;
+  // }
+  // .ug-project-diashow{
+  //   width: 600px;
+  //   left: 300px;
+  // }
 }
 
 @media only screen and (min-width: 1200px){
@@ -95,15 +95,13 @@
   }
 }
 
-@media only screen and (min-width: 1800px){
+@media only screen and (max-width: 800px){
+  .ug-projects{
+    background-color: khaki;
+    width: 800px;
+    // left: 50%;
+  }
   .ug-project-diashow {
-    position: absolute;
-    width: 1400px;
-    height: fit-content;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 90%;
   }
 }
-
-

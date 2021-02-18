@@ -98,14 +98,14 @@
   position: relative;
   height: 100%;
   width: 50%;
-  // background-color: cadetblue;
+  margin: 20px;
   .image-class{
     position: relative;
+    display: block;
     width : desired_width;
-    height: 90%;  
+    height: 600px;  
     left: 50%;
     transform: translateX(-50%);
-    
   }
 }
 
@@ -137,27 +137,6 @@
   }
 }
 
-// @media only screen and (max-width: 1000px){
-//   .ug-project{
-//     height: fit-content;
-//     background-color: khaki;
-//     flex-direction: column-reverse;
-
-//   }
-// }
-
-// @media only screen and (max-width: 600px){
-//   .ug-project{
-//     width: 500px;
-//   }
-// }
-
-@media only screen and (max-height: 1200px){
-  .ug-project{
-    height: 800px;
-    
-  }
-}
 
 @media only screen and (max-height: 500px){
   .ug-trailer{

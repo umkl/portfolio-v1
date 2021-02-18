@@ -179,3 +179,9 @@
     width: 600px;
   }
 }
+
+@media only screen and (max-height: 600px){
+  .ug-content{
+    height: 600px;
+  }
+}
