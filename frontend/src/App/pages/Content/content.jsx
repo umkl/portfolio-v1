@@ -15,7 +15,6 @@ const Content = () => {
   const [isLoaded, setLoaded] = useState(false);
   const [heading, setHeading] = useState("recents");
   const [contributionSearchResults, setContributionSearchResults] = useState([]);
-
   const [isActive, setActive] = useState(false);
   const [searchInput, setSearchInput] = useContext(SearchContext);
   const searchRef = useRef();

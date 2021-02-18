@@ -11,11 +11,13 @@ import _uniqueId from 'lodash/uniqueId';
 import UgProject from "./Project/project.jsx";
 import "./projects.scss";
 import NeighborooImage from "./../../assets/Neighboroo/NeighborooMockup.png"
+import trailerPlaceHolder from "./../../assets/Neighboroo/NeighborooMockup.png"
 
 const Projects = () => {
   //local projects
   const imageArray = [
-    NeighborooImage
+    NeighborooImage,
+    trailerPlaceHolder
   ]
 
   const projectsJSON = [
@@ -97,7 +99,7 @@ const Projects = () => {
                 Title={Project.Title}
                 Slogan={Project.Slogan}
                 Link={Project.Link}
-                Image={Project.Image}
+                Image={imageArray[item]}
                 Description={Project.Description}
                 key={key}
                 style={props}

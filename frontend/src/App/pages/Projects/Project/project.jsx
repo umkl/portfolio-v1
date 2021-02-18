@@ -3,23 +3,22 @@ import "./project.scss";
 import { Link } from "react-router-dom";
 import { animated as a } from "react-spring";
 
+
 const UgProject = (props) => {
   
   if (props.Title != "Trailer") {
     return (
       <a.div style={props.style} className="ug-project">
-        <div className="parts">
+        
           <div className="image">
             <img className="image-class" src={props.Image} alt="image here" />
           </div>
           <div className="text">
             <div className="ug-project-title">{props.Title}</div>
-            <div className="ug-project-description">{props.Slogan}</div>
+            <div className="ug-project-slogan">{props.Slogan}</div>
             <div className="ug-project-description">{props.Description}</div>
-            <div className="ug-project-description">{props.Link}</div>
+            <div className="ug-project-link">{props.Link}</div>
           </div>
-        </div>
-
       </a.div>
     );
   } else {

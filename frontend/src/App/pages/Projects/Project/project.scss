@@ -2,7 +2,6 @@
   position: absolute;
   display: inline-block;
   font-family: ZCOOL_QingKe_HuangYou;
-  height: 500px;
   top: 0;
   width: 100%;
   background-color: transparent;
@@ -12,18 +11,36 @@
   box-sizing: border-box;
   padding: 30px;
   margin-bottom: 30px;
-}
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
 
-.ug-project-title {
-  font-size: 5em;
-}
-
-.ug-project-description {
-  margin: 20px;
+  .ug-project-title {
+    font-size: 5em;
+  }
+  .ug-project-description {
+    font-size: 2em;
+    max-width: 80%;
+    margin: 50px 30px;
+    overflow: hidden;
+    line-break:initial;
+    padding-left: 4px;
+  }
+  .ug-project-slogan {
+    font-size: 2.4em;
+    
+    margin: 20px;
+  }
+  .ug-project-link {
+    position: absolute;
+    font-size: 1.8em;
+    margin: 10px;
+    bottom: 10%;
+    // margin: 20px;
+  }
 }
 
 .ug-trailer {
-  
   position: relative;
   font-family: ZCOOL_QingKe_HuangYou;
   height: 100%;
@@ -70,35 +87,80 @@
   }
 }
 
-@media only screen and (max-height: 500px){
-  .ug-trailer{
-    height: 400px;
-  }
-}
-
-.parts{
- display: flex; 
-  justify-content: center;
-  align-content: space-between;
-}
 
 .text{
   width: 50%;
+  height: fit-content;
+  // background-color: chocolate;
 }
 
 .image{
   position: relative;
-  // background-color: turquoise;
   height: 100%;
   width: 50%;
+  // background-color: cadetblue;
   .image-class{
     position: relative;
     width : desired_width;
-    height: 50vh;/*to preserve the aspect ratio of the image*/
-  
+    height: 90%;  
     left: 50%;
     transform: translateX(-50%);
     
   }
 }
 
+
+
+
+@media only screen and (max-width: 1600px){
+  .ug-project {
+    position: absolute;
+    display: inline-block;
+    font-family: ZCOOL_QingKe_HuangYou;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 15px;
+    border: 2px solid white;
+    color: white;
+    box-sizing: border-box;
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    .ug-project-title {
+      font-size: 5em;
+    }
+    .ug-project-description {
+      margin: 20px;
+    }
+  }
+}
+
+// @media only screen and (max-width: 1000px){
+//   .ug-project{
+//     height: fit-content;
+//     background-color: khaki;
+//     flex-direction: column-reverse;
+
+//   }
+// }
+
+// @media only screen and (max-width: 600px){
+//   .ug-project{
+//     width: 500px;
+//   }
+// }
+
+@media only screen and (max-height: 1200px){
+  .ug-project{
+    height: 800px;
+    
+  }
+}
+
+@media only screen and (max-height: 500px){
+  .ug-trailer{
+    height: 400px;
+  }
+}
