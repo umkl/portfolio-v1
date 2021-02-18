@@ -36,18 +36,15 @@
     font-size: 1.8em;
     margin: 10px;
     bottom: 10%;
-    // margin: 20px;
   }
 }
 
 .ug-trailer {
   position: relative;
   font-family: ZCOOL_QingKe_HuangYou;
-  height: 100%;
+  height: 60vh;
   width: 100%;
   background-color: transparent;
-  border-radius: 15px;
-  border: 2px solid transparent;
   color: white;
   box-sizing: border-box;
   padding: 30px;
@@ -64,7 +61,6 @@
     font-size: 1.1em;
     margin: 20px;
   }
-
   .ug-project-contact {
     display: flex;
     justify-content: center;
@@ -72,7 +68,7 @@
     .ug-project-contact-border {
       white-space: nowrap;
       text-decoration: none;
-      color: white;
+      // color: white;
       border-radius: 4px;
       border: 2px solid white;
       width: 40px;
@@ -80,18 +76,23 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
+      &:hover{
+        background-color: white;
+        color:black;
+      } 
+      
     }
+    
     .ug-project-contact-first {
         margin: 0px 10px;
     }
   }
 }
 
-
 .text{
   width: 50%;
   height: fit-content;
-  // background-color: chocolate;
 }
 
 .image{
@@ -140,6 +141,6 @@
 
 @media only screen and (max-height: 500px){
   .ug-trailer{
-    height: 400px;
+    height: 500px;
   }
 }

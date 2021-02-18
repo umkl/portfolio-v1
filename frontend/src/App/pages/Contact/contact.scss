@@ -77,7 +77,6 @@
         margin-right: auto;
         width: fit-content;
         .ug-contact-container-line {
-          // background-color: blue;
           font-size: 40px;
           font-family: YanoneKaffeesatz-Regular;
           margin: 70px 0px;
@@ -94,7 +93,6 @@
           .ug-content-links-div-text {
             font-family: "ZCOOL_QingKe_HuangYou";
             margin: 5px 10px;
-            // background-color: antiquewhite;
             width: fit-content;
             min-width: 300px;
           }
@@ -123,9 +121,7 @@
         }
       }
     }
-
     .ug-contact-frame{
-      // background-color: red;
       position: relative;
       width: 50%;
       height: 100%;
@@ -226,14 +222,15 @@
         }
       }
     }
-    .ug-contact-divider {
-      height: 70vh;
-      width: 1px;
-      background-color: white;
-      position: relative;
-      z-index: 2;
-    }
+
   }
+}
+
+.ug-contact-divider {
+  height: 70vh;
+  width: 1.2px;
+  background-color: white;
+  z-index: 2;
 }
 
 @media only screen and (max-width: 800px) {
@@ -290,3 +287,8 @@
   }
 }
 
+@media only screen and (max-height: 800px) and (min-width: 500px){
+  .ug-contact{
+    height: 800px;
+  }
+}

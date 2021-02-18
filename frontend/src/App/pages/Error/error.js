@@ -27,7 +27,7 @@ const Error = () => {
         <div className="line-2">return to 
         <span className="line-2-border_button">
           <Link
-            to="/foyer"
+            to="/"
             style={{ color: "white", textDecoration: "none" }}
           >
             foyer

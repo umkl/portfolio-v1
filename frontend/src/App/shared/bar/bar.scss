@@ -7,16 +7,9 @@
   z-index: 1;  
 }
 
-// @media screen and (min-height: 1500px) {
-//   #ug-bar {
-//     background-color: olive;
-//     zoom: 180%;
-//   }
-// }
 
 @media screen and (min-height: 1500px) and (max-width: 1000px){
   #ug-bar {
-    // background-color: olive;
     zoom: 180%;
   }
 }
@@ -25,16 +18,5 @@
   #ug-bar{
     background-color: green;
     width: 600px;
-    // zoom: 90%;
   }
 }
-
-
-
-
-// @media screen and (max-width: 550px) {
-//   #ug-bar {
-//     background-color: brown;
-//     zoom: 60%;
-//   }
-// }

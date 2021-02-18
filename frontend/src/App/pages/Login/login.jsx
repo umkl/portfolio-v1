@@ -7,9 +7,12 @@ import { Link } from "react-router-dom";
 import Logo from "./../../assets/UNGAR_NEW_LOGO.svg";
 
 const Login = () => {
-  const [blur, setBlur] = useContext(BlurContext);
-  const [blurString, setBlurString] = useState("none");
+  // const [blur, setBlur] = useContext(BlurContext);
+  // const [blur, setBlur] = useState(null);
+  // const [blurString, setBlurString] = useState("none");
+  // const [depp, setDepp] = useState(3);
   const [loaded, setLoaded] = useState(false);
+
   const {
     handleChange,
     handleSubmit,
@@ -17,6 +20,15 @@ const Login = () => {
     loginStatus,
     setLoginStatus,
   } = useForm();
+
+  
+  // useEffect(
+  //   ()=>{
+  //     console.log(depp);
+  //   }
+  //   ,[depp])
+
+  // setDepp(2)
 
   const loginSpring = useSpring({
     marginTop: loaded ? "0px" : "500px",
@@ -27,37 +39,13 @@ const Login = () => {
   })
 
   useEffect(() => {
-    console.log(values);
-  }, [values]);
-
-  useEffect(() => {
-    if (blur != null) {
-      console.log("Blur is not null");
-      setBlurString(`blur(${blur}px)`);
-    } else {
-      console.log("Blur is null");
-      setBlurString("none");
-    }
-  }, [blur]);
-
-  useEffect(() => {
     setLoaded(true);
   }, []);
 
-  const blurMethod = {
-    filter: blurString,
-  };
-
-  const contactSpring = useSpring({
-    to: { opacity: 1, marginLeft: "0px" },
-    from: { opacity: 0, marginLeft: "-400px" },
-    config: config.stable,
-  });
-
-  const blurSpring = useSpring({
-    filter: blur == null ? "blur(0px)" : `blur(${blur}px)`,
-    config: { duration: 20 },
-  });
+  // const blurSpring = useSpring({
+  //   filter: blur == null ? "blur(0px)" : `blur(${blur}px)`,
+  //   config: { duration: 20 },
+  // });
 
   const mailStatusSpring = useSpring({
     to: { opacity: 1, marginLeft: "0px" },
@@ -75,7 +63,7 @@ const Login = () => {
               className="ug-contact-mailStatus-box"
             >
               {loginStatus == "success" ? (
-                <div className="ug-contact-mailStatus-box-success">
+                <div className="ug-contact-mailStatus-box-success" >
                   This account is not registered yet. Please contact me to
                   request an account.
                 </div>
@@ -90,7 +78,7 @@ const Login = () => {
                   className="ug-contact-mailStatus-box-success-contact"
                   style={{ color: "white" }}
                   onClick={() => {
-                    setBlur(null);
+                    // setBlur(null);
                   }}
                 >
                   <Link to="/contact">contact</Link>
@@ -99,7 +87,7 @@ const Login = () => {
                   className="ug-contact-mailStatus-box-button"
                   onClick={() => {
                     setLoginStatus(null);
-                    setBlur(null);
+                    // setBlur(null);
                   }}
                 >
                   OK
@@ -109,7 +97,7 @@ const Login = () => {
           }
         </div>
       ) : null}
-      <div className="ug-login">
+      <a.div className="ug-login">
         <div className="ug-login-elements">
         <a.div className="ug-login-logo" style={logoSpring}>
           <Link className="ug-login-logo-link" to="/">
@@ -124,7 +112,7 @@ const Login = () => {
               type="email"
               name="email"
               className="ug-login-form-input"
-              placeholder="enter email"
+              placeholder="email"
               value={values.email}
             />
             <br />
@@ -137,11 +125,15 @@ const Login = () => {
               value={values.password}
               autoComplete="on"
             />
-            <div className="ug-login-form-button_wrapper">
+            <div
+              className="ug-login-form-button_wrapper">
               {/* <div className="Login-Back"><Link to="/content">go back</Link></div> */}
               <input
                 type="submit"
                 value="OK"
+                // onClick={
+                //   // setBlur(2)
+                // }
                 className="ug-login-form-submit"
               />
             </div>
@@ -149,7 +141,7 @@ const Login = () => {
         </a.div>
         <div className="ug-login-name"></div>
         </div>
-      </div>
+      </a.div>
     </React.Fragment>
   );
 };
