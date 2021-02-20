@@ -8,9 +8,8 @@ import Logo from "./../../assets/UNGAR_NEW_LOGO.svg";
 
 const Login = () => {
   // const [blur, setBlur] = useContext(BlurContext);
-  // const [blur, setBlur] = useState(null);
+  const [blur, setBlur] = useState(null);
   // const [blurString, setBlurString] = useState("none");
-  // const [depp, setDepp] = useState(3);
   const [loaded, setLoaded] = useState(false);
 
   const {
@@ -42,10 +41,14 @@ const Login = () => {
     setLoaded(true);
   }, []);
 
-  // const blurSpring = useSpring({
-  //   filter: blur == null ? "blur(0px)" : `blur(${blur}px)`,
-  //   config: { duration: 20 },
-  // });
+  useEffect(()=>{
+    console.log(blur);
+  }, [blur])
+
+  const blurSpring = useSpring({
+    filter: blur == null ? "blur(0px)" : `blur(${blur}px)`,
+    config: { duration: 20 },
+  });
 
   const mailStatusSpring = useSpring({
     to: { opacity: 1, marginLeft: "0px" },
@@ -78,7 +81,7 @@ const Login = () => {
                   className="ug-contact-mailStatus-box-success-contact"
                   style={{ color: "white" }}
                   onClick={() => {
-                    // setBlur(null);
+                    setBlur(null);
                   }}
                 >
                   <Link to="/contact">contact</Link>
@@ -87,7 +90,7 @@ const Login = () => {
                   className="ug-contact-mailStatus-box-button"
                   onClick={() => {
                     setLoginStatus(null);
-                    // setBlur(null);
+                    setBlur(null);
                   }}
                 >
                   OK
@@ -97,7 +100,7 @@ const Login = () => {
           }
         </div>
       ) : null}
-      <a.div className="ug-login">
+      <a.div style={blurSpring}className="ug-login">
         <div className="ug-login-elements">
         <a.div className="ug-login-logo" style={logoSpring}>
           <Link className="ug-login-logo-link" to="/">
@@ -114,6 +117,7 @@ const Login = () => {
               className="ug-login-form-input"
               placeholder="email"
               value={values.email}
+              required
             />
             <br />
             <input
@@ -124,17 +128,25 @@ const Login = () => {
               placeholder="password"
               value={values.password}
               autoComplete="on"
+              required
             />
             <div
-              className="ug-login-form-button_wrapper">
+              className="ug-login-form-button_wrapper"
+              
+              >
               {/* <div className="Login-Back"><Link to="/content">go back</Link></div> */}
               <input
                 type="submit"
                 value="OK"
-                // onClick={
-                //   // setBlur(2)
-                // }
                 className="ug-login-form-submit"
+                onClick={
+                  ()=>{
+                    if(!(values.password == "" || values.email == "")){
+                      setBlur(4)
+                    }
+                  }
+                }
+                required
               />
             </div>
           </form>

@@ -3,7 +3,7 @@ import axios from "axios";
 import {BlurContext} from "./../context/BlurContext.js";
 
 const useForm = () => {
-  const [blur, setBlur] = useContext(BlurContext);
+  // const [blur, setBlur] = useContext(BlurContext);
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -39,12 +39,12 @@ const useForm = () => {
       .post("http://localhost:8080/login",params, config)
       .then((response) => {
         // console.log(response);
-        setBlur("4px");
+        // setBlur("4px");
         setLoginStatus("success");
       })
       .catch((error) => {
         // console.log(error);
-        setBlur("4px");
+        // setBlur("4px");
         setLoginStatus("error");
       });
   };

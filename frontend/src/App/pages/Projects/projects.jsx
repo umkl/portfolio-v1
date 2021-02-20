@@ -27,8 +27,9 @@ const Projects = () => {
       "Title" : "Neighboroo",
       "Slogan" : "Bringing Neighbors together",
       "Description" : "Neighboroo is a Flutter Project. jaskldfjaskldfjlkaösdjfölkasdjlöskdfjkalösdjfklsdjlöfkasjdflkajs",
-      "Link":"Link to the Github Project here",
+      "Link":"Link to the Github Project",
       "Image": require("./../../assets/Neighboroo/NeighborooMockup.png"),
+      "LinkURL":"https://github.com/ungarmichael/neighboroo",
       "ImageID":0
     },
     {
@@ -101,6 +102,7 @@ const Projects = () => {
                 Link={Project.Link}
                 Image={imageArray[item]}
                 Description={Project.Description}
+                LinkURL={Project.LinkURL}
                 key={key}
                 style={props}
               />

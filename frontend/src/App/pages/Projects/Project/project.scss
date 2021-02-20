@@ -36,6 +36,27 @@
     font-size: 1.8em;
     margin: 10px;
     bottom: 10%;
+
+    .ug-project-contact-border {
+      // white-space: nowrap;
+      text-decoration: none;
+      border-radius: 4px;
+      border: 2px solid white;
+      margin: 0 5px;
+      width: fit-content;
+      display: inline-block;
+      // justify-content: center;
+      // align-items: center;
+      cursor: pointer;
+      padding: 4px;
+      &:hover{
+        background-color: white;
+        a{
+          
+          color:black;
+        }
+      } 
+    }
   }
 }
 
@@ -65,24 +86,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    .ug-project-contact-border {
-      white-space: nowrap;
-      text-decoration: none;
-      // color: white;
-      border-radius: 4px;
-      border: 2px solid white;
-      width: 40px;
-      height: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      &:hover{
-        background-color: white;
-        color:black;
-      } 
-      
-    }
+    
     
     .ug-project-contact-first {
         margin: 0px 10px;
@@ -129,7 +133,10 @@
     display: flex;
     justify-content: center;
     align-content: space-between;
+    padding: 10px;
+    
     .ug-project-title {
+      margin: 3px;
       font-size: 5em;
     }
     .ug-project-description {

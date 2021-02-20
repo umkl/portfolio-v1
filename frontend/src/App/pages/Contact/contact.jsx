@@ -68,7 +68,7 @@ export default function Contact() {
               style={mailStatusSpring}
               className="ug-contact-mailStatus-box"
             >
-              <p>{mailStatus}</p>
+              <p>Successfully sent the email.</p>
               <button
                 onClick={() => {
                   setMailStatus(null);
@@ -135,17 +135,20 @@ export default function Contact() {
                     name="user_email"
                     className="ug-contact-input-box-input"
                     placeholder="enter email"
+                    required
                   />
                   <textarea
                     type="text"
                     name="message"
                     className="ug-contact-input-box-input_text"
                     placeholder="enter text"
+                    required
                   />
                   <input
                     type="submit"
                     value="submit"
                     className="ug-contact-input-box-input_submit"
+                    required
                   />
                 </div>
               </form>

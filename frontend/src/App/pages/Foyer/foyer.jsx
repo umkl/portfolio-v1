@@ -23,6 +23,8 @@ export default function Foyer() {
     marginTop: isLoaded ? 0 : -100,
   });
 
+  const [, setY] = useSpring(() => ({ y: 0 }))
+
   useEffect(() => {
     setLoaded(true);
   }, []);
@@ -34,6 +36,18 @@ export default function Foyer() {
   //   });
   // };
 
+  // const [y, setY] = useSpring(() => ({
+  //   immediate: false,
+  //   y: window.scrollY,
+  //   config: config.stiff,
+  //   onRest: () => {
+  //     setLock(false);
+  //   },
+  //   onFrame: (props: any) => {
+  //     window.scroll(0, props.y);
+  //   }
+  // }));
+
   return (
     <motion.div
       className="ug-foyer"
@@ -43,7 +57,14 @@ export default function Foyer() {
       <div className="ug-foyer-intro">
         <a.div
           style={ugFoyerAboutHeadingSpring}
-          // onClick={scrollingToAbout}
+          onClick={()=>{
+            setY({
+              y: 500,
+              reset: true,
+              from: { y: window.scrollY },
+              onFrame: props => window.scroll(500, props.y)
+            })
+          }}
           className="ug-foyer-intro-about">
           about
         </a.div>

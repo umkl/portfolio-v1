@@ -18,11 +18,13 @@ const UgProject = (props) => {
           <div className="ug-project-slogan">{props.Slogan}</div>
           <div className="ug-project-description">{props.Description}</div>
           <div className="ug-project-link">{props.Link}
-            <Link to="https://github.com/ungarmichael/neighboroo" className="link">
-              <span className="ug-project-contact-border">
-                here
-              </span>
-            </Link>
+
+            <div className="ug-project-contact-border">
+              <a href={props.LinkURL} className="link">
+                  here
+              </a>
+            </div>
+
           </div>
         </div>
       </a.div>
