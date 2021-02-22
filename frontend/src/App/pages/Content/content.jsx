@@ -189,13 +189,6 @@ const Content = () => {
               />
             ))
             : ""}
-
-        {/* <Switch> */}
-        {/* <Route exact path={path}></Route> */}
-        {/* <Route path={`${path}/Head`}> */}
-        {/* <Head /> */}
-        {/* </Route> */}
-        {/* </Switch> */}
       </motion.div>
     );
   }

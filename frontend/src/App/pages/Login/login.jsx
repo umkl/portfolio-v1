@@ -56,29 +56,36 @@ const Login = () => {
     config: config.stable,
   });
 
+  function isValiEmail(val) {
+    let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!regEmail.test(val)) {
+      return 'Invalid Email Address';
+    }
+  }
+
   return (
     <React.Fragment>
       {loginStatus != null ? ( //setting this to login to validate if login has been sent or valid
-        <div className="ug-contact-mailStatus">
+        <div className="status-alert">
           {
             <a.div
               style={mailStatusSpring}
-              className="ug-contact-mailStatus-box"
-            >
+              className="alert-box">
               {loginStatus == "success" ? (
-                <div className="ug-contact-mailStatus-box-success" >
-                  This account is not registered yet. Please contact me to
-                  request an account.
+                <div className="alert-success" >
+                  <p>
+                    This account is not registered yet. Please contact me to
+                    request an account.
+                  </p>
                 </div>
-              ) : (
-                <div className="ug-contact-mailStatus-box-error">
-                  There was a connection problem with the server.
-                </div>
-              )}
-
-              <div className="ug-contact-mailStatus-box-buttons">
+              ):(<div className="alert-error">
+                <p>
+                There was a connection problem with the server.
+                </p>
+                </div>)}
+              <div className="alert-buttons">
                 <button
-                  className="ug-contact-mailStatus-box-success-contact"
+                  className="alert-contact"
                   style={{ color: "white" }}
                   onClick={() => {
                     setBlur(null);
@@ -87,7 +94,7 @@ const Login = () => {
                   <Link to="/contact">contact</Link>
                 </button>
                 <button
-                  className="ug-contact-mailStatus-box-button"
+                  className="alert-ok"
                   onClick={() => {
                     setLoginStatus(null);
                     setBlur(null);
@@ -100,6 +107,7 @@ const Login = () => {
           }
         </div>
       ) : null}
+
       <a.div style={blurSpring}className="ug-login">
         <div className="ug-login-elements">
         <a.div className="ug-login-logo" style={logoSpring}>
@@ -141,8 +149,11 @@ const Login = () => {
                 className="ug-login-form-submit"
                 onClick={
                   ()=>{
+                    
                     if(!(values.password == "" || values.email == "")){
-                      setBlur(4)
+                      if(isValiEmail(values.email)!="Invalid Email Address"){
+                        setBlur(4);
+                      }
                     }
                   }
                 }

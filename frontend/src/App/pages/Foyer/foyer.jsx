@@ -77,23 +77,22 @@ export default function Foyer() {
       </div>
 
       <UgAboutCard
-        heading="Who?"
+        heading="Who are you?"
         description="My Name is Ungar Michael and I am developing App and Software solutions since I am 14 years old. My first two programming languages where Java and C#. My preferred frameworks for Web Apps are React and Vue. I also tend to use TypeScript, Scss and the VSCode TextEditor to make my life easier. Due to my high experience in React I also used React Native to create Mobile Apps, but right now I am doing a lot with flutter because it has great support."
       />
 
       <UgAboutCard
-        heading="What?"
-        description="I create and design Web and Mobileapplications using the latest and greatest technologies. Recently I also got into blogging and videocreation which I also share on this website. Check it out here: kjkdlsa. "
+        heading="What are you doing?"
+        description="I plan, design and create Mobile- and Webapplications using the newest technoligies. I also like to share my experiences and konwledge with others and that is why I like to write blogs about various topics."/>
+
+      <UgAboutCard
+        heading="Why are you doing it?"
+        description="Nowadays it is quite important to go with the digitalisation-trend and that is why especially business-owners should consider purchasing high-quality web-representations. "
       />
 
       <UgAboutCard
-        heading="Why?"
-        description="Nowadays it is quite important to go with the digitalisation-trend and that is why especially young business-owners look consider purchasing high-quality web-representations. "
-      />
-
-      <UgAboutCard
-        heading="Where?"
-        description="I am from Austria and was able to enjoy a good education for informatics, economics and programming."
+        heading="Where are you from?"
+        description="I am from Austria and I was able to enjoy a good education for informatics, economics and programming."
       />
     </motion.div>
   );
