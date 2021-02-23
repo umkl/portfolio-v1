@@ -92,6 +92,7 @@ const Projects = () => {
         animate={{ opacity: 1 }}
       >
         <div className="ug-project-diashow">
+
           {projectTransitions.map(({ item, props, key }) => {
             const Project = projects[item];
             return (
@@ -108,6 +109,7 @@ const Projects = () => {
               />
             );
           })}
+          
         </div>
 
         <div className="ug-project-navigator">

@@ -75,7 +75,6 @@ export default function Foyer() {
           <div className="ug-foyer-text">Programming and Blogging</div>
         </div>
       </div>
-
       <UgAboutCard
         heading="Who are you?"
         description="My Name is Ungar Michael and I am developing App and Software solutions since I am 14 years old. My first two programming languages where Java and C#. My preferred frameworks for Web Apps are React and Vue. I also tend to use TypeScript, Scss and the VSCode TextEditor to make my life easier. Due to my high experience in React I also used React Native to create Mobile Apps, but right now I am doing a lot with flutter because it has great support."
