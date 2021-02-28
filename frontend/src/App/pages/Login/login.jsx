@@ -20,6 +20,10 @@ const Login = () => {
     setLoginStatus,
   } = useForm();
 
+
+  const fadeInFromTop = useSpring({
+    marginTop: (loginStatus != null) ? "0px" : "-500px",
+  })
   
   // useEffect(
   //   ()=>{
@@ -50,11 +54,10 @@ const Login = () => {
     config: { duration: 20 },
   });
 
-  const mailStatusSpring = useSpring({
-    to: { opacity: 1, marginLeft: "0px" },
-    from: { opacity: 0, marginLeft: "-400px" },
-    config: config.stable,
-  });
+  // const mailStatusSpring = useSpring({
+  //   to: { opacity: 1, marginTop: "0px" },
+  //   from: { opacity: 0, marginTop: "-500px" },
+  // });
 
   function isValiEmail(val) {
     let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -69,7 +72,7 @@ const Login = () => {
         <div className="status-alert">
           {
             <a.div
-              style={mailStatusSpring}
+              style={fadeInFromTop}
               className="alert-box">
               {loginStatus == "success" ? (
                 <div className="alert-success" >

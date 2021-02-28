@@ -2,21 +2,41 @@ import React, { useState, useEffect } from "react";
 import DOMPurify from "dompurify";
 import "./Blog.scss";
 import { Link } from "react-router-dom";
-import FullLogo from "./../../../assets/UNGAR-FULL.svg";
+import FullLogoBy from "./../../../assets/UNGAR-by.svg";
 import { useParams } from "react-router-dom";
+import { animated as a, useSpring} from "react-spring";
 
 const Blog = (props) => {
   const API_URL = "http://localhost:8080/contributions";
-
+  const [blur, setBlur] = useState(0);
   const [blog, setBlog] = useState(null);
   const [loaded, setLoaded] = useState(false);
+  const [showSubscribeField, setShowSubscribeField] = useState(false);
   const htmlStringTest = "<h1>I'm a string with HTML!</h1>";
 
   let { blogID } = useParams();
 
+  const blurSpring = useSpring({
+    filter: blur == null ? "blur(0px)" : `blur(${blur}px)`,
+    config: { duration: 20 },
+  });
+
+  const fadeInFromTop = useSpring({
+    marginTop: showSubscribeField ? "0px" : "-500px",
+  })
+
   useEffect(() => {
     loadData();
   }, []);
+
+  useEffect(()=>{
+    if(showSubscribeField){
+      setBlur(4);
+    }else{
+      setBlur(0);
+    }
+
+  }, [showSubscribeField]);
 
   const loadData = async () => {
     const response = await fetch(API_URL);
@@ -41,48 +61,91 @@ const Blog = (props) => {
   }
 
   return (
-    <div className="Blog">
-      <div className="Blog-Nav">
-        <div className="Blog-Nav-Back">
-          <Link to="/content">more</Link>
+    <>
+      {showSubscribeField ? (
+        <a.div style={fadeInFromTop} className="subscribeField">
+          <div className="subscribeBox">
+            <div className="alert-buttons">
+                <button
+                  className="alert-contact"
+                  style={{ color: "white" }}
+                  onClick={() => {
+                    setBlur(null);
+                  }}
+                >
+                  <Link to="/contact">contact</Link>
+                </button>
+                <button
+                  className="alert-ok"
+                  onClick={() => {
+                    setShowSubscribeField(false);
+                  }}
+                >
+                  OK
+                </button>
+              </div>
+          </div>
+        </a.div>
+      ) : null}
+      <a.div style={blurSpring} className="Blog">
+        {/* <div className="FullLogo">
+        <Link to="/">
+          <FullLogo width="300" height="200" className="Blog-Nav-FullLogo-svg" />
+        </Link>
+      </div> */}
+        <div  className="Blog-Nav" >
+          <div className="Hor">
+            <div className="Blog-Nav-Back">
+              <Link to="/content">more</Link>
+            </div>
+            {!loaded ? (
+              <div className="Blog-Nav-Middle">loading...</div>
+            ) : (
+              <div className="Blog-Nav-Middle">{blog.Heading}</div>
+            )}
+            <div
+              className="Blog-Nav-Subscribe"
+              onClick={() => {
+                setShowSubscribeField(true);
+                console.log("setted to true");
+              }}
+            >
+              subscribe
+            </div>
+          </div>
+          <div className="Blog-Divider"></div>
         </div>
-        {!loaded ? (
-          <div className="Blog-Nav-Middle">loading...</div>
-        ) : (
-          <div className="Blog-Nav-Middle">{blog.Heading}</div>
-        )}
 
-        <div className="Blog-Nav-FullLogo">
-          <Link to="/">
-            <FullLogo
-              width="100"
-              height="60"
-              className="Blog-Nav-FullLogo-svg"
-            />
-          </Link>
-        </div>
-      </div>
-      <div className="Blog-Divider"></div>
-      {!loaded ? (
-        <div style={{ color: "white" }}>loading …</div>
-      ) : (
-        <div className="Blog-Content">
-          {/* <div className="Blog-Content-Heading">heading</div> */}
-          <div className="Blog-Content-Text">
-            {/* blogID: {blogID} <br />
+        {!loaded ? (
+          <div style={{ color: "white" }}>loading …</div>
+        ) : (
+          <div className="Blog-Content">
+            {/* <div className="Blog-Content-Heading">heading</div> */}
+            <div className="Blog-Content-Text">
+              {/* blogID: {blogID} <br />
             blog: {blog.Heading} <br />
             hello HTML:{" "}
             <div dangerouslySetInnerHTML={createMarkup(htmlStringTest)}></div>
             <br />
             {console.log(blog.blogHTML)}
             blog HTML:{" "} */}
-            <div dangerouslySetInnerHTML={createMarkup(blog.BlogHTML)}></div>
-            {/* <br />
+              <div dangerouslySetInnerHTML={createMarkup(blog.BlogHTML)}></div>
+              {/* <br />
             blog description: {blog.Description} <br /> */}
+            </div>
           </div>
+        )}
+        <div className="logo">
+          <Link to="/">
+            <FullLogoBy
+              width="250"
+              height="150"
+              className="Blog-Nav-FullLogo-svg"
+            />
+          </Link>
         </div>
-      )}
-    </div>
+      </a.div>
+    </>
   );
 };
 

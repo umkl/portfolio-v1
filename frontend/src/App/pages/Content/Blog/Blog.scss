@@ -5,22 +5,20 @@
 }
 
 .Blog {
+  position: absolute;
   height: 100%;
   width: 100%;
-  // position: relative;
   background-color: black;
-  .Blog-Divider{
-    height: 1px;
-    width: 90%;
-    margin: 0 auto;
-    background-color: white;
-    }
-
+  .FullLogo{
+    position: fixed;
+    top: 50%;
+    transform: rotate(-90deg) translateY(-50%);
+  }
   .Blog-Content {
-    margin: 20px;
     position: relative;
     width: 90%;
     height: 300px;
+    top: 100px;
     left: 50%;
     transform: translateX(-50%);
     // font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
@@ -30,48 +28,58 @@
       font-size: xx-large;
     }
     @media only screen and (min-width: 1000px) {
-        max-width: 800px;
+      max-width: 800px;
     }
     .Blog-Content-Text {
       font-size: large;
     }
   }
   .Blog-Nav {
-    background-color: black;
     display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    align-content: space-between;
-    justify-content: space-between;
-    // position: fixed;
-    // left: 0px;
-    // top: 5%;
-    position: relative;
-    height: fit-content;
-    width: 90%;
-    left: 50%;
-    font-size: 20px;
-    transform: translate(-50%);
-    .Blog-Nav-Middle{
-      color: white;
-      font-family: "ZCOOL_QingKe_HuangYou";
-      font-size: 30px;
+    background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
+    z-index: 1000;
+    .Hor {
+      display: flex;
+      align-items: center;
+      align-content: space-between;
+      justify-content: space-between;
+      height: fit-content;
+      width: 100vw;
+      margin: 20px 0px;
+      .Blog-Nav-Middle {
+        color: white;
+        font-family: "ZCOOL_QingKe_HuangYou";
+        font-size: 30px;
+      }
+      .Blog-Nav-FullLogo {
+        margin-right: 10%;
+        margin-top: 10px;
+        text-shadow: 0px 0px 20px #000000;
+      }
+      .Blog-Nav-Subscribe{
+        margin-right: 10%;
+        &:hover{
+          cursor:pointer;
+        }
+        font-family: "ZCOOL_QingKe_HuangYou";
+        color: white;
+        border-radius: 15px;
+      }
+      .Blog-Nav-Back {
+        margin-left: 10%;
+        padding: 10px 15px;
+        border-radius: 15px;
+      }
     }
-    .Blog-Nav-FullLogo {
-      margin-right: 40px;
-      margin-top: 10px;
-      text-shadow: 0px 0px 20px #000000;
+    .Blog-Divider {
+      height: 2px;
+      width: 90%;
+      background-color: white;
     }
-    .Blog-Nav-Back {
-    //   border: 2px solid white;
-        
-      margin-left: 30px;
-      padding: 10px 15px;
-      border-radius: 15px;
-      // &:hover{
-      //   text-decoration: underline;
-      // }
-    }
-    
     a {
       color: white;
       text-shadow: 0px 0px 4px #000000;
@@ -81,3 +89,111 @@
       sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   }
 }
+
+.subscribeField{
+  z-index: 10000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  pointer-events:unset;
+  .subscribeBox{
+    height: 300px;
+    width: 300px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 300px;
+    border: 3px solid white;
+    border-radius: 15px;
+    font-size: 1.4em;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+
+    .alert-buttons {
+      display: flex;
+      align-items: stretch;
+      font-family: "ZCOOL_QingKe_HuangYou";
+      width: 80%;
+      color: white;
+      width: 100%;
+      padding: 15px;
+      box-sizing: border-box;
+      a {
+        text-decoration: none;
+      }
+      .alert-ok {
+        flex: 1;
+        font-family: "ZCOOL_QingKe_HuangYou";
+        margin: 5px;
+        border: 3px solid white;
+        border-radius: 10px;
+        padding: 3px;
+        height: 40px;
+        text-decoration: none !important;
+        font-size: 15px;
+        color: white;
+        cursor: pointer;
+        background-color: transparent;
+        &:hover {
+          background-color: white;
+          color: black;
+        }
+      }
+      .alert-contact {
+        flex: 1;
+        font-family: "ZCOOL_QingKe_HuangYou";
+        margin: 5px;
+        border: 3px solid white;
+        border-radius: 10px;
+        padding: 3px;
+        color: white;
+        a{
+          color: white;
+        }
+        // a:visited { 
+        //   text-decoration: none; 
+        //   color: white; 
+        //  }
+        height: 40px;
+        text-decoration: none !important;
+        font-size: 15px;
+        color: white;
+        cursor: pointer;
+        background-color: transparent;
+        &:hover {
+          background-color: white;
+          color: black;
+          a{
+            color: white;
+          }
+          a:visited{
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+
+.logo{
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+}
+
+.Blog-Nav-FullLogo-svg{
+  margin: 10px;
+}
+
+@media only screen and (max-height: 800px){
+  .logo{
+    top: 600px;
+  }
+}
+
+

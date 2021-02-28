@@ -82,17 +82,16 @@ export default function Foyer() {
 
       <UgAboutCard
         heading="What are you doing?"
-        description="I plan, design and create Mobile- and Webapplications using the newest technoligies. I also like to share my experiences and konwledge with others and that is why I like to write blogs about various topics."/>
+        description="I plan, design and create Mobile- and Webapplications using the newest technoligies. I also like to share my experiences and konwledge with others and that is why I write blogs about various topics."/>
 
       <UgAboutCard
         heading="Why are you doing it?"
         description="Nowadays it is quite important to go with the digitalisation-trend and that is why especially business-owners should consider purchasing high-quality web-representations. "
       />
-
-      <UgAboutCard
+      {/* <UgAboutCard
         heading="Where are you from?"
         description="I am from Austria and I was able to enjoy a good education for informatics, economics and programming."
-      />
+      /> */}
     </motion.div>
   );
 }

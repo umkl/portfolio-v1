@@ -122,20 +122,33 @@
     font-size: 1.4em;
     display: flex;
     flex-direction: column;
-    align-content: space-between;
+    align-content:stretch;
     // justify-content: space-between;
     .alert-error {
       flex: 1;
       font-family: "ZCOOL_QingKe_HuangYou";
-      max-width: 200px;
+      font-size: 20px;
       text-align: center;
-      margin: auto;
-      color: white;
+      position: relative;
+      border-radius: 10px;
+      line-height: 30px;
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      p{
+        color: white;
+      }
     }
     .alert-success {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      flex: 1;
       font-family: "ZCOOL_QingKe_HuangYou";
       font-size: 20px;
       width: 60%;
@@ -143,6 +156,11 @@
       position: relative;
       border-radius: 10px;
       line-height: 30px;
+      p{
+        width: 60%;
+        color: white;
+      }
+      
     }
     .alert-buttons {
       display: flex;
