@@ -16,6 +16,7 @@
   position: absolute;
   width: 90vw;
   height: 50vh;
+  
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -54,20 +55,13 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 600px){
-  .ug-projects{
-    width: 600px;
-  }
-}
-
 @media only screen and (min-width: 1400px){
   .ug-project-diashow {
-    position: absolute;
     width: 80%;
-    height: 80vh;
-    top: calc(100px);
+    height: 60vh;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%,-50%);
   }
 }
 
@@ -75,21 +69,28 @@
   .ug-project-diashow {
     position: absolute;
     width: 1400px;
-    // height: fit-content;
+    height: 60vh;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%,-50%);
+  }
+}
+
+@media only screen and (max-height: 1000px){
+  .ug-project-diashow{
+    height: 60vh;
+    
   }
 }
 
 // @media only screen and (min-height: 1000px ){
-  
 // }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 1000px){
   .ug-projects{
-    width: 800px;
+    width: 1000px;
   }
   .ug-project-diashow {
+    position: relative;
     width: 80%;
   }
 }

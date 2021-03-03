@@ -29,12 +29,6 @@ func provideLogin(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("error occurred")
 		fmt.Printf("%e", err)
 	}
-
-	fmt.Println("---")
-	fmt.Println(email)
-	fmt.Println(password)
-	fmt.Println("---")
-
 	// fmt.Println("………………")
 	// fmt.Println(user)
 	// fmt.Println(user)

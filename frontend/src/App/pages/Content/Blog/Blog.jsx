@@ -5,14 +5,15 @@ import { Link } from "react-router-dom";
 import FullLogoBy from "./../../../assets/UNGAR-by.svg";
 import { useParams } from "react-router-dom";
 import { animated as a, useSpring } from "react-spring";
-import useSubscription from "./../../../utils/useSubscription.jsx"
+import useSubscription from "./../../../utils/useSubscription.jsx";
 
 const Blog = (props) => {
   const {
     handleSubscriptionChange,
     handleSubscriptionSubmit,
     subscriptionValues,
-    subStatus
+    subStatus,
+    setSubStatus
   } = useSubscription();
 
   const API_URL = "http://localhost:8080/contributions";
@@ -72,52 +73,76 @@ const Blog = (props) => {
       {showSubscribeField ? (
         <a.div style={fadeInFromTop} className="subscribeField">
           <div className="subscribeBox">
-            <form onSubmit={handleSubscriptionSubmit}>
-              <div className="alert-form">
-                <div className="alert-heading">
-                  {
-                    subStatus==null?(
-                      <p>Enter your email address</p>
-                    ):(
-                      subStatus=="success"?
-                        <p>success</p>
-                        :
-                        <p>error</p>
-                    )
+            {subStatus == null ? (
+              <form onSubmit={handleSubscriptionSubmit}>
+                <div className="alert-form">
+                  <div className="alert-heading">
+                    <p>Enter your email address</p>
+                  </div>
+                  <div className="alert-inputs">
+                    <input
+                      onChange={handleSubscriptionChange}
+                      value={subscriptionValues.email}
+                      type="email"
+                      name="email"
+                      placeholder="email"
+                      required
+                    />
+                  </div>
+                  <div className="alert-buttons">
+                    <button
+                      className="alert-contact"
+                      onClick={() => {
+                        setShowSubscribeField(false);
+                      }}
+                    >
+                      cancel
+                    </button>
+                    <input
+                      type="submit"
+                      className="alert-ok"
+                      name="OK"
+                      value="OK"
+                    />
+                  </div>
+                </div>
+              </form>
+            ) : subStatus == "success" ? (
+              <div className="response">
+                <p>
+                  successfully subscribed to the blog
+                </p>
+                <button
+                  onClick={
+                    ()=>{
+                      setSubStatus(null)
+                      setShowSubscribeField(false)
+                    }
                   }
-                </div>
-                <div className="alert-inputs">
-                  <input
-                    onChange={handleSubscriptionChange}
-                    value={subscriptionValues.email}
-                    type="email"
-                    name="email"
-                    placeholder="email"
-                    required
-                    />
-                </div>
-                <div className="alert-buttons">
-                  <button
-                    className="alert-contact"
-                    onClick={() => {
-                      setShowSubscribeField(false);
-                    }}
-                  >
-                    cancel
-                  </button>
-                  <input 
-                    type="submit"
-                    className="alert-ok"
-                    name="OK"
-                    value="OK"
-                    
-                    />
-                </div>
+                >
+                  OK
+                </button>
               </div>
-            </form>
+            ) : (
+              <div className="response">
+                <p>
+                  error connecting to server
+                </p>
+                <button
+                  onClick={
+                    ()=>{
+                      setSubStatus(null)
+                    }
+                  }
+                  >
+                  Try Again
+                </button>
+                </div>
+            )}
           </div>
         </a.div>
       ) : null}
+
       <a.div style={blurSpring} className="Blog">
         {/* <div className="FullLogo">
         <Link to="/">

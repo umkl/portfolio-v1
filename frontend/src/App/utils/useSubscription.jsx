@@ -40,6 +40,6 @@ const useSubscription = () => {
       });
   };
 
-  return {handleSubscriptionChange, handleSubscriptionSubmit, subscriptionValues, subStatus};
+  return {handleSubscriptionChange, handleSubscriptionSubmit, subscriptionValues, subStatus, setSubStatus};
 };
 export default useSubscription;

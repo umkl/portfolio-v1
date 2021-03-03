@@ -1,1 +1,5 @@
 package repository
+
+func saveSubscription() {
+
+}
