@@ -38,18 +38,20 @@
     display: flex;
     position: fixed;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
     z-index: 1000;
+    width: 100%;
     .Hor {
       display: flex;
+      position: relative;
       align-items: center;
       align-content: space-between;
       justify-content: space-between;
       height: fit-content;
-      width: 100vw;
-      margin: 20px 0px;
+      width: 100%;
+      margin: 10px 0px;
       .Blog-Nav-Middle {
         color: white;
         font-family: "ZCOOL_QingKe_HuangYou";
@@ -101,7 +103,7 @@
     height: 300px;
     width: 300px;
     background-color: black;
-    position: absolute;
+    // position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -113,70 +115,122 @@
     display: flex;
     flex-direction: column;
     align-content: space-between;
-
-    .alert-buttons {
+    position: relative;
+    .alert-form{
+      flex: 1;
       display: flex;
-      align-items: stretch;
-      font-family: "ZCOOL_QingKe_HuangYou";
-      width: 80%;
-      color: white;
+      flex-direction: column;
+      position: absolute;
+      height: 100%;
       width: 100%;
-      padding: 15px;
-      box-sizing: border-box;
-      a {
-        text-decoration: none;
-      }
-      .alert-ok {
-        flex: 1;
+      // input{
+      // }
+      .alert-heading{
         font-family: "ZCOOL_QingKe_HuangYou";
-        margin: 5px;
-        border: 3px solid white;
-        border-radius: 10px;
-        padding: 3px;
-        height: 40px;
-        text-decoration: none !important;
-        font-size: 15px;
         color: white;
-        cursor: pointer;
-        background-color: transparent;
-        &:hover {
-          background-color: white;
-          color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        text-align: center;
+        flex: 1;
+        p{
+          max-width: 85%;
         }
       }
-      .alert-contact {
+      .alert-inputs{
+        // background-color: blue;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        // height: 300px;
         flex: 1;
-        font-family: "ZCOOL_QingKe_HuangYou";
-        margin: 5px;
-        border: 3px solid white;
-        border-radius: 10px;
-        padding: 3px;
-        color: white;
-        a{
+        input{
+          position: relative;
+          margin: 5px auto;
+          padding: 0px 20px;
+          box-sizing: border-box;
+          width: 85%;
+          height: 50px;
+          background-color: transparent;
+          border-radius: 15px;
+          border: 3px solid white;
           color: white;
+          font-family: "ZCOOL_QingKe_HuangYou";
+          font-size: 20px;
+          text-decoration: none;
+          outline: none;         
+          box-sizing: border-box;
         }
-        // a:visited { 
-        //   text-decoration: none; 
-        //   color: white; 
-        //  }
-        height: 40px;
-        text-decoration: none !important;
-        font-size: 15px;
+      }
+  
+      .alert-buttons {
+        display: flex;
+        align-items: stretch;
+        font-family: "ZCOOL_QingKe_HuangYou";
+        width: 80%;
+        // background-color: blanchedalmond;
         color: white;
-        cursor: pointer;
-        background-color: transparent;
-        &:hover {
-          background-color: white;
-          color: black;
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        a {
+          text-decoration: none;
+        }
+        .alert-ok {
+          flex: 1;
+          font-family: "ZCOOL_QingKe_HuangYou";
+          margin: 5px;
+          border: 3px solid white;
+          border-radius: 10px;
+          padding: 3px;
+          height: 40px;
+          text-decoration: none !important;
+          font-size: 15px;
+          color: white;
+          cursor: pointer;
+          background-color: transparent;
+          &:hover {
+            background-color: white;
+            color: black;
+          }
+        }
+        .alert-contact {
+          flex: 1;
+          font-family: "ZCOOL_QingKe_HuangYou";
+          margin: 5px;
+          border: 3px solid white;
+          border-radius: 10px;
+          padding: 3px;
+          color: white;
           a{
             color: white;
           }
-          a:visited{
+          // a:visited { 
+          //   text-decoration: none; 
+          //   color: white; 
+          //  }
+          height: 40px;
+          text-decoration: none !important;
+          font-size: 15px;
+          color: white;
+          cursor: pointer;
+          background-color: transparent;
+          &:hover {
+            background-color: white;
             color: black;
+            a{
+              color: white;
+            }
+            a:visited{
+              color: black;
+            }
           }
         }
       }
     }
+
+    
   }
 }
 
@@ -191,9 +245,24 @@
 }
 
 @media only screen and (max-height: 800px){
-  .logo{
-    top: 600px;
+  .subscribeBox{
+    top: 250px;
+    background-color: blanchedalmond;
+    transform: translateY(null);
   }
 }
 
 
+@media only screen and (max-width: 1000px){
+ .Blog{
+   width: 1000px;
+   position: absolute;
+   .Blog-Nav{
+     width: 1000px;
+   }
+ }
+ .subscribeBox{
+   left: 350px;
+   transform: translateX(null);
+ }
+}

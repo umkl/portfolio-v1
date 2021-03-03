@@ -152,7 +152,6 @@ const Login = () => {
                 className="ug-login-form-submit"
                 onClick={
                   ()=>{
-                    
                     if(!(values.password == "" || values.email == "")){
                       if(isValiEmail(values.email)!="Invalid Email Address"){
                         setBlur(4);

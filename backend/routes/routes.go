@@ -9,5 +9,6 @@ func HandleRoutes() {
 	// http.HandleFunc("/json", jsonHandler)
 	http.HandleFunc("/projects", getProjects)
 	http.HandleFunc("/login", provideLogin)
+	http.HandleFunc("/subscribe", provideSubscription)
 	// http.HandleFunc("/del", deleteContribution)
 }

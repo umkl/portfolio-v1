@@ -4,9 +4,17 @@ import "./Blog.scss";
 import { Link } from "react-router-dom";
 import FullLogoBy from "./../../../assets/UNGAR-by.svg";
 import { useParams } from "react-router-dom";
-import { animated as a, useSpring} from "react-spring";
+import { animated as a, useSpring } from "react-spring";
+import useSubscription from "./../../../utils/useSubscription.jsx"
 
 const Blog = (props) => {
+  const {
+    handleSubscriptionChange,
+    handleSubscriptionSubmit,
+    subscriptionValues,
+    subStatus
+  } = useSubscription();
+
   const API_URL = "http://localhost:8080/contributions";
   const [blur, setBlur] = useState(0);
   const [blog, setBlog] = useState(null);
@@ -23,19 +31,18 @@ const Blog = (props) => {
 
   const fadeInFromTop = useSpring({
     marginTop: showSubscribeField ? "0px" : "-500px",
-  })
+  });
 
   useEffect(() => {
     loadData();
   }, []);
 
-  useEffect(()=>{
-    if(showSubscribeField){
+  useEffect(() => {
+    if (showSubscribeField) {
       setBlur(4);
-    }else{
+    } else {
       setBlur(0);
     }
-
   }, [showSubscribeField]);
 
   const loadData = async () => {
@@ -65,25 +72,49 @@ const Blog = (props) => {
       {showSubscribeField ? (
         <a.div style={fadeInFromTop} className="subscribeField">
           <div className="subscribeBox">
-            <div className="alert-buttons">
-                <button
-                  className="alert-contact"
-                  style={{ color: "white" }}
-                  onClick={() => {
-                    setBlur(null);
-                  }}
-                >
-                  <Link to="/contact">contact</Link>
-                </button>
-                <button
-                  className="alert-ok"
-                  onClick={() => {
-                    setShowSubscribeField(false);
-                  }}
-                >
-                  OK
-                </button>
+            <form onSubmit={handleSubscriptionSubmit}>
+              <div className="alert-form">
+                <div className="alert-heading">
+                  {
+                    subStatus==null?(
+                      <p>Enter your email address</p>
+                    ):(
+                      subStatus=="success"?
+                        <p>success</p>
+                        :
+                        <p>error</p>
+                    )
+                  }
+                </div>
+                <div className="alert-inputs">
+                  <input
+                    onChange={handleSubscriptionChange}
+                    value={subscriptionValues.email}
+                    type="email"
+                    name="email"
+                    placeholder="email"
+                    required
+                    />
+                </div>
+                <div className="alert-buttons">
+                  <button
+                    className="alert-contact"
+                    onClick={() => {
+                      setShowSubscribeField(false);
+                    }}
+                  >
+                    cancel
+                  </button>
+                  <input 
+                    type="submit"
+                    className="alert-ok"
+                    name="OK"
+                    value="OK"
+                    
+                    />
+                </div>
               </div>
+            </form>
           </div>
         </a.div>
       ) : null}
@@ -93,7 +124,7 @@ const Blog = (props) => {
           <FullLogo width="300" height="200" className="Blog-Nav-FullLogo-svg" />
         </Link>
       </div> */}
-        <div  className="Blog-Nav" >
+        <div className="Blog-Nav">
           <div className="Hor">
             <div className="Blog-Nav-Back">
               <Link to="/content">more</Link>

@@ -1,6 +1,5 @@
 .ug-projects {
   position: absolute;
-  
   height: 100%;
   width: 100%;
 }
@@ -15,8 +14,8 @@
 
 .ug-project-diashow {
   position: absolute;
-  width: fit-content;
-  height: fit-content;
+  width: 90vw;
+  height: 50vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -64,9 +63,11 @@
 @media only screen and (min-width: 1400px){
   .ug-project-diashow {
     position: absolute;
-    width: 80vw;
-    height: 60vh;
+    width: 80%;
+    height: 80vh;
+    top: calc(100px);
     left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -74,7 +75,7 @@
   .ug-project-diashow {
     position: absolute;
     width: 1400px;
-    height: fit-content;
+    // height: fit-content;
     left: 50%;
     transform: translateX(-50%);
   }
