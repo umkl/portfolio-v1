@@ -42,8 +42,8 @@ const Container = (props) => {
     >
       {/* <Link className="ug-container-link" to={`/content/${props.heading}`}> */}
 
-      <div className="ug-container-heading">{props.heading}</div>
-      <div className="ug-container-small_description">{props.description}</div>
+      <div className="ug-container-heading">{props.Name}</div>
+      <div className="ug-container-small_description">{props.Description}</div>
       {/* </Link> */}
     </a.div>
   );

@@ -23,5 +23,4 @@ func ValidateUser(email string, password string) (us *entities.User, e error) {
 		}
 	}
 	return nil, e
-
 }

@@ -1,6 +1,8 @@
 package routes
 
 import (
+	"backend/cmd/monolithic/entities"
+	"backend/cmd/monolithic/repository"
 	"fmt"
 	"net/http"
 )
@@ -27,7 +29,7 @@ func provideSubscription(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("%e", err)
 	}
 
-	fmt.Println("---")
-	fmt.Println(subscriptionEmail)
-	fmt.Println("---")
+	su := entities.Subscription{Email: subscriptionEmail}
+
+	repository.SaveSubscription(&su)
 }
