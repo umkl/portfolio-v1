@@ -9,7 +9,6 @@ const UgProject = (props) => {
   if (props.Title != "Trailer") {
     return (
       <a.div style={props.style} className="ug-project">
-
         <div className="image">
           <img className="image-class" src={props.Image} alt="image here" />
         </div>
@@ -24,7 +23,6 @@ const UgProject = (props) => {
                   here
               </a>
             </div>
-
           </div>
         </div>
       </a.div>

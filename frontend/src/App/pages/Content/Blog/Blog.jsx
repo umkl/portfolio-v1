@@ -52,7 +52,7 @@ const Blog = (props) => {
     data.forEach((element) => {
       console.log(element.Heading);
       console.log(blogID);
-      if (element.Heading == blogID) {
+      if (element.Route == blogID) {
         console.log("true");
         setBlog(element);
         console.log(element.BlogHTML);
@@ -157,7 +157,7 @@ const Blog = (props) => {
             {!loaded ? (
               <div className="Blog-Nav-Middle">loading...</div>
             ) : (
-              <div className="Blog-Nav-Middle">{blog.Heading}</div>
+              <div className="Blog-Nav-Middle">{blog.Name}</div>
             )}
             <div
               className="Blog-Nav-Subscribe"
@@ -185,7 +185,7 @@ const Blog = (props) => {
             <br />
             {console.log(blog.blogHTML)}
             blog HTML:{" "} */}
-              <div dangerouslySetInnerHTML={createMarkup(blog.BlogHTML)}></div>
+              <div dangerouslySetInnerHTML={createMarkup(blog.Html)}></div>
               {/* <br />
             blog description: {blog.Description} <br /> */}
             </div>

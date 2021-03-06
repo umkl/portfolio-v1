@@ -16,9 +16,9 @@ const Container = (props) => {
   })
   const history = useHistory();
   const onClick = useCallback(() => {
-    const to = `/content/${props.heading}`;
+    const to = `/content/${props.Route}`;
     history.push(to);
-  }, [props.heading, history]);
+  }, [props.Route, history]);
 
   const backgroundSpring = useSpring(
     {
@@ -36,12 +36,10 @@ const Container = (props) => {
       style={springProps}
       className="ug-container"
       onClick={onClick}
-      
       onMouseEnter={() => setHoverStatus(true)}
       onMouseLeave={() => setHoverStatus(false)}
     >
       {/* <Link className="ug-container-link" to={`/content/${props.heading}`}> */}
-
       <div className="ug-container-heading">{props.Name}</div>
       <div className="ug-container-small_description">{props.Description}</div>
       {/* </Link> */}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import Head from "./ContentSwitch/ContentSwitch.jsx";
-import UgContainer from "./Container/Container.jsx";
+import Container from "./Container/Container.jsx";
 import { motion } from "framer-motion";
 import { animated as a, useSpring, useTransition } from "react-spring";
 import { BrowserRouter, Switch, Route, useRouteMatch, useLocation } from "react-router-dom";
@@ -25,10 +25,9 @@ const Content = () => {
     }
   )
 
-
   useEffect(() => {
     contributions.map((x) => {
-      if (x.Heading.includes(searchInput)) {
+      if (x.Name.includes(searchInput)) {
         setContributionSearchResults((prevRes) => {
           return [...prevRes, x];
         });
@@ -92,6 +91,7 @@ const Content = () => {
     const data = await response.json();
     setContributions(data);
     setLoaded(true);
+    console.log(data)
   };
 
   let { path, url } = useRouteMatch();
@@ -171,21 +171,23 @@ const Content = () => {
             </div>
           </a.div>
         </div>
-
+        
         {searchInput == ""
           ? contributions.map((x) => (
-            <UgContainer
+            <Container
               key={x.ID}
-              heading={x.Heading}
-              description={x.Description}
+              Name={x.Name}
+              Route={x.Route}
+              Description={x.Description}
             />
           ))
           : contributionSearchResults.length != 0
             ? contributionSearchResults.map((x) => (
-              <UgContainer
+              <Container
                 key={x.ID}
-                heading={x.Heading}
-                description={x.Description}
+                Name={x.Name}
+                Route={x.Route}
+                Description={x.Description}
               />
             ))
             : ""}
