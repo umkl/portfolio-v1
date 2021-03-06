@@ -76,22 +76,14 @@ export default function Foyer() {
         </div>
       </div>
       <UgAboutCard
-        heading="Who are you?"
-        description="My Name is Ungar Michael and I am developing App and Software solutions since I am 14 years old. My first two programming languages where Java and C#. My preferred frameworks for Web Apps are React and Vue. I also tend to use TypeScript, Scss and the VSCode TextEditor to make my life easier. Due to my high experience in React I also used React Native to create Mobile Apps, but right now I am doing a lot with flutter because it has great support."
+        heading="Who am I ?"
+        description="My Name is Ungar Michael and I my Passion is to develop and organise Softwareapplications. I also love learning new technologies and improving myself. I also started to create content in form of blogs and videos in order to share my thoughts and opinions with an audience. "
       />
 
       <UgAboutCard
-        heading="What are you doing?"
-        description="I plan, design and create Mobile- and Webapplications using the newest technoligies. I also like to share my experiences and konwledge with others and that is why I write blogs about various topics."/>
+        heading="What am I doing ?"
+        description="I plan, design and create Mobile- and Webapplications. I really like programming because you can see progress while you are working on something. "/>
 
-      <UgAboutCard
-        heading="Why are you doing it?"
-        description="Nowadays it is quite important to go with the digitalisation-trend and that is why especially business-owners should consider purchasing high-quality web-representations. "
-      />
-      {/* <UgAboutCard
-        heading="Where are you from?"
-        description="I am from Austria and I was able to enjoy a good education for informatics, economics and programming."
-      /> */}
     </motion.div>
   );
 }

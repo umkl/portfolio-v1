@@ -16,7 +16,6 @@
   position: absolute;
   width: 90vw;
   height: 60vh;
-  
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -67,7 +66,6 @@
 
 @media only screen and (min-width: 1800px){
   .ug-project-diashow {
-    position: absolute;
     width: 1400px;
     height: 60vh;
     left: 50%;
@@ -75,22 +73,21 @@
   }
 }
 
-@media only screen and (max-height: 1000px){
-  .ug-project-diashow{
-    height: 60vh;
-    
+@media only screen and (max-height: 1200px){
+  .ug-projects{
+    height: 1200px;
   }
 }
 
 // @media only screen and (min-height: 1000px ){
 // }
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 1200px){
   .ug-projects{
-    width: 1000px;
+    width: 1200px;
   }
   .ug-project-diashow {
     position: relative;
-    width: 80%;
+    width: 90%;
   }
 }
