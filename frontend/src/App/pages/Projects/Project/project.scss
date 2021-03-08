@@ -62,7 +62,7 @@
 .ug-trailer {
   position: relative;
   font-family: ZCOOL_QingKe_HuangYou;
-  height: 60vh;
+  height: 100%;
   width: 100%;
   background-color: transparent;
   color: white;
@@ -118,10 +118,10 @@
 @media only screen and (max-width: 1600px){
   .ug-project {
     font-family: ZCOOL_QingKe_HuangYou;
-    width: 100%;
     border-radius: 15px;
     border: 2px solid white;
     color: white;
+    
     box-sizing: border-box;
     padding: 30px;
     margin-bottom: 30px;

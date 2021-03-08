@@ -60,6 +60,7 @@ const UgLink = (props) => {
             // onMouseOut={()=>{setLinkColor("rgba(255, 255, 255, 0.5)")}}
             onMouseEnter={()=>{setHoverStatus(true)}}
             onMouseLeave={()=>{setHoverStatus(false)}}
+            target="_blank" rel="noopener noreferrer"
             // ref={hoverRef}
             className="ug-content-linkds-div-link" href={props.linkHref} style={{color: linkColor,transition: "color 0.5s"}}>
               {/* {hoverStatus?()=>{return props.username}:()=>{return props.name}} */}

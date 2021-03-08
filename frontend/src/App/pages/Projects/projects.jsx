@@ -7,46 +7,44 @@ import React, {
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { config, useTransition, useSpring, animated as a } from "react-spring";
-import _uniqueId from 'lodash/uniqueId';
+import _uniqueId from "lodash/uniqueId";
 import UgProject from "./Project/project.jsx";
 import "./projects.scss";
-import NeighborooImage from "./../../assets/Neighboroo/NeighborooMockup.png"
-import trailerPlaceHolder from "./../../assets/Neighboroo/NeighborooMockup.png"
+import NeighborooImage from "./../../assets/Neighboroo/NeighborooMockup.png";
+import trailerPlaceHolder from "./../../assets/Neighboroo/NeighborooMockup.png";
 
 const Projects = () => {
   //local projects
-  const imageArray = [
-    NeighborooImage,
-    trailerPlaceHolder
-  ]
+  const imageArray = [NeighborooImage, trailerPlaceHolder];
 
   const projectsJSON = [
     {
       // "_id" : ObjectId("5fa14938ee9eac91770b019b"),
-      "_id": _uniqueId('prefix-'),
-      "Title" : "Neighboroo",
-      "Slogan" : "Bringing Neighborhoods together.",
-      "Description" : "Neighboroo is a Smartphoneapplication where you can trade and chat with your neighbors. The whole system is divided into four categories: Messenger, Selling, Transport, and Service. In the Messenger you are able to chat with your neighbors. The Trading section is for selling goods with neighbors. Car-sharing can be done in the Transport section and offering and receiving simple jobs can be done in the service section. ",
-      "Link":"Link to the Github Project",
-      "Image": require("./../../assets/Neighboroo/NeighborooMockup.png"),
-      "LinkURL":"https://github.com/ungarmichael/neighboroo",
-      "ImageID":0
+      _id: _uniqueId("prefix-"),
+      Title: "Neighboroo",
+      Slogan: "Bringing Neighborhoods together.",
+      Description:
+        "Neighboroo is a iOs and Android-application where you can easily get in touch with your neighbors. The whole system is divided into four categories: Messenger, Selling, Transport, and Service. In the Messenger you are able to chat with your neighbors. The Trading section is for selling goods. Car-sharing can be done in the Transport section and the service section is for Offering and receiving simple jobs.",
+      Link: "Link to the Github Project",
+      Image: require("./../../assets/Neighboroo/NeighborooMockup.png"),
+      LinkURL: "https://github.com/ungarmichael/neighboroo",
+      ImageID: 0,
     },
     {
-      "_id": _uniqueId('prefix-'),
-      "Title" : "Trailer",
-      "Description" : "this is a test 3",
-      "ImageID":0,
-      "Image": "./../../assets/Neighboroo/NeighborooMockup.png",
-    }
-  ]
+      _id: _uniqueId("prefix-"),
+      Title: "Trailer",
+      Description: "this is a test 3",
+      ImageID: 0,
+      Image: "./../../assets/Neighboroo/NeighborooMockup.png",
+    },
+  ];
 
   //variables
   const API_URL = "http://localhost:8080/projects";
   const [currentProject, setCurrentProject] = useState(0);
   const [projects, setProjects] = useState(projectsJSON);
   const [isLoaded, setLoaded] = useState(true);
-  
+
   const [projectSize, setProjectSize] = useState();
 
   const [index, setIndex] = useState(0);
@@ -67,9 +65,10 @@ const Projects = () => {
       opacity: 1,
       transform: "translate3d(0,0,0) scale(1,1) ",
     },
-    leave: { 
+    leave: {
       opacity: 0,
-      transform: "translate3d(0,0,0) scale(0.5,0.5) " },
+      transform: "translate3d(0,0,0) scale(0.5,0.5) ",
+    },
   });
 
   if (!isLoaded) {
@@ -92,7 +91,6 @@ const Projects = () => {
         animate={{ opacity: 1 }}
       >
         <div className="ug-project-diashow">
-
           {projectTransitions.map(({ item, props, key }) => {
             const Project = projects[item];
             return (
@@ -109,7 +107,6 @@ const Projects = () => {
               />
             );
           })}
-          
         </div>
 
         <div className="ug-project-navigator">
