@@ -11,7 +11,7 @@ const UgBtn = () => {
   // const [searchInput, setSearchInput] = useContext(SearchContext);
   // const searchRef = useRef();
   // const location = useLocation();
-
+  
   if (location.pathname == "/") {
     return (
       <div className="ug-btn">

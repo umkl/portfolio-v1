@@ -13,7 +13,6 @@ export default function UgNav() {
   });
   var cLocation = useLocation();
 
-
   function changeClickedTo(num) {
     setClicked({
       1: num == 1 ? true : false,

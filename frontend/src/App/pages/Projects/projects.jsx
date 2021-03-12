@@ -40,7 +40,7 @@ const Projects = () => {
   ];
 
   //variables
-  const API_URL = "http://localhost:8080/projects";
+  const API_URL = "http://10.0.0.11:8080/projects";
   const [currentProject, setCurrentProject] = useState(0);
   const [projects, setProjects] = useState(projectsJSON);
   const [isLoaded, setLoaded] = useState(true);
