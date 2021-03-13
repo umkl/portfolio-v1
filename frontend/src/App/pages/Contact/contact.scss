@@ -20,7 +20,7 @@
     height: 300px;
     width: 300px;
     background-color: black;
-    border: 3px solid white;
+    border: 1.3px solid white;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -46,7 +46,7 @@
       background-color: transparent;
       
       color: white;
-      border: 3px solid white;
+      border: 1.3px solid white;
       border-radius: 15px;
       height: 50px;
       font-size: 1.4em;
@@ -182,7 +182,7 @@
           height: 50px;
           background-color: transparent;
           border-radius: 15px;
-          border: 3px solid white;
+          border: 1.3px solid white;
           color: white;
           font-family: "ZCOOL_QingKe_HuangYou";
           font-size: 20px;
@@ -192,10 +192,9 @@
         .ug-contact-input-box-input_text {
           position: relative;
           font-family: "ZCOOL_QingKe_HuangYou";
-          // box-sizing: border-box;
           resize: none;
           background-color: transparent;
-          border: 3px solid white;
+          border: 1.3px solid white;
           text-decoration: none;
           color: white;
           padding: 20px 20px;
@@ -226,7 +225,7 @@
           color: white;
           padding: 0px 20px;
           font-size: 20px;
-          border: 3px solid white;
+          border: 1.3px solid white;
           border-radius: 15px;
           height: 50px;
           width: 300px;
@@ -235,7 +234,6 @@
         }
       }
     }
-
   }
 }
 

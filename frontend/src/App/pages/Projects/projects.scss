@@ -13,14 +13,13 @@
 }
 
 .ug-project-diashow {
-  position: absolute;
+  position: relative;
   width: 90vw;
   height: 60vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
 }
-
 
 // --- NAVIGATOR ---
 
@@ -58,9 +57,6 @@
   .ug-project-diashow {
     width: 80%;
     height: 60vh;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
   }
 }
 
@@ -68,14 +64,17 @@
   .ug-project-diashow {
     width: 1400px;
     height: 60vh;
-    left: 50%;
-    transform: translate(-50%,-50%);
   }
 }
 
-@media only screen and (max-height: 1200px){
+@media only screen and (max-height: 1000px){
   .ug-projects{
-    height: 1200px;
+    position: fixed;
+    height: 1000px;
+  }
+  .ug-project-diashow{
+    height: 60%;
+    position: relative;
   }
 }
 
@@ -86,6 +85,7 @@
   .ug-projects{
     width: 1200px;
   }
+
   .ug-project-diashow {
     position: relative;
     width: 1080px;

@@ -77,12 +77,12 @@ export default function Foyer() {
       </div>
       <UgAboutCard
         heading="Who am I ?"
-        description="My Name is Ungar Michael and I my Passion is to develop and organise Softwareapplications. I also love learning new technologies and improving myself. I also started to create content in form of blogs and videos in order to share my thoughts and opinions with an audience. "
+        description="My Name is Ungar Michael and my Passion is to develop and organise Softwareprojects. I really love learning new things and improving myself."
       />
 
       <UgAboutCard
         heading="What am I doing ?"
-        description="I plan, design and create Mobile- and Webapplications. I really like programming because you can see progress while you are working on something. "/>
+        description="I plan, design and create Mobile- and Webapplications. I also started to create content in form of blogs and videos in order to share my thoughts, experiences and opinions with an audience.  "/>
 
     </motion.div>
   );
