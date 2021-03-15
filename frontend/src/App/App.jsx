@@ -14,7 +14,7 @@ import React, {
   useLayoutEffect,
   useContext,
 } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route,Switch } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { SearchProvider } from "./context/SearchContext.js";
 import { BlurProvider } from "./context/BlurContext.js";
@@ -26,7 +26,8 @@ function App() {
         <BlurProvider>
           <UgBar />
           <AnimatePresence>
-            <Switch className="ug-switch">
+            {/* <Switch className="ug-switch"> */}
+            <Switch>
               <Route exact path="/" component={Foyer}></Route>
               <Route path="/projects" component={Projects}></Route>
               <Route path="/content" component={ContentSwitch}></Route>
@@ -34,6 +35,7 @@ function App() {
               <Route path="/login" component={Login}></Route>
               <Route path="*" exact={true} component={Error}></Route>
             </Switch>
+            {/* </Switch> */}
           </AnimatePresence>
         </BlurProvider>
       </SearchProvider>
