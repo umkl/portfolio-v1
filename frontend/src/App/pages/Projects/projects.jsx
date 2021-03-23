@@ -40,7 +40,7 @@ const Projects = () => {
   ];
 
   //variables
-  const API_URL = "http://10.0.0.1:8080/projects";
+  const API_URL = "http://api.ungarmichael.com:8080/projects";
   const [currentProject, setCurrentProject] = useState(0);
   const [projects, setProjects] = useState(projectsJSON);
   const [isLoaded, setLoaded] = useState(true);
