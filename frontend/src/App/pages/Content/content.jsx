@@ -104,7 +104,7 @@ const Content = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <div className="ug-loading">Loading</div>
+        <div className="ug-loading">Not found (consider reloading)</div>
       </motion.div>
     );
   } else {

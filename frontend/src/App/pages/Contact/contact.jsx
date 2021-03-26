@@ -9,8 +9,9 @@ import UgLink from "./Link/link.jsx";
 import InstagramLogo from "./../../assets/Instagram-Logo.png";
 import FiverrLogo from "./../../assets/Fiverr-Logo.png";
 import FacebookLogo from "./../../assets/Facebook-Logo.png";
-import TwitterLogo from "./../../assets/Twitter-Logo.png";
+// import TwitterLogo from "./../../assets/Twitter-Logo.png";
 import GithubLogo from "./../../assets/GitHub-Logo.png";
+import LinkedinLogo from "./../../assets/Linkedin-Logo.png"
 import { BlurContext } from "./../../context/BlurContext.js";
 
 export default function Contact() {
@@ -117,6 +118,12 @@ export default function Contact() {
                   imageSource={FiverrLogo}
                   linkHref="https://www.fiverr.com/ungarmichael"
                   name="Fiverr"
+                  username="@ungarmichael"
+                />
+                <UgLink
+                  imageSource={LinkedinLogo}
+                  linkHref="https://www.fiverr.com/ungarmichael"
+                  name="Linkedin"
                   username="@ungarmichael"
                 />
               </div>

@@ -16,7 +16,7 @@ const Blog = (props) => {
     setSubStatus
   } = useSubscription();
 
-  const API_URL = "http://localhost:8080/contributions";
+  const API_URL = "http://api.ungarmichael.com:8080/contributions";
   const [blur, setBlur] = useState(0);
   const [blog, setBlog] = useState(null);
   const [loaded, setLoaded] = useState(false);
@@ -173,7 +173,7 @@ const Blog = (props) => {
         </div>
 
         {!loaded ? (
-          <div style={{ color: "white" }}>loading …</div>
+          <div className="loading"> loading...</div>
         ) : (
           <div className="Blog-Content">
             {/* <div className="Blog-Content-Heading">heading</div> */}

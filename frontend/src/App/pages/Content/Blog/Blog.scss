@@ -4,6 +4,16 @@
   src: url("./../../../assets/fonts/ZCOOL_QingKe_HuangYou/ZCOOLQingKeHuangYou-Regular.ttf");
 }
 
+.loading{
+  left: 50%;
+  top: 50%;
+  font-family: "ZCOOL_QingKe_HuangYou";
+  transform: translate(-50%,-50%);
+  font-size: 3em;
+  position: absolute;
+  color: white;
+}
+
 .Blog {
   position: absolute;
   height: 100%;

@@ -101,7 +101,7 @@
 
           img {
             margin: 5px 20px;
-            border-radius: 10px;
+            // border-radius: 10px;
           }
           .ug-content-links-div-text {
             font-family: "ZCOOL_QingKe_HuangYou";
@@ -297,6 +297,27 @@
     }
   }
 }
+
+// @media only screen and (min-height: 1000px) and (min-width: 600px) {
+//   .ug-contact {
+//     position: absolute;
+//     // top:50vh;
+//     .ug-contact-container {
+//       height:fit-content;
+//       flex-direction: column;
+//       // margin-top: 0%;
+//       background-color: transparent;
+//       transform: translate(0,0);
+//       top: 0;
+//       left: 0;
+//       margin-top: 50px;
+//       .ug-contact-frame{
+//         height: 500px;
+//         width: 100%;
+//       }
+//     }
+//   }
+// }
 
 @media only screen and (max-height: 800px) and (min-width: 500px){
   .ug-contact{
