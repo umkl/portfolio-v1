@@ -16,7 +16,6 @@ import trailerPlaceHolder from "./../../assets/Neighboroo/NeighborooMockup.png";
 const Projects = () => {
   //local projects
   const imageArray = [NeighborooImage, trailerPlaceHolder];
-
   const projectsJSON = [
     {
       // "_id" : ObjectId("5fa14938ee9eac91770b019b"),

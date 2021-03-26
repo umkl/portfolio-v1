@@ -2,6 +2,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
+  
 }
 
 .ug-loading {
@@ -19,6 +20,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-color: yellow;
 }
 
 // --- NAVIGATOR ---
@@ -56,14 +61,12 @@
 @media only screen and (min-width: 1400px){
   .ug-project-diashow {
     width: 80%;
-    height: 60vh;
   }
 }
 
 @media only screen and (min-width: 1800px){
   .ug-project-diashow {
     width: 1400px;
-    height: 60vh;
   }
 }
 
@@ -73,7 +76,7 @@
     height: 1000px;
   }
   .ug-project-diashow{
-    height: 60%;
+    height: 100%;
     position: relative;
   }
 }

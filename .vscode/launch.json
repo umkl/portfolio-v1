@@ -10,13 +10,13 @@
       "type": "go",
       "request": "launch",
       "mode": "debug",
-      "program": "/Users/michaelungar/Documents/ungar/backend/cmd/monolithic/server.go"
+      "program": "/Users/michaelungar/Documents/ungarmichael.com/backend/cmd/monolithic/server.go"
     },
     {
       "name": "ungar frontend dev",
       "request": "launch",
       "runtimeArgs": ["start"],
-      "cwd": "/Users/michaelungar/Documents/ungar/frontend",
+      "cwd": "/Users/michaelungar/Documents/ungarmichael.com/frontend",
       "runtimeExecutable": "npm",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"
@@ -25,7 +25,7 @@
       "name": "ungar frontend prod",
       "request": "launch",
       "runtimeArgs": ["run build"],
-      "cwd": "/Users/michaelungar/Documents/ungar/frontend",
+      "cwd": "/Users/michaelungar/Documents/ungarmichael.com/frontend",
       "runtimeExecutable": "npm",
       "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"

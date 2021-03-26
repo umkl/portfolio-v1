@@ -1,7 +1,7 @@
 .ug-project {
   position: absolute;
   font-family: ZCOOL_QingKe_HuangYou;
-  top: 0;
+
   width: 100%;
   // background-color: transparent;
   border-radius: 15px;
@@ -13,6 +13,7 @@
   display: flex;
   justify-content: center;
   align-content: space-between;
+
 
   .ug-project-title {
     font-size: 5em;
@@ -94,7 +95,7 @@
 }
 
 .text{
-  width: 50%;
+  width: 70%;
   height: fit-content;
 }
 
@@ -111,9 +112,6 @@
     transform: translateX(-50%);
   }
 }
-
-
-
 
 @media only screen and (max-width: 1600px){
   .ug-project {

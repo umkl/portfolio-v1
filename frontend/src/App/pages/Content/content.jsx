@@ -25,6 +25,10 @@ const Content = () => {
     }
   )
 
+  useEffect(()=>{
+    console.log("current contributions:" + contributions)
+  },[contributions])
+
   useEffect(() => {
     contributions.map((x) => {
       if (x.Name.includes(searchInput)) {
