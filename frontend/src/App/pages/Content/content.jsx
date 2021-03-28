@@ -3,33 +3,74 @@ import Head from "./ContentSwitch/ContentSwitch.jsx";
 import Container from "./Container/Container.jsx";
 import { motion } from "framer-motion";
 import { animated as a, useSpring, useTransition } from "react-spring";
-import { BrowserRouter, Switch, Route, useRouteMatch, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  useRouteMatch,
+  useLocation,
+} from "react-router-dom";
 import { SearchContext } from "./../../context/SearchContext";
 import SearchIcon from "./../../assets/Searchicon.png";
 import "./content.scss";
 
 const Content = () => {
+
   const API_URL = "http://api.ungarmichael.com:8080/contributions";
-  // const [searchInput, setSearchInput] = useContext(SearchContext);
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+  const [fetchingErrorStatus, setFetchingErrorStatus] = useState(false);
   const [heading, setHeading] = useState("recents");
-  const [contributionSearchResults, setContributionSearchResults] = useState([]);
+  const [contributionSearchResults, setContributionSearchResults] = useState(
+    []
+  );
   const [isActive, setActive] = useState(false);
   const [searchInput, setSearchInput] = useContext(SearchContext);
   const searchRef = useRef();
   const location = useLocation();
-  const searchSpring = useSpring(
-    {
-      width: isActive ? "200px" : "140px"
-    }
-  )
+  const searchSpring = useSpring({ width: isActive ? "200px" : "140px" });
+  const fetchData = async () => {
+    // const response = await fetch(API_URL);
+    // const data = await response.json();
+    // setContributions(data);
+    // setLoaded(true);
+    // console.log(data)
 
-  useEffect(()=>{
-    console.log("current contributions:" + contributions)
-  },[contributions])
+    // // console.log("lets fetch data");
+    
+     await fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setContributions(data);
+        setLoaded(true);
+      })
+      .catch((error) => {
+        setFetchingErrorStatus(true);
+        throw error;
+      });
+      console.log(data);
+  };
+
+//hooks
 
   useEffect(() => {
+    console.log("useEffect hook current contributions:" + contributions)
+    fetchData();      
+    // if (localStorage.getItem("contributions").length == 2) {
+    //   fetchData();      
+    // } else {
+    //   setContributions(JSON.parse(localStorage.getItem("contributions")));
+    // }
+    // return () => {
+    //   console.log("cleaning up")
+    //   localStorage.setItem("contributions", JSON.stringify(contributions));
+    //   setContributions([]);
+    // };
+
+  }, []);
+
+  useEffect(() => {
+    console.log("search input")
     contributions.map((x) => {
       if (x.Name.includes(searchInput)) {
         setContributionSearchResults((prevRes) => {
@@ -37,10 +78,9 @@ const Content = () => {
         });
       }
     });
-
-    return () => {
-      setContributionSearchResults([]);
-    };
+    // return () => {
+    //   setContributionSearchResults([]);
+    // };
   }, [searchInput]);
 
   useEffect(() => {
@@ -54,6 +94,8 @@ const Content = () => {
       setHeading("results");
     }
   }, [contributionSearchResults]);
+
+//springs
 
   const springProps = useSpring({
     from: {
@@ -86,32 +128,7 @@ const Content = () => {
     },
   });
 
-  useEffect(() => {
-    loadData();
-  }, []);
 
-  const loadData = async () => {
-    const response = await fetch(API_URL);
-    const data = await response.json();
-    setContributions(data);
-    setLoaded(true);
-    console.log(data)
-  };
-
-  let { path, url } = useRouteMatch();
-
-  if (!isLoaded) {
-    return (
-      <motion.div
-        className="ug-content"
-        exit={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <div className="ug-loading">Not found (consider reloading)</div>
-      </motion.div>
-    );
-  } else {
     return (
       <motion.div
         className="ug-content"
@@ -129,27 +146,19 @@ const Content = () => {
 
         <div className="search-bar">
           {heading == "recents" ? (
-            <div className="ug-container-recents_heading">
-              recents
-            </div>
+            <div className="ug-container-recents_heading">recents</div>
           ) : heading == "results" ? (
-            <div className="ug-container-recents_heading">
-              results
-            </div>
+            <div className="ug-container-recents_heading">results</div>
           ) : heading == "result" ? (
-            <div className="ug-container-recents_heading">
-              result
-            </div>
+            <div className="ug-container-recents_heading">result</div>
           ) : heading == "noresult" ? (
             // <div className="ug-container-noresults_heading">
             //   <p>no results</p>
             // </div>
-            <div className="ug-container-recents_heading">
-              no results
-            </div>
+            <div className="ug-container-recents_heading">no results</div>
           ) : (
-                    "error"
-                  )}
+            "error"
+          )}
           <a.div className="ug-btn-search" style={searchSpring}>
             <input
               ref={searchRef}
@@ -175,18 +184,9 @@ const Content = () => {
             </div>
           </a.div>
         </div>
-        
+
         {searchInput == ""
           ? contributions.map((x) => (
-            <Container
-              key={x.ID}
-              Name={x.Name}
-              Route={x.Route}
-              Description={x.Description}
-            />
-          ))
-          : contributionSearchResults.length != 0
-            ? contributionSearchResults.map((x) => (
               <Container
                 key={x.ID}
                 Name={x.Name}
@@ -194,10 +194,19 @@ const Content = () => {
                 Description={x.Description}
               />
             ))
-            : ""}
+          : contributionSearchResults.length != 0
+          ? contributionSearchResults.map((x) => (
+              <Container
+                key={x.ID}
+                Name={x.Name}
+                Route={x.Route}
+                Description={x.Description}
+              />
+            ))
+          : ""}
       </motion.div>
     );
-  }
+  
 };
 
 export default Content;

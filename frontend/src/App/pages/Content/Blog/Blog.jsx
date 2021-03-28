@@ -35,7 +35,7 @@ const Blog = (props) => {
   });
 
   useEffect(() => {
-    loadData();
+    // loadData();
   }, []);
 
   useEffect(() => {
@@ -46,22 +46,22 @@ const Blog = (props) => {
     }
   }, [showSubscribeField]);
 
-  const loadData = async () => {
-    const response = await fetch(API_URL);
-    const data = await response.json();
-    data.forEach((element) => {
-      console.log(element.Heading);
-      console.log(blogID);
-      if (element.Route == blogID) {
-        console.log("true");
-        setBlog(element);
-        console.log(element.BlogHTML);
-        console.log(element);
-      }
-    });
+  // const loadData = async () => {
+  //   const response = await fetch(API_URL);
+  //   const data = await response.json();
+  //   data.forEach((element) => {
+  //     console.log(element.Heading);
+  //     console.log(blogID);
+  //     if (element.Route == blogID) {
+  //       console.log("true");
+  //       setBlog(element);
+  //       console.log(element.BlogHTML);
+  //       console.log(element);
+  //     }
+  //   });
 
-    setLoaded(true);
-  };
+  //   setLoaded(true);
+  // };
 
   function createMarkup(htmlCode) {
     return { __html: htmlCode };

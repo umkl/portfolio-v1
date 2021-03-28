@@ -24,11 +24,26 @@ func getContributions(w http.ResponseWriter, req *http.Request) {
 	w.Header().Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.Header().Add("Access-Control-Allow-Headers", "*")
 
-	r, e := repository.GetAllContributions()
-	if e != nil {
-		log.Fatal(e)
+	keys, ok := req.URL.Query()["key"]
+
+	if !ok || len(keys[0]) < 1 {
+		log.Println("URL Param 'key' is missing")
+		r, e := repository.GetAllContributions()
+		if e != nil {
+			log.Fatal(e)
+		}
+		json.NewEncoder(w).Encode(r)
+		return
+	} else {
+		key := keys[0]
+		log.Println("URL param is " + string(key))
+		r, e := repository.GetContribution(string(key))
+		if e != nil {
+			log.Fatal(e)
+		}
+		json.NewEncoder(w).Encode(r)
 	}
-	json.NewEncoder(w).Encode(r)
+
 }
 
 // type User struct {

@@ -82,7 +82,6 @@ export default function Contact() {
           }
         </div>
       ) : null}
-      //frame
       <motion.div
         className="ug-contact"
         style={

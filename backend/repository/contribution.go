@@ -7,6 +7,7 @@ import (
 	"log"
 
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -50,6 +51,20 @@ func GetAllContributions() ([]*entities.Contribution, error) {
 	// filter := bson.D{{}}
 	// return filterContributions(filter)
 	return p, err
+}
+
+func GetContribution(key string) (*entities.Contribution, error) {
+	filter := bson.D{
+		primitive.E{Key: "Route", Value: key},
+	}
+
+	p, err := filterContributions(filter)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return p[0], err
+	// filter :
 }
 
 func PushContribution(contributionToPush entities.Contribution) {
