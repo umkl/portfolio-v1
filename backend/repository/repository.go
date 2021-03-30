@@ -27,7 +27,7 @@ func ConnectToMongoDB() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer ungarClient.Disconnect(ctx)
+	// defer ungarClient.Disconnect(ctx)
 
 	// clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
 	// ungarClient, err = mongo.Connect(ctx, clientOptions)

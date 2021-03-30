@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 var (
@@ -32,7 +34,7 @@ func provideSubscription(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("%e", err)
 	}
 
-	su := entities.Subscription{Email: subscriptionEmail}
+	su := entities.Subscription{ID: primitive.NewObjectID(), Email: subscriptionEmail}
 
 	repository.SaveSubscription(&su)
 }
