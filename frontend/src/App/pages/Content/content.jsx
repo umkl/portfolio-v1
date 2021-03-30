@@ -16,7 +16,7 @@ import "./content.scss";
 
 const Content = () => {
 
-  const API_URL = "http://localhost:8080/contributions";
+  const API_URL = "http://api.ungarmichael.com/contributions";
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const [fetchingErrorStatus, setFetchingErrorStatus] = useState(false);
