@@ -7,7 +7,7 @@ import (
 )
 
 func SaveSubscription(sub *entities.Subscription) error {
-	_, err := getSubscriptionCollection(ungarClient).InsertOne(ctx, sub)
+	_, err := ungarClient.Database("Ungar").Collection("Subscriptions").InsertOne(ctx, sub)
 	return err
 }
 

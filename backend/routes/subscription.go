@@ -4,6 +4,7 @@ import (
 	"backend/cmd/monolithic/entities"
 	"backend/cmd/monolithic/repository"
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -23,6 +24,8 @@ func provideSubscription(w http.ResponseWriter, r *http.Request) {
 	}
 
 	subscriptionEmail = r.Form.Get("email")
+
+	log.Printf(subscriptionEmail)
 
 	if err != nil {
 		fmt.Println("error occurred")

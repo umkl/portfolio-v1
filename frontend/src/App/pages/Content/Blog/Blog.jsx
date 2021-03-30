@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import DOMPurify from "dompurify";
 import "./Blog.scss";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import FullLogoBy from "./../../../assets/UNGAR-by.svg";
 import { useParams } from "react-router-dom";
 import { animated as a, useSpring } from "react-spring";
 import useSubscription from "./../../../utils/useSubscription.jsx";
+import axios from "axios";
 
 const Blog = (props) => {
   const {
@@ -16,12 +17,12 @@ const Blog = (props) => {
     setSubStatus
   } = useSubscription();
 
-  const API_URL = "http://api.ungarmichael.com:8080/contributions";
+  const API_URL = "http://localhost:8080/contributions";
+  const history = useHistory();
   const [blur, setBlur] = useState(0);
   const [blog, setBlog] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [showSubscribeField, setShowSubscribeField] = useState(false);
-  const htmlStringTest = "<h1>I'm a string with HTML!</h1>";
 
   let { blogID } = useParams();
 
@@ -34,8 +35,54 @@ const Blog = (props) => {
     marginTop: showSubscribeField ? "0px" : "-500px",
   });
 
+  // useEffect(() => {
+    
+  //   // console.log("blogID route: " + blogRoute)
+  //   // const response = await fetch(blogRoute);
+  //   // const data = await response.json();
+
+  //   // await fetch(blogRoute)
+  //   // .then((response) => response.json())
+  //   // .then((data) => {
+  //   //   console.log(data);
+  //   // })
+  //   // .catch((error) => {
+  //   //   // setFetchingErrorStatus(true);
+  //   //   throw error;
+  //   // });
+  //   // console.log(data);
+
+ 
+
+  //   // data.forEach((element) => {
+  //   //   console.log(element.Heading);
+  //   //   console.log(blogID);
+  //   //   if (element.Route == blogID) {
+  //   //     console.log("true");
+  //   //     setBlog(element);
+  //   //     console.log(element.BlogHTML);
+  //   //     console.log(element);
+  //   //   }
+  // }, []);
+
+
   useEffect(() => {
-    // loadData();
+    var blogRoute = appendQueryParameter(API_URL,"key",blogID);
+    const fetchData = async () => {
+      const result = await fetch(blogRoute)
+        .then(response=>response.json())
+        .then(data=>{
+          console.log("data bro:" + data)
+          if(data==null){ 
+            console.log("wasn't found")
+            history.push("/notfound")
+          }else{
+            setBlog(data);
+            setLoaded(true);
+          }
+        })
+    };
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -66,6 +113,28 @@ const Blog = (props) => {
   function createMarkup(htmlCode) {
     return { __html: htmlCode };
     // DOMPurify.sanitize(blog.blogHTML)
+  }
+
+  function appendQueryParameter(url, name, value) {
+    if (url.length === 0) {
+        return;
+    }
+
+    let rawURL = url;
+
+    // URL with `?` at the end and without query parameters
+    // leads to incorrect result.
+    if (rawURL.charAt(rawURL.length - 1) === "?") {
+        rawURL = rawURL.slice(0, rawURL.length - 1);
+    }
+
+    const parsedURL = new URL(rawURL);
+    let parameters = parsedURL.search;
+
+    parameters += (parameters.length === 0) ? "?" : "&";
+    parameters = (parameters + name + "=" + value);
+
+    return (parsedURL.origin + parsedURL.pathname + parameters);
   }
 
   return (

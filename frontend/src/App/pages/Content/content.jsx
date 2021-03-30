@@ -16,7 +16,7 @@ import "./content.scss";
 
 const Content = () => {
 
-  const API_URL = "http://api.ungarmichael.com:8080/contributions";
+  const API_URL = "http://localhost:8080/contributions";
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const [fetchingErrorStatus, setFetchingErrorStatus] = useState(false);
@@ -35,8 +35,7 @@ const Content = () => {
     // setContributions(data);
     // setLoaded(true);
     // console.log(data)
-
-    // // console.log("lets fetch data");
+    // console.log("lets fetch data");
     
      await fetch(API_URL)
       .then((response) => response.json())
@@ -48,7 +47,7 @@ const Content = () => {
         setFetchingErrorStatus(true);
         throw error;
       });
-      console.log(data);
+      // console.log(data);
   };
 
 //hooks
