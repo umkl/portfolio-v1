@@ -17,7 +17,7 @@ const Blog = (props) => {
     setSubStatus
   } = useSubscription();
 
-  const API_URL = "http://api.ungarmichael.com/contributions";
+  const API_URL = "https://api.ungarmichael.com/contributions";
   const history = useHistory();
   const [blur, setBlur] = useState(0);
   const [blog, setBlog] = useState(null);

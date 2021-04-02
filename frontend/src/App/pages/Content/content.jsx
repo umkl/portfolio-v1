@@ -16,7 +16,7 @@ import "./content.scss";
 
 const Content = () => {
 
-  const API_URL = "http://api.ungarmichael.com/contributions";
+  const API_URL = "https://api.ungarmichael.com/contributions";
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const [fetchingErrorStatus, setFetchingErrorStatus] = useState(false);
@@ -37,7 +37,13 @@ const Content = () => {
     // console.log(data)
     // console.log("lets fetch data");
     
-     await fetch(API_URL)
+     await fetch(API_URL,{
+      // method: 'GET',
+      // mode: 'cors',
+      // headers: {
+      //   'Content-Type': 'application/json'
+      // }
+     })
       .then((response) => response.json())
       .then((data) => {
         setContributions(data);
