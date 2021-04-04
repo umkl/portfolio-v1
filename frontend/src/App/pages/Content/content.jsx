@@ -13,9 +13,9 @@ import {
 import { SearchContext } from "./../../context/SearchContext";
 import SearchIcon from "./../../assets/Searchicon.png";
 import "./content.scss";
+import { Helmet } from 'react-helmet'
 
 const Content = () => {
-
   const API_URL = "https://api.ungarmichael.com/contributions";
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
@@ -36,14 +36,14 @@ const Content = () => {
     // setLoaded(true);
     // console.log(data)
     // console.log("lets fetch data");
-    
-     await fetch(API_URL,{
+
+    await fetch(API_URL, {
       // method: 'GET',
       // mode: 'cors',
       // headers: {
       //   'Content-Type': 'application/json'
       // }
-     })
+    })
       .then((response) => response.json())
       .then((data) => {
         setContributions(data);
@@ -53,16 +53,16 @@ const Content = () => {
         setFetchingErrorStatus(true);
         throw error;
       });
-      // console.log(data);
+    // console.log(data);
   };
 
-//hooks
+  //hooks
 
   useEffect(() => {
-    console.log("useEffect hook current contributions:" + contributions)
-    fetchData();      
+    console.log("useEffect hook current contributions:" + contributions);
+    fetchData();
     // if (localStorage.getItem("contributions").length == 2) {
-    //   fetchData();      
+    //   fetchData();
     // } else {
     //   setContributions(JSON.parse(localStorage.getItem("contributions")));
     // }
@@ -71,11 +71,10 @@ const Content = () => {
     //   localStorage.setItem("contributions", JSON.stringify(contributions));
     //   setContributions([]);
     // };
-
   }, []);
 
   useEffect(() => {
-    console.log("search input")
+    console.log("search input");
     contributions.map((x) => {
       if (x.Name.includes(searchInput)) {
         setContributionSearchResults((prevRes) => {
@@ -100,7 +99,7 @@ const Content = () => {
     }
   }, [contributionSearchResults]);
 
-//springs
+  //springs
 
   const springProps = useSpring({
     from: {
@@ -133,8 +132,11 @@ const Content = () => {
     },
   });
 
-
-    return (
+  return (
+    <>
+    <Helmet>
+      <title>Ungar | Contributions</title>
+    </Helmet>
       <motion.div
         className="ug-content"
         exit={{ opacity: 1 }}
@@ -210,8 +212,8 @@ const Content = () => {
             ))
           : ""}
       </motion.div>
-    );
-  
+    </>
+  );
 };
 
 export default Content;

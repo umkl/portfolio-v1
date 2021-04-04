@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import DOMPurify from "dompurify";
 import "./Blog.scss";
-import { Link,useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import FullLogoBy from "./../../../assets/UNGAR-by.svg";
 import { useParams } from "react-router-dom";
 import { animated as a, useSpring } from "react-spring";
 import useSubscription from "./../../../utils/useSubscription.jsx";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Blog = (props) => {
   const {
@@ -14,7 +15,7 @@ const Blog = (props) => {
     handleSubscriptionSubmit,
     subscriptionValues,
     subStatus,
-    setSubStatus
+    setSubStatus,
   } = useSubscription();
 
   const API_URL = "https://api.ungarmichael.com/contributions";
@@ -36,7 +37,7 @@ const Blog = (props) => {
   });
 
   // useEffect(() => {
-    
+
   //   // console.log("blogID route: " + blogRoute)
   //   // const response = await fetch(blogRoute);
   //   // const data = await response.json();
@@ -52,8 +53,6 @@ const Blog = (props) => {
   //   // });
   //   // console.log(data);
 
- 
-
   //   // data.forEach((element) => {
   //   //   console.log(element.Heading);
   //   //   console.log(blogID);
@@ -65,22 +64,21 @@ const Blog = (props) => {
   //   //   }
   // }, []);
 
-
   useEffect(() => {
-    var blogRoute = appendQueryParameter(API_URL,"key",blogID);
+    var blogRoute = appendQueryParameter(API_URL, "key", blogID);
     const fetchData = async () => {
       const result = await fetch(blogRoute)
-        .then(response=>response.json())
-        .then(data=>{
-          console.log("data bro:" + data)
-          if(data==null){ 
-            console.log("wasn't found")
-            history.push("/notfound")
-          }else{
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("data bro:" + data);
+          if (data == null) {
+            console.log("wasn't found");
+            history.push("/notfound");
+          } else {
             setBlog(data);
             setLoaded(true);
           }
-        })
+        });
     };
     fetchData();
   }, []);
@@ -117,7 +115,7 @@ const Blog = (props) => {
 
   function appendQueryParameter(url, name, value) {
     if (url.length === 0) {
-        return;
+      return;
     }
 
     let rawURL = url;
@@ -125,20 +123,23 @@ const Blog = (props) => {
     // URL with `?` at the end and without query parameters
     // leads to incorrect result.
     if (rawURL.charAt(rawURL.length - 1) === "?") {
-        rawURL = rawURL.slice(0, rawURL.length - 1);
+      rawURL = rawURL.slice(0, rawURL.length - 1);
     }
 
     const parsedURL = new URL(rawURL);
     let parameters = parsedURL.search;
 
-    parameters += (parameters.length === 0) ? "?" : "&";
-    parameters = (parameters + name + "=" + value);
+    parameters += parameters.length === 0 ? "?" : "&";
+    parameters = parameters + name + "=" + value;
 
-    return (parsedURL.origin + parsedURL.pathname + parameters);
+    return parsedURL.origin + parsedURL.pathname + parameters;
   }
 
   return (
     <>
+      <Helmet>
+        <title>ungarmichael | {blog.Name}</title>
+      </Helmet>
       {showSubscribeField ? (
         <a.div style={fadeInFromTop} className="subscribeField">
           <div className="subscribeBox">
@@ -178,35 +179,27 @@ const Blog = (props) => {
               </form>
             ) : subStatus == "success" ? (
               <div className="response">
-                <p>
-                  successfully subscribed to the blog
-                </p>
+                <p>successfully subscribed to the blog</p>
                 <button
-                  onClick={
-                    ()=>{
-                      setSubStatus(null)
-                      setShowSubscribeField(false)
-                    }
-                  }
+                  onClick={() => {
+                    setSubStatus(null);
+                    setShowSubscribeField(false);
+                  }}
                 >
                   OK
                 </button>
               </div>
             ) : (
               <div className="response">
-                <p>
-                  error connecting to server
-                </p>
+                <p>error connecting to server</p>
                 <button
-                  onClick={
-                    ()=>{
-                      setSubStatus(null)
-                    }
-                  }
-                  >
+                  onClick={() => {
+                    setSubStatus(null);
+                  }}
+                >
                   Try Again
                 </button>
-                </div>
+              </div>
             )}
           </div>
         </a.div>

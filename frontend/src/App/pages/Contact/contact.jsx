@@ -11,8 +11,9 @@ import FiverrLogo from "./../../assets/Fiverr-Logo.png";
 import FacebookLogo from "./../../assets/Facebook-Logo.png";
 // import TwitterLogo from "./../../assets/Twitter-Logo.png";
 import GithubLogo from "./../../assets/GitHub-Logo.png";
-import LinkedinLogo from "./../../assets/Linkedin-Logo.png"
+import LinkedinLogo from "./../../assets/Linkedin-Logo.png";
 import { BlurContext } from "./../../context/BlurContext.js";
+import { Helmet } from "react-helmet";
 
 export default function Contact() {
   var ungar_email_serviceID = "ungar-gmail";
@@ -62,6 +63,11 @@ export default function Contact() {
   //Fragment that returns both login and status
   return (
     <React.Fragment>
+      <Helmet>
+        <title>Ungar | Contact</title>
+        <meta name="description" content="Contact Michael Ungar" />
+        <meta name="theme-color" content="#000000" />
+      </Helmet>
       {mailStatus != null ? (
         <div className="ug-contact-mailStatus">
           {

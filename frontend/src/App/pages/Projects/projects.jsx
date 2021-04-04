@@ -12,6 +12,7 @@ import UgProject from "./Project/project.jsx";
 import "./projects.scss";
 import NeighborooImage from "./../../assets/Neighboroo/NeighborooMockup.png";
 import trailerPlaceHolder from "./../../assets/Neighboroo/NeighborooMockup.png";
+import { Helmet } from 'react-helmet'
 
 const Projects = () => {
   //local projects
@@ -72,63 +73,73 @@ const Projects = () => {
 
   if (!isLoaded) {
     return (
-      <motion.div
-        className="ug-projects"
-        exit={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <div className="ug-loading">Loading</div>
-      </motion.div>
+      <>
+        <Helmet>
+          <title>Ungar | Projects from ungarmichael.com</title>
+        </Helmet>
+        <motion.div
+          className="ug-projects"
+          exit={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="ug-loading">Loading</div>
+        </motion.div>
+      </>
     );
   } else {
     return (
-      <motion.div
-        className="ug-projects"
-        exit={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <div className="ug-project-diashow">
-          {projectTransitions.map(({ item, props, key }) => {
-            const Project = projects[item];
-            return (
-              <UgProject
-                key={Project._id}
-                Title={Project.Title}
-                Slogan={Project.Slogan}
-                Link={Project.Link}
-                Image={imageArray[item]}
-                Description={Project.Description}
-                LinkURL={Project.LinkURL}
-                key={key}
-                style={props}
-              />
-            );
-          })}
-        </div>
+      <>
+        <Helmet>
+          <title>Ungar | Projects from ungarmichael.com</title>
+        </Helmet>
+        <motion.div
+          className="ug-projects"
+          exit={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="ug-project-diashow">
+            {projectTransitions.map(({ item, props, key }) => {
+              const Project = projects[item];
+              return (
+                <UgProject
+                  key={Project._id}
+                  Title={Project.Title}
+                  Slogan={Project.Slogan}
+                  Link={Project.Link}
+                  Image={imageArray[item]}
+                  Description={Project.Description}
+                  LinkURL={Project.LinkURL}
+                  key={key}
+                  style={props}
+                />
+              );
+            })}
+          </div>
 
-        <div className="ug-project-navigator">
-          {projects.map((x) => {
-            if (x.Title == projects[index].Title) {
-              return (
-                <div
-                  key={x._id}
-                  className="ug-project-navigator-dot-active"
-                ></div>
-              );
-            } else {
-              return (
-                <div
-                  onClick={() => handleIndexChange(x.Title)}
-                  key={x._id}
-                  className="ug-project-navigator-dot"
-                ></div>
-              );
-            }
-          })}
-        </div>
-      </motion.div>
+          <div className="ug-project-navigator">
+            {projects.map((x) => {
+              if (x.Title == projects[index].Title) {
+                return (
+                  <div
+                    key={x._id}
+                    className="ug-project-navigator-dot-active"
+                  ></div>
+                );
+              } else {
+                return (
+                  <div
+                    onClick={() => handleIndexChange(x.Title)}
+                    key={x._id}
+                    className="ug-project-navigator-dot"
+                  ></div>
+                );
+              }
+            })}
+          </div>
+        </motion.div>
+      </>
     );
   }
 };

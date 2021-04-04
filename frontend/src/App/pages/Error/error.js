@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./error.scss";
 import { animated as a, useSpring } from "react-spring";
 import {Link} from "react-router-dom";
+import { Helmet } from 'react-helmet'
 
 const Error = () => {
   const [loaded, setLoaded] = useState(false);
@@ -18,6 +19,10 @@ const Error = () => {
   });
 
   return (
+    <>
+    <Helmet>
+        <title>Ungar | Error-page</title>
+    </Helmet>
     <div className="ug-error">
       <a.div style={springProps} className="box">
         <p className="line-1">This page was not found.</p>
@@ -36,6 +41,7 @@ const Error = () => {
         </div>
       </a.div>
     </div>
+    </>
   );
 };
 

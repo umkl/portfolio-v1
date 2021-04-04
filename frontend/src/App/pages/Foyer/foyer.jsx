@@ -8,6 +8,7 @@ import useOnScreen from "./../../utils/useOnScreen.jsx";
 import FullLogo from "./../../assets/UNGAR-FULL.svg";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSpring, useSprings, animated as a } from "react-spring";
+import { Helmet } from 'react-helmet'
 import "./foyer.scss";
 
 export default function Foyer() {
@@ -23,7 +24,7 @@ export default function Foyer() {
     marginTop: isLoaded ? 0 : -100,
   });
 
-  const [, setY] = useSpring(() => ({ y: 0 }))
+  const [, setY] = useSpring(() => ({ y: 0 }));
 
   useEffect(() => {
     setLoaded(true);
@@ -49,41 +50,50 @@ export default function Foyer() {
   // }));
 
   return (
-    <motion.div
-      className="ug-foyer"
-      exit={{ opacity: 0 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}>
-      <div className="ug-foyer-intro">
-        <a.div
-          style={ugFoyerAboutHeadingSpring}
-          onClick={()=>{
-            setY({
-              y: 500,
-              reset: true,
-              from: { y: window.scrollY },
-              onFrame: props => window.scroll(500, props.y)
-            })
-          }}
-          className="ug-foyer-intro-about">
-          about
-        </a.div>
-        <div id="ug-foyer-box">
-          <a.div className="ug-foyer-name" style={ugFoyerNameSpring}>
-            <FullLogo width="80%" height="200" className="fullLogo" />
+    <>
+      <Helmet>
+        <title>Ungar | Blogging, Programming and Self-improvement</title>
+        <meta name="description" content="Passionate Programmer (Web- and Appdevelopment) from Austria creating Blogs about self-improvement, Productivity, Programming and Minimalism." />
+        <meta name="theme-color" content="#000000" />
+      </Helmet>
+      <motion.div
+        className="ug-foyer"
+        exit={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <div className="ug-foyer-intro">
+          <a.div
+            style={ugFoyerAboutHeadingSpring}
+            onClick={() => {
+              setY({
+                y: 500,
+                reset: true,
+                from: { y: window.scrollY },
+                onFrame: (props) => window.scroll(500, props.y),
+              });
+            }}
+            className="ug-foyer-intro-about"
+          >
+            about
           </a.div>
-          <div className="ug-foyer-text">Programming and Blogging</div>
+          <div id="ug-foyer-box">
+            <a.div className="ug-foyer-name" style={ugFoyerNameSpring}>
+              <FullLogo width="80%" height="200" className="fullLogo" />
+            </a.div>
+            <div className="ug-foyer-text">Programming and Blogging</div>
+          </div>
         </div>
-      </div>
-      <UgAboutCard
-        heading="Who am I ?"
-        description="My Name is Ungar Michael and my Passion is to develop and organise Softwareprojects. I really love learning new things and improving myself."
-      />
+        <UgAboutCard
+          heading="Who am I ?"
+          description="My Name is Ungar Michael and my Passion is to develop and organise Softwareprojects. I really love learning new things and improving myself."
+        />
 
-      <UgAboutCard
-        heading="What am I doing ?"
-        description="I plan, design and create Mobile- and Webapplications. I also started to create content in form of blogs and videos in order to share my thoughts, experiences and opinions with an audience.  "/>
-
-    </motion.div>
+        <UgAboutCard
+          heading="What am I doing ?"
+          description="I plan, design and create Mobile- and Webapplications. I also started to create content in form of blogs and videos in order to share my thoughts, experiences and opinions with an audience.  "
+        />
+      </motion.div>
+    </>
   );
 }

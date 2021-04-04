@@ -5,6 +5,7 @@ import useForm from "./../../utils/useForm.jsx";
 import { BlurContext } from "./../../context/BlurContext.js";
 import { Link } from "react-router-dom";
 import Logo from "./../../assets/UNGAR_NEW_LOGO.svg";
+import { Helmet } from 'react-helmet'
 
 const Login = () => {
   // const [blur, setBlur] = useContext(BlurContext);
@@ -67,7 +68,12 @@ const Login = () => {
   }
 
   return (
+    
+    
     <React.Fragment>
+      <Helmet>
+        <title>Ungar | Blogging, Programming and Self-improvement</title>
+      </Helmet>
       {loginStatus != null ? ( //setting this to login to validate if login has been sent or valid
         <div className="status-alert">
           {
