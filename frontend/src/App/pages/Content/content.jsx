@@ -16,7 +16,7 @@ import "./content.scss";
 import { Helmet } from 'react-helmet'
 
 const Content = () => {
-  const API_URL = "http://localhost:8080/contributions";
+  const API_URL = "https://api.ungarmichael.com/contributions";
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const [fetchingErrorStatus, setFetchingErrorStatus] = useState(false);

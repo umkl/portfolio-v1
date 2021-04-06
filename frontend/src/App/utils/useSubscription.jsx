@@ -31,7 +31,7 @@ const useSubscription = () => {
     params.append("email", subscriptionValues.email);
 
     axios
-      .post("http://localhost:8080/subscribe",params, config)
+      .post("https://api.ungarmichael.com/subscribe",params, config)
       .then((response) => {
         setSubStatus("success");
       })
