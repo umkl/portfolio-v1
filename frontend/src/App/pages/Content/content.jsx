@@ -16,7 +16,7 @@ import "./content.scss";
 import { Helmet } from 'react-helmet'
 
 const Content = () => {
-  const API_URL = "https://api.ungarmichael.com/contributions";
+  const API_URL = "http://localhost:8080/contributions";
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const [fetchingErrorStatus, setFetchingErrorStatus] = useState(false);
@@ -30,20 +30,8 @@ const Content = () => {
   const location = useLocation();
   const searchSpring = useSpring({ width: isActive ? "200px" : "140px" });
   const fetchData = async () => {
-    // const response = await fetch(API_URL);
-    // const data = await response.json();
-    // setContributions(data);
-    // setLoaded(true);
-    // console.log(data)
-    // console.log("lets fetch data");
 
-    await fetch(API_URL, {
-      // method: 'GET',
-      // mode: 'cors',
-      // headers: {
-      //   'Content-Type': 'application/json'
-      // }
-    })
+    await fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
         setContributions(data);
@@ -53,28 +41,15 @@ const Content = () => {
         setFetchingErrorStatus(true);
         throw error;
       });
-    // console.log(data);
   };
 
   //hooks
 
   useEffect(() => {
-    console.log("useEffect hook current contributions:" + contributions);
     fetchData();
-    // if (localStorage.getItem("contributions").length == 2) {
-    //   fetchData();
-    // } else {
-    //   setContributions(JSON.parse(localStorage.getItem("contributions")));
-    // }
-    // return () => {
-    //   console.log("cleaning up")
-    //   localStorage.setItem("contributions", JSON.stringify(contributions));
-    //   setContributions([]);
-    // };
   }, []);
 
   useEffect(() => {
-    console.log("search input");
     contributions.map((x) => {
       if (x.Name.includes(searchInput)) {
         setContributionSearchResults((prevRes) => {

@@ -3,7 +3,6 @@ import axios from "axios";
 import {BlurContext} from "./../context/BlurContext.js";
 
 const useForm = () => {
-  // const [blur, setBlur] = useContext(BlurContext);
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -27,24 +26,18 @@ const useForm = () => {
   };
 
   const handleSubmit = (e) => {
-    // params.append("email", "mixlunga@mix.com");
     e.preventDefault();
 
     const params = new URLSearchParams()
-
     params.append("email", values.email);
     params.append("password", values.password);
     
     axios
-      .post("https://api.ungarmichael.com/login",params, config)
+      .post("http://localhost:8080/login",params, config)
       .then((response) => {
-        // console.log(response);
-        // setBlur("4px");
         setLoginStatus("success");
       })
-      .catch((error) => {
-        // console.log(error);
-        // setBlur("4px");
+      .catch((error) => { 
         setLoginStatus("error");
       });
   };

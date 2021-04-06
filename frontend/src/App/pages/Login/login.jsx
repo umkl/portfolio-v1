@@ -25,14 +25,6 @@ const Login = () => {
   const fadeInFromTop = useSpring({
     marginTop: (loginStatus != null) ? "0px" : "-500px",
   })
-  
-  // useEffect(
-  //   ()=>{
-  //     console.log(depp);
-  //   }
-  //   ,[depp])
-
-  // setDepp(2)
 
   const loginSpring = useSpring({
     marginTop: loaded ? "0px" : "500px",
@@ -45,10 +37,6 @@ const Login = () => {
   useEffect(() => {
     setLoaded(true);
   }, []);
-
-  useEffect(()=>{
-    console.log(blur);
-  }, [blur])
 
   const blurSpring = useSpring({
     filter: blur == null ? "blur(0px)" : `blur(${blur}px)`,

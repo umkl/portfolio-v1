@@ -18,7 +18,7 @@ const Blog = (props) => {
     setSubStatus,
   } = useSubscription();
 
-  const API_URL = "https://api.ungarmichael.com/contributions";
+  const API_URL = "http://localhost:8080/contributions";
   const history = useHistory();
   const [blur, setBlur] = useState(0);
   const [blog, setBlog] = useState(null);
@@ -36,43 +36,14 @@ const Blog = (props) => {
     marginTop: showSubscribeField ? "0px" : "-500px",
   });
 
-  // useEffect(() => {
-
-  //   // console.log("blogID route: " + blogRoute)
-  //   // const response = await fetch(blogRoute);
-  //   // const data = await response.json();
-
-  //   // await fetch(blogRoute)
-  //   // .then((response) => response.json())
-  //   // .then((data) => {
-  //   //   console.log(data);
-  //   // })
-  //   // .catch((error) => {
-  //   //   // setFetchingErrorStatus(true);
-  //   //   throw error;
-  //   // });
-  //   // console.log(data);
-
-  //   // data.forEach((element) => {
-  //   //   console.log(element.Heading);
-  //   //   console.log(blogID);
-  //   //   if (element.Route == blogID) {
-  //   //     console.log("true");
-  //   //     setBlog(element);
-  //   //     console.log(element.BlogHTML);
-  //   //     console.log(element);
-  //   //   }
-  // }, []);
-
   useEffect(() => {
     var blogRoute = appendQueryParameter(API_URL, "key", blogID);
+    console.log("blogRoute:" + blogRoute);
     const fetchData = async () => {
       const result = await fetch(blogRoute)
         .then((response) => response.json())
         .then((data) => {
-          console.log("data bro:" + data);
           if (data == null) {
-            console.log("wasn't found");
             history.push("/notfound");
           } else {
             setBlog(data);
@@ -90,23 +61,6 @@ const Blog = (props) => {
       setBlur(0);
     }
   }, [showSubscribeField]);
-
-  // const loadData = async () => {
-  //   const response = await fetch(API_URL);
-  //   const data = await response.json();
-  //   data.forEach((element) => {
-  //     console.log(element.Heading);
-  //     console.log(blogID);
-  //     if (element.Route == blogID) {
-  //       console.log("true");
-  //       setBlog(element);
-  //       console.log(element.BlogHTML);
-  //       console.log(element);
-  //     }
-  //   });
-
-  //   setLoaded(true);
-  // };
 
   function createMarkup(htmlCode) {
     return { __html: htmlCode };
@@ -138,7 +92,7 @@ const Blog = (props) => {
   return (
     <>
       <Helmet>
-        <title>ungarmichael | {blog.Name}</title>
+        <title>ungarmichael | pretest</title>
       </Helmet>
       {showSubscribeField ? (
         <a.div style={fadeInFromTop} className="subscribeField">
@@ -206,11 +160,6 @@ const Blog = (props) => {
       ) : null}
 
       <a.div style={blurSpring} className="Blog">
-        {/* <div className="FullLogo">
-        <Link to="/">
-          <FullLogo width="300" height="200" className="Blog-Nav-FullLogo-svg" />
-        </Link>
-      </div> */}
         <div className="Blog-Nav">
           <div className="Hor">
             <div className="Blog-Nav-Back">
@@ -225,7 +174,6 @@ const Blog = (props) => {
               className="Blog-Nav-Subscribe"
               onClick={() => {
                 setShowSubscribeField(true);
-                console.log("setted to true");
               }}
             >
               subscribe
@@ -233,23 +181,12 @@ const Blog = (props) => {
           </div>
           <div className="Blog-Divider"></div>
         </div>
-
         {!loaded ? (
           <div className="loading"> loading...</div>
         ) : (
           <div className="Blog-Content">
-            {/* <div className="Blog-Content-Heading">heading</div> */}
             <div className="Blog-Content-Text">
-              {/* blogID: {blogID} <br />
-            blog: {blog.Heading} <br />
-            hello HTML:{" "}
-            <div dangerouslySetInnerHTML={createMarkup(htmlStringTest)}></div>
-            <br />
-            {console.log(blog.blogHTML)}
-            blog HTML:{" "} */}
               <div dangerouslySetInnerHTML={createMarkup(blog.Html)}></div>
-              {/* <br />
-            blog description: {blog.Description} <br /> */}
             </div>
           </div>
         )}

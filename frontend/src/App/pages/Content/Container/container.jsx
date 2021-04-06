@@ -25,11 +25,7 @@ const Container = (props) => {
       backgroundColor: !hoverStatus ? "#FFFFFF" : "#000000"
     }
   );
-
-  useEffect(() => {
-    console.log(hoverStatus)
-  }, [hoverStatus])
-
+  
   return (
     <a.div
       ref={ref}

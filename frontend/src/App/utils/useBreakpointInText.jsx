@@ -10,18 +10,13 @@ const useBreakpointInText = (queries) => {
 
         let isAttached = false;//check wether a listenrer is attached or not
 
-        // console.log("hendl")
         const handleQueryListener = () => { 
             const updatedMatches = keys.reduce((acc, media) =>{
                 acc[media] = !!(mediaQueryLists[media] && mediaQueryLists[media].matches);
                 return acc;
             },{})
             setQueryMatch(updatedMatches)
-        }
-        // console.log("win")
-        // console.log(window)
-        // console.log(window.matchMedia)
-        
+        }        
 
         if (window && window.matchMedia){
             const matches = {};
