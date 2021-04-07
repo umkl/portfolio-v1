@@ -33,7 +33,7 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public/template.html"),
-      // favicon: "./src/App/assets/UNGAR_NEW_LOGO.png",
+      favicon: "./src/App/assets/UNGAR_NEW_LOGO.png",
       filename: "index.html",
       minify:{
         removeAttributeQuotes: true,
