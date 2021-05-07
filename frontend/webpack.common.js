@@ -4,7 +4,7 @@ const path = require("path");
 module.exports = {
   context: __dirname,
   entry: {
-    main: "./src/index.js",
+    main: "./src/index.jsx",
     vendor: "./src/vendor.js"
   },
   module: {

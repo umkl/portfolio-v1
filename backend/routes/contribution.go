@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"backend/cmd/monolithic/entities"
 	"backend/cmd/monolithic/repository"
 	"encoding/json"
 	"log"
@@ -25,9 +26,8 @@ func getContributions(w http.ResponseWriter, req *http.Request) {
 	w.Header().Add("Access-Control-Allow-Headers", "*")
 
 	keys, ok := req.URL.Query()["key"]
-
 	if !ok || len(keys[0]) < 1 {
-		log.Println("URL Param 'key' is missing")
+		log.Println("key is missing but I will give you all")
 		r, e := repository.GetAllContributions()
 		if e != nil {
 			log.Fatal(e)
@@ -36,12 +36,14 @@ func getContributions(w http.ResponseWriter, req *http.Request) {
 		return
 	} else {
 		key := keys[0]
-		log.Println("URL param is " + string(key))
+		log.Println("URL parameter is ", string(key))
 		r, e := repository.GetContribution(string(key))
 		if e != nil {
-			log.Fatal(e)
+			json.NewEncoder(w).Encode(entities.Error{"undefined"})
+		} else {
+			json.NewEncoder(w).Encode(r)
 		}
-		json.NewEncoder(w).Encode(r)
+
 	}
 
 }

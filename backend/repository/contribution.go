@@ -60,10 +60,10 @@ func GetContribution(key string) (*entities.Contribution, error) {
 
 	p, err := filterContributions(filter)
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
-
 	return p[0], err
+
 	// filter :
 }
 

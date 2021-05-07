@@ -4,7 +4,6 @@ import Contact from "./pages/Contact/contact.jsx";
 import Foyer from "./pages/Foyer/foyer.jsx";
 import Login from "./pages/Login/login.jsx";
 import Error from "./pages/Error/error.js";
-
 import UgBar from "./shared/bar/bar.jsx";
 import "./scss/App.scss";
 import React, {
@@ -14,10 +13,11 @@ import React, {
   useLayoutEffect,
   useContext,
 } from "react";
-import { Route,Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { SearchProvider } from "./context/SearchContext.js";
 import { BlurProvider } from "./context/BlurContext.js";
+
 
 function App() {
   return (
@@ -26,7 +26,6 @@ function App() {
         <BlurProvider>
           <UgBar />
           <AnimatePresence>
-            {/* <Switch className="ug-switch"> */}
             <Switch>
               <Route exact path="/" component={Foyer}></Route>
               <Route path="/projects" component={Projects}></Route>
@@ -35,7 +34,6 @@ function App() {
               <Route path="/login" component={Login}></Route>
               <Route path="*" exact={true} component={Error}></Route>
             </Switch>
-            {/* </Switch> */}
           </AnimatePresence>
         </BlurProvider>
       </SearchProvider>
