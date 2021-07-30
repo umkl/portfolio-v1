@@ -39,7 +39,7 @@ func getContributions(w http.ResponseWriter, req *http.Request) {
 		log.Println("URL parameter is ", string(key))
 		r, e := repository.GetContribution(string(key))
 		if e != nil {
-			json.NewEncoder(w).Encode(entities.Error{"undefined"})
+			json.NewEncoder(w).Encode(entities.Error{"notfound"})
 		} else {
 			json.NewEncoder(w).Encode(r)
 		}
