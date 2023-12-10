@@ -1,0 +1,3 @@
+exit
+db.auth('your-username','your-password')
+show dbss
