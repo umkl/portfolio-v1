@@ -14,6 +14,7 @@ import { SearchContext } from "./../../context/SearchContext";
 import SearchIcon from "./../../assets/Searchicon.png";
 import "./content.scss";
 import { Helmet } from 'react-helmet'
+import 'regenerator-runtime/runtime';
 
 const Content = () => {
   const API_URL = "https://api.ungarmichael.com/contributions";
@@ -46,17 +47,17 @@ const Content = () => {
   //hooks
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
   }, []);
 
   useEffect(() => {
-    contributions.map((x) => {
-      if (x.Name.includes(searchInput)) {
-        setContributionSearchResults((prevRes) => {
-          return [...prevRes, x];
-        });
-      }
-    });
+    // contributions.map((x) => {
+    //   if (x.Name.includes(searchInput)) {
+    //     setContributionSearchResults((prevRes) => {
+    //       return [...prevRes, x];
+    //     });
+    //   }
+    // });
     // return () => {
     //   setContributionSearchResults([]);
     // };
