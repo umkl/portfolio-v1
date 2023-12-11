@@ -101,7 +101,7 @@ func filterContributions(filter interface{}) ([]*entities.Contribution, error) {
 	cur.Close(ctx)
 
 	if len(cont) == 0 {
-		return cont, mongo.ErrNoDocuments
+		return cont, nil
 	}
 	return cont, nil
 }

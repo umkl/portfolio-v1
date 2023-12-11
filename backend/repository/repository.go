@@ -22,7 +22,7 @@ func ConnectToMongoDB() {
 
 	defer cancel()
 	ungarClient, err = mongo.Connect(ctx, options.Client().ApplyURI(
-		"mongodb+srv://ungar:ungardatabase_123@cluster0.ykrvq.mongodb.net/Ungar?retryWrites=true&w=majority",
+		"mongodb://test-username:test-password@localhost:27017",
 	))
 	if err != nil {
 		log.Fatal(err)
