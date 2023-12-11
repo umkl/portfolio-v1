@@ -17,7 +17,7 @@ import { Helmet } from 'react-helmet'
 import 'regenerator-runtime/runtime';
 
 const Content = () => {
-  const API_URL = "https://api.ungarmichael.com/contributions";
+  const API_URL = "http://localhost:8080/contributions";
   const [contributions, setContributions] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const [fetchingErrorStatus, setFetchingErrorStatus] = useState(false);
@@ -31,7 +31,6 @@ const Content = () => {
   const location = useLocation();
   const searchSpring = useSpring({ width: isActive ? "200px" : "140px" });
   const fetchData = async () => {
-
     await fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
@@ -47,20 +46,20 @@ const Content = () => {
   //hooks
 
   useEffect(() => {
-    // fetchData();
+    fetchData();
   }, []);
 
   useEffect(() => {
-    // contributions.map((x) => {
-    //   if (x.Name.includes(searchInput)) {
-    //     setContributionSearchResults((prevRes) => {
-    //       return [...prevRes, x];
-    //     });
-    //   }
-    // });
-    // return () => {
-    //   setContributionSearchResults([]);
-    // };
+    contributions.map((x) => {
+      if (x.Name.includes(searchInput)) {
+        setContributionSearchResults((prevRes) => {
+          return [...prevRes, x];
+        });
+      }
+    });
+    return () => {
+      setContributionSearchResults([]);
+    };
   }, [searchInput]);
 
   useEffect(() => {
