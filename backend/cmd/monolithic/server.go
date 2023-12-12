@@ -4,11 +4,13 @@ import (
 	"backend/cmd/monolithic/constants"
 	"backend/cmd/monolithic/repository"
 	"backend/cmd/monolithic/routes"
+	"fmt"
 	"net/http"
 )
 
-//main function of server.go just executes the route handler and starts the server with the port
+// main function of server.go just executes the route handler and starts the server with the port
 func main() {
+	fmt.Println("started")
 	repository.ConnectToMongoDB()
 	routes.HandleRoutes()
 
