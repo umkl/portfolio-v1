@@ -5,7 +5,6 @@ I created this project in order to learn how to create a fullstack web applicati
 - MongoDB that holds the blogs
 - Golang for the backend
 - Javscript with React for the frontend (Compiling with webpack and babel)
-
-
+- node v14
 
 
