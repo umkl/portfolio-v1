@@ -5,10 +5,10 @@ import (
 )
 
 func HandleRoutes() {
-	http.HandleFunc("/contributions", getContributions)
-	http.HandleFunc("/projects", getProjects)
-	http.HandleFunc("/login", provideLogin)
-	http.HandleFunc("/subscribe", provideSubscription)
+	http.HandleFunc("/api/contributions", getContributions)
+	http.HandleFunc("/api/projects", getProjects)
+	http.HandleFunc("/api/login", provideLogin)
+	http.HandleFunc("/api/subscribe", provideSubscription)
 	// http.HandleFunc("/json", jsonHandler)
 	// http.HandleFunc("/del", deleteContribution)
 }

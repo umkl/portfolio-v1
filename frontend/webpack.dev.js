@@ -26,6 +26,8 @@ module.exports = merge(common, {
 		public: "0.0.0.0:3000", // Specify the public hostname and port
 		// publicPath: "http://localhost:3000/dist/",
 		hotOnly: true,
+		disableHostCheck: true,
+		compress: true,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
